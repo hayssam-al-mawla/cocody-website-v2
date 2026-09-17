@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-direction="a">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout — Maison Cocody</title>
+<meta name="description" content="Checkout template showing live carrier rates, the label and the invoice generated automatically on payment.">
+<link rel="icon" href="../assets/brand/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Italianno&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/brand.css">
+<link rel="stylesheet" href="../assets/css/templates.css">
+<link rel="stylesheet" href="../assets/css/shop.css">
+<link rel="stylesheet" href="../assets/css/checkout.css">
+</head>
+<body class="t">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="t__bar">
+  <a class="t__mark" href="../START-HERE.html">MAISON COCODY</a>
+  <nav class="t__nav" aria-label="Main">
+    <a href="shop.html">Shop</a>
+    <a href="collections.html">Collections</a>
+    <a href="cocody-lab.html">Cocody Lab</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+  </nav>
+  <button class="t__bag" type="button">Search</button>
+  <button class="t__bag" type="button">Bag <span data-bag-count>0</span></button>
+</header>
+
+<!-- This page exists to make brief 3.7 concrete. Pick a country and
+     the rate is fetched rather than guessed; pay and the label and
+     invoice are produced without anyone looking anything up. The rates
+     below are a stand-in table, but the flow is the real one. -->
+<main id="main" class="t__wrap co" data-checkout>
+
+  <div class="t__head">
+    <p class="t__crumb"><a href="shop.html">Shop</a> · Checkout</p>
+    <h1>Checkout</h1>
+  </div>
+
+  <div class="co__grid">
+
+    <section class="co__form" aria-label="Delivery details">
+      <ol class="co__steps">
+        <li class="co__step">
+          <h2><span class="co__n">1</span> Where is it going?</h2>
+          <div class="co__fields">
+            <label class="co__f co__f--wide">Full name<input type="text" placeholder="Nour Diallo" autocomplete="name"></label>
+            <label class="co__f co__f--wide">Address<input type="text" placeholder="Prinsengracht 263" autocomplete="street-address"></label>
+            <label class="co__f">Postcode<input type="text" placeholder="1016 GV" autocomplete="postal-code"></label>
+            <label class="co__f">City<input type="text" placeholder="Amsterdam" autocomplete="address-level2"></label>
+            <label class="co__f co__f--wide">Country
+              <select data-co-country autocomplete="country-name">
+                <option value="NL">Netherlands</option>
+                <option value="BE">Belgium</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+                <option value="ES">Spain</option>
+                <option value="GB">United Kingdom</option>
+                <option value="US">United States</option>
+                <option value="CI">Côte d’Ivoire</option>
+              </select>
+            </label>
+          </div>
+          <p class="co__hint">
+            <span class="mark" data-flower aria-hidden="true"></span>
+            Change the country and watch the rates below update. On the live site this is a live call to the carriers, not a table.
+          </p>
+        </li>
+
+        <li class="co__step">
+          <h2><span class="co__n">2</span> How should it travel?</h2>
+          <div class="co__rates" data-co-rates role="radiogroup" aria-label="Shipping method"></div>
+          <p class="co__hint" data-co-duty hidden></p>
+        </li>
+
+        <li class="co__step">
+          <h2><span class="co__n">3</span> Pay</h2>
+          <p class="co__pay-note">Card, iDEAL, Bancontact and Apple Pay. This is a mockup, so nothing here takes a payment and no card field is shown.</p>
+          <button class="t__btn t__btn--wide" type="button" data-co-pay>Pay <span data-co-paytotal>€0</span></button>
+          <p class="co__hint" style="margin-top:.9rem">You will not be charged — this button shows what happens next.</p>
+        </li>
+      </ol>
+    </section>
+
+    <aside class="co__summary" aria-label="Order summary">
+      <h2>Your order</h2>
+      <div class="co__lines" data-co-lines></div>
+      <dl class="co__totals">
+        <div><dt>Subtotal</dt><dd data-co-sub>€0</dd></div>
+        <div><dt>Shipping <span class="co__ship-name" data-co-shipname></span></dt><dd data-co-ship>—</dd></div>
+        <div class="co__grand"><dt>Total</dt><dd data-co-total>€0</dd></div>
+      </dl>
+      <p class="co__hint" data-co-free></p>
+    </aside>
+  </div>
+
+  <!-- what the brief calls "stop the manual work" -->
+  <section class="t__section co__after" data-co-after hidden>
+    <div class="t__section-head">
+      <h2>What just happened</h2>
+      <span>Nobody looked up a rate</span>
+    </div>
+    <ol class="co__flow">
+      <li><b>Rate fetched</b><span>The carrier was asked what this parcel costs to that address, using the weight and dimensions held against each piece. The price you saw was the price we pay.</span></li>
+      <li><b>Payment cleared</b><span>Product and shipping taken together, in one charge.</span></li>
+      <li><b>Label generated</b><span>Produced automatically and waiting in the fulfilment queue. No one opened a carrier website.</span></li>
+      <li><b>Invoice sent</b><span>Emailed to the customer within seconds, with the order confirmation.</span></li>
+      <li><b>Left to do</b><span>Pack it, stick the label on, hand it over. That is the whole manual step.</span></li>
+    </ol>
+    <p class="co__hint" style="margin-top:1.25rem">Section 6 of the written document covers which carrier or aggregator does this, what it costs, and what has to be in place first — starting with real weights and box sizes on every product.</p>
+  </section>
+
+</main>
+
+<footer class="t__wrap">
+  <div class="t__foot">
+    <div><h3>Shop</h3><ul>
+      <li><a href="shop.html">All pieces</a></li>
+      <li><a href="collections.html">Collections</a></li>
+    </ul></div>
+    <div><h3>Maison</h3><ul>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="cocody-lab.html">Cocody Lab</a></li>
+      <li><a href="events.html">Events</a></li>
+    </ul></div>
+    <div><h3>Help</h3><ul>
+      <li><a href="#">Shipping &amp; returns</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul></div>
+    <div><h3>Amsterdam · Abidjan</h3>
+      <p style="font-size:.8125rem;color:var(--t-quiet)">© 2026 Maison Cocody</p>
+    </div>
+  </div>
+</footer>
+
+<div class="rv" data-switchable>
+  <span class="rv__note"><b>Checkout template</b> — shown in Direction <span data-direction-name>Seamless</span>. Change the country to see rates update. No payment is taken.</span>
+  <span class="rv__group">
+    <span style="color:#8a8a8a">Direction:</span>
+    <button class="rv__btn" type="button" data-set-direction="a">A · Seamless</button>
+    <button class="rv__btn" type="button" data-set-direction="b">B · Le Labo</button>
+    <button class="rv__btn" type="button" data-set-direction="c">C · Le Décor</button>
+    <a class="rv__link" href="../START-HERE.html">All options</a>
+    <button class="rv__close" type="button" aria-label="Hide this review bar">×</button>
+  </span>
+</div>
+
+<script src="../assets/js/catalogue.js"></script>
+<script src="../assets/js/cocody.js"></script>
+<script src="../assets/js/shop.js"></script>
+<script src="../assets/js/search.js"></script>
+<script src="../assets/js/checkout.js"></script>
+</body>
+</html>

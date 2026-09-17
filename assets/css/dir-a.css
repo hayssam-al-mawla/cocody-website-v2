@@ -1,0 +1,325 @@
+/* ------------------------------------------------------------------
+   DIRECTION A — "SEAMLESS"
+   The e-comm backdrop, made into a website.
+
+   Every Cocody garment is photographed as a black form on a pure white
+   seamless. This direction refuses to decorate that: no cards, no
+   borders, no shadows, no tint. The page IS the seamless, the garment
+   is the only shape on it, and scale does all the work.
+
+   Reference it answers: AMI Paris — one coherent, high-end brand world.
+   Boldness is spent on: scale and emptiness. Nothing else raises
+   its voice.
+   ------------------------------------------------------------------ */
+
+.a {
+  --bg:    var(--paper);
+  --fg:    var(--ink);
+  --quiet: #767676;          /* passes AA on white at 14px+ */
+  --rule:  #E2E2E2;
+
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--ui);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.a__wrap { width: min(100% - 2 * var(--gut), 1480px); margin-inline: auto; }
+.a { --gut: clamp(1rem, 5vw, 5.5rem); }
+
+/* ---------- type scale (1.5 / perfect fifth) ---------- */
+.a h1, .a h2, .a h3 { font-family: var(--display); font-weight: 400; }
+
+.a .display {
+  font-family: var(--display);
+  font-size: clamp(2.75rem, 10vw, 8.5rem);
+  line-height: .92;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+.a .display em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.a .lede {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  line-height: 1.34;
+  max-width: 34ch;
+}
+
+.a .caption {
+  font-size: .8125rem;
+  line-height: 1.5;
+  letter-spacing: .01em;
+  color: var(--quiet);
+}
+.a .caption strong { color: var(--fg); font-weight: 500; }
+
+/* ---------- masthead ---------- */
+.a__bar {
+  position: sticky; top: 0; z-index: 90;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: 1.35rem var(--gut);
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.a__nav { display: flex; gap: 1.75rem; font-size: .8125rem; }
+.a__nav a { text-decoration: none; padding-block: .2rem; position: relative; }
+.a__nav a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .34s var(--ease);
+}
+.a__nav a:hover::after { transform: scaleX(1); }
+
+.a__mark {
+  font-family: var(--display);
+  font-size: clamp(.85rem, 1.5vw, 1.0625rem);
+  letter-spacing: .36em;
+  text-indent: .36em;          /* balance the trailing tracking */
+  text-decoration: none;
+  white-space: nowrap;
+}
+.a__tools { display: flex; gap: 1.25rem; justify-content: flex-end; font-size: .8125rem; }
+
+/* Below tablet the three-column masthead has nowhere to go: drop the
+   nav and let the wordmark sit left against the bag. */
+@media (max-width: 820px) {
+  .a__bar { grid-template-columns: 1fr auto; padding-block: 1rem; }
+  .a__nav { display: none; }
+  .a__mark { justify-self: start; font-size: .78rem; letter-spacing: .2em; text-indent: .2em; }
+  .a__tools { gap: .9rem; }
+}
+.a__tools button { position: relative; }
+.a__tools .count { font-variant-numeric: tabular-nums; }
+.is-bumped { animation: a-bump .42s var(--ease); }
+@keyframes a-bump { 40% { transform: translateY(-.28em); } }
+
+/* ---------- hero ----------
+   The collection name set at plate scale, with the garment standing in
+   front of it. Black on white has no third colour to play with, so the
+   depth has to come from scale and overlap instead. */
+.a__hero {
+  min-height: calc(100svh - 5rem);
+  display: grid; align-content: center;
+  padding-block: clamp(1rem, 3vh, 2.5rem) clamp(1.5rem, 5vh, 3.5rem);
+}
+.a__hero-stage {
+  position: relative; display: grid; place-items: center; width: 100%;
+  isolation: isolate;
+}
+/* No z-index on either of these two: a z-index here would make the
+   figure its own stacking context, and the image's multiply would then
+   blend against nothing instead of against the word. DOM order already
+   paints the figure on top. */
+.a__hero-word {
+  position: absolute; margin: 0;
+  font-family: var(--display); font-weight: 400;
+  /* Wide enough to out-measure the figure, short enough to still read
+     as a word rather than as abstract shapes. Because the photograph
+     multiplies, only the body interrupts the letters. */
+  font-size: clamp(7rem, 38vw, 34rem);
+  line-height: .78;
+  /* Didone hairlines should thin out as the type grows, and the fit
+     between two letters this large wants closing up by hand. */
+  font-variation-settings: 'opsz' 96;
+  letter-spacing: -0.052em;
+  color: #DBDBDB;   /* quiet, but it has to actually read as a word */
+  user-select: none; white-space: nowrap; pointer-events: none;
+}
+.a__hero-fig { position: relative; display: grid; place-items: center; width: 100%; }
+/* Big enough to be the headline, short enough that the caption still
+   lands inside the first screen rather than getting cut by the fold.
+   Multiply drops the seamless away so the garment stands on the letters
+   instead of covering them with a white rectangle. */
+.a__hero-fig img {
+  width: min(100%, 700px);
+  max-height: 58svh;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.a__hero-meta {
+  width: 100%; margin-top: clamp(1.25rem, 3.5vh, 2.5rem);
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 2rem; flex-wrap: wrap;
+  padding-top: 1.1rem; border-top: 1px solid var(--rule);
+}
+.a__hero-sub {
+  font-family: var(--display); font-size: clamp(1.1rem, 2.2vw, 1.75rem);
+  line-height: 1.3; max-width: 28ch;
+  font-variation-settings: 'opsz' 40; letter-spacing: -0.006em;
+}
+
+/* One orchestrated entrance, once, on load — not a reveal per section.
+   It animates the whole stage rather than the figure inside it: an
+   animated transform on .a__hero-fig would make that element a stacking
+   context, and the image's multiply would stop seeing the word behind it. */
+@keyframes a-rise { from { opacity: 0; transform: translateY(1.1rem); } to { opacity: 1; transform: none; } }
+.a__hero-stage { animation: a-rise 1s var(--ease) .1s both; }
+.a__hero-meta  { animation: a-rise .9s var(--ease) .38s both; }
+.a__index      { animation: a-rise .9s var(--ease) .5s both; }
+
+/* ---------- the index ----------
+   A catalogue lists its plates. With three pieces the list is short
+   enough to sit on the first screen and do real navigational work. */
+.a__index { border-top: 1px solid var(--rule); margin-top: clamp(2.5rem, 7vh, 4.5rem); }
+.a__index-row {
+  display: grid; grid-template-columns: 2.4rem 1fr auto auto; gap: 1.25rem;
+  align-items: baseline; padding: .95rem .2rem;
+  border-bottom: 1px solid var(--rule); text-decoration: none;
+  transition: padding-left .34s var(--ease);
+}
+.a__index-row:hover { padding-left: .8rem; }
+.a__index-row .no { font-size: .75rem; color: var(--quiet); font-variant-numeric: tabular-nums; }
+.a__index-row .nm { font-family: var(--display); font-size: clamp(1rem, 1.8vw, 1.35rem); font-variation-settings: 'opsz' 28; letter-spacing: -0.004em; }
+.a__index-row .mt { font-size: .8125rem; color: var(--quiet); }
+.a__index-row .pr { font-size: .8125rem; font-variant-numeric: tabular-nums; }
+.a__index-row .pr s { color: var(--quiet); margin-left: .4rem; }
+@media (max-width: 620px) {
+  .a__index-row { grid-template-columns: 2rem 1fr auto; }
+  .a__index-row .mt { display: none; }
+}
+
+/* ---------- plates ---------- */
+.a__section { padding-block: clamp(4rem, 12vh, 9.5rem); }
+.a__section-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 2rem; flex-wrap: wrap;
+  padding-bottom: 1.25rem; margin-bottom: clamp(2rem, 6vh, 4.5rem);
+  border-bottom: 1px solid var(--rule);
+}
+.a__section-head h2 {
+  font-size: clamp(1.5rem, 3.4vw, 2.75rem); line-height: 1.02;
+  font-variation-settings: 'opsz' 72; letter-spacing: -0.018em;
+}
+.a__section-head a { font-size: .8125rem; color: var(--quiet); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: .15rem; }
+.a__section-head a:hover { color: var(--fg); border-color: currentColor; }
+
+.a__plates {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  /* tighter than before: the portrait crops carry the air now, so the
+     gaps no longer have to, and the section stops feeling abandoned */
+  gap: clamp(1.75rem, 3.5vw, 3.25rem) clamp(1rem, 2vw, 2rem);
+}
+/* three across: with a catalogue this size, two-up left the page sparse */
+.a__plate { grid-column: span 4; }
+.a__plate--half { grid-column: span 6; }
+
+/* a note set into the grid as its own cell, so the text is part of the
+   composition rather than a gap in it */
+.a__aside {
+  grid-column: span 4; align-self: center; padding: 0 .25rem;
+}
+.a__aside p { max-width: 32ch; }
+.a__aside .a__aside-lede {
+  font-family: var(--display); font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.3; margin-bottom: .75rem;
+}
+
+.a__plate a { text-decoration: none; display: block; }
+.a__plate .shot { background: #FAFAFA; }
+.a__plate a:hover .shot__a { opacity: .96; }
+.a__plate figcaption {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1.25rem;
+  margin-top: .85rem; padding-top: .7rem;
+  border-top: 1px solid var(--rule);
+  font-size: .8125rem;
+  transition: border-color var(--t-mid) var(--ease-out);
+}
+.a__plate a:hover + figcaption,
+.a__plate:hover figcaption { border-color: var(--fg); }
+.a__plate figcaption .name { font-weight: 500; display: block; }
+.a__plate figcaption .price { color: var(--quiet); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.a__plate .swatch { display: block; color: var(--quiet); font-size: .75rem; margin-top: .2rem; letter-spacing: .002em; }
+
+@media (max-width: 900px) {
+  .a__plate, .a__plate--half, .a__aside { grid-column: span 6; }
+}
+@media (max-width: 560px) {
+  .a__plate, .a__plate--half, .a__aside { grid-column: span 12; }
+}
+
+/* ---------- film band ---------- */
+.a__film { position: relative; margin-block: clamp(3rem, 9vh, 7rem); }
+.a__film video {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--ink);
+}
+.a__film figcaption {
+  display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+  margin-top: 1rem; font-size: .8125rem; color: var(--quiet);
+}
+.a__film figcaption a { color: var(--fg); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .1rem; }
+
+/* ---------- dated list (events) ---------- */
+.a__list { border-top: 1px solid var(--rule); }
+.a__row {
+  display: grid; grid-template-columns: 7.5rem 1fr auto; gap: 1.5rem; align-items: baseline;
+  padding: 1.5rem 0; border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  transition: padding-left .34s var(--ease);
+}
+.a__row:hover { padding-left: .85rem; }
+.a__row .when { font-size: .8125rem; color: var(--quiet); font-variant-numeric: tabular-nums; }
+.a__row .what { font-family: var(--display); font-size: clamp(1.125rem, 2.2vw, 1.75rem); line-height: 1.18; font-variation-settings: 'opsz' 40; letter-spacing: -0.008em; }
+.a__row .where { font-size: .8125rem; color: var(--quiet); }
+.a__row[data-past] .what { color: var(--quiet); }
+@media (max-width: 680px) {
+  .a__row { grid-template-columns: 1fr; gap: .35rem; }
+}
+
+/* ---------- statement ---------- */
+.a__statement {
+  padding-block: clamp(5rem, 16vh, 12rem);
+  display: grid; place-items: center; text-align: center;
+}
+.a__statement p {
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3.6vw, 3rem);
+  line-height: 1.2;
+  max-width: 23ch;
+  font-variation-settings: 'opsz' 72; letter-spacing: -0.014em;
+  text-wrap: balance;
+}
+.a__statement .sig {
+  font-family: var(--script);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1; margin-top: 1.5rem; color: var(--quiet);
+}
+
+/* ---------- the flower, as a scroll indicator ---------- */
+.a__mark-scroll {
+  position: fixed; right: clamp(1rem, 3vw, 2.5rem); bottom: 4.6rem; z-index: 80;
+  width: clamp(38px, 5vw, 62px); aspect-ratio: 1; color: var(--fg);
+  pointer-events: none;
+}
+.a__mark-scroll .flower path { stroke-width: 5; }
+
+/* ---------- footer ---------- */
+.a__foot {
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(3rem, 8vh, 5.5rem) 2rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.a__foot h3 { font-family: var(--ui); font-size: .8125rem; font-weight: 500; margin-bottom: .9rem; }
+.a__foot li { margin-bottom: .45rem; }
+.a__foot a { font-size: .8125rem; color: var(--quiet); text-decoration: none; }
+.a__foot a:hover { color: var(--fg); }
+.a__signup { display: flex; gap: .5rem; margin-top: .9rem; max-width: 22rem; }
+.a__signup input {
+  flex: 1; min-width: 0; border: 0; border-bottom: 1px solid var(--fg);
+  background: none; padding: .45rem 0; font-size: .8125rem;
+}
+.a__signup input::placeholder { color: var(--quiet); }
+.a__signup button { font-size: .8125rem; border-bottom: 1px solid var(--fg); padding: .45rem 0; }
+.a__colophon {
+  display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+  padding-block: 2rem; font-size: .75rem; color: var(--quiet);
+}

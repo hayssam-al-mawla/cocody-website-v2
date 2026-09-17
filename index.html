@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Cocody Website V2 — design options</title>
+<meta name="description" content="Four design directions and six page templates for the Maison Cocody website redesign, for review.">
+<link rel="icon" href="assets/brand/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Italianno&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/brand.css">
+<style>
+  /* This page is the presentation wrapper, not one of the proposals.
+     It stays deliberately neutral so it never competes with them. */
+  :root { --h-bg:#F6F6F4; --h-fg:#141414; --h-quiet:#63635F; --h-rule:#DDDDD8; --h-card:#FFFFFF; }
+  body { background: var(--h-bg); color: var(--h-fg); font-family: var(--ui); font-size:16px; line-height:1.6; }
+  .h__wrap { width: min(100% - 2.5rem, 1180px); margin-inline:auto; }
+  a { color: inherit; }
+
+  .h__top { padding-block: clamp(2.5rem,8vh,5rem) clamp(1.5rem,4vh,2.5rem); border-bottom:1px solid var(--h-rule); }
+  .h__eyebrow { font-size:.8125rem; color:var(--h-quiet); }
+  .h__top h1 { font-family: var(--display); font-weight:400; font-size:clamp(2rem,5.5vw,3.75rem); line-height:1.05; margin-top:.5rem; }
+  .h__top .h__sub { margin-top:1rem; max-width:62ch; color:var(--h-quiet); }
+
+  .h__note { display:flex; gap:.9rem; align-items:flex-start; margin-top:1.75rem; padding:1rem 1.15rem; background:#FFF8E6; border:1px solid #E8D9A8; font-size:.875rem; max-width:70ch; }
+  .h__note .mark { width:20px; height:20px; flex:none; margin-top:.15rem; color:#8A6D1F; }
+  .h__note .mark .flower path { stroke-width:9; }
+
+  .h__section { padding-block: clamp(2.5rem,7vh,4.5rem); }
+  .h__section > h2 { font-family:var(--display); font-weight:400; font-size:clamp(1.5rem,3.2vw,2.35rem); }
+  .h__section > .h__lede { margin-top:.65rem; max-width:64ch; color:var(--h-quiet); }
+
+  /* direction cards */
+  .h__dirs { display:grid; gap:clamp(1.5rem,3vw,2.25rem); margin-top:2rem; }
+  .h__dir { background:var(--h-card); border:1px solid var(--h-rule); display:grid; grid-template-columns:1.25fr 1fr; }
+  @media (max-width:860px){ .h__dir { grid-template-columns:1fr; } }
+  .h__dir-shot { display:block; line-height:0; border-right:1px solid var(--h-rule); }
+  @media (max-width:860px){ .h__dir-shot { border-right:0; border-bottom:1px solid var(--h-rule); } }
+  .h__dir-shot img { width:100%; height:100%; object-fit:cover; object-position:top; transition:opacity .3s var(--ease); }
+  .h__dir-shot:hover img { opacity:.9; }
+  .h__dir-body { padding:clamp(1.25rem,2.5vw,2rem); display:flex; flex-direction:column; }
+  .h__dir-body h3 { font-family:var(--display); font-weight:400; font-size:clamp(1.35rem,2.6vw,1.9rem); line-height:1.1; }
+  .h__dir-body h3 small { display:block; font-family:var(--ui); font-size:.75rem; color:var(--h-quiet); margin-bottom:.35rem; }
+  .h__dir-body > p { margin-top:.75rem; font-size:.9375rem; }
+  .h__dl { margin-top:1rem; font-size:.875rem; display:grid; gap:.5rem; }
+  .h__dl div { display:grid; grid-template-columns:7.5rem 1fr; gap:.85rem; }
+  .h__dl dt { color:var(--h-quiet); }
+  .h__swatches { display:flex; gap:.35rem; margin-top:1.15rem; }
+  .h__sw { width:1.85rem; height:1.85rem; border:1px solid rgba(0,0,0,.14); }
+  .h__type { margin-top:.9rem; font-size:.8125rem; color:var(--h-quiet); }
+  .h__actions { margin-top:auto; padding-top:1.35rem; display:flex; gap:.6rem; flex-wrap:wrap; }
+  .h__btn { display:inline-block; font-size:.875rem; padding:.7rem 1.3rem; border:1px solid var(--h-fg); background:var(--h-fg); color:#fff; text-decoration:none; }
+  .h__btn:hover { opacity:.85; }
+  .h__btn--ghost { background:none; color:var(--h-fg); border-color:#BFBFB9; }
+  .h__btn--ghost:hover { border-color:var(--h-fg); opacity:1; }
+
+  /* templates */
+  .h__tpl { width:100%; border-collapse:collapse; margin-top:1.5rem; background:var(--h-card); border:1px solid var(--h-rule); }
+  .h__tpl th, .h__tpl td { text-align:left; padding:.85rem 1rem; border-bottom:1px solid var(--h-rule); font-size:.9375rem; vertical-align:top; }
+  .h__tpl th { font-size:.78rem; font-weight:500; color:var(--h-quiet); }
+  .h__tpl tr:last-child td { border-bottom:0; }
+  .h__tpl .name { font-weight:500; }
+  .h__tpl .why { color:var(--h-quiet); font-size:.8125rem; display:block; margin-top:.15rem; }
+  .h__tpl td:last-child { white-space:nowrap; width:1%; }
+  .h__skins { display:flex; gap:.35rem; }
+  /* On a phone a three-column table cannot hold its nowrap column
+     without pushing the page sideways, so the rows stack instead. */
+  @media (max-width:640px) {
+    .h__tpl, .h__tpl tbody, .h__tpl tr, .h__tpl td { display:block; width:auto; }
+    .h__tpl thead { display:none; }
+    .h__tpl tr { padding:.9rem 0; border-bottom:1px solid var(--h-rule); }
+    .h__tpl tr:last-child { border-bottom:0; }
+    .h__tpl td { border:0; padding:.15rem 1rem; }
+    .h__tpl td:last-child { white-space:normal; padding-top:.6rem; }
+  }
+  .h__skin { font-size:.78rem; padding:.3rem .6rem; border:1px solid #CFCFC9; text-decoration:none; white-space:nowrap; }
+  .h__skin:hover { border-color:var(--h-fg); }
+
+  /* checklist */
+  .h__check { display:grid; grid-template-columns:repeat(auto-fit,minmax(285px,1fr)); gap:1rem; margin-top:1.5rem; }
+  .h__item { background:var(--h-card); border:1px solid var(--h-rule); padding:1rem 1.1rem; }
+  .h__item h4 { font-size:.9375rem; font-weight:500; }
+  .h__item p { font-size:.8125rem; color:var(--h-quiet); margin-top:.3rem; }
+  .h__state { font-size:.7rem; letter-spacing:.03em; padding:.15rem .45rem; border:1px solid #CFCFC9; color:var(--h-quiet); float:right; margin-left:.5rem; }
+  .h__state--done { background:var(--h-fg); color:#fff; border-color:var(--h-fg); }
+
+  .h__flower-demo { display:flex; align-items:center; gap:clamp(1.5rem,4vw,3rem); flex-wrap:wrap; background:var(--h-card); border:1px solid var(--h-rule); padding:clamp(1.25rem,3vw,2rem); margin-top:1.5rem; }
+  .h__flower-demo .big { width:clamp(90px,12vw,130px); flex:none; }
+  .h__flower-demo .big .flower path { stroke-width:6; }
+  .h__flower-demo div { min-width:min(100%,24rem); flex:1; }
+  .h__flower-demo p { font-size:.9375rem; }
+  .h__flower-demo p + p { margin-top:.6rem; }
+
+  .h__foot { border-top:1px solid var(--h-rule); padding-block:2rem 3rem; font-size:.8125rem; color:var(--h-quiet); display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
+  body { padding-bottom:0; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#dirs">Skip to the directions</a>
+
+<div class="h__wrap">
+
+  <header class="h__top">
+    <p class="h__eyebrow">Maison Cocody · Website V2 · September 2026</p>
+    <h1>Four ways the new site could look</h1>
+    <p class="h__sub">Everything here runs in the browser — click through it, resize it, try the size picker and put something in the bag. Nothing touches the live site. The platform question is settled — the site stays on WordPress — so what is left to choose is the design. The audit of the live site, the rebuild plan, costs and timeline are in <strong>Cocody-Website-V2-Options.docx</strong>, next to this file.</p>
+
+    <p class="h__note">
+      <span class="mark" data-flower aria-hidden="true"></span>
+      <span>Product names, prices, sizes and stock are the real ones, taken from the live shop. Event dates and Lab titles are placeholder, because those do not exist yet. The photography, the film, the monogram, the wordmark and the flower are Maison Cocody's own, taken from the e-comm shoot and the Bô campaign film.</span>
+    </p>
+  </header>
+
+  <section class="h__section" id="dirs">
+    <h2>The four directions</h2>
+    <p class="h__lede">The first three each answer one of the brief&rsquo;s references, and each spends its boldness in a different place. The fourth is ours, unasked for: it changes the structure rather than the surface. All four use the same photography and the same brand marks, so what you are judging is genuinely the direction.</p>
+
+    <div class="h__dirs">
+
+      <article class="h__dir">
+        <a class="h__dir-shot" href="directions/a-seamless.html">
+          <img src="assets/img/previews/direction-a.jpg" width="1000" height="597" alt="Direction A homepage: a black garment centred on a pure white page.">
+        </a>
+        <div class="h__dir-body">
+          <h3><small>Direction A</small>Seamless</h3>
+          <p>The e-comm backdrop turned into a website. Pure white, true black, no cards, no borders, no tint. One garment per screen, captioned like a catalogue plate. Scale does all the work.</p>
+          <dl class="h__dl">
+            <div><dt>Answers</dt><dd>AMI Paris — one coherent, high-end world</dd></div>
+            <div><dt>Best at</dt><dd>Making five products feel like a collection worth €50</dd></div>
+            <div><dt>Watch out</dt><dd>It needs disciplined photography forever. One off-brief image breaks it.</dd></div>
+          </dl>
+          <div class="h__swatches" aria-hidden="true">
+            <span class="h__sw" style="background:#FFFFFF"></span>
+            <span class="h__sw" style="background:#000000"></span>
+            <span class="h__sw" style="background:#767676"></span>
+            <span class="h__sw" style="background:#E2E2E2"></span>
+          </div>
+          <p class="h__type">Bodoni Moda for display · Archivo for interface</p>
+          <div class="h__actions">
+            <a class="h__btn" href="directions/a-seamless.html">Open Direction A</a>
+            <a class="h__btn h__btn--ghost" href="templates/product.html?dir=a">Product page in A</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="h__dir">
+        <a class="h__dir-shot" href="directions/b-le-labo.html">
+          <img src="assets/img/previews/direction-b.jpg" width="1000" height="597" alt="Direction B homepage: the campaign film full bleed on a black page.">
+        </a>
+        <div class="h__dir-body">
+          <h3><small>Direction B</small>Le Labo</h3>
+          <p>The studio rather than the shop. A black page, the film leading, and the product shots landing as lit squares on it — a contact sheet on a light table, labelled with the real frame numbers from the shoot.</p>
+          <dl class="h__dl">
+            <div><dt>Answers</dt><dd>NOLOGO Studio — streetwear energy, product first</dd></div>
+            <div><dt>Best at</dt><dd>Volume and pace. It already is the dark, video-first Cocody Lab the brief asks for.</dd></div>
+            <div><dt>Watch out</dt><dd>Dark pages flatter film and flatten flat lays. It wants a steady supply of video.</dd></div>
+          </dl>
+          <div class="h__swatches" aria-hidden="true">
+            <span class="h__sw" style="background:#000000"></span>
+            <span class="h__sw" style="background:#F4F4F4"></span>
+            <span class="h__sw" style="background:#B9BDC2"></span>
+            <span class="h__sw" style="background:#2A2A2C"></span>
+          </div>
+          <p class="h__type">Archivo throughout · Bodoni Moda for one editorial break</p>
+          <div class="h__actions">
+            <a class="h__btn" href="directions/b-le-labo.html">Open Direction B</a>
+            <a class="h__btn h__btn--ghost" href="templates/product.html?dir=b">Product page in B</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="h__dir">
+        <a class="h__dir-shot" href="directions/c-le-decor.html">
+          <img src="assets/img/previews/direction-c.jpg" width="1000" height="597" alt="Direction C homepage: the hand-painted ochre canvas from the film, with the signature written across it.">
+        </a>
+        <div class="h__dir-body">
+          <h3><small>Direction C</small>Le Décor</h3>
+          <p>The canvas from the film, hung on the web. Because the products are shot on pure white, the site can drop that white away and stand each garment on the painted ochre instead. The handwritten signature writes itself, exactly as it does on screen.</p>
+          <dl class="h__dl">
+            <div><dt>Answers</dt><dd>La Fam Amsterdam — personality and a real place</dd></div>
+            <div><dt>Best at</dt><dd>Warmth and story. It is the only one that looks like nobody else.</dd></div>
+            <div><dt>Watch out</dt><dd>Colour grounds date faster than black and white, and need repainting each season.</dd></div>
+          </dl>
+          <div class="h__swatches" aria-hidden="true">
+            <span class="h__sw" style="background:#AD8E5A"></span>
+            <span class="h__sw" style="background:#323339"></span>
+            <span class="h__sw" style="background:#000000"></span>
+            <span class="h__sw" style="background:#FAF9F7"></span>
+          </div>
+          <p class="h__type">Bodoni Moda · Newsreader for reading · Italianno for the signature</p>
+          <div class="h__actions">
+            <a class="h__btn" href="directions/c-le-decor.html">Open Direction C</a>
+            <a class="h__btn h__btn--ghost" href="templates/product.html?dir=c">Product page in C</a>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="h__dir">
+        <a class="h__dir-shot" href="directions/d-le-registre.html">
+          <img src="assets/img/previews/direction-d.jpg" width="1000" height="597" alt="Direction D homepage: the maison's register, listing every piece ever released.">
+        </a>
+        <div class="h__dir-body">
+          <h3><small>Direction D &middot; our own proposal</small>Le Registre</h3>
+          <p>The other three are different surfaces on the same structure. This one changes the structure. Seven of your ten pieces are sold out &mdash; in a grid that reads as a thin shop, but kept as a register, numbered and dated, the same fact reads as a track record. The flower does the work: filled where a piece is still here, outline where it has gone to the archive.</p>
+          <dl class="h__dl">
+            <div><dt>Answers</dt><dd>The brief&rsquo;s own ask &mdash; momentum and history at a glance</dd></div>
+            <div><dt>Best at</dt><dd>Turning a mostly sold-out catalogue into the strongest thing you own</dd></div>
+            <div><dt>Watch out</dt><dd>It is a list, not a lookbook. It needs the writing to be good.</dd></div>
+          </dl>
+          <div class="h__swatches" aria-hidden="true">
+            <span class="h__sw" style="background:#F1EADF"></span>
+            <span class="h__sw" style="background:#38110E"></span>
+            <span class="h__sw" style="background:#14100E"></span>
+            <span class="h__sw" style="background:#AD8E5A"></span>
+          </div>
+          <p class="h__type">Bone from the Ivory T-Shirt, oxblood from the SS25 jersey &mdash; both sampled off your own products</p>
+          <div class="h__actions">
+            <a class="h__btn" href="directions/d-le-registre.html">Open Direction D</a>
+            <a class="h__btn h__btn--ghost" href="templates/shop.html">The shop page</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="h__section">
+    <h2>The page templates</h2>
+    <p class="h__lede">These are the pages behind the homepage. They share one layout and swap only colour and type, so you can see the same page in all three directions — use the switcher in the bar at the bottom of each, or the links here.</p>
+
+    <table class="h__tpl">
+      <thead>
+        <tr><th>Page</th><th>What it covers from the brief</th><th>Open in</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">Shop<span class="why">The listing</span></td>
+          <td>The whole live catalogue with filters, sort, hover-to-see-the-second-shot and quick add to bag. The bag drawer works on every page</td>
+          <td><span class="h__skins">
+            <a class="h__skin" href="templates/shop.html?dir=a">A</a>
+            <a class="h__skin" href="templates/shop.html?dir=b">B</a>
+            <a class="h__skin" href="templates/shop.html?dir=c">C</a>
+          </span></td>
+        </tr>
+        <tr>
+          <td class="name">Product<span class="why">Signature Zip-Up</span></td>
+          <td>3.5 — one template, ten products. Real sizes, stock and prices; the size chart in cm and inches, the fit finder, the story block and the flower size picker</td>
+          <td><span class="h__skins">
+            <a class="h__skin" href="templates/product.html?dir=a">A</a>
+            <a class="h__skin" href="templates/product.html?dir=b">B</a>
+            <a class="h__skin" href="templates/product.html?dir=c">C</a>
+          </span></td>
+        </tr>
+        <tr>
+          <td class="name">Checkout<span class="why">Where the automation shows</span></td>
+          <td>Change the country and the carrier rates change with it; pay and the label and invoice are produced. This is brief 3.7 made concrete rather than described</td>
+          <td><span class="h__skins">
+            <a class="h__skin" href="templates/checkout.html?dir=a">A</a>
+            <a class="h__skin" href="templates/checkout.html?dir=b">B</a>
+            <a class="h__skin" href="templates/checkout.html?dir=c">C</a>
+          </span></td>
+        </tr>
+        <tr>
+          <td class="name">Cocody Lab</td>
+          <td>3.2 — newest film pinned at the top, archive underneath, Watch and Subscribe, synced from YouTube</td>
+          <td><span class="h__skins">
+            <a class="h__skin" href="templates/cocody-lab.html?dir=a">A</a>
+            <a class="h__skin" href="templates/cocody-lab.html?dir=b">B</a>
+            <a class="h__skin" href="templates/cocody-lab.html?dir=c">C</a>
+          </span></td>
+        </tr>
+        <tr>
+          <td class="name">Events</td>
+          <td>3.3 — what is next with a clear call to action, plus a permanent archive by year linking back to products</td>
+          <td><span class="h__skins">
+            <a class="h__skin" href="templates/events.html?dir=a">A</a>
+            <a class="h__skin" href="templates/events.html?dir=b">B</a>
+            <a class="h__skin" href="templates/events.html?dir=c">C</a>
+          </span></td>
+        </tr>
+        <tr>
+          <td class="name">Collections</td>
+          <td>3.4 — one permanent page per collection with story and lookbook, and an index that tags sold-out drops Archive</td>
+          <td><span class="h__skins">
+            <a class="h__skin" href="templates/collections.html?dir=a">A</a>
+            <a class="h__skin" href="templates/collections.html?dir=b">B</a>
+            <a class="h__skin" href="templates/collections.html?dir=c">C</a>
+          </span></td>
+        </tr>
+        <tr>
+          <td class="name">About us</td>
+          <td>3.1 — the story, the values, the film, and who makes it</td>
+          <td><span class="h__skins">
+            <a class="h__skin" href="templates/about.html?dir=a">A</a>
+            <a class="h__skin" href="templates/about.html?dir=b">B</a>
+            <a class="h__skin" href="templates/about.html?dir=c">C</a>
+          </span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="h__section">
+    <h2>The signature feature</h2>
+    <p class="h__lede">Brief 3.6 asks for one interaction that makes the site instantly recognisable, and suggests a flower. Maison Cocody already has one.</p>
+
+    <div class="h__flower-demo">
+      <span class="big" data-flower aria-hidden="true"></span>
+      <div>
+        <p>On the woven label inside every garment, the sizes run S · M · L · XL and the one you bought is the one a blossom sits around. The same flower is punched as metal eyelets on the caps and tucked inside the M and C of the monogram.</p>
+        <p>So the size picker on the product page does exactly that: choose a size and the blossom moves onto it. It is not decoration invented for a website — it is how the product already works, which is why it will not feel gimmicky in a year.</p>
+        <p style="margin-top:1rem"><a class="h__btn h__btn--ghost" href="templates/product.html">Try the size picker</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="h__section">
+    <h2>What the brief asked for, and where it is</h2>
+    <div class="h__check">
+      <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.1 About us</h4><p>Story, values, film and collaborators, in the About template.</p></div>
+      <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.2 Cocody Lab</h4><p>Newest film pinned, archive grid, auto-sync explained.</p></div>
+      <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.3 Events</h4><p>Upcoming with a call to action, archive by year, links back to products.</p></div>
+      <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.4 Collections archive</h4><p>One permanent template, Archive tag once sold out.</p></div>
+      <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.5 Product &amp; article</h4><p>Gallery, size chart in both units, fit finder, story block.</p></div>
+      <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.6 Signature UX</h4><p>The flower size picker, plus a per-direction scroll behaviour.</p></div>
+      <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.7 Shipping automation</h4><p>The checkout page: live rates by country, label and invoice on payment. Costs and carriers in section 6.</p></div>
+      <div class="h__item"><span class="h__state h__state--done">Decided</span><h4>Staying on WordPress</h4><p>Section 5 of the document: what is running today, and what has to change to build any of these.</p></div>
+    </div>
+  </section>
+
+  <footer class="h__foot">
+    <span>Prepared for Charlz · Maison Cocody Website V2</span>
+    <span>Mockups only — the live site is untouched</span>
+  </footer>
+
+</div>
+
+<script src="assets/js/cocody.js"></script>
+</body>
+</html>

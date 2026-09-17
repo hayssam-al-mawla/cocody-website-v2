@@ -1,0 +1,87 @@
+MAISON COCODY — WEBSITE V2
+Design options and platform recommendation
+17 September 2026
+
+
+WHERE TO START
+--------------
+1. Double-click  START-HERE.html
+   It opens in your browser and links to everything.
+
+2. Read  Cocody-Website-V2-Options.docx
+   The written recommendation: which design, which platform, what it
+   costs, and what we need decided.
+
+
+WHAT IS IN HERE
+---------------
+START-HERE.html                 The hub. Open this first.
+Cocody-Website-V2-Options.docx  The document (23 pages).
+
+directions/                     Four homepage designs
+  a-seamless.html                 A — pure white, the garment is the hero
+  b-le-labo.html                  B — black, the film leads, contact sheet
+  c-le-decor.html                 C — the painted canvas from the film
+  d-le-registre.html              D — our own: the shop as a register of
+                                      everything ever made, sold out or not
+
+templates/                      The pages behind the homepage
+  shop.html                       the full catalogue, filters + quick add
+  product.html                    every piece has a page: ?p=<name>
+  checkout.html                   live carrier rates, label + invoice
+  cocody-lab.html                 YouTube hub
+  events.html                     upcoming + permanent archive
+  collections.html                one collection + the index
+  about.html                      the story
+
+assets/                         Images, film, stylesheets, scripts
+
+
+TWO THINGS WORTH TRYING
+-----------------------
+- On product.html, click through the sizes. The blossom moves onto the
+  size you pick, the way it sits around the size on the woven label.
+
+- On any page in templates/, use the bar at the bottom to flip the same
+  page between direction A, B and C.
+
+- On shop.html, hover a piece that is in stock: the sizes appear, and
+  clicking one puts it in the bag. The bag drawer works on every page.
+
+- Follow the bag through to checkout, change the country, and watch the
+  carrier rates change. Press Pay and it shows what happens next. No
+  payment is taken.
+
+- It is a working site, not a set of flat pages: all ten products have
+  their own page, every link goes somewhere, and the shop, register and
+  checkout all read the same catalogue.
+
+
+OPENING IT AS A REAL SITE (optional)
+------------------------------------
+Double-clicking the files works for everything. If you want proper
+URLs — and if you want the Claude Chrome extension to be able to see
+the pages, which it cannot do for files on disk — serve the folder:
+
+    cd "<this folder>"
+    python -m http.server 8099
+
+then open  http://127.0.0.1:8099/START-HERE.html
+
+
+PLEASE NOTE
+-----------
+- Everything works offline except the typefaces, which load from Google
+  Fonts. Without a connection the pages still work, just in a fallback
+  face.
+
+- Product names, prices, sizes and stock levels are the REAL ones, read
+  off the live shop. Event dates and Cocody Lab titles are placeholder,
+  because none of those exist yet. The photography, film, monogram,
+  wordmark and flower are all Maison Cocody's own.
+
+- The platform question is settled: the site stays on WordPress.
+  Section 5 of the document is the audit of what is running today and
+  what has to change to build any of these three designs on it.
+
+- Nothing here touches maisoncocody.com. These are local files only.

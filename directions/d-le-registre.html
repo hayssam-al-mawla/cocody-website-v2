@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="d">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Cocody — Direction D, Le Registre</title>
+<meta name="description" content="Design direction D for Maison Cocody Website V2: the shop as the maison's register — everything ever made, available or archived.">
+<link rel="icon" href="../assets/brand/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Italianno&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/brand.css">
+<link rel="stylesheet" href="../assets/css/shop.css">
+<link rel="stylesheet" href="../assets/css/dir-d.css">
+</head>
+<body class="d">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="ann">
+  <span>Free shipping over €100 · Shipped worldwide · Rates worked out at checkout, before you pay</span>
+  <button class="ann__x" type="button" aria-label="Hide this message">&times;</button>
+</div>
+
+<header class="d__bar">
+  <a class="d__mark" href="#top">MAISON COCODY</a>
+  <nav class="d__nav" aria-label="Main">
+    <a href="../templates/shop.html">Shop</a>
+    <a href="../templates/collections.html">Collections</a>
+    <a href="../templates/cocody-lab.html">Cocody Lab</a>
+    <a href="../templates/events.html">Events</a>
+    <a href="../templates/about.html">About</a>
+  </nav>
+  <button class="d__bag" type="button">Search</button>
+  <button class="d__bag" type="button">Bag <span data-bag-count>0</span></button>
+</header>
+
+<main id="main">
+
+  <!-- Seven of ten pieces are gone. Leading with that turns a thin
+       shop into a track record, and it is simply true. -->
+  <section class="d__standing d__wrap" id="top">
+    <h1>Everything we have made, and <em>what is left</em> of it.</h1>
+    <div class="d__standing-row">
+      <span class="d__fig"><b data-n-pieces>10</b><span>pieces released since 2025</span></span>
+      <span class="d__fig"><b data-n-collections>3</b><span>collections, none taken down</span></span>
+      <span class="d__fig"><b data-n-here>2</b><span>still available today</span></span>
+    </div>
+  </section>
+
+  <!-- The register. Moving down the list is how you browse; the plate
+       on the right follows. -->
+  <section class="d__wrap" style="padding-block:clamp(2rem,5vh,3.5rem)">
+    <div class="d__reg">
+      <div>
+        <div class="d__reg-head" aria-hidden="true">
+          <span>Ref</span><span>Piece</span><span>Collection</span><span>Price</span><span style="justify-self:end">State</span>
+        </div>
+        <div data-register></div>
+        <p style="font-size:.78rem;color:var(--quiet);margin-top:1.1rem">
+          A filled blossom means the piece is still here. An outline means it has gone to the archive — the page stays either way.
+        </p>
+      </div>
+
+      <figure class="d__plate">
+        <div class="d__plate-frame" data-plate></div>
+        <figcaption class="d__plate-cap">
+          <span data-plate-name></span>
+          <span class="l" data-plate-meta></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="d__band">
+    <div class="d__wrap d__section">
+      <div class="d__head">
+        <h2>Cocody Lab</h2>
+        <a href="../templates/cocody-lab.html">All films</a>
+      </div>
+      <div class="d__band-grid">
+        <video src="../assets/video/hero-desktop.mp4" poster="../assets/video/hero-poster.jpg"
+               muted loop playsinline autoplay preload="metadata"
+               aria-label="The Bô campaign film, shot against hand-painted canvas."></video>
+        <div>
+          <h3>Bô — the film</h3>
+          <p>Two canvases, painted over a weekend, and everything shot in a day. The newest film sits at the top of the Lab, and new uploads land there on their own.</p>
+          <a class="d__link" href="../templates/cocody-lab.html">Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="d__wrap d__section">
+    <div class="d__head">
+      <h2>The chapters</h2>
+      <a href="../templates/collections.html">Every collection</a>
+    </div>
+    <div class="d__chapters">
+      <a class="d__chapter" href="../templates/collections.html">
+        <div class="d__chapter-frame"><img src="../assets/img/shop/sweater-a.jpg" width="880" height="1100" loading="lazy" alt="The Signature Zip-Up Sweater from the FW26 Bô collection."></div>
+        <h3>FW26 — Bô</h3>
+        <p>Three pieces · two still here</p>
+        <span class="bar" aria-hidden="true"></span>
+      </a>
+      <a class="d__chapter" href="../templates/collections.html">
+        <div class="d__chapter-frame"><img src="../assets/img/shop/jersey-burgundy-a.jpg" width="880" height="1100" loading="lazy" alt="The burgundy Vintage Jersey from the SS25 collection."></div>
+        <h3>SS25</h3>
+        <p>Two jerseys · archive</p>
+        <span class="bar" aria-hidden="true"></span>
+      </a>
+      <a class="d__chapter" href="../templates/collections.html">
+        <div class="d__chapter-frame"><img src="../assets/img/shop/tote-vintage-a.jpg" width="880" height="1100" loading="lazy" alt="The Vintage Maxi Tote Bag from the Pre-release 25 collection."></div>
+        <h3>Pre-release 25</h3>
+        <p>Five pieces · archive</p>
+        <span class="bar" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="d__wrap d__colophon">
+    <p>Cocody is a district of Abidjan. We only put the name on something once it deserves to go back there.</p>
+    <span class="sig" aria-hidden="true">Maison Cocody</span>
+  </section>
+
+</main>
+
+<footer class="d__wrap">
+  <div class="d__foot">
+    <div><h3>Shop</h3><ul>
+      <li><a href="../templates/shop.html">All pieces</a></li>
+      <li><a href="../templates/collections.html">Collections</a></li>
+      <li><a href="../templates/product.html#chart">Size &amp; fit</a></li>
+    </ul></div>
+    <div><h3>Maison</h3><ul>
+      <li><a href="../templates/about.html">About us</a></li>
+      <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+      <li><a href="../templates/events.html">Events</a></li>
+    </ul></div>
+    <div><h3>Help</h3><ul>
+      <li><a href="#">Shipping &amp; returns</a></li>
+      <li><a href="#">Track your order</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul></div>
+    <div><h3>Amsterdam · Abidjan</h3>
+      <p style="font-size:.8125rem;color:var(--quiet)">© 2026 Maison Cocody</p>
+    </div>
+  </div>
+  <div class="d__colo">
+    <span>© 2026 Maison Cocody</span>
+    <span>The register is kept in order of release</span>
+  </div>
+</footer>
+
+<div class="rv">
+  <span class="rv__note"><b>Direction D — Le Registre.</b> Mockup for review. The register is built from the live catalogue.</span>
+  <span class="rv__group">
+    <a class="rv__link" href="../START-HERE.html">All options</a>
+    <a class="rv__link" href="a-seamless.html">A</a>
+    <a class="rv__link" href="b-le-labo.html">B</a>
+    <a class="rv__link" href="c-le-decor.html">C</a>
+    <button class="rv__close" type="button" aria-label="Hide this review bar">×</button>
+  </span>
+</div>
+
+<script src="../assets/js/catalogue.js"></script>
+<script src="../assets/js/cocody.js"></script>
+<script src="../assets/js/shop.js"></script>
+<script src="../assets/js/search.js"></script>
+</body>
+</html>

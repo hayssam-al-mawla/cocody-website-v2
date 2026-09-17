@@ -1,0 +1,240 @@
+/* ------------------------------------------------------------------
+   DIRECTION C — "LE DÉCOR"
+   The painted canvas, hung on the web.
+
+   The Chapitre I film is not shot on a white seamless. It is shot in
+   front of hand-painted canvas — a scraped ochre and a mottled indigo,
+   hung in a raw room. Those two grounds are lifted straight out of the
+   film and used as the site's surfaces.
+
+   Because the e-comm photography is on pure white, a multiply blend
+   drops the seamless away and stands the garment on the painted canvas
+   instead. The trick only works because of how Cocody already shoots.
+
+   Reference it answers: La Fam Amsterdam — a strong personality and a
+   real place behind the brand. Boldness is spent on: the grounds, and
+   the handwriting that writes itself.
+   ------------------------------------------------------------------ */
+
+.c {
+  --paper-c: #FAF9F7;
+  --fg:      var(--ink);
+  --quiet:   #5E574C;
+  --rule:    rgba(0,0,0,.16);
+
+  background: var(--paper-c);
+  color: var(--fg);
+  font-family: var(--read);
+  font-size: 17px;
+  line-height: 1.64;            /* serif body wants more leading */
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  --gut: clamp(1rem, 5vw, 4.5rem);
+}
+.c__wrap { width: min(100% - 2 * var(--gut), 1380px); margin-inline: auto; }
+
+/* ---------- grounds ---------- */
+.ground {
+  position: relative;
+  background-color: var(--ochre);
+  background-image: url("../img/canvas-ochre.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--ink);            /* 6.8:1 on the ochre */
+  --quiet: #2A231C;             /* 5.0:1 on the ochre; #3A3128 measured 4.12 and failed AA */
+}
+.ground--indigo {
+  background-color: var(--indigo);
+  background-image: url("../img/canvas-indigo.jpg");
+  color: #F2F1EE;               /* 12.6:1 on the indigo */
+  --quiet: #A9A7A2;
+  --rule: rgba(255,255,255,.2);
+}
+.ground--paper { background: var(--paper-c); background-image: none; color: var(--ink); }
+
+/* a garment steps off the seamless and onto the canvas */
+.onto-canvas { mix-blend-mode: multiply; }
+.ground--indigo .onto-canvas { mix-blend-mode: normal; }
+
+/* ---------- masthead ---------- */
+.c__bar {
+  position: sticky; top: 0; z-index: 90;
+  display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.25rem);
+  padding: 1rem var(--gut);
+  background: rgba(173,142,90,.92);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,.14);
+}
+.c__mark {
+  font-family: var(--display); font-size: clamp(.8rem, 1.4vw, 1rem);
+  letter-spacing: .3em; text-indent: .3em; text-decoration: none; white-space: nowrap;
+}
+.c__nav { display: flex; gap: clamp(.9rem, 2vw, 1.8rem); margin-left: auto; font-family: var(--ui); font-size: .8125rem; }
+.c__nav a { text-decoration: none; padding-bottom: .15rem; border-bottom: 1px solid transparent; }
+.c__nav a:hover { border-color: currentColor; }
+.c__bag { font-family: var(--ui); font-size: .8125rem; font-variant-numeric: tabular-nums; }
+.is-bumped { animation: c-bump .42s var(--ease); display: inline-block; }
+@keyframes c-bump { 40% { transform: translateY(-.3em); } }
+@media (max-width: 760px) { .c__nav { display: none; } }
+
+/* ---------- hero ---------- */
+.c__hero { padding-block: clamp(2rem, 6vh, 4rem) 0; overflow: hidden; }
+.c__hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 4vw, 3rem);
+  align-items: end;
+}
+.c__hero-copy { padding-bottom: clamp(2rem, 8vh, 5rem); }
+
+/* the signature, written on the page the way it is written in the film.
+   Scoped tightly so the generic .c__hero paragraph rule cannot outrank it. */
+.c__hero .c__sig {
+  font-family: var(--script);
+  font-size: clamp(3.5rem, 11vw, 9rem);
+  line-height: .85; color: #FFFFFF;
+  margin-bottom: .1em;
+  /* revealed left-to-right, as a hand would lay it down */
+  -webkit-mask-image: linear-gradient(to right, #000 0 var(--write, 0%), transparent var(--write, 0%));
+          mask-image: linear-gradient(to right, #000 0 var(--write, 0%), transparent var(--write, 0%));
+  animation: c-write 2.4s cubic-bezier(.66,.02,.35,1) .35s forwards;
+}
+@keyframes c-write { to { --write: 104%; } }
+@property --write { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
+@media (prefers-reduced-motion: reduce) {
+  .c__hero .c__sig { animation: none; --write: 104%; -webkit-mask-image: none; mask-image: none; }
+}
+
+.c__hero h1 {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(1.75rem, 3.6vw, 3rem); line-height: 1.1;
+  font-variation-settings: 'opsz' 72; letter-spacing: -0.018em;
+  max-width: 17ch; text-wrap: balance;
+}
+.c__hero-lede { margin-top: 1.1rem; max-width: 36ch; font-size: 1rem; }
+.c__hero-fig { position: relative; }
+.c__hero-fig img { width: 100%; }
+
+@media (max-width: 780px) {
+  .c__hero-grid { grid-template-columns: 1fr; }
+  .c__hero-copy { padding-bottom: 1rem; }
+}
+
+/* ---------- section scaffolding ---------- */
+.c__section { padding-block: clamp(3.5rem, 11vh, 8rem); }
+.c__head {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+  gap: 1.25rem; margin-bottom: clamp(2rem, 5vh, 3.5rem);
+}
+.c__head h2 {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(1.4rem, 3vw, 2.35rem); line-height: 1.06;
+  font-variation-settings: 'opsz' 64; letter-spacing: -0.016em;
+}
+.c__head::after { content: ''; height: 1px; background: var(--rule); grid-column: 2; }
+.c__head a { font-family: var(--ui); font-size: .8125rem; text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: .15rem; }
+.c__head a:hover { border-color: currentColor; }
+
+/* the blossom marks each section, opening as it arrives */
+.c__bloom { width: clamp(24px, 3vw, 38px); aspect-ratio: 1; color: currentColor; }
+.c__bloom .flower path { stroke-width: 8; }
+
+/* ---------- pieces on the canvas ---------- */
+.c__pieces { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2.5rem); align-items: start; }
+.c__piece { grid-column: span 4; text-decoration: none; }
+/* uniform three-up now the crops are consistent */
+/* Portrait crops here too: on the ochre the figures were floating in
+   a lot of empty canvas and reading small. */
+.c__piece .shot { aspect-ratio: 4/5; background: transparent; }
+.c__piece .shot img { mix-blend-mode: multiply; }
+.c__piece > img { width: 100%; }
+.c__piece { transition: transform .55s var(--ease); }
+.c__piece:hover { transform: translateY(-.4rem); }
+.c__piece .shot__state { background: var(--ink); color: #F2F1EE; }
+.c__piece figcaption { margin-top: .85rem; font-family: var(--ui); font-size: .8125rem; display: flex; justify-content: space-between; gap: 1rem; }
+.c__piece .name { font-weight: 500; }
+.c__piece .price { font-variant-numeric: tabular-nums; }
+.c__piece .swatch { display: block; color: var(--quiet); font-size: .75rem; margin-top: .1rem; }
+@media (max-width: 880px) { .c__piece, .c__piece--tall, .c__piece--short { grid-column: span 6; } }
+@media (max-width: 520px) { .c__piece, .c__piece--tall, .c__piece--short { grid-column: span 12; } }
+
+/* the note sits in the grid as a cell, like A's, so the row completes */
+.c__aside-cell { align-self: center; }
+.c__aside-lede { font-family: var(--display); font-size: clamp(1.05rem, 1.9vw, 1.4rem); line-height: 1.25; font-variation-settings: 'opsz' 32; }
+.c__aside-note { font-size: .9375rem; color: var(--quiet); margin-top: .6rem; max-width: 30ch; }
+
+/* ---------- film band ---------- */
+.c__film { position: relative; }
+.c__film video { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.c__film-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+.c__film-copy h3 { font-family: var(--display); font-weight: 400; font-size: clamp(1.35rem, 2.6vw, 2.1rem); line-height: 1.15; }
+.c__film-copy p { margin-top: .9rem; max-width: 38ch; }
+.c__link {
+  display: inline-block; margin-top: 1.4rem; font-family: var(--ui); font-size: .8125rem;
+  text-decoration: none; padding: .7rem 1.35rem; border: 1px solid currentColor;
+  transition: background .25s var(--ease), color .25s var(--ease);
+}
+.ground--indigo .c__link:hover { background: #F2F1EE; color: var(--indigo); }
+.c__link:hover { background: var(--ink); color: var(--paper-c); }
+@media (max-width: 860px) { .c__film-grid { grid-template-columns: 1fr; } }
+
+/* a second, smaller frame under the copy so the indigo band has more
+   than one thing in it */
+.c__aside-still { margin-top: clamp(1.5rem, 4vh, 2.5rem); }
+.c__aside-still img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.c__aside-still figcaption { font-family: var(--ui); font-size: .75rem; color: var(--quiet); margin-top: .5rem; }
+
+/* ---------- the archive spine ---------- */
+/* Collections and events share one dated spine, because the brief wants
+   both kept permanently and read as a single history. */
+.c__spine { position: relative; padding-left: clamp(1.5rem, 5vw, 4rem); }
+.c__spine::before { content: ''; position: absolute; left: 0; top: .6rem; bottom: .6rem; width: 1px; background: var(--rule); }
+.c__entry { position: relative; display: grid; grid-template-columns: 8rem 1fr auto; gap: 1.5rem; align-items: baseline; padding: 1.35rem 0; border-bottom: 1px solid var(--rule); text-decoration: none; }
+.c__entry::before {
+  content: ''; position: absolute; left: calc(-1 * clamp(1.5rem, 5vw, 4rem)); top: 2rem;
+  width: 7px; height: 7px; border-radius: 50%; background: currentColor; transform: translateX(-3px);
+  opacity: .28; transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+.c__entry:hover::before { opacity: 1; transform: translateX(-3px) scale(1.5); }
+.c__entry .when { font-family: var(--ui); font-size: .8125rem; color: var(--quiet); font-variant-numeric: tabular-nums; }
+.c__entry .what { font-family: var(--display); font-size: clamp(1.05rem, 2vw, 1.5rem); line-height: 1.16; font-variation-settings: 'opsz' 32; letter-spacing: -0.008em; }
+.c__entry .what span { display: block; font-family: var(--read); font-size: .9375rem; color: var(--quiet); margin-top: .2rem; }
+.c__entry .kind { font-family: var(--ui); font-size: .6875rem; letter-spacing: .05em; color: var(--quiet); border: 1px solid var(--rule); padding: .2rem .5rem; white-space: nowrap; }
+@media (max-width: 680px) { .c__entry { grid-template-columns: 1fr auto; gap: .3rem 1rem; } .c__entry .when { grid-column: 1 / -1; } }
+
+/* ---------- how it was made ----------
+   Two stills from the film, sized unevenly so the pair reads as a
+   spread rather than a two-up grid. */
+.c__made {
+  display: grid; grid-template-columns: 1.45fr 1fr;
+  gap: clamp(1rem, 3vw, 2.5rem); align-items: start;
+}
+.c__made-fig img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+.c__made-fig--tall { margin-top: clamp(1.5rem, 5vw, 4rem); }
+.c__made-fig--tall img { aspect-ratio: 4/5; object-position: center 45%; }
+.c__made figcaption {
+  font-family: var(--ui); font-size: .78rem; color: var(--quiet);
+  margin-top: .65rem;
+}
+@media (max-width: 760px) { .c__made { grid-template-columns: 1fr; } .c__made-fig--tall { margin-top: 0; } }
+
+/* ---------- story ---------- */
+.c__story { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.c__story p { max-width: 46ch; }
+.c__story p + p { margin-top: 1.1rem; }
+.c__pull {
+  font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2.25rem);
+  line-height: 1.18; max-width: 19ch; text-wrap: balance;
+  font-variation-settings: 'opsz' 60; letter-spacing: -0.014em;
+}
+@media (max-width: 860px) { .c__story { grid-template-columns: 1fr; } }
+
+/* ---------- footer ---------- */
+.c__foot { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2.25rem; padding-block: clamp(3rem, 8vh, 5rem) 1.5rem; font-family: var(--ui); }
+.c__foot h3 { font-family: var(--ui); font-size: .8125rem; font-weight: 500; margin-bottom: .85rem; }
+.c__foot li { margin-bottom: .45rem; }
+.c__foot a { font-size: .8125rem; text-decoration: none; color: inherit; opacity: .78; }
+.c__foot a:hover { opacity: 1; }
+.c__signup { display: flex; gap: .5rem; margin-top: .85rem; max-width: 22rem; }
+.c__signup input { flex: 1; min-width: 0; background: none; border: 0; border-bottom: 1px solid currentColor; color: inherit; padding: .45rem 0; font-size: .8125rem; }
+.c__signup input::placeholder { color: inherit; opacity: .6; }
+.c__signup button { font-size: .8125rem; border-bottom: 1px solid currentColor; padding: .45rem 0; }
+.c__colophon { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.5rem; font-family: var(--ui); font-size: .75rem; opacity: .75; border-top: 1px solid var(--rule); }

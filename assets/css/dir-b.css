@@ -1,0 +1,266 @@
+/* ------------------------------------------------------------------
+   DIRECTION B — "LE LABO"
+   The studio, not the shop.
+
+   The page is the darkroom: true black, edge to edge. Because every
+   Cocody product is shot on a white seamless, each photograph lands on
+   that black as an illuminated square — a slide on a light table. The
+   grid is a contact sheet, and the frame references are the real
+   capture numbers from the shoot, so the numbering is information
+   rather than decoration.
+
+   Reference it answers: NOLOGO Studio — streetwear energy, clean and
+   confident product focus. It is also the direction that already
+   satisfies the brief's "dark background, video-first" Cocody Lab.
+   Boldness is spent on: density and the film.
+   ------------------------------------------------------------------ */
+
+.b {
+  --bg:    var(--ink);
+  --fg:    #F4F4F4;
+  --quiet: #9B9DA1;          /* AA on black */
+  --rule:  #2A2A2C;
+  --metal: var(--silver);
+
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--ui);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  --gut: clamp(.85rem, 2.5vw, 2rem);
+}
+.b ::selection { background: var(--fg); color: var(--bg); }
+
+.b__wrap { width: calc(100% - 2 * var(--gut)); margin-inline: auto; }
+
+/* ---------- masthead ---------- */
+.b__bar {
+  position: sticky; top: 0; z-index: 90;
+  display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.5rem);
+  padding: .8rem var(--gut);
+  background: rgba(0,0,0,.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.b__mono { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+.b__mono img { width: 30px; height: auto; }
+.b__mono span {
+  font-size: .78rem; letter-spacing: .2em; text-indent: .2em;
+  font-weight: 500;
+}
+.b__nav { display: flex; gap: clamp(.9rem, 2vw, 1.9rem); margin-left: auto; font-size: .8125rem; }
+.b__nav a { text-decoration: none; color: var(--quiet); transition: color .2s; }
+.b__nav a:hover, .b__nav a[aria-current] { color: var(--fg); }
+.b__bag { font-size: .8125rem; font-variant-numeric: tabular-nums; }
+.is-bumped { animation: b-bump .42s var(--ease); display: inline-block; }
+@keyframes b-bump { 40% { transform: translateY(-.3em); } }
+@media (max-width: 720px) { .b__nav { display: none; } }
+
+/* ---------- hero film ---------- */
+.b__hero { position: relative; }
+.b__hero video {
+  width: 100%; height: min(86svh, 780px); object-fit: cover; display: block;
+}
+.b__hero-over {
+  position: absolute; inset: auto 0 0 0;
+  padding: clamp(1.25rem, 4vw, 3rem) var(--gut);
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 1.5rem; flex-wrap: wrap;
+  background: linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,0));
+}
+.b__hero-title {
+  font-family: var(--ui);
+  font-size: clamp(2.5rem, 9vw, 7rem);
+  font-weight: 600; line-height: .92; letter-spacing: -0.035em;
+  text-transform: none;
+}
+.b__hero-title b { display: block; font-weight: 400; color: var(--quiet); font-size: .28em; letter-spacing: .01em; margin-top: .8em; }
+.b__hero-cta {
+  display: inline-block; padding: .7rem 1.4rem;
+  border: 1px solid var(--fg); color: var(--fg); text-decoration: none;
+  font-size: .8125rem; transition: background .25s var(--ease), color .25s var(--ease);
+}
+.b__hero-cta:hover { background: var(--fg); color: var(--bg); }
+
+/* running strip of studio facts, sitting under the film like a slate */
+.b__slate {
+  display: flex; flex-wrap: wrap;
+  padding: .9rem var(--gut);
+  border-bottom: 1px solid var(--rule);
+  font-size: .75rem; color: var(--quiet);
+  font-variant-numeric: tabular-nums; letter-spacing: .004em;
+}
+/* hairlines between the facts, the way a slate is ruled */
+.b__slate > span { padding-right: clamp(1rem, 3.5vw, 2.6rem); margin-right: clamp(1rem, 3.5vw, 2.6rem); border-right: 1px solid var(--rule); }
+.b__slate > span:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+@media (max-width: 720px) {
+  .b__slate > span { border-right: 0; padding-right: 0; margin-right: 1.25rem; }
+}
+.b__slate b { color: var(--fg); font-weight: 500; }
+
+/* ---------- the light table ---------- */
+.b__section { padding-block: clamp(2.5rem, 7vh, 5.5rem); }
+.b__head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1.5rem; flex-wrap: wrap; margin-bottom: clamp(1.25rem, 3vh, 2rem);
+}
+.b__head h2 {
+  font-family: var(--ui); font-weight: 600;
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem); letter-spacing: -0.022em;
+}
+.b__head p { font-size: .8125rem; color: var(--quiet); max-width: 46ch; }
+.b__head a { font-size: .8125rem; color: var(--quiet); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: .15rem; }
+.b__head a:hover { color: var(--fg); border-color: currentColor; }
+
+.b__sheet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(150px, 19vw, 260px), 1fr));
+  gap: clamp(.4rem, 1vw, .85rem);
+}
+.b__slide { position: relative; text-decoration: none; display: block; }
+.b__slide-img {
+  position: relative; overflow: hidden; background: var(--paper);
+  aspect-ratio: 1; /* the contact sheet is square, like the capture */
+}
+.b__slide-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .6s var(--ease);
+}
+.b__slide:hover .b__slide-img img,
+.b__slide:focus-visible .b__slide-img img { transform: scale(1.035); }
+
+/* the illuminated edge — a slide lifting off the light table */
+.b__slide-img::after {
+  content: ''; position: absolute; inset: 0;
+  box-shadow: 0 0 0 0 rgba(255,255,255,0);
+  transition: box-shadow .35s var(--ease);
+  pointer-events: none;
+}
+.b__slide:hover .b__slide-img::after,
+.b__slide:focus-visible .b__slide-img::after { box-shadow: 0 0 0 1px var(--metal), 0 0 34px rgba(255,255,255,.18); }
+
+.b__slide-meta {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding: .6rem .1rem 0; font-size: .75rem; letter-spacing: .002em;
+}
+.b__slide-meta .name { color: var(--fg); }
+.b__slide-meta .price { color: var(--quiet); font-variant-numeric: tabular-nums; }
+/* ---------- the select mark ----------
+   On a real contact sheet the frames worth printing get ringed in
+   grease pencil. Cocody's ring is the blossom, and the pencil is the
+   ochre off the campaign canvas — the one colour allowed in here, and
+   the only place this direction raises its voice. */
+.b__select {
+  position: absolute; inset: 6%; z-index: 3; pointer-events: none;
+  color: var(--ochre-lit);
+  transform: rotate(-6deg);
+  opacity: .86;
+}
+.b__slide:nth-of-type(even) .b__select { transform: rotate(5deg) scale(1.03); }
+.b__select .flower path {
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  /* a drawn line, not a printed one */
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 26;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,.28));
+}
+.b__slide:hover .b__select { opacity: 1; }
+
+/* real capture reference from the shoot — content, not ornament */
+.b__ref {
+  position: absolute; top: .45rem; left: .55rem; z-index: 2;
+  font-size: .625rem; letter-spacing: .06em; color: #5E5E60;
+  font-variant-numeric: tabular-nums;
+}
+.b__tag {
+  position: absolute; top: .45rem; right: .55rem; z-index: 2;
+  font-size: .625rem; letter-spacing: .06em;
+  color: var(--bg); background: var(--metal); padding: .1rem .38rem;
+}
+
+/* stock, stated on the frame rather than discovered at checkout */
+.b__out {
+  position: absolute; left: 0; bottom: 0; z-index: 3;
+  font-size: .625rem; letter-spacing: .05em;
+  padding: .22rem .5rem;
+  background: var(--fg); color: var(--bg);
+}
+
+/* ---------- film row ---------- */
+.b__films { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(.75rem, 2vw, 1.5rem); }
+.b__film { text-decoration: none; display: block; }
+.b__film-frame {
+  position: relative; aspect-ratio: 16/9; overflow: hidden; background: #141416;
+  border: 1px solid var(--rule);
+}
+.b__film-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.b__film:hover .b__film-frame img { transform: scale(1.03); }
+/* thumbnails are a mix of dark film stills and white-seamless stills,
+   so the play mark carries its own ground rather than relying on either */
+.b__play {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: var(--paper);
+}
+.b__play svg {
+  width: 48px; height: 48px;
+  background: rgba(0,0,0,.55); border-radius: 50%;
+  backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+  transition: background .3s var(--ease);
+}
+.b__film:hover .b__play svg { background: rgba(0,0,0,.78); }
+.b__film h3 { font-family: var(--ui); font-weight: 500; font-size: .9375rem; margin-top: .65rem; }
+.b__film p { font-size: .75rem; color: var(--quiet); margin-top: .15rem; font-variant-numeric: tabular-nums; }
+
+/* ---------- editorial break ---------- */
+.b__break {
+  padding-block: clamp(4rem, 12vh, 9rem);
+  display: grid; place-items: center; text-align: center;
+  border-block: 1px solid var(--rule);
+}
+.b__break p {
+  font-family: var(--display); font-size: clamp(1.5rem, 4vw, 3.25rem);
+  line-height: 1.16; max-width: 21ch; font-weight: 400;
+  font-variation-settings: 'opsz' 88; letter-spacing: -0.016em;
+}
+.b__break .sig { font-family: var(--script); font-size: clamp(2.25rem, 5vw, 3.75rem); color: var(--metal); margin-top: 1.25rem; line-height: 1; }
+
+/* ---------- dated list ---------- */
+.b__rows { border-top: 1px solid var(--rule); }
+.b__row {
+  display: grid; grid-template-columns: 6.5rem 1fr auto auto; gap: 1.25rem; align-items: center;
+  padding: 1.1rem .25rem; border-bottom: 1px solid var(--rule);
+  text-decoration: none; transition: background .25s var(--ease), padding-left .3s var(--ease);
+}
+.b__row:hover { background: #0E0E10; padding-left: .8rem; }
+.b__row .when { font-size: .75rem; color: var(--quiet); font-variant-numeric: tabular-nums; }
+.b__row .what { font-size: .9375rem; }
+.b__row .where { font-size: .8125rem; color: var(--quiet); }
+.b__row .state { font-size: .625rem; letter-spacing: .06em; color: var(--quiet); border: 1px solid var(--rule); padding: .15rem .45rem; }
+.b__row[data-open] .state { color: var(--bg); background: var(--metal); border-color: var(--metal); }
+@media (max-width: 680px) { .b__row { grid-template-columns: 1fr auto; gap: .3rem 1rem; } .b__row .where { grid-column: 1; } }
+
+/* ---------- the flower, turning with the scroll ---------- */
+.b__mark-scroll {
+  position: fixed; right: clamp(.85rem, 2.5vw, 2rem); bottom: 4.4rem; z-index: 80;
+  width: clamp(34px, 4.4vw, 54px); aspect-ratio: 1; color: var(--metal);
+  pointer-events: none; will-change: transform;
+}
+.b__mark-scroll .flower path { stroke-width: 6; }
+
+/* ---------- footer ---------- */
+.b__foot {
+  border-top: 1px solid var(--rule); padding-block: clamp(2.5rem, 6vh, 4rem) 1.5rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 2rem;
+}
+.b__foot h3 { font-size: .75rem; font-weight: 500; margin-bottom: .8rem; }
+.b__foot li { margin-bottom: .4rem; }
+.b__foot a { font-size: .8125rem; color: var(--quiet); text-decoration: none; }
+.b__foot a:hover { color: var(--fg); }
+.b__signup { display: flex; gap: .5rem; margin-top: .8rem; max-width: 22rem; }
+.b__signup input { flex: 1; min-width: 0; background: none; border: 0; border-bottom: 1px solid var(--rule); color: var(--fg); padding: .45rem 0; font-size: .8125rem; }
+.b__signup input::placeholder { color: var(--quiet); }
+.b__signup button { font-size: .8125rem; border-bottom: 1px solid var(--fg); padding: .45rem 0; }
+.b__colophon { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.5rem; font-size: .75rem; color: var(--quiet); }

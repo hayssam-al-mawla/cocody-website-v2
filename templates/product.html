@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-direction="a">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product — Maison Cocody</title>
+<meta name="description" content="Product page template for Maison Cocody Website V2, with the flower size selector and fit finder.">
+<link rel="icon" href="../assets/brand/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Italianno&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/brand.css">
+<link rel="stylesheet" href="../assets/css/templates.css">
+<link rel="stylesheet" href="../assets/css/shop.css">
+</head>
+<body class="t">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="ann">
+  <span>Free shipping over €100 · Shipped worldwide · Rates worked out at checkout, before you pay</span>
+  <button class="ann__x" type="button" aria-label="Hide this message">&times;</button>
+</div>
+
+<header class="t__bar">
+  <a class="t__mark" href="../START-HERE.html">MAISON COCODY</a>
+  <nav class="t__nav" aria-label="Main">
+    <a href="shop.html" aria-current="page">Shop</a>
+    <a href="collections.html">Collections</a>
+    <a href="cocody-lab.html">Cocody Lab</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+  </nav>
+  <button class="t__bag" type="button">Search</button>
+  <button class="t__bag" type="button">Bag <span data-bag-count>0</span></button>
+</header>
+
+<!-- One template, ten products: product.html?p=<slug>. Everything below
+     is filled from the same catalogue the shop and the register use, so
+     the three can never disagree about price or stock. -->
+<main id="main" class="t__wrap" data-product>
+
+  <p class="t__crumb" style="margin-top:1.5rem" data-p-crumb></p>
+
+  <div class="p__grid">
+
+    <div class="p__gallery" data-gallery>
+      <img class="p__main" data-gallery-main src="" alt="" width="1600" height="1600" fetchpriority="high">
+      <div class="p__thumbs" data-p-thumbs></div>
+    </div>
+
+    <div>
+      <h1 class="p__title" data-p-title></h1>
+      <p class="p__price" data-p-price></p>
+      <p class="p__stock" data-p-meta></p>
+
+      <!-- On the woven label the size you bought is the one the blossom
+           holds. The selector does the same thing. -->
+      <div class="p__sizes-head">
+        <h2 id="size-label">Size</h2>
+        <button type="button" onclick="var c=document.getElementById('chart'); if(c){c.open=true;c.scrollIntoView({behavior:'smooth',block:'center'});}">Size chart</button>
+      </div>
+
+      <div class="size-row" data-sizes data-p-sizes role="radiogroup" aria-labelledby="size-label"></div>
+      <p class="p__chosen" data-p-note></p>
+
+      <div class="p__actions" data-p-buy></div>
+
+      <p class="p__ship">
+        <span class="mark" data-flower aria-hidden="true" style="width:16px;height:16px"></span>
+        Shipping is worked out from your address at checkout, before you pay. Free above €100.
+      </p>
+
+      <!-- brief 3.5: size recommendation from height and weight -->
+      <form class="p__fit" data-fit>
+        <h3>Not sure of your size?</h3>
+        <p>Tell us your height and weight and we will point at one.</p>
+        <div class="p__fit-row">
+          <label>Height (cm)<input name="height" type="number" min="120" max="230" placeholder="182" inputmode="numeric"></label>
+          <label>Weight (kg)<input name="weight" type="number" min="35" max="200" placeholder="78" inputmode="numeric"></label>
+          <button type="submit">Find my size</button>
+        </div>
+        <p class="p__fit-result" data-fit-result role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- brief 3.5: a story block, not a spec list -->
+      <details class="p__detail" open>
+        <summary>The piece</summary>
+        <div class="p__detail-body" data-p-story></div>
+      </details>
+
+      <details class="p__detail">
+        <summary>Fabric and care</summary>
+        <div class="p__detail-body">
+          <p>Garment-dyed so the colour settles rather than fading patchy.</p>
+          <p>Wash cold inside out, hang to dry. Do not tumble.</p>
+        </div>
+      </details>
+
+      <details class="p__detail" id="chart" data-p-chart-wrap>
+        <summary>Size chart</summary>
+        <div class="p__detail-body">
+          <table class="p__chart" data-p-chart></table>
+          <p style="font-size:.78rem;color:var(--t-quiet);margin-top:.75rem">The chart lists XS but the shop sells S to XL. Worth reconciling before launch — one of the small inconsistencies noted in the audit.</p>
+        </div>
+      </details>
+
+      <details class="p__detail">
+        <summary>Shipping and returns</summary>
+        <div class="p__detail-body">
+          <p>Rates are calculated live from UPS and DHL at checkout using your address and the parcel's weight and size, so the price you see is the price we pay. Free above €100.</p>
+          <p>Your label is generated the moment payment clears and your invoice is emailed straight away. Returns are free within 14 days in the EU.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <section class="t__section">
+    <div class="t__section-head">
+      <h2>Where this piece comes from</h2>
+      <a href="collections.html">All collections</a>
+    </div>
+    <div class="p__story">
+      <img src="../assets/img/pant-label-lg.jpg" width="1600" height="1600" loading="lazy"
+           alt="The woven Maison Cocody label, where a blossom encircles the garment's size."
+           style="aspect-ratio:4/3;object-fit:cover;object-position:center 42%">
+      <div>
+        <h2>The label</h2>
+        <p>Every garment carries the woven label with the blossom around its size. It is the one mark on every object the maison makes, and it is why picking a size on this site works the way it does.</p>
+        <p style="margin-top:1.25rem">
+          <a class="t__btn t__btn--ghost" href="collections.html">The collections</a>
+          <a class="t__btn t__btn--ghost" href="events.html">Events</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="t__section" style="padding-top:0">
+    <div class="t__section-head">
+      <h2>Also in the register</h2>
+      <a href="shop.html">Everything</a>
+    </div>
+    <div class="t__cards" data-p-related></div>
+  </section>
+
+</main>
+
+<footer class="t__wrap">
+  <div class="t__foot">
+    <div><h3>Shop</h3><ul>
+      <li><a href="shop.html">All pieces</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="#chart">Size &amp; fit</a></li>
+    </ul></div>
+    <div><h3>Maison</h3><ul>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="cocody-lab.html">Cocody Lab</a></li>
+      <li><a href="events.html">Events</a></li>
+    </ul></div>
+    <div><h3>Help</h3><ul>
+      <li><a href="checkout.html">Checkout</a></li>
+      <li><a href="#">Track your order</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul></div>
+    <div><h3>Amsterdam · Abidjan</h3>
+      <p style="font-size:.8125rem;color:var(--t-quiet)">© 2026 Maison Cocody</p>
+    </div>
+  </div>
+</footer>
+
+<div class="rv" data-switchable>
+  <span class="rv__note"><b>Product template</b> — shown in Direction <span data-direction-name>Seamless</span>. Live product data; every piece in the catalogue has its own page.</span>
+  <span class="rv__group">
+    <span style="color:#8a8a8a">Direction:</span>
+    <button class="rv__btn" type="button" data-set-direction="a">A · Seamless</button>
+    <button class="rv__btn" type="button" data-set-direction="b">B · Le Labo</button>
+    <button class="rv__btn" type="button" data-set-direction="c">C · Le Décor</button>
+    <a class="rv__link" href="../START-HERE.html">All options</a>
+    <button class="rv__close" type="button" aria-label="Hide this review bar">×</button>
+  </span>
+</div>
+
+<script src="../assets/js/catalogue.js"></script>
+<script src="../assets/js/product.js"></script>
+<script src="../assets/js/cocody.js"></script>
+<script src="../assets/js/shop.js"></script>
+<script src="../assets/js/search.js"></script>
+</body>
+</html>

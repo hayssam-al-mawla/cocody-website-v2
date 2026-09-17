@@ -1,0 +1,218 @@
+/* ------------------------------------------------------------------
+   DIRECTION D — "LE REGISTRE"
+   The shop as the maison's own register.
+
+   The other three are different surfaces on the same structure. This
+   one changes the structure.
+
+   Seven of the ten pieces Maison Cocody has made are sold out. In a
+   normal grid that reads as a thin shop. Kept as a register — every
+   piece the maison has ever released, numbered, dated, and listed
+   whether or not you can still buy it — the same fact reads as a track
+   record. The brief asks for collections that never disappear and for a
+   visitor to feel the momentum at a glance; this makes that the front
+   page rather than a section of it.
+
+   The flower does the semantic work: filled where a piece is still
+   available, drawn in outline where it has gone to the archive. The
+   mark that circles the size on the woven label becomes the mark that
+   tells you whether you can still have it.
+
+   Palette: bone from the Ivory T-Shirt, oxblood from the SS25 jersey.
+   Both sampled off the products; neither used by A, B or C.
+   ------------------------------------------------------------------ */
+
+.d {
+  --bone:      #F1EADF;   /* the Ivory T-Shirt */
+  --bone-deep: #E4DACB;
+  --ink:       #14100E;
+  --oxblood:   #38110E;   /* the SS25 jersey */
+  --ox-soft:   #663E37;
+  --quiet:     #5F564E;   /* 5.2:1 on the highlighted row; #6A6058 measured 4.43 */
+  --rule:      #D6CBBA;
+
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--ui);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  --gut: clamp(1rem, 4.5vw, 4rem);
+}
+.d ::selection { background: var(--oxblood); color: var(--bone); }
+.d__wrap { width: min(100% - 2 * var(--gut), 1420px); margin-inline: auto; }
+.d h1, .d h2, .d h3 { font-family: var(--display); font-weight: 400; }
+
+/* ---------- masthead ---------- */
+.d__bar {
+  position: sticky; top: 0; z-index: 90;
+  display: flex; align-items: center; gap: clamp(1rem, 3vw, 2.25rem);
+  padding: 1rem var(--gut);
+  background: color-mix(in srgb, var(--bone) 92%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+.d__mark {
+  font-family: var(--display); font-size: clamp(.78rem, 1.4vw, 1rem);
+  letter-spacing: .32em; text-indent: .32em; text-decoration: none; white-space: nowrap;
+}
+.d__nav { display: flex; gap: clamp(.85rem, 2vw, 1.8rem); margin-left: auto; font-size: .8125rem; }
+.d__nav a { text-decoration: none; color: var(--quiet); padding-bottom: .15rem; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.d__nav a:hover { color: var(--ink); border-color: currentColor; }
+.d__bag { font-size: .8125rem; font-variant-numeric: tabular-nums; }
+.is-bumped { animation: d-bump .42s var(--ease); display: inline-block; }
+@keyframes d-bump { 40% { transform: translateY(-.3em); } }
+@media (max-width: 860px) { .d__nav { display: none; } }
+
+/* ---------- the standing ----------
+   The numbers first, stated plainly. Most of the catalogue is gone,
+   and saying so is the strongest thing this brand can lead with. */
+.d__standing {
+  padding-block: clamp(3rem, 9vh, 6.5rem) clamp(2rem, 5vh, 3.5rem);
+  border-bottom: 1px solid var(--rule);
+}
+.d__standing h1 {
+  font-size: clamp(2.1rem, 6.2vw, 5.4rem);
+  line-height: 1.02; letter-spacing: -0.028em;
+  font-variation-settings: 'opsz' 96;
+  max-width: 17ch; text-wrap: balance;
+}
+.d__standing h1 em { font-style: italic; color: var(--oxblood); }
+.d__standing-row {
+  display: flex; gap: clamp(1.5rem, 5vw, 4.5rem); flex-wrap: wrap;
+  margin-top: clamp(1.5rem, 4vh, 2.5rem);
+}
+.d__fig { display: flex; align-items: baseline; gap: .55rem; }
+.d__fig b {
+  font-family: var(--display); font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-weight: 400; font-variant-numeric: tabular-nums;
+  font-variation-settings: 'opsz' 48;
+}
+.d__fig span { font-size: .8125rem; color: var(--quiet); max-width: 18ch; line-height: 1.35; }
+
+/* ---------- the register ---------- */
+.d__reg { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(1.5rem, 5vw, 4.5rem); align-items: start; }
+@media (max-width: 940px) { .d__reg { grid-template-columns: 1fr; } }
+
+.d__reg-head {
+  display: grid; grid-template-columns: 3.2rem 1fr 7rem 5rem 4.5rem;
+  gap: 1rem; padding: 1.1rem .25rem .6rem;
+  font-size: .68rem; letter-spacing: .08em; color: var(--quiet);
+  border-bottom: 1px solid var(--ink);
+}
+.d__row {
+  display: grid; grid-template-columns: 3.2rem 1fr 7rem 5rem 4.5rem;
+  gap: 1rem; align-items: baseline;
+  padding: 1.05rem .25rem; border-bottom: 1px solid var(--rule);
+  text-decoration: none; color: inherit; position: relative;
+  transition: background var(--t-fast) var(--ease-out), padding-left var(--t-mid) var(--ease);
+}
+.d__row:hover, .d__row.is-live { background: var(--bone-deep); padding-left: .7rem; }
+.d__row .ref { font-size: .78rem; color: var(--quiet); font-variant-numeric: tabular-nums; }
+.d__row .nm {
+  font-family: var(--display); font-size: clamp(1rem, 1.7vw, 1.3rem);
+  line-height: 1.2; font-variation-settings: 'opsz' 28; letter-spacing: -0.006em;
+}
+.d__row .nm i { display: block; font-style: normal; font-family: var(--ui); font-size: .75rem; color: var(--quiet); margin-top: .22rem; }
+.d__row .col { font-size: .8125rem; color: var(--quiet); }
+.d__row .pz { font-size: .8125rem; font-variant-numeric: tabular-nums; }
+.d__row .pz s { color: var(--quiet); margin-left: .3rem; }
+.d__row .st { display: flex; align-items: center; gap: .4rem; font-size: .7rem; color: var(--quiet); justify-self: end; }
+
+/* the flower as the availability glyph */
+.d__glyph { width: 15px; height: 15px; flex: none; }
+.d__glyph .flower path { stroke-width: 11; }
+.d__row[data-state="here"] .d__glyph { color: var(--oxblood); }
+.d__row[data-state="here"] .d__glyph .flower path { fill: currentColor; stroke: none; }
+.d__row[data-state="gone"] .d__glyph { color: var(--quiet); }
+.d__row[data-state="here"] .st { color: var(--oxblood); }
+
+@media (max-width: 660px) {
+  .d__reg-head { display: none; }
+  .d__row { grid-template-columns: 2.6rem 1fr auto; row-gap: .3rem; }
+  .d__row .col { grid-column: 2; }
+  .d__row .st { grid-column: 3; align-self: start; }
+}
+
+/* ---------- the plate ----------
+   One large image that follows the register. Moving down the list is
+   how you browse; there is no grid to scan. */
+.d__plate { position: sticky; top: 5.5rem; }
+@media (max-width: 940px) { .d__plate { display: none; } }
+.d__plate-frame {
+  position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+  background: var(--paper); border: 1px solid var(--rule);
+}
+/* contain, not cover: a register shows the whole object. These are
+   clean pack shots, so the white margin is part of the record. */
+.d__plate-frame img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; padding: clamp(1rem, 2.5vw, 2.25rem);
+  opacity: 0; transition: opacity var(--t-mid) var(--ease-out);
+}
+.d__plate-frame img.is-live { opacity: 1; }
+.d__plate-cap {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  margin-top: .85rem; font-size: .8125rem;
+}
+.d__plate-cap .l { color: var(--quiet); }
+.d__plate-cap b { font-weight: 500; }
+
+/* ---------- chapters ---------- */
+.d__section { padding-block: clamp(3rem, 9vh, 7rem); }
+.d__head {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; flex-wrap: wrap;
+  padding-bottom: 1rem; margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+  border-bottom: 1px solid var(--ink);
+}
+.d__head h2 { font-size: clamp(1.4rem, 3vw, 2.3rem); font-variation-settings: 'opsz' 64; letter-spacing: -0.016em; }
+.d__head a, .d__head span { font-size: .8125rem; color: var(--quiet); text-decoration: none; }
+.d__head a:hover { color: var(--ink); }
+
+.d__chapters { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(1.25rem, 3vw, 2.5rem); }
+.d__chapter { text-decoration: none; color: inherit; display: block; }
+.d__chapter-frame { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--paper); border: 1px solid var(--rule); }
+.d__chapter-frame img { width: 100%; height: 100%; object-fit: contain; padding: 1.25rem; transition: transform var(--t-slow) var(--ease); }
+.d__chapter:hover img { transform: scale(1.03); }
+.d__chapter h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); margin-top: .8rem; font-variation-settings: 'opsz' 32; }
+.d__chapter p { font-size: .8125rem; color: var(--quiet); margin-top: .2rem; }
+.d__chapter .bar { display: block; height: 2px; background: var(--oxblood); width: 0; transition: width var(--t-slow) var(--ease); margin-top: .7rem; }
+.d__chapter:hover .bar { width: 100%; }
+
+/* ---------- the oxblood band ---------- */
+.d__band { background: var(--oxblood); color: var(--bone); }
+.d__band .d__head { border-bottom-color: rgba(241,234,223,.34); }
+.d__band .d__head h2, .d__band .d__head a { color: var(--bone); }
+.d__band-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+@media (max-width: 860px) { .d__band-grid { grid-template-columns: 1fr; } }
+.d__band video { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.d__band h3 { font-size: clamp(1.3rem, 2.6vw, 2rem); font-variation-settings: 'opsz' 48; }
+.d__band p { margin-top: .9rem; max-width: 38ch; color: rgba(241,234,223,.82); }
+.d__link {
+  display: inline-block; margin-top: 1.3rem; font-size: .8125rem;
+  padding: .7rem 1.35rem; border: 1px solid currentColor; text-decoration: none;
+  transition: background var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out);
+}
+.d__band .d__link:hover { background: var(--bone); color: var(--oxblood); }
+.d__link:hover { background: var(--ink); color: var(--bone); }
+
+/* ---------- colophon ---------- */
+.d__colophon { padding-block: clamp(3.5rem, 11vh, 8rem); text-align: center; }
+.d__colophon p {
+  font-family: var(--display); font-size: clamp(1.4rem, 3.2vw, 2.6rem);
+  line-height: 1.2; max-width: 24ch; margin-inline: auto;
+  font-variation-settings: 'opsz' 72; letter-spacing: -0.014em; text-wrap: balance;
+}
+.d__colophon .sig { font-family: var(--script); font-size: clamp(2.4rem, 5.5vw, 4rem); color: var(--oxblood); line-height: 1; margin-top: 1.2rem; }
+
+/* ---------- footer ---------- */
+.d__foot { border-top: 1px solid var(--rule); padding-block: clamp(2.5rem, 7vh, 4.5rem) 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 2rem; }
+.d__foot h3 { font-family: var(--ui); font-size: .8125rem; font-weight: 500; margin-bottom: .8rem; }
+.d__foot li { margin-bottom: .42rem; }
+.d__foot a { font-size: .8125rem; color: var(--quiet); text-decoration: none; }
+.d__foot a:hover { color: var(--ink); }
+.d__colo { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.5rem; font-size: .75rem; color: var(--quiet); }
+
+/* the bag, in bone */
+.d .bag { --bag-bg: var(--bone); --bag-fg: var(--ink); --bag-rule: #D6CBBA; --bag-quiet: #6A6058; }
+.d .ann { --ann-bg: var(--oxblood); --ann-fg: var(--bone); }

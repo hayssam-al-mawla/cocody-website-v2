@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-direction="a">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — Maison Cocody</title>
+<meta name="description" content="Shop listing template: the whole catalogue, filtered by category, with quick add to bag.">
+<link rel="icon" href="../assets/brand/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Italianno&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/brand.css">
+<link rel="stylesheet" href="../assets/css/templates.css">
+<link rel="stylesheet" href="../assets/css/shop.css">
+</head>
+<body class="t">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="ann">
+  <span>Free shipping over €100 · Shipped worldwide · Rates worked out at checkout, before you pay</span>
+  <button class="ann__x" type="button" aria-label="Hide this message">&times;</button>
+</div>
+
+<header class="t__bar">
+  <a class="t__mark" href="../START-HERE.html">MAISON COCODY</a>
+  <nav class="t__nav" aria-label="Main">
+    <a href="shop.html" aria-current="page">Shop</a>
+    <a href="collections.html">Collections</a>
+    <a href="cocody-lab.html">Cocody Lab</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+  </nav>
+  <button class="t__bag" type="button">Search</button>
+  <button class="t__bag" type="button">Bag <span data-bag-count>0</span></button>
+</header>
+
+<main id="main" class="t__wrap">
+
+  <div class="t__head">
+    <p class="t__crumb">Shop</p>
+    <h1>Everything</h1>
+    <p>Three collections so far. Nothing is taken down once it sells out — the archive is the point.</p>
+  </div>
+
+  <!-- WooCommerce: the product archive. Filters are product categories,
+       the sort is the standard orderby, and the grid is the loop. -->
+  <div class="sh__bar">
+    <div class="sh__filters" role="group" aria-label="Filter by category">
+      <button class="sh__f" type="button" data-shop-filter="All" aria-pressed="true">All</button>
+      <button class="sh__f" type="button" data-shop-filter="Sweater" aria-pressed="false">Sweaters</button>
+      <button class="sh__f" type="button" data-shop-filter="Pants" aria-pressed="false">Trousers</button>
+      <button class="sh__f" type="button" data-shop-filter="T-shirts" aria-pressed="false">T-shirts</button>
+      <button class="sh__f" type="button" data-shop-filter="Vintage Jerseys" aria-pressed="false">Jerseys</button>
+      <button class="sh__f" type="button" data-shop-filter="Headwear" aria-pressed="false">Headwear</button>
+      <button class="sh__f" type="button" data-shop-filter="Bags" aria-pressed="false">Bags</button>
+    </div>
+    <div class="sh__right">
+      <span class="sh__count" data-shop-count>10 pieces</span>
+      <label class="sr-only" for="sort">Sort by</label>
+      <select class="sh__sort" id="sort" data-shop-sort>
+        <option value="featured">Featured</option>
+        <option value="stock">In stock first</option>
+        <option value="low">Price, low to high</option>
+        <option value="high">Price, high to low</option>
+        <option value="name">Name</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="sh__grid" data-shop-grid></div>
+  <p class="sh__none" data-shop-none hidden>Nothing in this category yet.</p>
+
+  <section class="t__section">
+    <div class="t__split">
+      <img src="../assets/img/pant-label-lg.jpg" width="1600" height="1600" loading="lazy"
+           alt="The woven Maison Cocody label, where a blossom encircles the garment's size."
+           style="aspect-ratio:4/3;object-fit:cover;object-position:center 42%">
+      <div>
+        <h2 style="font-size:clamp(1.35rem,2.8vw,2rem)">Sizing sits inside the flower</h2>
+        <p style="margin-top:.9rem;max-width:44ch">Hover any piece above and the sizes appear — pick one and it goes straight in the bag. On the product page the blossom moves onto the size you choose, exactly as it sits on the woven label inside the garment.</p>
+        <p style="margin-top:1.3rem"><a class="t__btn t__btn--ghost" href="product.html">Open a product page</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="t__wrap">
+  <div class="t__foot">
+    <div><h3>Shop</h3><ul>
+      <li><a href="shop.html">All pieces</a></li>
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="product.html#chart">Size &amp; fit</a></li>
+    </ul></div>
+    <div><h3>Maison</h3><ul>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="cocody-lab.html">Cocody Lab</a></li>
+      <li><a href="events.html">Events</a></li>
+    </ul></div>
+    <div><h3>Help</h3><ul>
+      <li><a href="#">Shipping &amp; returns</a></li>
+      <li><a href="#">Track your order</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul></div>
+    <div><h3>Amsterdam · Abidjan</h3>
+      <p style="font-size:.8125rem;color:var(--t-quiet)">© 2026 Maison Cocody</p>
+    </div>
+  </div>
+</footer>
+
+<div class="rv" data-switchable>
+  <span class="rv__note"><b>Shop template</b> — shown in Direction <span data-direction-name>Seamless</span>. The whole live catalogue, with real prices and stock.</span>
+  <span class="rv__group">
+    <span style="color:#8a8a8a">Direction:</span>
+    <button class="rv__btn" type="button" data-set-direction="a">A · Seamless</button>
+    <button class="rv__btn" type="button" data-set-direction="b">B · Le Labo</button>
+    <button class="rv__btn" type="button" data-set-direction="c">C · Le Décor</button>
+    <a class="rv__link" href="../START-HERE.html">All options</a>
+    <button class="rv__close" type="button" aria-label="Hide this review bar">×</button>
+  </span>
+</div>
+
+<script src="../assets/js/catalogue.js"></script>
+<script src="../assets/js/cocody.js"></script>
+<script src="../assets/js/shop.js"></script>
+<script src="../assets/js/search.js"></script>
+</body>
+</html>
