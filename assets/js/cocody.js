@@ -44,40 +44,12 @@
 
   /* ------------------------------------------------------------------
      Signature motion.
-     Direction A  — the flower draws itself as a scroll indicator.
-     Direction B  — the flower turns with scroll velocity.
-     Direction C  — the flower blooms when its section arrives.
+     The mark opens when the section that explains it arrives — the
+     woven label in A, the painted grounds in C. It used to also float
+     in the corner of A and B, but measured against the layout that
+     overlay sat on top of copy or a photograph at every scroll
+     position, so it now lives in the page instead.
      ------------------------------------------------------------------ */
-  function scrollFlower() {
-    var marks = document.querySelectorAll('[data-flower-scroll]');
-    if (!marks.length) return;
-    var lastY = window.scrollY, spin = 0, ticking = false;
-
-    function frame() {
-      ticking = false;
-      var y = window.scrollY;
-      var max = document.documentElement.scrollHeight - window.innerHeight;
-      var progress = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
-      var velocity = y - lastY;
-      lastY = y;
-      spin += velocity * 0.35;
-
-      marks.forEach(function (m) {
-        var mode = m.dataset.flowerScroll;
-        if (mode === 'spin') {
-          m.style.transform = 'rotate(' + spin.toFixed(1) + 'deg)';
-        } else {
-          m.style.setProperty('--bloom', progress.toFixed(3));
-        }
-      });
-    }
-
-    function onScroll() {
-      if (!ticking) { ticking = true; requestAnimationFrame(frame); }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    frame();
-  }
 
   /* ---- bloom a flower when its section scrolls into view ---- */
   function bloomOnEnter() {
@@ -315,7 +287,6 @@
     morph();
     paintFlowers();
     measureFlowers();
-    scrollFlower();
     bloomOnEnter();
     sizePicker();
     fitFinder();

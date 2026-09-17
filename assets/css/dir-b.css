@@ -240,13 +240,6 @@
 @media (max-width: 680px) { .b__row { grid-template-columns: 1fr auto; gap: .3rem 1rem; } .b__row .where { grid-column: 1; } }
 
 /* ---------- the flower, turning with the scroll ---------- */
-.b__mark-scroll {
-  position: fixed; right: clamp(.85rem, 2.5vw, 2rem); bottom: 4.4rem; z-index: 80;
-  width: clamp(34px, 4.4vw, 54px); aspect-ratio: 1; color: var(--metal);
-  pointer-events: none; will-change: transform;
-}
-.b__mark-scroll .flower path { stroke-width: 6; }
-
 /* ---------- footer ---------- */
 .b__foot {
   border-top: 1px solid var(--rule); padding-block: clamp(2.5rem, 6vh, 4rem) 1.5rem;

@@ -231,7 +231,10 @@
   line-height: 1.18; max-width: 23ch; margin-inline: auto;
   font-variation-settings: 'opsz' 80; letter-spacing: -0.016em; text-wrap: balance;
 }
-.d__colophon .sig { font-family: var(--script); font-size: clamp(2.5rem, 5.5vw, 4rem); color: var(--quiet); line-height: 1; margin-top: 1.3rem; display: block; }
+/* the signature is the brand's own artwork now, so it is sized by
+   height rather than by font-size */
+.d__colophon .sig { display: block; margin-top: 1.6rem; line-height: 0; }
+.d__colophon .sig-mark { margin-inline: auto; height: clamp(44px, 6vw, 76px); }
 
 /* ---------- footer ---------- */
 .d__foot { border-top: 1px solid var(--rule); padding-block: clamp(2.5rem, 7vh, 4.5rem) 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 2rem; }
@@ -248,3 +251,14 @@
 
 /* the lockup is now an image, so the text metrics no longer apply */
 .d__mark { line-height: 0; }
+
+/* the footer's fourth column: the only place the register asks for anything */
+.d__note { font-size: .8125rem; color: var(--quiet); max-width: 28ch; }
+.d__signup { display: flex; gap: .5rem; margin-top: .9rem; max-width: 22rem; }
+.d__signup input {
+  flex: 1; min-width: 0; background: none; border: 0;
+  border-bottom: 1px solid var(--rule-hard); color: var(--ink);
+  padding: .45rem 0; font-size: .8125rem;
+}
+.d__signup input::placeholder { color: var(--quieter); }
+.d__signup button { font-size: .8125rem; border-bottom: 1px solid var(--ink); padding: .45rem 0; }

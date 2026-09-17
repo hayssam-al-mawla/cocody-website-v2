@@ -294,12 +294,13 @@
 }
 
 /* ---------- the flower, as a scroll indicator ---------- */
-.a__mark-scroll {
-  position: fixed; right: clamp(1rem, 3vw, 2.5rem); bottom: 4.6rem; z-index: 80;
-  width: clamp(38px, 5vw, 62px); aspect-ratio: 1; color: var(--fg);
-  pointer-events: none;
-}
-.a__mark-scroll .flower path { stroke-width: 5; }
+/* The mark's one moment on this page. It is drawn from the woven
+   label in the photograph above, so it draws itself beside the line
+   that says so — in the layout, where nothing has to move out of its
+   way. */
+.a__film-note { display: flex; align-items: center; gap: .7rem; }
+.a__film-bloom { flex: none; width: 1.6rem; aspect-ratio: 1; color: var(--fg); }
+.a__film-bloom .flower path { stroke-width: 9; }
 
 /* ---------- footer ---------- */
 .a__foot {

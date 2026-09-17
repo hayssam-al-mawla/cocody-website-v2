@@ -117,8 +117,16 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
 .flower--draw .f-out {
   stroke-dasharray: var(--len, 760);
   stroke-dashoffset: calc(var(--len, 760) * (1 - var(--bloom, 0)));
+  transition: stroke-dashoffset 1.15s var(--ease);
 }
-.flower--draw .f-in { opacity: var(--bloom, 0); transition: opacity .3s var(--ease); }
+/* The hole is the last thing to arrive. Fading it in alongside the
+   outline left a stray circle floating beside a half-drawn bloom, so
+   it waits for the contour to close. --bloom is a step rather than a
+   ramp, so the wait has to be the transition's own delay. */
+.flower--draw .f-in {
+  opacity: var(--bloom, 0);
+  transition: opacity .34s var(--ease) .92s;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .flower--draw .f-out { stroke-dashoffset: 0; }
