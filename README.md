@@ -3,16 +3,16 @@
 Four design directions and seven page templates for the Maison Cocody
 website redesign, September 2026.
 
-**[Open the review pack →](https://hayssam-stack-testing.github.io/cocody-website-v2/)**
+**[Open the review pack →](https://hayssam-al-mawla.github.io/cocody-website-v2/)**
 
 ## The four directions
 
 | | Direction | The idea |
 |---|---|---|
-| **A** | [Seamless](https://hayssam-stack-testing.github.io/cocody-website-v2/a/) | The e-comm backdrop turned into a website. Pure white, true black, scale does the work. |
-| **B** | [Le Labo](https://hayssam-stack-testing.github.io/cocody-website-v2/b/) | The studio, not the shop. A contact sheet on a light table, film first. |
-| **C** | [Le Décor](https://hayssam-stack-testing.github.io/cocody-website-v2/c/) | The painted canvas from the campaign film, hung on the web. |
-| **D** | [Le Registre](https://hayssam-stack-testing.github.io/cocody-website-v2/d/) | Our own proposal. The shop as a register of everything ever made, sold out or not. |
+| **A** | [Seamless](https://hayssam-al-mawla.github.io/cocody-website-v2/a/) | The e-comm backdrop turned into a website. Pure white, true black, scale does the work. |
+| **B** | [Le Labo](https://hayssam-al-mawla.github.io/cocody-website-v2/b/) | The studio, not the shop. A contact sheet on a light table, film first. |
+| **C** | [Le Décor](https://hayssam-al-mawla.github.io/cocody-website-v2/c/) | The painted canvas from the campaign film, hung on the web. |
+| **D** | [Le Registre](https://hayssam-al-mawla.github.io/cocody-website-v2/d/) | Our own proposal. The shop as a register of everything ever made, sold out or not. |
 
 ## It is a working site, not flat mockups
 
