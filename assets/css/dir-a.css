@@ -323,3 +323,6 @@
   display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
   padding-block: 2rem; font-size: .75rem; color: var(--quiet);
 }
+
+/* the lockup is now an image, so the text metrics no longer apply */
+.a__mark { line-height: 0; }

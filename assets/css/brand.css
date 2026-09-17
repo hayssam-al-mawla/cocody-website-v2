@@ -105,17 +105,24 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
    every Cocody object, so it carries the site's signature motion.
    ------------------------------------------------------------------ */
 .flower { display: block; overflow: visible; }
-.flower path { fill: none; stroke: currentColor; stroke-width: 7; stroke-linejoin: round; }
-.flower--solid path { fill: currentColor; stroke: none; }
+.flower path { fill: none; stroke: currentColor; stroke-width: 7; stroke-linejoin: round; stroke-linecap: round; }
+/* a plain ring: the hole is dropped so a letter can sit in the middle */
+.flower--ring .f-in { display: none; }
+/* solid. At the sizes this is used the hole is under two pixels, so the
+   outer contour alone is indistinguishable and avoids a mask. */
+.flower--solid .f-out { fill: currentColor; stroke: none; }
+.flower--solid .f-in { display: none; }
 
 /* draws itself, as the script wordmark does in the campaign film */
-.flower--draw path {
+.flower--draw .f-out {
   stroke-dasharray: var(--len, 760);
   stroke-dashoffset: calc(var(--len, 760) * (1 - var(--bloom, 0)));
 }
+.flower--draw .f-in { opacity: var(--bloom, 0); transition: opacity .3s var(--ease); }
 
 @media (prefers-reduced-motion: reduce) {
-  .flower--draw path { stroke-dashoffset: 0; }
+  .flower--draw .f-out { stroke-dashoffset: 0; }
+  .flower--draw .f-in { opacity: 1; }
   *, *::before, *::after {
     animation-duration: .001ms !important;
     animation-iteration-count: 1 !important;
@@ -123,6 +130,29 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ------------------------------------------------------------------
+   The wordmark
+   Maison Cocody's own logo file, not type set to look like it. The
+   drawn serif and the mark over the I in MAISON are part of the
+   identity and cannot be reproduced with letter-spacing.
+   ------------------------------------------------------------------ */
+.logo { height: clamp(13px, 1.5vw, 17px); width: auto; display: block; }
+/* The artwork is black. Direction B's own masthead loads the white
+   file directly; the templates in the dark skin invert instead of
+   fetching a second image. */
+html[data-direction="b"] .logo { filter: invert(1); }
+
+
+/* ------------------------------------------------------------------
+   The script signature
+   Maison Cocody's own handwritten lockup, the one written across the
+   campaign film. Italianno was standing in for it; there is no reason
+   to approximate artwork that exists.
+   ------------------------------------------------------------------ */
+.sig-mark { height: clamp(38px, 5.5vw, 68px); width: auto; }
+.sig { line-height: 0; }
 
 /* ------------------------------------------------------------------
    Page transitions

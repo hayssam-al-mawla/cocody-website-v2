@@ -75,6 +75,13 @@ PLEASE NOTE
   Fonts. Without a connection the pages still work, just in a fallback
   face.
 
+- The logo is Maison Cocody's own artwork, taken from the live site:
+  the drawn serif wordmark, the handwritten script lockup, and the
+  six-petal flower, which is traced to vector so it can be stroked,
+  ringed or filled. Earlier versions of this pack set the wordmark in
+  Bodoni and drew an eight-petal flower — both were reconstructions and
+  both are gone.
+
 - Product names, prices, sizes and stock levels are the REAL ones, read
   off the live shop. Event dates and Cocody Lab titles are placeholder,
   because none of those exist yet. The photography, film, monogram,

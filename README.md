@@ -27,7 +27,8 @@ website redesign, September 2026.
 Product names, prices, sizes and stock are the **real ones**, read off
 maisoncocody.com. Event dates and Cocody Lab titles are placeholder,
 because none of those exist yet. All photography, the campaign film,
-the monogram, the wordmark and the flower are Maison Cocody's own.
+the wordmark, the script lockup and the flower are Maison Cocody's own
+artwork, taken from the live site — not reconstructions.
 
 ## Notes
 

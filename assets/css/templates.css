@@ -148,6 +148,7 @@ html[data-direction="b"] .t__mark { font-family: var(--ui); letter-spacing: .2em
   color: var(--t-fg); pointer-events: none;
 }
 .size-ring .flower path { stroke-width: 6; }
+.size-ring .flower .f-in { display: none; }
 .p__chosen { font-family: var(--ui); font-size: .8125rem; color: var(--t-quiet); margin-top: .1rem; }
 .p__chosen strong { color: var(--t-fg); font-weight: 500; }
 

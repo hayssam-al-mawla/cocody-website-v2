@@ -88,15 +88,14 @@
 /* the signature, written on the page the way it is written in the film.
    Scoped tightly so the generic .c__hero paragraph rule cannot outrank it. */
 .c__hero .c__sig {
-  font-family: var(--script);
-  font-size: clamp(3.5rem, 11vw, 9rem);
-  line-height: .85; color: #FFFFFF;
-  margin-bottom: .1em;
+  line-height: 0; margin-bottom: 1.1rem;
   /* revealed left-to-right, as a hand would lay it down */
   -webkit-mask-image: linear-gradient(to right, #000 0 var(--write, 0%), transparent var(--write, 0%));
           mask-image: linear-gradient(to right, #000 0 var(--write, 0%), transparent var(--write, 0%));
   animation: c-write 2.4s cubic-bezier(.66,.02,.35,1) .35s forwards;
 }
+/* the hero signature is the real artwork, so it is sized by height */
+.c__hero .c__sig .sig-mark { height: clamp(3.2rem, 9vw, 7.5rem); }
 @keyframes c-write { to { --write: 104%; } }
 @property --write { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
 @media (prefers-reduced-motion: reduce) {
@@ -238,3 +237,6 @@
 .c__signup input::placeholder { color: inherit; opacity: .6; }
 .c__signup button { font-size: .8125rem; border-bottom: 1px solid currentColor; padding: .45rem 0; }
 .c__colophon { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.5rem; font-family: var(--ui); font-size: .75rem; opacity: .75; border-top: 1px solid var(--rule); }
+
+/* the lockup is now an image, so the text metrics no longer apply */
+.c__mark { line-height: 0; }

@@ -45,11 +45,8 @@
   border-bottom: 1px solid var(--rule);
 }
 .b__mono { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
-.b__mono img { width: 30px; height: auto; }
-.b__mono span {
-  font-size: .78rem; letter-spacing: .2em; text-indent: .2em;
-  font-weight: 500;
-}
+.b__flower { width: 20px; height: auto; }
+
 .b__nav { display: flex; gap: clamp(.9rem, 2vw, 1.9rem); margin-left: auto; font-size: .8125rem; }
 .b__nav a { text-decoration: none; color: var(--quiet); transition: color .2s; }
 .b__nav a:hover, .b__nav a[aria-current] { color: var(--fg); }
@@ -264,3 +261,6 @@
 .b__signup input::placeholder { color: var(--quiet); }
 .b__signup button { font-size: .8125rem; border-bottom: 1px solid var(--fg); padding: .45rem 0; }
 .b__colophon { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-block: 1.5rem; font-size: .75rem; color: var(--quiet); }
+
+/* the lockup is now an image, so the text metrics no longer apply */
+.b__mono { line-height: 0; }
