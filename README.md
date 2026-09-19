@@ -14,6 +14,22 @@ website redesign, September 2026.
 | **C** | [Le Décor](https://hayssam-al-mawla.github.io/cocody-website-v2/c/) | The painted canvas from the campaign film, hung on the web. |
 | **D** | [Le Registre](https://hayssam-al-mawla.github.io/cocody-website-v2/d/) | Our own proposal. The shop as a register of everything ever made, sold out or not. |
 
+## The pages behind them
+
+Each of these can be shown in any of A, B or C — use the bar at the foot
+of the page, or add `?dir=a`, `?dir=b` or `?dir=c` to the address to send
+someone straight to one version.
+
+| Page | | |
+|---|---|---|
+| [Shop](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/shop.html) | the full catalogue | filters, sort, quick add |
+| [Product](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/product.html) | one per piece, `?p=<name>` | the flower size picker |
+| [Checkout](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/checkout.html) | live carrier rates | label and invoice |
+| [Collections](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/collections.html) | one collection, and the index | |
+| [Cocody Lab](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/cocody-lab.html) | the film hub | |
+| [Events](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/events.html) | upcoming, and the archive | |
+| [About](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/about.html) | the story | |
+
 ## It is a working site, not flat mockups
 
 - Every one of the ten products has its own page, driven by the real catalogue

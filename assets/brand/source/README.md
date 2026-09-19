@@ -28,11 +28,20 @@ Two things only, and both are framing rather than drawing:
    empty margin. A logo sized by height in CSS would pay for that
    margin, so each generated file is reframed to its own bounding box:
 
-   | | tight viewBox | ratio |
+   | | viewBox | ratio |
    |---|---|---|
    | horizontal | `40.24 49 715.18 91.97` | 7.776 |
    | stacked | `37.21 49 343.48 189.01` | 1.817 |
-   | flower | `99.66 41.09 218.55 210.07` | 1.040 |
+   | flower, filled | `99.66 41.09 218.55 210.07` | 1.040 |
+   | flower, outline | `98.28 39.72 221.3 212.81` | 1.040 |
+
+   The outline's frame is 1.375 larger on every side, and that is not a
+   rounding difference. A fill ends where its path ends, but a stroke
+   is centred on the path and paints half its weight outside — so a
+   frame set to the path alone slices the petal tips off along a flat
+   line. `flower-outline.svg` is the only stroked file here, and it did
+   ship clipped for a few hours on 19 September. `tools/edgecheck`
+   tests for it now.
 
 2. **`fill` is stated.** An `<img>` cannot inherit `currentColor`, so
    the black and white cuts are separate files. The flower drawn by the
