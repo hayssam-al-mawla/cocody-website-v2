@@ -99,13 +99,20 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
 
 /* ------------------------------------------------------------------
    The flower
-   Redrawn from the woven size label, where a blossom circles the
-   garment's size. It is also punched as metal eyelets on the cap and
-   sits inside the M+C monogram. It is the one mark that appears on
-   every Cocody object, so it carries the site's signature motion.
+   Maison Cocody's own mark, straight out of the master vector pack —
+   the blossom that circles the garment's size on the woven label, is
+   punched as metal eyelets on the cap, and sits inside the M+C
+   monogram. It is the one mark that appears on every Cocody object,
+   so it carries the site's signature motion.
+
+   Stroke weights below are in the artwork's own units. Its box is
+   218.55 wide, so 7.65 is the same 3.5% of the mark's width the traced
+   stand-in was drawn at. The brand's own outline cut is finer still —
+   2.75, or 1.3% — which is right stitched into a label and invisible
+   at the 14–40px this site uses the mark at.
    ------------------------------------------------------------------ */
 .flower { display: block; overflow: visible; }
-.flower path { fill: none; stroke: currentColor; stroke-width: 7; stroke-linejoin: round; stroke-linecap: round; }
+.flower path { fill: none; stroke: currentColor; stroke-width: 7.65; stroke-linejoin: round; stroke-linecap: round; }
 /* a plain ring: the hole is dropped so a letter can sit in the middle */
 .flower--ring .f-in { display: none; }
 /* solid. At the sizes this is used the hole is under two pixels, so the
@@ -113,10 +120,12 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
 .flower--solid .f-out { fill: currentColor; stroke: none; }
 .flower--solid .f-in { display: none; }
 
-/* draws itself, as the script wordmark does in the campaign film */
+/* draws itself, as the script wordmark does in the campaign film.
+   758 is the contour's measured length; the script overwrites it with
+   the browser's own getTotalLength on load. */
 .flower--draw .f-out {
-  stroke-dasharray: var(--len, 760);
-  stroke-dashoffset: calc(var(--len, 760) * (1 - var(--bloom, 0)));
+  stroke-dasharray: var(--len, 758);
+  stroke-dashoffset: calc(var(--len, 758) * (1 - var(--bloom, 0)));
   transition: stroke-dashoffset 1.15s var(--ease);
 }
 /* The hole is the last thing to arrive. Fading it in alongside the
@@ -142,11 +151,19 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
 
 /* ------------------------------------------------------------------
    The wordmark
-   Maison Cocody's own logo file, not type set to look like it. The
-   drawn serif and the mark over the I in MAISON are part of the
-   identity and cannot be reproduced with letter-spacing.
+   Maison Cocody's master vector, not type set to look like it. The
+   drawn serif — flared stems, the A swashing into the I, and no dot
+   on that I — is part of the identity and cannot be reproduced with
+   letter-spacing. It is SVG now, so it is sharp at any size and any
+   pixel ratio, and it needs no 2x file. The PNGs beside it are loaded
+   by nothing: they were re-rendered from this same vector rather than
+   deleted, so that no stale wordmark is left in the folder for someone
+   to pick up by mistake.
    ------------------------------------------------------------------ */
 .logo { height: clamp(13px, 1.5vw, 17px); width: auto; display: block; }
+/* The stacked cut, for a column rather than a bar. Same artwork, set
+   over two lines by the studio, so it is a file and not a line-break. */
+.logo--stacked { height: clamp(34px, 4.5vw, 52px); }
 /* The artwork is black. Direction B's own masthead loads the white
    file directly; the templates in the dark skin invert instead of
    fetching a second image. */
@@ -158,6 +175,10 @@ html[data-direction="b"] .logo { filter: invert(1); }
    Maison Cocody's own handwritten lockup, the one written across the
    campaign film. Italianno was standing in for it; there is no reason
    to approximate artwork that exists.
+
+   This is the one mark still raster. The master pack ships the
+   wordmark and the flower as vectors and not this, so it is a PNG off
+   the live site and it is the one file to ask the studio for.
    ------------------------------------------------------------------ */
 .sig-mark { height: clamp(38px, 5.5vw, 68px); width: auto; }
 .sig { line-height: 0; }

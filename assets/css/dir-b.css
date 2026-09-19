@@ -157,11 +157,14 @@
 }
 .b__slide:nth-of-type(even) .b__select { transform: rotate(5deg) scale(1.03); }
 .b__select .flower path {
-  stroke-width: 3.4;
+  stroke-width: 3.7;
   stroke-linecap: round;
-  /* a drawn line, not a printed one */
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 26;
+  /* A drawn line, not a printed one: the contour is 758 units, so a 730-unit
+     dash stops 28 short of its own start and the loop never quite closes.
+     Written as dash-then-gap rather than as an offset — an offset into a dash
+     longer than the path just slides a solid line along and closes it. */
+  stroke-dasharray: 730 1000;
+  stroke-dashoffset: 0;
   filter: drop-shadow(0 0 2px rgba(0,0,0,.28));
 }
 .b__slide:hover .b__select { opacity: 1; }

@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maison Cocody Website V2 — design options</title>
 <meta name="description" content="Four design directions and six page templates for the Maison Cocody website redesign, for review.">
-<link rel="icon" href="assets/brand/favicon.png">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/brand/favicon.png" sizes="256x256">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Italianno&display=swap" rel="stylesheet">
@@ -20,12 +21,15 @@
 
   .h__top { padding-block: clamp(2.5rem,8vh,5rem) clamp(1.5rem,4vh,2.5rem); border-bottom:1px solid var(--h-rule); }
   .h__eyebrow { font-size:.8125rem; color:var(--h-quiet); }
+  /* the studio's stacked cut, used here and nowhere else: this page
+     is the cover of the pack rather than one of the proposals */
+  .h__logo { margin-bottom:clamp(1.5rem,4vh,2.4rem); }
   .h__top h1 { font-family: var(--display); font-weight:400; font-size:clamp(2rem,5.5vw,3.75rem); line-height:1.05; margin-top:.5rem; }
   .h__top .h__sub { margin-top:1rem; max-width:62ch; color:var(--h-quiet); }
 
   .h__note { display:flex; gap:.9rem; align-items:flex-start; margin-top:1.75rem; padding:1rem 1.15rem; background:#FFF8E6; border:1px solid #E8D9A8; font-size:.875rem; max-width:70ch; }
   .h__note .mark { width:20px; height:20px; flex:none; margin-top:.15rem; color:#8A6D1F; }
-  .h__note .mark .flower path { stroke-width:9; }
+  .h__note .mark .flower path { stroke-width:9.85; }
 
   .h__section { padding-block: clamp(2.5rem,7vh,4.5rem); }
   .h__section > h2 { font-family:var(--display); font-weight:400; font-size:clamp(1.5rem,3.2vw,2.35rem); }
@@ -87,7 +91,7 @@
 
   .h__flower-demo { display:flex; align-items:center; gap:clamp(1.5rem,4vw,3rem); flex-wrap:wrap; background:var(--h-card); border:1px solid var(--h-rule); padding:clamp(1.25rem,3vw,2rem); margin-top:1.5rem; }
   .h__flower-demo .big { width:clamp(90px,12vw,130px); flex:none; }
-  .h__flower-demo .big .flower path { stroke-width:6; }
+  .h__flower-demo .big .flower path { stroke-width:6.55; }
   .h__flower-demo div { min-width:min(100%,24rem); flex:1; }
   .h__flower-demo p { font-size:.9375rem; }
   .h__flower-demo p + p { margin-top:.6rem; }
@@ -102,13 +106,15 @@
 <div class="h__wrap">
 
   <header class="h__top">
-    <p class="h__eyebrow">Maison Cocody · Website V2 · September 2026</p>
+    <img class="logo logo--stacked h__logo" src="assets/brand/wordmark-stacked.svg"
+         alt="Maison Cocody" width="343" height="189">
+    <p class="h__eyebrow">Website V2 · September 2026</p>
     <h1>Four ways the new site could look</h1>
     <p class="h__sub">Everything here runs in the browser — click through it, resize it, try the size picker and put something in the bag. Nothing touches the live site. The platform question is settled — the site stays on WordPress — so what is left to choose is the design. The audit of the live site, the rebuild plan, costs and timeline are in <strong>Cocody-Website-V2-Options.docx</strong>, next to this file.</p>
 
     <p class="h__note">
       <span class="mark" data-flower aria-hidden="true"></span>
-      <span>Product names, prices, sizes and stock are the real ones, taken from the live shop. Event dates and Lab titles are placeholder, because those do not exist yet. The photography, the film, the monogram, the wordmark and the flower are Maison Cocody's own, taken from the e-comm shoot and the Bô campaign film.</span>
+      <span>Product names, prices, sizes and stock are the real ones, taken from the live shop. Event dates and Lab titles are placeholder, because those do not exist yet. The photography and the film are Maison Cocody's own, from the e-comm shoot and the Bô campaign. So are the marks, and as of 19 September they are the master files rather than a scrape of the live site: the wordmark and the flower on every page here are the studio's own vectors, so they are sharp at any size.</span>
     </p>
   </header>
 
@@ -310,6 +316,7 @@
       <div>
         <p>On the woven label inside every garment, the sizes run S · M · L · XL and the one you bought is the one a blossom sits around. The same flower is punched as metal eyelets on the caps and tucked inside the M and C of the monogram.</p>
         <p>So the size picker on the product page does exactly that: choose a size and the blossom moves onto it. It is not decoration invented for a website — it is how the product already works, which is why it will not feel gimmicky in a year.</p>
+        <p>The blossom drawn here is the logo pack's own path, not a redrawing of it. One file does all of it &mdash; stroked as an outline, opened into a ring so a letter can sit in the middle, or filled solid &mdash; which is why it stays the same mark wherever it turns up.</p>
         <p style="margin-top:1rem"><a class="h__btn h__btn--ghost" href="templates/product.html">Try the size picker</a></p>
       </div>
     </div>

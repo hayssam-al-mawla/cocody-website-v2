@@ -147,7 +147,7 @@ html[data-direction="b"] .t__mark { font-family: var(--ui); letter-spacing: .2em
   position: absolute; left: 0; top: 0; z-index: 1; opacity: 0;
   color: var(--t-fg); pointer-events: none;
 }
-.size-ring .flower path { stroke-width: 6; }
+.size-ring .flower path { stroke-width: 6.55; }
 .size-ring .flower .f-in { display: none; }
 .p__chosen { font-family: var(--ui); font-size: .8125rem; color: var(--t-quiet); margin-top: .1rem; }
 .p__chosen strong { color: var(--t-fg); font-weight: 500; }
@@ -283,4 +283,4 @@ html[data-direction="b"] .t__row .what { font-weight: 500; font-size: 1rem; }
 
 /* the blossom, used as a quiet marker on the templates */
 .mark { width: 26px; height: 26px; color: var(--t-fg); flex: none; }
-.mark .flower path { stroke-width: 8; }
+.mark .flower path { stroke-width: 8.75; }

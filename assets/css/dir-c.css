@@ -94,8 +94,15 @@
           mask-image: linear-gradient(to right, #000 0 var(--write, 0%), transparent var(--write, 0%));
   animation: c-write 2.4s cubic-bezier(.66,.02,.35,1) .35s forwards;
 }
-/* the hero signature is the real artwork, so it is sized by height */
-.c__hero .c__sig .sig-mark { height: clamp(3.2rem, 9vw, 7.5rem); }
+/* The hero signature is the real artwork, and here it is big enough to reach
+   the edge of its column. Driven by height it would hit the global
+   max-width: 100% and get squashed about 6% narrow — height stays put while
+   width is capped. So it is driven by width instead, at the artwork's own
+   1252 : 240, and height follows. */
+.c__hero .c__sig .sig-mark {
+  width: min(100%, clamp(3.2rem, 9vw, 7.5rem) * 1252 / 240);
+  height: auto;
+}
 @keyframes c-write { to { --write: 104%; } }
 @property --write { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
 @media (prefers-reduced-motion: reduce) {
@@ -134,7 +141,7 @@
 
 /* the blossom marks each section, opening as it arrives */
 .c__bloom { width: clamp(24px, 3vw, 38px); aspect-ratio: 1; color: currentColor; }
-.c__bloom .flower path { stroke-width: 8; }
+.c__bloom .flower path { stroke-width: 8.75; }
 
 /* ---------- pieces on the canvas ---------- */
 .c__pieces { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2.5rem); align-items: start; }

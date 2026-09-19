@@ -300,7 +300,7 @@
    way. */
 .a__film-note { display: flex; align-items: center; gap: .7rem; }
 .a__film-bloom { flex: none; width: 1.6rem; aspect-ratio: 1; color: var(--fg); }
-.a__film-bloom .flower path { stroke-width: 9; }
+.a__film-bloom .flower path { stroke-width: 9.8; }
 
 /* ---------- footer ---------- */
 .a__foot {

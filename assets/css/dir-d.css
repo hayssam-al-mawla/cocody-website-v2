@@ -148,7 +148,7 @@
 
 /* the flower as the availability glyph */
 .d__glyph { width: 14px; height: 14px; flex: none; }
-.d__glyph .flower path { stroke-width: 12; }
+.d__glyph .flower path { stroke-width: 13.1; }
 .d__row[data-state="here"] .d__glyph { color: var(--ink); }
 .d__row[data-state="here"] .d__glyph .f-out { fill: currentColor; stroke: none; }
 .d__row[data-state="here"] .d__glyph .f-in { display: none; }

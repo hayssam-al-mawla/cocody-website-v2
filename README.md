@@ -20,15 +20,23 @@ website redesign, September 2026.
 - The bag works on every page, and carries through to a checkout
 - Checkout fetches a shipping rate per destination, then shows the label and invoice being produced — the brief's section 3.7, made concrete
 - Search on ⌘K, live filtering across the catalogue
-- The five shared templates can be flipped between directions A, B and C from the bar at the bottom of each page
+- All seven shared templates can be flipped between directions A, B and C from the bar at the bottom of each page
 
 ## About the content
 
 Product names, prices, sizes and stock are the **real ones**, read off
 maisoncocody.com. Event dates and Cocody Lab titles are placeholder,
-because none of those exist yet. All photography, the campaign film,
-the wordmark, the script lockup and the flower are Maison Cocody's own
-artwork, taken from the live site — not reconstructions.
+because none of those exist yet. All photography and the campaign film
+are Maison Cocody's own.
+
+So are the marks. The **wordmark and the flower are the studio's master
+vectors**, delivered 19 September 2026 and kept verbatim in
+[`assets/brand/source/`](assets/brand/source/) — every wordmark, flower
+and favicon file beside them is generated from those, and nothing is
+redrawn. The **script lockup and the M+C monogram are not in that
+pack**, so they are still PNGs off the live site; the script is the one
+of the two still in use, and the one file left to ask for. Nothing here
+is a reconstruction.
 
 ## Notes
 
