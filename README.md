@@ -1,14 +1,16 @@
 # Maison Cocody — Website V2
 
-Four design directions and seven page templates for the Maison Cocody
-website redesign, September 2026.
+Five design directions and seven page templates for the Maison Cocody
+website redesign, September 2026. Direction E is the current proposal:
+it is built from the client's notes of 21 September.
 
 **[Open the review pack →](https://hayssam-al-mawla.github.io/cocody-website-v2/)**
 
-## The four directions
+## The directions
 
 | | Direction | The idea |
 |---|---|---|
+| **E** | [Studio](https://hayssam-al-mawla.github.io/cocody-website-v2/e/) | **Current.** The client's six notes of 21 September, built: the moving voucher, the wordmark giving way to the flower on scroll, the nav on the left in three groups, Instrument Serif, a five-colour palette, and the legal and social footer. The [system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html) walks through each. |
 | **A** | [Seamless](https://hayssam-al-mawla.github.io/cocody-website-v2/a/) | The e-comm backdrop turned into a website. Pure white, true black, scale does the work. |
 | **B** | [Le Labo](https://hayssam-al-mawla.github.io/cocody-website-v2/b/) | The studio, not the shop. A contact sheet on a light table, film first. |
 | **C** | [Le Décor](https://hayssam-al-mawla.github.io/cocody-website-v2/c/) | The painted canvas from the campaign film, hung on the web. |
@@ -16,9 +18,11 @@ website redesign, September 2026.
 
 ## The pages behind them
 
-Each of these can be shown in any of A, B or C — use the bar at the foot
-of the page, or add `?dir=a`, `?dir=b` or `?dir=c` to the address to send
-someone straight to one version.
+Each of these opens in Direction E, and can be flipped to A, B or C from
+the bar at the foot of the page — or add `?dir=e`, `?dir=a`, `?dir=b` or
+`?dir=c` to the address to send someone straight to one version. The
+masthead, marquee and footer from the 21 September notes are shared by
+all four skins.
 
 | Page | | |
 |---|---|---|
@@ -36,7 +40,8 @@ someone straight to one version.
 - The bag works on every page, and carries through to a checkout
 - Checkout fetches a shipping rate per destination, then shows the label and invoice being produced — the brief's section 3.7, made concrete
 - Search on ⌘K, live filtering across the catalogue
-- All seven shared templates can be flipped between directions A, B and C from the bar at the bottom of each page
+- All seven shared templates can be flipped between directions E, A, B and C from the bar at the bottom of each page
+- The masthead swaps the wordmark for the flower once you scroll, and the flower turns with the page; the marquee at the top carries the voucher and the shipping line
 
 ## About the content
 

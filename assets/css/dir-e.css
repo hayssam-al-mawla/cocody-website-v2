@@ -1,0 +1,218 @@
+/* ------------------------------------------------------------------
+   DIRECTION E — "STUDIO"
+   Built from Charlz's notes of 21 September, on the NOLOGO reference.
+
+   What the notes asked for, and where each one lives:
+
+   1. the moving voucher + free shipping      the marquee (.ann--marquee, shop.css)
+   2. NOLOGO -> Maison Cocody, flower on scroll the masthead (.t__mark, templates.css)
+   3. everything on the left, three groups    the nav (.t__nav, templates.css)
+   4. a very specific typography              Instrument Serif + Archivo (brand.css)
+   5. the colour palette                      the five tokens below
+   6. legal and social all the way down       the footer (.t__footer, templates.css)
+
+   The chrome — marquee, masthead, nav, footer — is the templates' own,
+   so this homepage wears exactly what the shop, product and checkout
+   pages wear. This file only styles what is particular to the homepage:
+   the film, the grid, the three bands. Everything is data-direction="e",
+   so the same page furniture (bag, search, quick add) works untouched.
+
+   Palette — five colours, each from a real Cocody object:
+     noir    #000000  the garments
+     blanc   #FFFFFF  the e-comm seamless
+     pierre  #EFEDE8  the seamless where the light falls off — the grey
+                      at the edge of every product shot, warmed a touch
+     ocre    #AD8E5A  the hand-painted canvas from the film
+     argent  #B9BDC2  the zip pulls, rings and eyelets
+   Black and white do the work. Pierre is the only ground that is not
+   white. Ochre appears once per screen at most. Nothing else.
+   ------------------------------------------------------------------ */
+
+.e { --bar-h: 3.75rem; }
+
+/* ---------- the bar over the film ----------
+   The hero slides up under the sticky bar by the bar's own height, so
+   the film starts at the very top. While the bar is over the film it is
+   transparent with the marks in white; once past it, it is the same
+   solid bar every other page has. */
+.e .t__bar {
+  height: var(--bar-h);
+  /* the ground fades; the type flips at once, so it is never white on
+     white for the length of a transition */
+  transition: background .3s var(--ease), border-color .3s var(--ease);
+}
+.e .t__nav > a, .e .t__group > a, .e .t__tool { transition: none; }
+.e.is-over-hero .t__bar {
+  background: transparent; border-color: transparent; color: #fff;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.e.is-over-hero .t__bar .logo { filter: invert(1); }
+.e.is-over-hero .t__nav > a,
+.e.is-over-hero .t__group > a,
+.e.is-over-hero .t__tool { color: rgba(255,255,255,.92); }
+.e.is-over-hero .t__nav > a:hover,
+.e.is-over-hero .t__group > a:hover,
+.e.is-over-hero .t__tool:hover { color: #fff; }
+/* the dropdown keeps the page's own colours whatever the bar is doing */
+.e.is-over-hero .t__sub { color: var(--t-fg); }
+
+/* ---------- hero ---------- */
+.e__hero {
+  position: relative;
+  margin-top: calc(-1 * var(--bar-h));
+  /* one screen, less the review bar's reserve at the foot of the page,
+     so the button is not under it while the pack is being reviewed */
+  height: min(calc(100svh - 3.2rem), 860px);
+  background: var(--noir);
+  overflow: hidden;
+}
+.e__hero video { width: 100%; height: 100%; object-fit: cover; }
+/* a little sky, so the white marks read on the lighter frames of the film */
+.e__hero::before {
+  content: ''; position: absolute; inset: 0 0 auto 0; height: 42%;
+  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,0));
+  pointer-events: none;
+}
+.e__hero-cta {
+  position: absolute; left: 50%; bottom: clamp(1.5rem, 7vh, 4rem);
+  transform: translateX(-50%);
+  background: #fff; color: var(--noir);
+  padding: .85rem 1.6rem;
+  font-family: var(--ui); font-size: .7rem; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s var(--ease-out), color .2s var(--ease-out);
+}
+.e__hero-cta:hover { background: var(--noir); color: #fff; }
+.e__hero-cap {
+  position: absolute; left: var(--gut); bottom: clamp(1.5rem, 7vh, 4rem);
+  color: #fff; font-family: var(--ui); font-size: .68rem; letter-spacing: .1em;
+  text-transform: uppercase; opacity: .85; line-height: 1.6;
+}
+@media (max-width: 720px) {
+  .e__hero { height: min(78svh, 640px); }
+  .e__hero-cap { display: none; }
+}
+
+/* ---------- sections ---------- */
+.e__section { padding-block: clamp(2.5rem, 7vh, 5rem); }
+.e__head {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; flex-wrap: wrap;
+  margin-bottom: clamp(1.25rem, 3vh, 2rem);
+}
+.e__head h2 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.1rem); line-height: .98; letter-spacing: -0.005em;
+}
+.e__head h2 em { font-style: italic; }
+.e__head h2 small {
+  display: block; font-family: var(--ui); font-size: .68rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--t-quiet); margin-bottom: .6rem;
+}
+.e__head > a {
+  font-family: var(--ui); font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; color: var(--t-fg);
+  border-bottom: 1px solid currentColor; padding-bottom: .2rem; white-space: nowrap;
+}
+.e__head > a:hover { color: var(--t-quiet); }
+.e__head p { font-size: .9375rem; color: var(--t-quiet); max-width: 44ch; margin-top: .6rem; }
+
+/* ---------- the grid ----------
+   Four across, the way the reference does it, on the seamless white so
+   the photographs have no edge. No card, no border, no shadow. */
+.e__grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.25rem, 2.4vw, 2rem) clamp(.6rem, 1.2vw, 1rem);
+}
+@media (max-width: 960px) { .e__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 620px) { .e__grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem .6rem; } }
+.e__card { text-decoration: none; display: block; }
+.e__card .shot { background: var(--blanc); }
+.e__card-meta { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: .7rem; }
+.e__card .nm { font-family: var(--serif); font-size: 1.1rem; line-height: 1.2; display: block; }
+.e__card .mt { display: block; font-family: var(--ui); font-size: .72rem; color: var(--t-quiet); margin-top: .2rem; letter-spacing: .01em; }
+.e__card .pz { font-family: var(--ui); font-size: .8125rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.e__card .pz s { color: var(--t-quiet); margin-left: .3rem; }
+.e__card:hover .nm { text-decoration: underline; text-underline-offset: .18em; text-decoration-thickness: 1px; }
+
+/* ---------- Cocody Lab band ----------
+   The one dark screen on the page: the films, two up, as the reference
+   shows its own. Black because the brief asks for the Lab to be dark
+   and video-first, and because film reads better on it. */
+.e__lab {
+  background: var(--noir); color: #F2F1EE;
+  --t-fg: #F2F1EE; --t-quiet: #9A9A97; --t-rule: rgba(255,255,255,.16);
+}
+.e__films { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(.5rem, 1vw, .85rem); }
+@media (max-width: 760px) { .e__films { grid-template-columns: 1fr; } }
+.e__film { position: relative; display: block; aspect-ratio: 16 / 9; background: #000; overflow: hidden; text-decoration: none; color: inherit; }
+.e__film video, .e__film img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.e__film:hover img { transform: scale(1.025); }
+.e__film-cap {
+  position: absolute; left: 1rem; right: 1rem; bottom: .9rem;
+  display: flex; justify-content: space-between; gap: 1rem;
+  font-family: var(--ui); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.e__play {
+  position: absolute; inset: 0; display: grid; place-items: center; color: #fff;
+}
+.e__play svg { width: 52px; height: 52px; background: rgba(0,0,0,.5); border-radius: 50%; transition: background .3s var(--ease); }
+.e__film:hover .e__play svg { background: rgba(0,0,0,.75); }
+
+/* ---------- Archive band ----------
+   On pierre — the only ground that is not white or black — so the
+   product shots, which are white, lift off it as plates. */
+.e__archive { background: var(--pierre); }
+.e__cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.75rem, 1.5vw, 1.25rem); }
+@media (max-width: 700px) { .e__cols { grid-template-columns: 1fr; } }
+.e__col { position: relative; display: block; text-decoration: none; }
+.e__col .shot { background: var(--blanc); }
+.e__col-tag {
+  position: absolute; top: .65rem; left: .65rem; z-index: 2;
+  font-family: var(--ui); font-size: .62rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  padding: .3rem .6rem; background: var(--noir); color: #fff;
+}
+.e__col-tag--archive { background: rgba(255,255,255,.94); color: var(--noir); }
+.e__col h3 { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; line-height: 1.1; margin-top: .8rem; }
+.e__col p { font-family: var(--ui); font-size: .75rem; color: var(--t-quiet); margin-top: .2rem; }
+
+/* ---------- Maison Cocody band ---------- */
+.e__maison { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+@media (max-width: 860px) { .e__maison { grid-template-columns: 1fr; } }
+.e__statement {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(1.7rem, 3.4vw, 2.9rem); line-height: 1.1; letter-spacing: -0.005em; max-width: 21ch;
+}
+.e__statement em { font-style: italic; }
+.e__maison .sig { margin-top: 1.5rem; }
+.e__maison .sig-mark { height: clamp(34px, 4.5vw, 54px); }
+.e__maison-links { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.75rem; }
+.e__maison-links a {
+  font-family: var(--ui); font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .2rem;
+}
+.e__maison-links a:hover { color: var(--t-quiet); }
+
+.e__pop h3 {
+  font-family: var(--ui); font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--t-quiet); margin-bottom: .6rem;
+}
+.e__rows { border-top: 1px solid var(--t-rule); }
+.e__row {
+  display: grid; grid-template-columns: 6.25rem 1fr auto; gap: 1rem; align-items: baseline;
+  padding: .95rem .1rem; border-bottom: 1px solid var(--t-rule); text-decoration: none;
+  transition: padding-left .3s var(--ease);
+}
+.e__row:hover { padding-left: .7rem; }
+.e__row .when { font-family: var(--ui); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--t-quiet); font-variant-numeric: tabular-nums; }
+.e__row .what { font-family: var(--serif); font-size: 1.2rem; line-height: 1.2; }
+.e__row .where { font-family: var(--ui); font-size: .75rem; color: var(--t-quiet); }
+.e__row[data-past] .what { color: var(--t-quiet); }
+@media (max-width: 520px) { .e__row { grid-template-columns: 1fr auto; } .e__row .when { grid-column: 1 / -1; } }
+
+/* ---------- entrance ----------
+   One orchestrated arrival on load; nothing reveals per section. */
+@keyframes e-rise { from { opacity: 0; transform: translateY(.8rem); } to { opacity: 1; transform: none; } }
+.e__hero-cta, .e__hero-cap { animation: e-rise .9s var(--ease) .5s both; }
+@media (prefers-reduced-motion: reduce) { .e__hero-cta, .e__hero-cap { animation: none; } }

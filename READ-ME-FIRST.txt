@@ -1,6 +1,6 @@
 MAISON COCODY — WEBSITE V2
 Design options and platform recommendation
-17 September 2026 · artwork updated 19 September
+17 September 2026 · artwork updated 19 September · Direction E added 21 September
 
 
 WHERE TO START
@@ -18,7 +18,9 @@ WHAT IS IN HERE
 START-HERE.html                 The hub. Open this first.
 Cocody-Website-V2-Options.docx  The document (23 pages).
 
-directions/                     Four homepage designs
+directions/                     Five homepage designs
+  e-studio.html                   E — CURRENT: built from your notes of 21 Sep
+  e-system.html                   E — the type, colour, nav and footer, explained
   a-seamless.html                 A — pure white, the garment is the hero
   b-le-labo.html                  B — black, the film leads, contact sheet
   c-le-decor.html                 C — the painted canvas from the film
@@ -43,7 +45,11 @@ WORTH TRYING
   size you pick, the way it sits around the size on the woven label.
 
 - On any page in templates/, use the bar at the bottom to flip the same
-  page between direction A, B and C.
+  page between direction E, A, B and C. E is the default.
+
+- On any page, scroll: the wordmark in the middle of the bar gives way
+  to the flower, and the flower turns with the page. The strip at the
+  top moves; hover it and it stops.
 
 - On shop.html, hover a piece that is in stock: the sizes appear, and
   clicking one puts it in the bag. The bag drawer works on every page.

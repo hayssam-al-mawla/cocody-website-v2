@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-direction="e">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Cocody — Direction E, Studio</title>
+<meta name="description" content="Design direction E for Maison Cocody Website V2: built from the client's notes of 21 September on the NOLOGO reference — the marquee, the flower in the masthead, the nav on the left, Instrument Serif, the palette, and the footer.">
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../assets/brand/favicon.png" sizes="256x256">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/brand.css">
+<link rel="stylesheet" href="../assets/css/templates.css">
+<link rel="stylesheet" href="../assets/css/shop.css">
+<link rel="stylesheet" href="../assets/css/dir-e.css">
+</head>
+<body class="t e">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="ann ann--marquee" data-marquee>
+  <div class="ann__track">
+    <div class="ann__set">
+      <span class="ann__item"><a href="#join">10% off your first order when you join the maison</a></span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+      <span class="ann__item">Free shipping over &euro;100</span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+      <span class="ann__item">Shipped worldwide from Amsterdam &middot; rates shown before you pay</span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+    </div>
+  </div>
+  <button class="ann__x" type="button" aria-label="Hide this message">&times;</button>
+</div>
+
+<header class="t__bar" data-masthead>
+  <div class="t__left">
+    <nav class="t__nav" aria-label="Main">
+      <div class="t__group">
+        <a href="../templates/shop.html">Shop<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        <div class="t__sub">
+          <a href="../templates/shop.html">All pieces</a>
+          <a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a>
+          <a href="../templates/cocody-lab.html">Cocody Lab</a>
+        </div>
+      </div>
+      <a href="../templates/collections.html#index">Archive</a>
+      <div class="t__group">
+        <a href="../templates/about.html">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        <div class="t__sub">
+          <a href="../templates/about.html">About us</a>
+          <a href="../templates/events.html">Pop-ups &amp; events</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <button class="t__tool t__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>Menu</button>
+  </div>
+  <a class="t__mark" href="e-studio.html" data-mark>
+    <img class="logo" src="../assets/brand/wordmark.svg" alt="Maison Cocody" width="715" height="92">
+    <span class="t__bloom" data-flower="flower--solid" aria-hidden="true"></span>
+  </a>
+  <div class="t__tools">
+    <button class="t__tool" type="button">Search</button>
+    <button class="t__tool" type="button">Bag <span data-bag-count>0</span></button>
+  </div>
+</header>
+
+<div class="t__panel" id="menu" hidden>
+  <div class="t__panel-head">
+    <span class="t__panel-title">Menu</span>
+    <button class="t__tool" type="button" data-menu-close>Close</button>
+  </div>
+  <nav class="t__panel-nav" aria-label="Main">
+    <h3>Shop</h3>
+    <ul>
+      <li><a href="../templates/shop.html">All pieces</a></li>
+      <li><a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a></li>
+      <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+    </ul>
+    <h3>Archive</h3>
+    <ul>
+      <li><a href="../templates/collections.html#index">Every collection</a></li>
+    </ul>
+    <h3>Maison Cocody</h3>
+    <ul>
+      <li><a href="../templates/about.html">About us</a></li>
+      <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="t__panel-tools">
+    <button class="t__tool" type="button">Search</button>
+    <button class="t__tool" type="button">Bag <span data-bag-count>0</span></button>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- The film, edge to edge, under the bar — the reference's first
+       screen. The bar is transparent while it is over the film and
+       becomes the ordinary bar once past it (masthead.js). -->
+  <section class="e__hero" data-hero>
+    <h1 class="sr-only">Bô — the FW26 cycle. Three pieces, all black.</h1>
+    <video src="../assets/video/hero-desktop.mp4" poster="../assets/video/hero-poster.jpg"
+           muted loop playsinline autoplay preload="metadata"
+           aria-label="Bô, the campaign film, shot against hand-painted canvas."></video>
+    <p class="e__hero-cap">Bô · FW26<br>Filmed on canvas we painted ourselves</p>
+    <a class="e__hero-cta" href="../templates/shop.html">Shop Bô</a>
+  </section>
+
+  <!-- Four across on the seamless, as the reference does it. Drawn
+       from the catalogue by dir-e.js; quick add works on every in-stock
+       card. -->
+  <section class="e__section t__wrap">
+    <div class="e__head">
+      <h2><small>New in</small>Bô, <em>the new cycle</em></h2>
+      <a href="../templates/shop.html">Shop all</a>
+    </div>
+    <div class="e__grid" data-e-grid></div>
+  </section>
+
+  <!-- Cocody Lab: the one dark screen. The brief asks for the Lab to
+       be dark and video-first; the reference shows its films two up. -->
+  <section class="e__lab">
+    <div class="e__section t__wrap">
+      <div class="e__head">
+        <div>
+          <h2>Cocody Lab</h2>
+          <p>Everything we film — the cutting table, the shoots, the trips. The newest one lands here by itself.</p>
+        </div>
+        <a href="../templates/cocody-lab.html">All films</a>
+      </div>
+      <div class="e__films">
+        <a class="e__film" href="../templates/cocody-lab.html">
+          <video src="../assets/video/hero-desktop.mp4" poster="../assets/video/hero-poster.jpg"
+                 muted loop playsinline autoplay preload="metadata"
+                 aria-label="Bô, the film."></video>
+          <span class="e__film-cap"><span>Bô — the film</span><span>4:12</span></span>
+        </a>
+        <a class="e__film" href="../templates/cocody-lab.html">
+          <img src="../assets/img/film-studio-lg.jpg" width="1600" height="900" loading="lazy" alt="Painting the canvas backdrop in the studio, the afternoon before the shoot.">
+          <span class="e__play"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="23" stroke="currentColor" stroke-opacity=".9"/><path d="M20 16l14 8-14 8z" fill="currentColor"/></svg></span>
+          <span class="e__film-cap"><span>Painting the décor</span><span>6:02</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Archive: every collection keeps its page. On pierre, so the
+       white product shots lift off it. -->
+  <section class="e__archive">
+    <div class="e__section t__wrap">
+      <div class="e__head">
+        <div>
+          <h2>Archive</h2>
+          <p>Every collection keeps its page, sold out or not. Three so far.</p>
+        </div>
+        <a href="../templates/collections.html#index">Every collection</a>
+      </div>
+      <div class="e__cols">
+        <a class="e__col" href="../templates/collections.html">
+          <span class="shot">
+            <span class="e__col-tag">In stock</span>
+            <img class="shot__a" src="../assets/img/shop/sweater-a.jpg" width="880" height="1100" loading="lazy" alt="The Signature Zip-Up Sweater, from Bô.">
+            <img class="shot__b" src="../assets/img/shop/trouser-a.jpg" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">
+          </span>
+          <h3>FW26 — Bô</h3>
+          <p>Three pieces · two still here</p>
+        </a>
+        <a class="e__col" href="../templates/collections.html#index">
+          <span class="shot">
+            <span class="e__col-tag e__col-tag--archive">Archive</span>
+            <img class="shot__a" src="../assets/img/shop/jersey-burgundy-a.jpg" width="880" height="1100" loading="lazy" alt="The burgundy Vintage Jersey, from SS25.">
+            <img class="shot__b" src="../assets/img/shop/jersey-beige-a.jpg" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">
+          </span>
+          <h3>SS25 — Opposites Attract</h3>
+          <p>Two jerseys · sold out</p>
+        </a>
+        <a class="e__col" href="../templates/collections.html#index">
+          <span class="shot">
+            <span class="e__col-tag e__col-tag--archive">Archive</span>
+            <img class="shot__a" src="../assets/img/shop/tote-vintage-a.jpg" width="880" height="1100" loading="lazy" alt="The Vintage Maxi Tote Bag, from the pre-release.">
+            <img class="shot__b" src="../assets/img/shop/tee-ivory-a.jpg" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">
+          </span>
+          <h3>Pre-release 25</h3>
+          <p>Five pieces · sold out</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Maison Cocody: the about, and the pop-ups — the third group in
+       the nav, given one band. -->
+  <section class="e__section t__wrap">
+    <div class="e__head">
+      <h2>Maison Cocody</h2>
+      <a href="../templates/about.html">About us</a>
+    </div>
+    <div class="e__maison">
+      <div>
+        <p class="e__statement">Cocody is a district of Abidjan. We only put the name on something <em>once it deserves to go back there.</em></p>
+        <p class="sig"><img class="sig-mark" src="../assets/brand/script-black.png" alt="Maison Cocody" width="626" height="120"></p>
+        <div class="e__maison-links">
+          <a href="../templates/about.html">The story</a>
+          <a href="../templates/events.html">Pop-ups &amp; events</a>
+        </div>
+      </div>
+      <div class="e__pop">
+        <h3>Pop-ups</h3>
+        <div class="e__rows">
+          <a class="e__row" href="../templates/events.html">
+            <span class="when">14 Nov 2026</span>
+            <span class="what">Bô — launch night</span>
+            <span class="where">Amsterdam</span>
+          </a>
+          <a class="e__row" href="../templates/events.html">
+            <span class="when">6 Dec 2026</span>
+            <span class="what">Pop-up at Rue de Turenne</span>
+            <span class="where">Paris</span>
+          </a>
+          <a class="e__row" href="../templates/events.html" data-past>
+            <span class="when">21 Jun 2026</span>
+            <span class="what">Cocody, back home</span>
+            <span class="where">Abidjan</span>
+          </a>
+          <a class="e__row" href="../templates/events.html" data-past>
+            <span class="when">9 Nov 2025</span>
+            <span class="what">First sample sale</span>
+            <span class="where">Amsterdam</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="t__footer" id="contact">
+  <div class="t__wrap">
+    <div class="t__join" id="join">
+      <div>
+        <h2>Join the maison</h2>
+        <p>10% off your first order, then one mail per collection. Nothing else, ever.</p>
+      </div>
+      <form class="t__signup" onsubmit="return false">
+        <label class="sr-only" for="join-mail">Email address</label>
+        <input id="join-mail" type="email" placeholder="you@example.com" required autocomplete="email">
+        <button type="submit">Get 10% off</button>
+      </form>
+    </div>
+    <div class="t__foot">
+      <div><h3>Shop</h3><ul>
+        <li><a href="../templates/shop.html">All pieces</a></li>
+        <li><a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a></li>
+        <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+        <li><a href="../templates/product.html#chart">Size &amp; fit</a></li>
+      </ul></div>
+      <div><h3>Archive</h3><ul>
+        <li><a href="../templates/collections.html#index">Every collection</a></li>
+        <li><a href="../templates/collections.html">FW26 &mdash; B&ocirc;</a></li>
+        <li><a href="../templates/collections.html#index">SS25</a></li>
+        <li><a href="../templates/collections.html#index">Pre-release 25</a></li>
+      </ul></div>
+      <div><h3>Maison Cocody</h3><ul>
+        <li><a href="../templates/about.html">About us</a></li>
+        <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Press</a></li>
+      </ul></div>
+      <div><h3>Help</h3><ul>
+        <li><a href="#">Shipping &amp; returns</a></li>
+        <li><a href="#">Track your order</a></li>
+        <li><a href="../templates/product.html#chart">Size chart</a></li>
+        <li><a href="../templates/checkout.html">Checkout</a></li>
+      </ul></div>
+    </div>
+    <div class="t__social">
+      <a href="https://www.instagram.com/" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/" rel="noopener">YouTube</a>
+      <a href="#">Email us</a>
+    </div>
+    <div class="t__legal">
+      <a href="#">Terms &amp; conditions</a>
+      <a href="#">Privacy policy</a>
+      <a href="#">Cookie policy</a>
+      <a href="#">Refund &amp; returns policy</a>
+      <a href="#">Shipping policy</a>
+      <a href="#">Imprint</a>
+    </div>
+    <div class="t__colophon">
+      <img class="logo logo--stacked" src="../assets/brand/wordmark-stacked-white.svg" alt="Maison Cocody" width="343" height="189">
+      <div class="t__colophon-text">
+        <span>&copy; 2026 Maison Cocody &middot; Amsterdam &middot; Abidjan</span>
+        <span>Company and VAT numbers go here &middot; Prices in EUR, taxes included</span>
+        <span>iDEAL &middot; Visa &middot; Mastercard &middot; Apple Pay &middot; PayPal</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="rv">
+  <span class="rv__note"><b>Direction E — Studio.</b> Built from your notes of 21 September. Products and prices are live data; event dates and Lab titles are placeholder.</span>
+  <span class="rv__group">
+    <a class="rv__link" href="e-system.html">Type, colour, nav, footer</a>
+    <a class="rv__link" href="../templates/shop.html?dir=e">The shop</a>
+    <a class="rv__link" href="../START-HERE.html">All options</a>
+    <button class="rv__close" type="button" aria-label="Hide this review bar">×</button>
+  </span>
+</div>
+
+<script src="../assets/js/catalogue.js"></script>
+<script src="../assets/js/dir-e.js"></script>
+<script src="../assets/js/cocody.js"></script>
+<script src="../assets/js/masthead.js"></script>
+<script src="../assets/js/shop.js"></script>
+<script src="../assets/js/search.js"></script>
+</body>
+</html>

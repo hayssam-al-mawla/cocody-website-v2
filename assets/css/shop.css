@@ -33,6 +33,33 @@
 /* the bar has to stand off whatever ground it lands on */
 .b .ann, html[data-direction="b"] .ann { --ann-bg: #F4F4F4; --ann-fg: #0B0B0B; }
 .c .ann, html[data-direction="c"] .ann { --ann-bg: #000000; --ann-fg: #FAF9F7; }
+.e .ann, html[data-direction="e"] .ann { --ann-bg: #EFEDE8; --ann-fg: #000000; }
+
+/* ---------- the marquee ----------
+   Charlz's note 1: the voucher and the free-shipping line, moving. One
+   set of items is in the HTML; masthead.js clones it to fill the bar
+   and moves the track by exactly one set, so the loop never shows a
+   seam. Hover or focus pauses it; the × hides it; reduced motion holds
+   it still. The separator is the flower, solid, at type size. */
+.ann--marquee {
+  justify-content: flex-start; padding: .5rem 0; overflow: hidden; text-align: left;
+  font-size: .64rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+}
+.ann__track {
+  display: flex; width: max-content; will-change: transform;
+  animation: ann-run var(--ann-t, 30s) linear infinite;
+}
+@keyframes ann-run { to { transform: translateX(calc(-1 * var(--set, 50%))); } }
+.ann--marquee:hover .ann__track, .ann--marquee:focus-within .ann__track { animation-play-state: paused; }
+.ann__set { display: flex; align-items: center; flex: none; }
+.ann__item { white-space: nowrap; padding: 0 1.4rem; }
+.ann__item a { text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .1em; }
+.ann__sep { width: .75em; height: .75em; flex: none; color: inherit; }
+.ann__sep .flower { width: 100%; height: 100%; }
+/* the close sits on a solid strip the full height of the bar, so the
+   moving text disappears under it rather than showing beside it */
+.ann--marquee .ann__x { right: 0; top: 0; transform: none; height: 100%; padding: 0 .8rem; background: var(--ann-bg, #111); }
+@media (prefers-reduced-motion: reduce) { .ann__track { animation: none; } }
 
 /* ---------- the bag drawer ---------- */
 .bag-scrim {
@@ -122,6 +149,7 @@
 html[data-direction="b"] .bag, body.b ~ .bag,
 .b .bag { --bag-bg: #0B0B0B; --bag-fg: #F4F4F4; --bag-rule: #2A2A2C; --bag-quiet: #9B9DA1; }
 html[data-direction="c"] .bag, .c .bag { --bag-bg: #FAF9F7; --bag-fg: #000; --bag-rule: rgba(0,0,0,.16); --bag-quiet: #5E574C; }
+html[data-direction="e"] .bag { --bag-bg: #FFFFFF; --bag-fg: #000; --bag-rule: #E6E4DF; --bag-quiet: #6B6B6B; }
 
 /* ---------- quick add, on the grid ---------- */
 .qa {
@@ -256,3 +284,4 @@ html[data-direction="c"] .bag, .c .bag { --bag-bg: #FAF9F7; --bag-fg: #000; --ba
 .b .sr__panel, html[data-direction="b"] .sr__panel { --sr-bg:#0B0B0B; --sr-fg:#F4F4F4; --sr-rule:#2A2A2C; --sr-quiet:#9B9DA1; --sr-hit:#161618; }
 .c .sr__panel, html[data-direction="c"] .sr__panel { --sr-bg:#FAF9F7; --sr-fg:#000; --sr-rule:rgba(0,0,0,.16); --sr-quiet:#5E574C; --sr-hit:rgba(173,142,90,.14); }
 .d .sr__panel { --sr-bg:#F1EADF; --sr-fg:#14100E; --sr-rule:#D6CBBA; --sr-quiet:#5F564E; --sr-hit:#E4DACB; }
+html[data-direction="e"] .sr__panel { --sr-bg:#FFFFFF; --sr-fg:#000; --sr-rule:#E6E4DF; --sr-quiet:#6B6B6B; --sr-hit:#EFEDE8; }

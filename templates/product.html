@@ -9,7 +9,7 @@
 <link rel="alternate icon" href="../assets/brand/favicon.png" sizes="256x256">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Italianno&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Italianno&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/brand.css">
 <link rel="stylesheet" href="../assets/css/templates.css">
 <link rel="stylesheet" href="../assets/css/shop.css">
@@ -17,23 +17,81 @@
 <body class="t">
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="ann">
-  <span>Free shipping over €100 · Shipped worldwide · Rates worked out at checkout, before you pay</span>
+<div class="ann ann--marquee" data-marquee>
+  <div class="ann__track">
+    <div class="ann__set">
+      <span class="ann__item"><a href="#join">10% off your first order when you join the maison</a></span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+      <span class="ann__item">Free shipping over &euro;100</span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+      <span class="ann__item">Shipped worldwide from Amsterdam &middot; rates shown before you pay</span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+    </div>
+  </div>
   <button class="ann__x" type="button" aria-label="Hide this message">&times;</button>
 </div>
 
-<header class="t__bar">
-  <a class="t__mark" href="../START-HERE.html"><img class="logo" src="../assets/brand/wordmark.svg" alt="Maison Cocody" width="715" height="92"></a>
-  <nav class="t__nav" aria-label="Main">
-    <a href="shop.html" aria-current="page">Shop</a>
-    <a href="collections.html">Collections</a>
-    <a href="cocody-lab.html">Cocody Lab</a>
-    <a href="events.html">Events</a>
-    <a href="about.html">About</a>
-  </nav>
-  <button class="t__bag" type="button">Search</button>
-  <button class="t__bag" type="button">Bag <span data-bag-count>0</span></button>
+<header class="t__bar" data-masthead>
+  <div class="t__left">
+    <nav class="t__nav" aria-label="Main">
+      <div class="t__group">
+        <a href="shop.html" aria-current="page">Shop<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        <div class="t__sub">
+          <a href="shop.html">All pieces</a>
+          <a href="collections.html">B&ocirc; &mdash; the new cycle</a>
+          <a href="cocody-lab.html">Cocody Lab</a>
+        </div>
+      </div>
+      <a href="collections.html#index">Archive</a>
+      <div class="t__group">
+        <a href="about.html">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        <div class="t__sub">
+          <a href="about.html">About us</a>
+          <a href="events.html">Pop-ups &amp; events</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <button class="t__tool t__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>Menu</button>
+  </div>
+  <a class="t__mark" href="../directions/e-studio.html" data-mark>
+    <img class="logo" src="../assets/brand/wordmark.svg" alt="Maison Cocody" width="715" height="92">
+    <span class="t__bloom" data-flower="flower--solid" aria-hidden="true"></span>
+  </a>
+  <div class="t__tools">
+    <button class="t__tool" type="button">Search</button>
+    <button class="t__tool" type="button">Bag <span data-bag-count>0</span></button>
+  </div>
 </header>
+
+<div class="t__panel" id="menu" hidden>
+  <div class="t__panel-head">
+    <span class="t__panel-title">Menu</span>
+    <button class="t__tool" type="button" data-menu-close>Close</button>
+  </div>
+  <nav class="t__panel-nav" aria-label="Main">
+    <h3>Shop</h3>
+    <ul>
+      <li><a href="shop.html">All pieces</a></li>
+      <li><a href="collections.html">B&ocirc; &mdash; the new cycle</a></li>
+      <li><a href="cocody-lab.html">Cocody Lab</a></li>
+    </ul>
+    <h3>Archive</h3>
+    <ul>
+      <li><a href="collections.html#index">Every collection</a></li>
+    </ul>
+    <h3>Maison Cocody</h3>
+    <ul>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="events.html">Pop-ups &amp; events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="t__panel-tools">
+    <button class="t__tool" type="button">Search</button>
+    <button class="t__tool" type="button">Bag <span data-bag-count>0</span></button>
+  </div>
+</div>
 
 <!-- One template, ten products: product.html?p=<slug>. Everything below
      is filled from the same catalogue the shop and the register use, so
@@ -145,25 +203,66 @@
 
 </main>
 
-<footer class="t__wrap">
-  <div class="t__foot">
-    <div><h3>Shop</h3><ul>
-      <li><a href="shop.html">All pieces</a></li>
-      <li><a href="collections.html">Collections</a></li>
-      <li><a href="#chart">Size &amp; fit</a></li>
-    </ul></div>
-    <div><h3>Maison</h3><ul>
-      <li><a href="about.html">About us</a></li>
-      <li><a href="cocody-lab.html">Cocody Lab</a></li>
-      <li><a href="events.html">Events</a></li>
-    </ul></div>
-    <div><h3>Help</h3><ul>
-      <li><a href="checkout.html">Checkout</a></li>
-      <li><a href="#">Track your order</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul></div>
-    <div><h3>Amsterdam · Abidjan</h3>
-      <p style="font-size:.8125rem;color:var(--t-quiet)">© 2026 Maison Cocody</p>
+<footer class="t__footer" id="contact">
+  <div class="t__wrap">
+    <div class="t__join" id="join">
+      <div>
+        <h2>Join the maison</h2>
+        <p>10% off your first order, then one mail per collection. Nothing else, ever.</p>
+      </div>
+      <form class="t__signup" onsubmit="return false">
+        <label class="sr-only" for="join-mail">Email address</label>
+        <input id="join-mail" type="email" placeholder="you@example.com" required autocomplete="email">
+        <button type="submit">Get 10% off</button>
+      </form>
+    </div>
+    <div class="t__foot">
+      <div><h3>Shop</h3><ul>
+        <li><a href="shop.html">All pieces</a></li>
+        <li><a href="collections.html">B&ocirc; &mdash; the new cycle</a></li>
+        <li><a href="cocody-lab.html">Cocody Lab</a></li>
+        <li><a href="product.html#chart">Size &amp; fit</a></li>
+      </ul></div>
+      <div><h3>Archive</h3><ul>
+        <li><a href="collections.html#index">Every collection</a></li>
+        <li><a href="collections.html">FW26 &mdash; B&ocirc;</a></li>
+        <li><a href="collections.html#index">SS25</a></li>
+        <li><a href="collections.html#index">Pre-release 25</a></li>
+      </ul></div>
+      <div><h3>Maison Cocody</h3><ul>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="events.html">Pop-ups &amp; events</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Press</a></li>
+      </ul></div>
+      <div><h3>Help</h3><ul>
+        <li><a href="#">Shipping &amp; returns</a></li>
+        <li><a href="#">Track your order</a></li>
+        <li><a href="product.html#chart">Size chart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul></div>
+    </div>
+    <div class="t__social">
+      <a href="https://www.instagram.com/" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/" rel="noopener">YouTube</a>
+      <a href="#">Email us</a>
+    </div>
+    <div class="t__legal">
+      <a href="#">Terms &amp; conditions</a>
+      <a href="#">Privacy policy</a>
+      <a href="#">Cookie policy</a>
+      <a href="#">Refund &amp; returns policy</a>
+      <a href="#">Shipping policy</a>
+      <a href="#">Imprint</a>
+    </div>
+    <div class="t__colophon">
+      <img class="logo logo--stacked" src="../assets/brand/wordmark-stacked-white.svg" alt="Maison Cocody" width="343" height="189">
+      <div class="t__colophon-text">
+        <span>&copy; 2026 Maison Cocody &middot; Amsterdam &middot; Abidjan</span>
+        <span>Company and VAT numbers go here &middot; Prices in EUR, taxes included</span>
+        <span>iDEAL &middot; Visa &middot; Mastercard &middot; Apple Pay &middot; PayPal</span>
+      </div>
     </div>
   </div>
 </footer>
@@ -172,6 +271,7 @@
   <span class="rv__note"><b>Product template</b> — shown in Direction <span data-direction-name>Seamless</span>. Live product data; every piece in the catalogue has its own page.</span>
   <span class="rv__group">
     <span style="color:#8a8a8a">Direction:</span>
+    <button class="rv__btn" type="button" data-set-direction="e">E · Studio</button>
     <button class="rv__btn" type="button" data-set-direction="a">A · Seamless</button>
     <button class="rv__btn" type="button" data-set-direction="b">B · Le Labo</button>
     <button class="rv__btn" type="button" data-set-direction="c">C · Le Décor</button>
@@ -183,6 +283,7 @@
 <script src="../assets/js/catalogue.js"></script>
 <script src="../assets/js/product.js"></script>
 <script src="../assets/js/cocody.js"></script>
+<script src="../assets/js/masthead.js"></script>
 <script src="../assets/js/shop.js"></script>
 <script src="../assets/js/search.js"></script>
 </body>

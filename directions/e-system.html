@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" data-direction="e">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direction E — the system — Maison Cocody</title>
+<meta name="description" content="Direction E for Maison Cocody Website V2, explained note by note: the marquee, the masthead, the navigation, the typography, the palette and the footer.">
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../assets/brand/favicon.png" sizes="256x256">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/brand.css">
+<link rel="stylesheet" href="../assets/css/templates.css">
+<link rel="stylesheet" href="../assets/css/shop.css">
+<style>
+  /* This page explains Direction E and wears it. Everything above the
+     fold and below the main is the same chrome the homepage and the
+     shop use; only the sections in between are particular to it. */
+  .sys { padding-block: clamp(2rem, 6vh, 4rem); }
+  .sys + .sys { border-top: 1px solid var(--t-rule); }
+  .sys__lede { max-width: 62ch; color: var(--t-quiet); margin-top: .75rem; }
+  .sys__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(1.25rem, 3vw, 2.5rem); margin-top: clamp(1.5rem, 4vh, 2.5rem); }
+  .sys__cols h3 { font-family: var(--ui); font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .6rem; }
+  .sys__cols p { font-size: .9375rem; max-width: 46ch; }
+  .sys__cols p + p { margin-top: .6rem; }
+
+  /* the notes, as sent */
+  .sys__notes { counter-reset: n; display: grid; gap: .6rem; margin-top: clamp(1.25rem, 3vh, 2rem); max-width: 72ch; }
+  .sys__notes li { display: grid; grid-template-columns: 2rem 1fr auto; gap: 1rem; align-items: baseline; padding: .8rem 0; border-bottom: 1px solid var(--t-rule); }
+  .sys__notes li::before { counter-increment: n; content: counter(n); font-family: var(--serif); font-size: 1.4rem; color: var(--t-quiet); }
+  .sys__notes q { font-family: var(--serif); font-size: 1.2rem; line-height: 1.25; quotes: "\201C" "\201D"; }
+  .sys__notes a { font-family: var(--ui); font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .15rem; white-space: nowrap; }
+  @media (max-width: 600px) { .sys__notes li { grid-template-columns: 2rem 1fr; } .sys__notes a { grid-column: 2; justify-self: start; } }
+
+  /* the specimen */
+  .sys__specimen { border: 1px solid var(--t-rule); padding: clamp(1.25rem, 3vw, 2.5rem); margin-top: clamp(1.25rem, 3vh, 2rem); display: grid; gap: 1.25rem; }
+  .sys__big { font-family: var(--serif); font-size: clamp(2.6rem, 8vw, 6.5rem); line-height: .95; letter-spacing: -0.01em; }
+  .sys__big em { font-style: italic; }
+  .sys__mid { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2.3rem); line-height: 1.12; max-width: 24ch; }
+  .sys__names { font-family: var(--serif); font-size: 1.15rem; color: var(--t-fg); }
+  .sys__ui { font-family: var(--ui); font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; display: flex; gap: 1.6rem; flex-wrap: wrap; }
+  .sys__ui s { color: var(--t-quiet); }
+  .sys__body { font-family: var(--ui); font-size: .9375rem; max-width: 52ch; color: var(--t-quiet); }
+  .sys__label { font-family: var(--ui); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--t-quiet); }
+
+  /* the swatches */
+  .sys__swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: .75rem; margin-top: clamp(1.25rem, 3vh, 2rem); }
+  @media (max-width: 760px) { .sys__swatches { grid-template-columns: 1fr 1fr; } }
+  .sys__sw { border: 1px solid var(--t-rule); }
+  .sys__sw i { display: block; aspect-ratio: 4 / 3; }
+  .sys__sw div { padding: .8rem .9rem 1rem; }
+  .sys__sw b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.3rem; }
+  .sys__sw code { font-family: var(--ui); font-size: .7rem; letter-spacing: .06em; color: var(--t-quiet); }
+  .sys__sw p { font-family: var(--ui); font-size: .78rem; margin-top: .45rem; }
+  .sys__sw p + p { color: var(--t-quiet); margin-top: .2rem; }
+  .sys__rule { font-family: var(--serif); font-size: clamp(1.25rem, 2.4vw, 1.7rem); line-height: 1.25; max-width: 34ch; margin-top: clamp(1.25rem, 3vh, 2rem); }
+
+  /* the tree */
+  .sys__tree { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: clamp(1.25rem, 3vh, 2rem); }
+  .sys__branch { border: 1px solid var(--t-rule); padding: 1.1rem 1.2rem 1.25rem; }
+  .sys__branch h3 { font-family: var(--ui); font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; display: flex; justify-content: space-between; gap: 1rem; }
+  .sys__branch h3 span { color: var(--t-quiet); font-weight: 400; letter-spacing: .04em; text-transform: none; }
+  .sys__branch ul { margin-top: .75rem; }
+  .sys__branch li { font-family: var(--serif); font-size: 1.25rem; line-height: 1.2; padding: .3rem 0; border-top: 1px solid var(--t-rule); }
+  .sys__branch li small { display: block; font-family: var(--ui); font-size: .72rem; color: var(--t-quiet); margin-top: .1rem; }
+
+  /* the footer, itemised */
+  .sys__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem 2rem; margin-top: clamp(1.25rem, 3vh, 2rem); }
+  .sys__list h3 { font-family: var(--ui); font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .5rem; }
+  .sys__list li { font-size: .9375rem; padding: .3rem 0; border-top: 1px solid var(--t-rule); }
+  .sys__list li span { color: var(--t-quiet); }
+
+  /* still open */
+  .sys__open { display: grid; gap: .75rem; margin-top: clamp(1.25rem, 3vh, 2rem); max-width: 72ch; }
+  .sys__open li { display: grid; grid-template-columns: 1.5rem 1fr; gap: .75rem; align-items: start; font-size: .9375rem; }
+  .sys__open li .mark { width: 16px; height: 16px; margin-top: .25rem; }
+  .sys__open b { font-weight: 500; }
+
+  .sys__demo { display: flex; align-items: center; gap: 1rem; margin-top: 1.25rem; font-family: var(--ui); font-size: .8125rem; color: var(--t-quiet); }
+  .sys__demo .mark { width: 28px; height: 28px; color: var(--t-fg); transform: rotate(var(--turn, 0deg)); }
+</style>
+</head>
+<body class="t">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="ann ann--marquee" data-marquee>
+  <div class="ann__track">
+    <div class="ann__set">
+      <span class="ann__item"><a href="#join">10% off your first order when you join the maison</a></span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+      <span class="ann__item">Free shipping over &euro;100</span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+      <span class="ann__item">Shipped worldwide from Amsterdam &middot; rates shown before you pay</span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+    </div>
+  </div>
+  <button class="ann__x" type="button" aria-label="Hide this message">&times;</button>
+</div>
+
+<header class="t__bar" data-masthead>
+  <div class="t__left">
+    <nav class="t__nav" aria-label="Main">
+      <div class="t__group">
+        <a href="../templates/shop.html">Shop<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        <div class="t__sub">
+          <a href="../templates/shop.html">All pieces</a>
+          <a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a>
+          <a href="../templates/cocody-lab.html">Cocody Lab</a>
+        </div>
+      </div>
+      <a href="../templates/collections.html#index">Archive</a>
+      <div class="t__group">
+        <a href="../templates/about.html">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+        <div class="t__sub">
+          <a href="../templates/about.html">About us</a>
+          <a href="../templates/events.html">Pop-ups &amp; events</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <button class="t__tool t__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>Menu</button>
+  </div>
+  <a class="t__mark" href="e-studio.html" data-mark>
+    <img class="logo" src="../assets/brand/wordmark.svg" alt="Maison Cocody" width="715" height="92">
+    <span class="t__bloom" data-flower="flower--solid" aria-hidden="true"></span>
+  </a>
+  <div class="t__tools">
+    <button class="t__tool" type="button">Search</button>
+    <button class="t__tool" type="button">Bag <span data-bag-count>0</span></button>
+  </div>
+</header>
+
+<div class="t__panel" id="menu" hidden>
+  <div class="t__panel-head">
+    <span class="t__panel-title">Menu</span>
+    <button class="t__tool" type="button" data-menu-close>Close</button>
+  </div>
+  <nav class="t__panel-nav" aria-label="Main">
+    <h3>Shop</h3>
+    <ul>
+      <li><a href="../templates/shop.html">All pieces</a></li>
+      <li><a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a></li>
+      <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+    </ul>
+    <h3>Archive</h3>
+    <ul>
+      <li><a href="../templates/collections.html#index">Every collection</a></li>
+    </ul>
+    <h3>Maison Cocody</h3>
+    <ul>
+      <li><a href="../templates/about.html">About us</a></li>
+      <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="t__panel-tools">
+    <button class="t__tool" type="button">Search</button>
+    <button class="t__tool" type="button">Bag <span data-bag-count>0</span></button>
+  </div>
+</div>
+
+<main id="main" class="t__wrap">
+
+  <div class="t__head">
+    <p class="t__crumb"><a href="e-studio.html">Direction E</a> · The system</p>
+    <h1>Your six notes, built</h1>
+    <p>What each note of 21 September became, and what is still yours to decide. This page wears the same masthead and footer as the homepage and the shop, so scroll it: the strip at the top moves, and the wordmark in the middle of the bar gives way to the flower, which turns with the page.</p>
+  </div>
+
+  <section class="sys" id="notes">
+    <ol class="sys__notes">
+      <li><q>Moving voucher 10% for first joining and also the free shipment</q><a href="#marquee">The marquee</a></li>
+      <li><q>NOLOGO → Maison Cocody, but when scrolling down we have the flower spinning</q><a href="#mark">The masthead</a></li>
+      <li><q>Put it all on the left side — Shop, Cocody Lab, Archive, Maison Cocody</q><a href="#nav">The navigation</a></li>
+      <li><q>Add a very specific typography</q><a href="#type">The typography</a></li>
+      <li><q>Work out the colour palette</q><a href="#colour">The palette</a></li>
+      <li><q>All the way down we can put all the legal stuff and social media</q><a href="#footer">The footer</a></li>
+    </ol>
+  </section>
+
+  <section class="sys" id="type">
+    <div class="t__section-head">
+      <h2>4 · The typography</h2>
+      <span>Instrument Serif · Archivo</span>
+    </div>
+    <p class="sys__lede">One face that speaks and one that works. The one that speaks is specific: it is condensed and tall, which is what the lettering in the master wordmark is, so a headline and the logo read as one hand. The Didone the earlier directions used is wide and high-contrast, and fought the wordmark on every page.</p>
+
+    <div class="sys__specimen" aria-label="Type specimen">
+      <span class="sys__label">Instrument Serif · Regular and Italic · headings, product names, statements</span>
+      <p class="sys__big">Bô — three pieces, <em>all black.</em></p>
+      <p class="sys__mid">Cocody is a district of Abidjan. We only put the name on something once it deserves to go back there.</p>
+      <p class="sys__names">Signature Zip-Up Sweater · Wide-Leg Pleated Trouser · Cocody Monogram Hat</p>
+      <span class="sys__label" style="margin-top:.5rem">Archivo · 400 and 500 · nav, labels, prices, forms, the marquee, the legal line</span>
+      <p class="sys__ui"><span>Shop</span><span>Archive</span><span>Maison Cocody</span><span>€50 <s>€90</s></span><span>Add to bag</span><span>Free shipping over €100</span></p>
+      <p class="sys__body">Body text is Archivo too, in sentence case, at sixteen pixels: the story on a product page, the about page, the shipping notes. Uppercase and tracked at twelve per cent is reserved for the nav, the tags and the buttons, so it keeps its edge.</p>
+    </div>
+
+    <div class="sys__cols">
+      <div>
+        <h3>What goes in the serif</h3>
+        <p>Every heading, every product name, the statements, the footer's invitation, the dates in the pop-up list. Regular and italic only, never bold: the weight comes from size, and the italic is the emphasis.</p>
+      </div>
+      <div>
+        <h3>What goes in the grotesque</h3>
+        <p>Everything the reader operates: the nav, prices, sizes, buttons, forms, the bag, the marquee, the legal line. Tabular figures throughout, so prices sit in a column.</p>
+      </div>
+      <div>
+        <h3>The two rules</h3>
+        <p>The wordmark is never set in type. It is the studio's vector on every page, and nothing imitates it.</p>
+        <p>The signature stays the handwritten artwork. It is the one mark still a PNG, and the one still worth asking the studio for.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sys" id="colour">
+    <div class="t__section-head">
+      <h2>5 · The palette</h2>
+      <span>Five colours, each from a real object</span>
+    </div>
+    <p class="sys__lede">Nothing here is chosen from a chart. Each colour is sampled from something Maison Cocody already owns, and each has one job.</p>
+
+    <div class="sys__swatches">
+      <div class="sys__sw"><i style="background:#000000"></i><div><b>Noir</b><code>#000000</code><p>The garments</p><p>Text, the Lab, the footer</p></div></div>
+      <div class="sys__sw"><i style="background:#FFFFFF"></i><div><b>Blanc</b><code>#FFFFFF</code><p>The e-comm seamless</p><p>The page, the product ground</p></div></div>
+      <div class="sys__sw"><i style="background:#EFEDE8"></i><div><b>Pierre</b><code>#EFEDE8</code><p>The seamless where the light falls off</p><p>The marquee, the archive band, panels</p></div></div>
+      <div class="sys__sw"><i style="background:#AD8E5A"></i><div><b>Ocre</b><code>#AD8E5A</code><p>The painted canvas from the film</p><p>One accent per screen: the “only M left” chip</p></div></div>
+      <div class="sys__sw"><i style="background:#B9BDC2"></i><div><b>Argent</b><code>#B9BDC2</code><p>Zip pulls, rings, eyelets</p><p>Rules on black, disabled states</p></div></div>
+    </div>
+    <p class="sys__rule">Black and white do the work. Pierre is the only ground that is not white. Ochre appears once per screen at most, and never as a background. Nothing else — the indigo canvas stays in the film.</p>
+  </section>
+
+  <section class="sys" id="nav">
+    <div class="t__section-head">
+      <h2>3 · The navigation</h2>
+      <span>Left, in three groups</span>
+    </div>
+    <p class="sys__lede">Exactly the three you listed, in your order, on the left of the bar. Shop and Maison Cocody open on hover or keyboard focus; Archive goes straight to the index of collections. On a phone the same three groups are the menu. The bar above is the live one.</p>
+
+    <div class="sys__tree">
+      <div class="sys__branch">
+        <h3>Shop <span>opens</span></h3>
+        <ul>
+          <li>All pieces<small>The whole catalogue, filters and quick add</small></li>
+          <li>Bô — the new cycle<small>The current collection's own page</small></li>
+          <li>Cocody Lab<small>Under Shop, as you asked — see the note below</small></li>
+        </ul>
+      </div>
+      <div class="sys__branch">
+        <h3>Archive <span>one page</span></h3>
+        <ul>
+          <li>Every collection<small>One permanent page each; sold-out ones tagged Archive</small></li>
+        </ul>
+      </div>
+      <div class="sys__branch">
+        <h3>Maison Cocody <span>opens</span></h3>
+        <ul>
+          <li>About us<small>The story, the values, who makes it</small></li>
+          <li>Pop-ups &amp; events<small>What is next, and everything that has happened</small></li>
+          <li>Contact<small>Goes to the foot of the page</small></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sys__cols">
+      <div>
+        <h3>Search and the bag</h3>
+        <p>On the right, as on the reference. Search opens on the button, on ⌘K, or on /; the bag opens as a drawer on every page.</p>
+      </div>
+      <div>
+        <h3>What is not in the bar</h3>
+        <p>Refund and returns, shipping, size chart, contact. They are in the footer, where the reference keeps them too. Nothing legal sits in the nav.</p>
+      </div>
+      <div>
+        <h3>One question back</h3>
+        <p>You put Cocody Lab under Shop. If the Lab is the films — which is what the brief says — it belongs under Maison Cocody, next to the pop-ups. If it is going to be a line of pieces, it is right where it is. Built as you wrote it; say which.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sys" id="mark">
+    <div class="t__section-head">
+      <h2>2 · The masthead</h2>
+      <span>The wordmark, then the flower</span>
+    </div>
+    <p class="sys__lede">The wordmark sits where NOLOGO sits: in the middle of the bar, on every page. The moment the page is moving — past the film on the homepage, past the first hundred pixels elsewhere — it gives way to the flower, and the flower turns with the scroll. It stops when you stop. A mark that never stops turning is what “gimmicky” looks like, and the brief asked for premium.</p>
+    <p class="sys__demo"><span class="mark" data-flower="flower--solid" aria-hidden="true"></span>This one turns with the page too. Scroll and watch it.</p>
+    <div class="sys__cols">
+      <div>
+        <h3>On the homepage</h3>
+        <p>The bar is transparent over the film, with the wordmark in white. Once the film is gone it is the same solid bar every other page has, with the flower in it.</p>
+      </div>
+      <div>
+        <h3>Everywhere else</h3>
+        <p>The bar is solid from the start. Scroll a shop page and the swap happens after the first screen. Scroll back to the top and the wordmark returns.</p>
+      </div>
+      <div>
+        <h3>If you would rather it spun on its own</h3>
+        <p>One line changes it to a slow, constant turn. We would not: the scroll-linked version is the one that feels like the site is responding to you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sys" id="marquee">
+    <div class="t__section-head">
+      <h2>1 · The marquee</h2>
+      <span>The voucher, and the shipping</span>
+    </div>
+    <p class="sys__lede">The strip at the top of every page: ten per cent off the first order for joining, free shipping over the threshold, and the shipping promise. It moves at a walking pace, pauses when you hover it, and can be closed. The separator is the flower.</p>
+    <div class="sys__cols">
+      <div>
+        <h3>The voucher</h3>
+        <p>Clicking it goes to the signup at the foot of the page. In WooCommerce it is a coupon restricted to first orders and sent by the welcome mail — a setting, not a plugin.</p>
+      </div>
+      <div>
+        <h3>The free-shipping line</h3>
+        <p>€100 is a placeholder, sized against a catalogue priced €20 to €50. It is decision 6 in the document, and it has to be settled before checkout is configured.</p>
+      </div>
+      <div>
+        <h3>Why it is not on the checkout page</h3>
+        <p>Nothing should move on the page where someone is paying. The checkout keeps the bar and drops the strip.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sys" id="footer">
+    <div class="t__section-head">
+      <h2>6 · The footer</h2>
+      <span>All the way down</span>
+    </div>
+    <p class="sys__lede">Yes — and it is the right place for it. The one below is on every page, in this order: the signup that the voucher points at, the three groups again with Help beside them, the social accounts, the legal pages, and the colophon with the company details.</p>
+    <div class="sys__list">
+      <div><h3>Social</h3><ul><li>Instagram <span>— handle to confirm</span></li><li>TikTok <span>— handle to confirm</span></li><li>YouTube <span>— the Cocody Lab channel</span></li><li>Email</li></ul></div>
+      <div><h3>Legal</h3><ul><li>Terms &amp; conditions</li><li>Privacy policy</li><li>Cookie policy</li><li>Refund &amp; returns policy <span>— out of the nav, as the audit asked</span></li><li>Shipping policy</li><li>Imprint</li></ul></div>
+      <div><h3>Colophon</h3><ul><li>© 2026 Maison Cocody · Amsterdam · Abidjan</li><li>Company and VAT numbers <span>— to be supplied</span></li><li>Prices in EUR, taxes included</li><li>Payment methods <span>— the real list once the gateway is chosen</span></li></ul></div>
+    </div>
+  </section>
+
+  <section class="sys" id="open">
+    <div class="t__section-head">
+      <h2>Still yours to decide</h2>
+      <span>Five things</span>
+    </div>
+    <ul class="sys__open">
+      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>Where Cocody Lab lives.</b> Under Shop, as you wrote it, or under Maison Cocody with the pop-ups. See the note above.</span></li>
+      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The voucher mechanics.</b> Ten per cent on the first order only, or on the first order after signing up? One use per email? It changes the WooCommerce coupon and the welcome mail.</span></li>
+      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The social handles, the legal texts, the company numbers.</b> The footer has the slots; it needs the words.</span></li>
+      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The free-shipping threshold</b>, and who pays duties outside the EU. Decision 6, unchanged.</span></li>
+      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>Which wordmark is current.</b> Everything here uses the master pack from 19 September; the live site still serves a different drawing. Decision 10, and it wants a yes before anything is built.</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="t__footer" id="contact">
+  <div class="t__wrap">
+    <div class="t__join" id="join">
+      <div>
+        <h2>Join the maison</h2>
+        <p>10% off your first order, then one mail per collection. Nothing else, ever.</p>
+      </div>
+      <form class="t__signup" onsubmit="return false">
+        <label class="sr-only" for="join-mail">Email address</label>
+        <input id="join-mail" type="email" placeholder="you@example.com" required autocomplete="email">
+        <button type="submit">Get 10% off</button>
+      </form>
+    </div>
+    <div class="t__foot">
+      <div><h3>Shop</h3><ul>
+        <li><a href="../templates/shop.html">All pieces</a></li>
+        <li><a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a></li>
+        <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+        <li><a href="../templates/product.html#chart">Size &amp; fit</a></li>
+      </ul></div>
+      <div><h3>Archive</h3><ul>
+        <li><a href="../templates/collections.html#index">Every collection</a></li>
+        <li><a href="../templates/collections.html">FW26 &mdash; B&ocirc;</a></li>
+        <li><a href="../templates/collections.html#index">SS25</a></li>
+        <li><a href="../templates/collections.html#index">Pre-release 25</a></li>
+      </ul></div>
+      <div><h3>Maison Cocody</h3><ul>
+        <li><a href="../templates/about.html">About us</a></li>
+        <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Press</a></li>
+      </ul></div>
+      <div><h3>Help</h3><ul>
+        <li><a href="#">Shipping &amp; returns</a></li>
+        <li><a href="#">Track your order</a></li>
+        <li><a href="../templates/product.html#chart">Size chart</a></li>
+        <li><a href="../templates/checkout.html">Checkout</a></li>
+      </ul></div>
+    </div>
+    <div class="t__social">
+      <a href="https://www.instagram.com/" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/" rel="noopener">YouTube</a>
+      <a href="#">Email us</a>
+    </div>
+    <div class="t__legal">
+      <a href="#">Terms &amp; conditions</a>
+      <a href="#">Privacy policy</a>
+      <a href="#">Cookie policy</a>
+      <a href="#">Refund &amp; returns policy</a>
+      <a href="#">Shipping policy</a>
+      <a href="#">Imprint</a>
+    </div>
+    <div class="t__colophon">
+      <img class="logo logo--stacked" src="../assets/brand/wordmark-stacked-white.svg" alt="Maison Cocody" width="343" height="189">
+      <div class="t__colophon-text">
+        <span>&copy; 2026 Maison Cocody &middot; Amsterdam &middot; Abidjan</span>
+        <span>Company and VAT numbers go here &middot; Prices in EUR, taxes included</span>
+        <span>iDEAL &middot; Visa &middot; Mastercard &middot; Apple Pay &middot; PayPal</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="rv">
+  <span class="rv__note"><b>Direction E — the system.</b> Type, colour, navigation, masthead, marquee and footer, note by note.</span>
+  <span class="rv__group">
+    <a class="rv__link" href="e-studio.html">The homepage</a>
+    <a class="rv__link" href="../templates/shop.html?dir=e">The shop</a>
+    <a class="rv__link" href="../START-HERE.html">All options</a>
+    <button class="rv__close" type="button" aria-label="Hide this review bar">×</button>
+  </span>
+</div>
+
+<script src="../assets/js/catalogue.js"></script>
+<script src="../assets/js/cocody.js"></script>
+<script src="../assets/js/masthead.js"></script>
+<script src="../assets/js/shop.js"></script>
+<script src="../assets/js/search.js"></script>
+</body>
+</html>

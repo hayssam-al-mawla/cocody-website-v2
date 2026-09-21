@@ -219,7 +219,7 @@
      three directions, so the same page can be judged in each skin.
      ------------------------------------------------------------------ */
   var KEY = 'cocody-direction';
-  var NAMES = { a: 'Seamless', b: 'Le Labo', c: 'Le Décor' };
+  var NAMES = { a: 'Seamless', b: 'Le Labo', c: 'Le Décor', e: 'Studio' };
 
   function applyDirection(d) {
     document.documentElement.dataset.direction = d;
@@ -236,9 +236,11 @@
     if (!bar) return;
     if (bar.hasAttribute('data-switchable')) {
       /* ?dir=b wins, so a single page can be linked in a chosen skin */
-      var fromUrl = (location.search.match(/[?&]dir=([abc])/) || [])[1];
-      var saved = 'a';
-      try { saved = fromUrl || localStorage.getItem(KEY) || 'a'; } catch (e) { saved = fromUrl || 'a'; }
+      var fromUrl = (location.search.match(/[?&]dir=([abce])/) || [])[1];
+      /* E is the default since 21 September: it is the direction built
+         from Charlz's notes, so it is the one a bare link should show */
+      var saved = 'e';
+      try { saved = fromUrl || localStorage.getItem(KEY) || 'e'; } catch (e) { saved = fromUrl || 'e'; }
       applyDirection(saved);
       bar.querySelectorAll('[data-set-direction]').forEach(function (b) {
         b.addEventListener('click', function () { applyDirection(b.dataset.setDirection); });
