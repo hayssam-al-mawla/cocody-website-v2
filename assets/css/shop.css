@@ -58,7 +58,13 @@
 .ann__sep .flower { width: 100%; height: 100%; }
 /* the close sits on a solid strip the full height of the bar, so the
    moving text disappears under it rather than showing beside it */
-.ann--marquee .ann__x { right: 0; top: 0; transform: none; height: 100%; padding: 0 .8rem; background: var(--ann-bg, #111); }
+.ann--marquee .ann__x {
+  right: 0; top: 0; transform: none; height: 100%; padding: 0 .8rem;
+  background: var(--ann-bg, #111);
+  /* opaque, or the moving text shows through the strip; the glyph itself is what dims */
+  opacity: 1; color: color-mix(in srgb, var(--ann-fg, #fff) 62%, transparent);
+}
+.ann--marquee .ann__x:hover { color: var(--ann-fg, #fff); }
 @media (prefers-reduced-motion: reduce) { .ann__track { animation: none; } }
 
 /* ---------- the bag drawer ---------- */

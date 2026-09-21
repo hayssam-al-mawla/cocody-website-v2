@@ -7,7 +7,7 @@
    1. the moving voucher + free shipping      the marquee (.ann--marquee, shop.css)
    2. NOLOGO -> Maison Cocody, flower on scroll the masthead (.t__mark, templates.css)
    3. everything on the left, three groups    the nav (.t__nav, templates.css)
-   4. a very specific typography              Instrument Serif + Archivo (brand.css)
+   4. a very specific typography              Inter — Charlz's own pick, that afternoon (templates.css)
    5. the colour palette                      the five tokens below
    6. legal and social all the way down       the footer (.t__footer, templates.css)
 
@@ -28,7 +28,7 @@
    white. Ochre appears once per screen at most. Nothing else.
    ------------------------------------------------------------------ */
 
-.e { --bar-h: 3.75rem; }
+.e { --bar-h: 4.25rem; }
 
 /* ---------- the bar over the film ----------
    The hero slides up under the sticky bar by the bar's own height, so
@@ -60,9 +60,13 @@
 .e__hero {
   position: relative;
   margin-top: calc(-1 * var(--bar-h));
-  /* one screen, less the review bar's reserve at the foot of the page,
-     so the button is not under it while the pack is being reviewed */
-  height: min(calc(100svh - 3.2rem), 860px);
+  /* The whole screen, less the strip above it — Charlz's afternoon note,
+     and the reference's own first screen. masthead.js measures the strip
+     into --ann-h; the fallback is its resting height. The button sits a
+     fifth of the way up, as on the reference, which also keeps it clear
+     of the review bar. */
+  height: calc(100svh - var(--ann-h, 1.95rem));
+  min-height: 520px;
   background: var(--noir);
   overflow: hidden;
 }
@@ -73,24 +77,26 @@
   background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,0));
   pointer-events: none;
 }
+/* outlined, as the one Charlz circled: a hairline on the film, filled
+   only on hover */
 .e__hero-cta {
-  position: absolute; left: 50%; bottom: clamp(1.5rem, 7vh, 4rem);
+  position: absolute; left: 50%; bottom: clamp(5rem, 20%, 12rem);
   transform: translateX(-50%);
-  background: #fff; color: var(--noir);
-  padding: .85rem 1.6rem;
-  font-family: var(--ui); font-size: .7rem; font-weight: 500;
-  letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+  background: rgba(0,0,0,.14); color: #fff; border: 1px solid #fff;
+  backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  padding: .9rem 1.9rem;
+  font-family: var(--ui); font-size: .72rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase; text-decoration: none;
   white-space: nowrap;
   transition: background .2s var(--ease-out), color .2s var(--ease-out);
 }
-.e__hero-cta:hover { background: var(--noir); color: #fff; }
+.e__hero-cta:hover { background: #fff; color: var(--noir); }
 .e__hero-cap {
-  position: absolute; left: var(--gut); bottom: clamp(1.5rem, 7vh, 4rem);
+  position: absolute; left: var(--gut); bottom: clamp(5rem, 20%, 12rem);
   color: #fff; font-family: var(--ui); font-size: .68rem; letter-spacing: .1em;
   text-transform: uppercase; opacity: .85; line-height: 1.6;
 }
 @media (max-width: 720px) {
-  .e__hero { height: min(78svh, 640px); }
   .e__hero-cap { display: none; }
 }
 
@@ -101,8 +107,8 @@
   margin-bottom: clamp(1.25rem, 3vh, 2rem);
 }
 .e__head h2 {
-  font-family: var(--serif); font-weight: 400;
-  font-size: clamp(2rem, 4vw, 3.1rem); line-height: .98; letter-spacing: -0.005em;
+  font-family: var(--t-display); font-weight: 500;
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1; letter-spacing: -0.03em;
 }
 .e__head h2 em { font-style: italic; }
 .e__head h2 small {
@@ -129,7 +135,7 @@
 .e__card { text-decoration: none; display: block; }
 .e__card .shot { background: var(--blanc); }
 .e__card-meta { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: .7rem; }
-.e__card .nm { font-family: var(--serif); font-size: 1.1rem; line-height: 1.2; display: block; }
+.e__card .nm { font-family: var(--t-display); font-weight: 500; font-size: .9rem; letter-spacing: -0.01em; line-height: 1.3; display: block; }
 .e__card .mt { display: block; font-family: var(--ui); font-size: .72rem; color: var(--t-quiet); margin-top: .2rem; letter-spacing: .01em; }
 .e__card .pz { font-family: var(--ui); font-size: .8125rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .e__card .pz s { color: var(--t-quiet); margin-left: .3rem; }
@@ -174,15 +180,15 @@
   padding: .3rem .6rem; background: var(--noir); color: #fff;
 }
 .e__col-tag--archive { background: rgba(255,255,255,.94); color: var(--noir); }
-.e__col h3 { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; line-height: 1.1; margin-top: .8rem; }
+.e__col h3 { font-family: var(--t-display); font-weight: 500; font-size: 1.15rem; letter-spacing: -0.02em; line-height: 1.15; margin-top: .8rem; }
 .e__col p { font-family: var(--ui); font-size: .75rem; color: var(--t-quiet); margin-top: .2rem; }
 
 /* ---------- Maison Cocody band ---------- */
 .e__maison { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
 @media (max-width: 860px) { .e__maison { grid-template-columns: 1fr; } }
 .e__statement {
-  font-family: var(--serif); font-weight: 400;
-  font-size: clamp(1.7rem, 3.4vw, 2.9rem); line-height: 1.1; letter-spacing: -0.005em; max-width: 21ch;
+  font-family: var(--t-display); font-weight: 500;
+  font-size: clamp(1.5rem, 2.8vw, 2.4rem); line-height: 1.1; letter-spacing: -0.03em; max-width: 24ch;
 }
 .e__statement em { font-style: italic; }
 .e__maison .sig { margin-top: 1.5rem; }
@@ -206,7 +212,7 @@
 }
 .e__row:hover { padding-left: .7rem; }
 .e__row .when { font-family: var(--ui); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--t-quiet); font-variant-numeric: tabular-nums; }
-.e__row .what { font-family: var(--serif); font-size: 1.2rem; line-height: 1.2; }
+.e__row .what { font-family: var(--t-display); font-weight: 500; font-size: 1rem; line-height: 1.3; }
 .e__row .where { font-family: var(--ui); font-size: .75rem; color: var(--t-quiet); }
 .e__row[data-past] .what { color: var(--t-quiet); }
 @media (max-width: 520px) { .e__row { grid-template-columns: 1fr auto; } .e__row .when { grid-column: 1 / -1; } }

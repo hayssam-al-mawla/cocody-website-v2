@@ -10,7 +10,7 @@ it is built from the client's notes of 21 September.
 
 | | Direction | The idea |
 |---|---|---|
-| **E** | [Studio](https://hayssam-al-mawla.github.io/cocody-website-v2/e/) | **Current.** The client's six notes of 21 September, built: the moving voucher, the wordmark giving way to the flower on scroll, the nav on the left in three groups, Instrument Serif, a five-colour palette, and the legal and social footer. The [system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html) walks through each. |
+| **E** | [Studio](https://hayssam-al-mawla.github.io/cocody-website-v2/e/) | **Current.** The client's six notes of 21 September, built: the moving voucher, the wordmark giving way to the flower on scroll, the nav on the left in three groups, Inter (the client's own choice), a five-colour palette, and the legal and social footer; revised the same afternoon with a bigger wordmark, line icons and a full-screen homepage. The [system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html) walks through each. |
 | **A** | [Seamless](https://hayssam-al-mawla.github.io/cocody-website-v2/a/) | The e-comm backdrop turned into a website. Pure white, true black, scale does the work. |
 | **B** | [Le Labo](https://hayssam-al-mawla.github.io/cocody-website-v2/b/) | The studio, not the shop. A contact sheet on a light table, film first. |
 | **C** | [Le Décor](https://hayssam-al-mawla.github.io/cocody-website-v2/c/) | The painted canvas from the campaign film, hung on the web. |

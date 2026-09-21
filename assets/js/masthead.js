@@ -48,7 +48,12 @@
         }
         track.style.setProperty('--set', w.toFixed(2) + 'px');
         track.style.setProperty('--ann-t', Math.max(16, w / 55).toFixed(1) + 's');
+        /* the homepage film fills the screen under this strip, so the
+           strip says how tall it is */
+        html.style.setProperty('--ann-h', m.offsetHeight + 'px');
       }
+      var x = m.querySelector('.ann__x');
+      if (x) x.addEventListener('click', function () { html.style.setProperty('--ann-h', '0px'); });
 
       build();
       /* the webfont arrives after first layout and changes the width */

@@ -37,12 +37,15 @@ html[data-direction="c"] {
   --t-ground: url("../img/canvas-ochre.jpg"); --t-panel: rgba(173,142,90,.16);
 }
 /* --- Direction E: Studio — built from Charlz's notes of 21 September.
-   Black and white do the work; pierre is the only other ground. The
-   display face is Instrument Serif, the interface Archivo. --- */
+   Black and white do the work; pierre is the only other ground. One
+   family, Inter, at Charlz's request the same afternoon: it replaces
+   Archivo and the serif alike, so --ui is redefined here and everything
+   downstream — nav, marquee, footer, bag, search — follows. --- */
 html[data-direction="e"] {
+  --ui: var(--inter);
   --t-bg: #FFFFFF; --t-fg: #000000; --t-quiet: #6B6B6B; --t-rule: #E6E4DF;
   --t-accent: #000000; --t-on-accent: #FFFFFF;
-  --t-display: var(--serif); --t-body: var(--ui); --t-lh: 1.5;
+  --t-display: var(--inter); --t-body: var(--inter); --t-lh: 1.5;
   --t-ground: none; --t-panel: #EFEDE8;
   --t-foot-bg: #000000; --t-foot-fg: #F2F1EE;
 }
@@ -61,15 +64,19 @@ html[data-direction="c"] body.t { font-size: 17px; }
 html[data-direction="b"] .t h1,
 html[data-direction="b"] .t h2,
 html[data-direction="b"] .t h3 { font-weight: 600; letter-spacing: -0.02em; }
-/* Instrument Serif is condensed and sits tight, so it takes a little
-   more size and a little less leading than the Didone did */
+/* Inter is wide where the serif was narrow: headings take a medium
+   weight, tighter tracking and a little less size */
 html[data-direction="e"] .t h1,
 html[data-direction="e"] .t h2,
-html[data-direction="e"] .t h3 { line-height: 1.02; letter-spacing: -0.005em; }
-html[data-direction="e"] .t__head h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
-html[data-direction="e"] .p__title { font-size: clamp(2rem, 4.2vw, 3.2rem); }
-html[data-direction="e"] .t__card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.15rem; }
-html[data-direction="e"] .sh__meta .nm { font-family: var(--serif); font-size: 1.05rem; }
+html[data-direction="e"] .t h3 { font-weight: 500; line-height: 1.05; letter-spacing: -0.025em; }
+html[data-direction="e"] .t__head h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); letter-spacing: -0.035em; }
+html[data-direction="e"] .p__title { font-size: clamp(1.6rem, 3.2vw, 2.4rem); }
+html[data-direction="e"] .t__card h3 { font-weight: 500; font-size: .95rem; letter-spacing: -0.01em; }
+html[data-direction="e"] .sh__meta .nm { font-weight: 500; letter-spacing: -0.01em; }
+html[data-direction="e"] .t__lead { font-weight: 500; letter-spacing: -0.02em; font-size: clamp(1.15rem, 2.2vw, 1.6rem); }
+html[data-direction="e"] .t__row .what { font-weight: 500; font-size: 1rem; }
+html[data-direction="e"] .t__join h2 { font-weight: 500; letter-spacing: -0.03em; }
+html[data-direction="e"] .t__panel-nav a { font-weight: 500; letter-spacing: -0.02em; font-size: 1.5rem; }
 html[data-direction="e"] .t__btn,
 html[data-direction="e"] .sh__f { font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
 html[data-direction="e"] .sh__f { font-size: .66rem; letter-spacing: .1em; }
@@ -131,13 +138,15 @@ html[data-direction="e"] .t__section-head a { font-size: .7rem; letter-spacing: 
 
 /* the middle: the wordmark, and the flower that takes its place */
 .t__mark { position: relative; display: grid; place-items: center; line-height: 0; text-decoration: none; justify-self: center; }
-.t__mark .logo { height: clamp(15px, 1.7vw, 20px); transition: opacity .3s var(--ease), transform .3s var(--ease); }
+/* bigger since the afternoon of 21 Sep — "the house in the middle could
+   be a bit bigger" — and the flower that takes its place grows with it */
+.t__mark .logo { height: clamp(26px, 2.2vw, 32px); transition: opacity .3s var(--ease), transform .3s var(--ease); }
 .t__bloom {
   position: absolute; inset: 0; display: grid; place-items: center;
   opacity: 0; transform: scale(.5); transition: opacity .3s var(--ease), transform .3s var(--ease);
   color: var(--t-fg); pointer-events: none;
 }
-.t__bloom .flower { width: 24px; height: 24px; transform: rotate(var(--turn, 0deg)); }
+.t__bloom .flower { width: 32px; height: 32px; transform: rotate(var(--turn, 0deg)); }
 html.is-turned .t__mark .logo { opacity: 0; transform: scale(.92); }
 html.is-turned .t__bloom { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .t__bloom .flower { transform: none; } }
@@ -149,6 +158,15 @@ html.is-turned .t__bloom { opacity: 1; transform: none; }
   white-space: nowrap; transition: color .2s;
 }
 .t__tool:hover { color: var(--t-quiet); }
+/* the icons, as on the reference: a thin line and no label on screen.
+   The label is still there for a screen reader, and "Search" is still
+   the text search.js binds to. */
+.t__icon { display: inline-flex; align-items: center; gap: .3rem; padding: .3rem .1rem; }
+.t__ico {
+  width: 22px; height: 22px; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.t__count { font-size: .7rem; font-weight: 500; font-variant-numeric: tabular-nums; min-width: 1ch; }
 .t__menu { display: none; }
 .is-bumped { animation: t-bump .42s var(--ease); display: inline-block; }
 @keyframes t-bump { 40% { transform: translateY(-.3em); } }

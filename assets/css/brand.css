@@ -38,10 +38,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   --read:    "Newsreader", Georgia, "Times New Roman", serif;
   --script:  "Italianno", "Snell Roundhand", cursive;
 
-  /* --- Direction E, 21 Sep: the display face, and the five named
-     colours. Each colour is a real Cocody object; the names are what
-     the system page calls them. --- */
-  --serif:   "Instrument Serif", "Times New Roman", Times, serif;
+  /* --- Direction E, 21 Sep: the family, and the five named colours.
+     Inter is Charlz's own choice, made the same afternoon; it replaced
+     the Instrument Serif + Archivo pairing proposed that morning. Each
+     colour is a real Cocody object; the names are what the system page
+     calls them. --- */
+  --inter:   "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --noir:    #000000;  /* the garments */
   --blanc:   #FFFFFF;  /* the e-comm seamless */
   --pierre:  #EFEDE8;  /* the seamless where the light falls off, warmed a touch */
