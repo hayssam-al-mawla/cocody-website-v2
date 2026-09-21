@@ -297,12 +297,31 @@ a:focus-visible .shot > .shot__b { opacity: 1; }
   color: #8a8a8a; font-size: 1.1rem; line-height: 1; padding: .2rem .4rem;
 }
 .rv__close:hover { color: #fff; }
-body { padding-bottom: 3.2rem; }
+/* the page reserves room for the bar only while the bar is actually
+   showing: not when it is hidden by its ×, not on a page without one,
+   and not while it is folded to the tab */
+body:has(.rv:not([hidden]):not(.is-collapsed)) { padding-bottom: 3.2rem; }
+
+/* Folded to a tab in the corner by default since the afternoon of
+   21 Sep — Charlz asked for the bar at the foot to go so the page could
+   be seen whole. The tab reopens it; the × still hides it for good. */
+.rv__tab {
+  display: none; padding: .35rem .7rem;
+  color: #cfcfcf; border: 1px solid #454548; border-radius: 2px;
+  font-size: .68rem; letter-spacing: .04em; white-space: nowrap;
+}
+.rv__tab:hover { color: #fff; border-color: #7a7a7d; }
+.rv.is-collapsed {
+  inset: auto .75rem .75rem auto; width: auto; padding: .3rem;
+  border: 1px solid #333; border-radius: 3px; gap: 0;
+}
+.rv.is-collapsed > :not(.rv__tab) { display: none; }
+.rv.is-collapsed .rv__tab { display: inline-block; }
 
 @media (max-width: 720px) {
   .rv { font-size: .66rem; gap: .5rem; padding: .5rem .75rem; }
   .rv__group { margin-left: 0; width: 100%; }
   /* the bar wraps to two or three lines on a phone, so the page needs
      more room underneath it than the desktop reserve */
-  body { padding-bottom: 6.5rem; }
+  body:has(.rv:not([hidden]):not(.is-collapsed)) { padding-bottom: 6.5rem; }
 }

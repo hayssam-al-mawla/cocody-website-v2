@@ -249,8 +249,18 @@
     var close = bar.querySelector('.rv__close');
     if (close) close.addEventListener('click', function () {
       bar.hidden = true;
-      document.body.style.paddingBottom = '0';
     });
+
+    /* folded to a tab by default (21 Sep pm): the client wanted the page
+       whole. The tab names the direction the page is wearing. */
+    var tab = document.createElement('button');
+    tab.type = 'button';
+    tab.className = 'rv__tab';
+    var d = document.documentElement.dataset.direction;
+    tab.textContent = 'Review options' + (d && NAMES[d] ? ' · ' + NAMES[d] : '') + ' ▴';
+    tab.addEventListener('click', function () { bar.classList.remove('is-collapsed'); });
+    bar.insertBefore(tab, bar.firstChild);
+    bar.classList.add('is-collapsed');
   }
 
   /* ------------------------------------------------------------------

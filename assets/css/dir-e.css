@@ -29,6 +29,9 @@
    ------------------------------------------------------------------ */
 
 .e { --bar-h: 4.25rem; }
+/* no review bar on the Direction E pages since the afternoon of 21 Sep
+   ("remove the pop-up below, so we can see it fully"), so no reserve */
+body.e { padding-bottom: 0; }
 
 /* ---------- the bar over the film ----------
    The hero slides up under the sticky bar by the bar's own height, so
@@ -80,8 +83,11 @@
 /* outlined, as the one Charlz circled: a hairline on the film, filled
    only on hover */
 .e__hero-cta {
-  position: absolute; left: 50%; bottom: clamp(5rem, 20%, 12rem);
-  transform: translateX(-50%);
+  /* centred with margins, not a transform: the entrance animation
+     below animates transform and would cancel a translateX(-50%),
+     which is exactly what pushed the button off-centre on the phone */
+  position: absolute; left: 0; right: 0; bottom: clamp(5rem, 20%, 12rem);
+  width: max-content; margin-inline: auto;
   background: rgba(0,0,0,.14); color: #fff; border: 1px solid #fff;
   backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
   padding: .9rem 1.9rem;
