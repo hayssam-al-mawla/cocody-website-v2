@@ -19,7 +19,7 @@ it is built from the client's notes of 21 September.
 ## The pages behind them
 
 Each of these opens in Direction E, and can be flipped to A, B or C from
-the bar at the foot of the page — or add `?dir=e`, `?dir=a`, `?dir=b` or
+the small "Review options" tab in the corner of the page — or add `?dir=e`, `?dir=a`, `?dir=b` or
 `?dir=c` to the address to send someone straight to one version. The
 masthead, marquee and footer from the 21 September notes are shared by
 all four skins.
@@ -40,7 +40,7 @@ all four skins.
 - The bag works on every page, and carries through to a checkout
 - Checkout fetches a shipping rate per destination, then shows the label and invoice being produced — the brief's section 3.7, made concrete
 - Search on ⌘K, live filtering across the catalogue
-- All seven shared templates can be flipped between directions E, A, B and C from the bar at the bottom of each page
+- All seven shared templates can be flipped between directions E, A, B and C from the "Review options" tab in the corner of each page; the two Direction E pages carry no review chrome at all
 - The masthead swaps the wordmark for the flower once you scroll, and the flower turns with the page; the marquee at the top carries the voucher and the shipping line
 
 ## About the content

@@ -44,8 +44,10 @@ WORTH TRYING
 - On product.html, click through the sizes. The blossom moves onto the
   size you pick, the way it sits around the size on the woven label.
 
-- On any page in templates/, use the bar at the bottom to flip the same
-  page between direction E, A, B and C. E is the default.
+- On any page in templates/, open the small "Review options" tab in the
+  bottom-right corner to flip the same page between direction E, A, B
+  and C. E is the default. The two Direction E pages have no such tab,
+  so they read as the site would.
 
 - On any page, scroll: the wordmark in the middle of the bar gives way
   to the flower, and the flower turns with the page. The strip at the
