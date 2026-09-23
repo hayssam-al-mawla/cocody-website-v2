@@ -35,21 +35,31 @@
 <header class="t__bar" data-masthead>
   <div class="t__left">
     <nav class="t__nav" aria-label="Main">
-      <div class="t__group">
-        <a href="../templates/shop.html">Shop<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-        <div class="t__sub">
+      <div class="t__group" data-group>
+        <button class="t__group-btn" type="button" aria-expanded="false" aria-controls="nav-shop">Shop<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <div class="t__sub" id="nav-shop">
           <a href="../templates/shop.html">All pieces</a>
-          <a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a>
-          <a href="../templates/cocody-lab.html">Cocody Lab</a>
+          <a href="../templates/shop.html#tops">Tops</a>
+          <a href="../templates/shop.html#bottoms">Bottoms</a>
+          <a href="../templates/shop.html#headwear">Headwear</a>
+          <a href="../templates/shop.html#accessories">Accessories</a>
         </div>
       </div>
-      <a href="../templates/collections.html#index">Archive</a>
-      <div class="t__group">
-        <a href="../templates/about.html">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-        <div class="t__sub">
+      <div class="t__group" data-group>
+        <button class="t__group-btn" type="button" aria-expanded="false" aria-controls="nav-archive">Archive<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <div class="t__sub" id="nav-archive">
+          <a href="../templates/collections.html#index">Every collection</a>
+          <a href="../templates/collections.html">B&ocirc; Visage</a>
+          <a href="../templates/collections.html#jersey">Jersey</a>
+          <a href="../templates/collections.html#pre-release-25">Pre-release 25</a>
+        </div>
+      </div>
+      <div class="t__group" data-group>
+        <button class="t__group-btn" type="button" aria-expanded="false" aria-controls="nav-maison">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <div class="t__sub" id="nav-maison">
+          <a href="../templates/cocody-lab.html">Cocody Cab</a>
           <a href="../templates/about.html">About us</a>
-          <a href="../templates/events.html">Pop-ups &amp; events</a>
-          <a href="#contact">Contact</a>
+          <a href="../templates/lookbook.html">Lookbook</a>
         </div>
       </div>
     </nav>
@@ -74,18 +84,23 @@
     <h3>Shop</h3>
     <ul>
       <li><a href="../templates/shop.html">All pieces</a></li>
-      <li><a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a></li>
-      <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+      <li><a href="../templates/shop.html#tops">Tops</a></li>
+      <li><a href="../templates/shop.html#bottoms">Bottoms</a></li>
+      <li><a href="../templates/shop.html#headwear">Headwear</a></li>
+      <li><a href="../templates/shop.html#accessories">Accessories</a></li>
     </ul>
     <h3>Archive</h3>
     <ul>
       <li><a href="../templates/collections.html#index">Every collection</a></li>
+      <li><a href="../templates/collections.html">B&ocirc; Visage</a></li>
+      <li><a href="../templates/collections.html#jersey">Jersey</a></li>
+      <li><a href="../templates/collections.html#pre-release-25">Pre-release 25</a></li>
     </ul>
     <h3>Maison Cocody</h3>
     <ul>
+      <li><a href="../templates/cocody-lab.html">Cocody Cab</a></li>
       <li><a href="../templates/about.html">About us</a></li>
-      <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="../templates/lookbook.html">Lookbook</a></li>
     </ul>
   </nav>
   <div class="t__panel-tools">
@@ -164,19 +179,19 @@
             <img class="shot__a" src="../assets/img/shop/sweater-a.jpg" width="880" height="1100" loading="lazy" alt="The Signature Zip-Up Sweater, from Bô.">
             <img class="shot__b" src="../assets/img/shop/trouser-a.jpg" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">
           </span>
-          <h3>FW26 — Bô</h3>
+          <h3>FW26 — Bô Visage</h3>
           <p>Three pieces · two still here</p>
         </a>
-        <a class="e__col" href="../templates/collections.html#index">
+        <a class="e__col" href="../templates/collections.html#jersey">
           <span class="shot">
             <span class="e__col-tag e__col-tag--archive">Archive</span>
             <img class="shot__a" src="../assets/img/shop/jersey-burgundy-a.jpg" width="880" height="1100" loading="lazy" alt="The burgundy Vintage Jersey, from SS25.">
             <img class="shot__b" src="../assets/img/shop/jersey-beige-a.jpg" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">
           </span>
-          <h3>SS25 — Opposites Attract</h3>
+          <h3>SS25 — Jersey</h3>
           <p>Two jerseys · sold out</p>
         </a>
-        <a class="e__col" href="../templates/collections.html#index">
+        <a class="e__col" href="../templates/collections.html#pre-release-25">
           <span class="shot">
             <span class="e__col-tag e__col-tag--archive">Archive</span>
             <img class="shot__a" src="../assets/img/shop/tote-vintage-a.jpg" width="880" height="1100" loading="lazy" alt="The Vintage Maxi Tote Bag, from the pre-release.">
@@ -251,18 +266,22 @@
     <div class="t__foot">
       <div><h3>Shop</h3><ul>
         <li><a href="../templates/shop.html">All pieces</a></li>
-        <li><a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a></li>
-        <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+        <li><a href="../templates/shop.html#tops">Tops</a></li>
+        <li><a href="../templates/shop.html#bottoms">Bottoms</a></li>
+        <li><a href="../templates/shop.html#headwear">Headwear</a></li>
+        <li><a href="../templates/shop.html#accessories">Accessories</a></li>
         <li><a href="../templates/product.html#chart">Size &amp; fit</a></li>
       </ul></div>
       <div><h3>Archive</h3><ul>
         <li><a href="../templates/collections.html#index">Every collection</a></li>
-        <li><a href="../templates/collections.html">FW26 &mdash; B&ocirc;</a></li>
-        <li><a href="../templates/collections.html#index">SS25</a></li>
-        <li><a href="../templates/collections.html#index">Pre-release 25</a></li>
+        <li><a href="../templates/collections.html">FW26 &mdash; B&ocirc; Visage</a></li>
+        <li><a href="../templates/collections.html#jersey">SS25 &mdash; Jersey</a></li>
+        <li><a href="../templates/collections.html#pre-release-25">Pre-release 25</a></li>
       </ul></div>
       <div><h3>Maison Cocody</h3><ul>
+        <li><a href="../templates/cocody-lab.html">Cocody Cab</a></li>
         <li><a href="../templates/about.html">About us</a></li>
+        <li><a href="../templates/lookbook.html">Lookbook</a></li>
         <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">Press</a></li>

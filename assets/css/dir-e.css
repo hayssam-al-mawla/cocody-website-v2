@@ -44,20 +44,28 @@ body.e { padding-bottom: 0; }
      white for the length of a transition */
   transition: background .3s var(--ease), border-color .3s var(--ease);
 }
-.e .t__nav > a, .e .t__group > a, .e .t__tool { transition: none; }
+.e .t__nav > a, .e .t__group-btn, .e .t__tool { transition: none; }
 .e.is-over-hero .t__bar {
   background: transparent; border-color: transparent; color: #fff;
   backdrop-filter: none; -webkit-backdrop-filter: none;
 }
 .e.is-over-hero .t__bar .logo { filter: invert(1); }
 .e.is-over-hero .t__nav > a,
-.e.is-over-hero .t__group > a,
+.e.is-over-hero .t__group-btn,
 .e.is-over-hero .t__tool { color: rgba(255,255,255,.92); }
 .e.is-over-hero .t__nav > a:hover,
-.e.is-over-hero .t__group > a:hover,
+.e.is-over-hero .t__group-btn:hover,
 .e.is-over-hero .t__tool:hover { color: #fff; }
-/* the dropdown keeps the page's own colours whatever the bar is doing */
-.e.is-over-hero .t__sub { color: var(--t-fg); }
+/* while a group is open the veil comes down white over the film, so
+   the bar takes its page colours at once — the reference does the
+   same: dark bar closed, light bar with the list open */
+.e.is-over-hero .t__bar:has(.t__group:is(:hover, .is-open)) { color: var(--t-fg); }
+.e.is-over-hero .t__bar:has(.t__group:is(:hover, .is-open)) .logo { filter: none; }
+.e.is-over-hero .t__bar:has(.t__group:is(:hover, .is-open)) .t__nav > a,
+.e.is-over-hero .t__bar:has(.t__group:is(:hover, .is-open)) .t__group-btn { color: var(--t-quiet); }
+.e.is-over-hero .t__bar:has(.t__group:is(:hover, .is-open)) .t__tool,
+.e.is-over-hero .t__bar:has(.t__group:is(:hover, .is-open)) .t__group-btn:hover,
+.e.is-over-hero .t__bar:has(.t__group:is(:hover, .is-open)) .t__group:is(:hover, .is-open) > .t__group-btn { color: var(--t-fg); }
 
 /* ---------- hero ---------- */
 .e__hero {
@@ -68,7 +76,7 @@ body.e { padding-bottom: 0; }
      into --ann-h; the fallback is its resting height. The button sits a
      fifth of the way up, as on the reference, which also keeps it clear
      of the review bar. */
-  height: calc(100svh - var(--ann-h, 1.95rem));
+  height: calc(100svh - var(--ann-h, 1.625rem));
   min-height: 520px;
   background: var(--noir);
   overflow: hidden;

@@ -35,6 +35,7 @@ templates/                      The pages behind the homepage
   events.html                     upcoming + permanent archive
   collections.html                one collection + the index
   about.html                      the story
+  lookbook.html                   the looks, and the pieces in them (new, 23 Sep)
 
 assets/                         Images, film, stylesheets, scripts
 

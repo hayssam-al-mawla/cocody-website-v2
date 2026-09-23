@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About us — Maison Cocody</title>
-<meta name="description" content="About template: the brand story, what the maison stands for, and who makes it.">
+<title>Lookbook — Maison Cocody</title>
+<meta name="description" content="Lookbook template: Bô Visage worn, in the order it was shot, with every look going to the pieces in it.">
 <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../assets/brand/favicon.png" sizes="256x256">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,6 @@
   </div>
   <button class="ann__x" type="button" aria-label="Hide this message">&times;</button>
 </div>
-
 
 <header class="t__bar" data-masthead>
   <div class="t__left">
@@ -58,8 +57,8 @@
         <button class="t__group-btn is-here" type="button" aria-expanded="false" aria-controls="nav-maison">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
         <div class="t__sub" id="nav-maison">
           <a href="cocody-lab.html">Cocody Cab</a>
-          <a href="about.html" aria-current="page">About us</a>
-          <a href="lookbook.html">Lookbook</a>
+          <a href="about.html">About us</a>
+          <a href="lookbook.html" aria-current="page">Lookbook</a>
         </div>
       </div>
     </nav>
@@ -112,93 +111,92 @@
 <main id="main" class="t__wrap">
 
   <div class="t__head">
-    <h1>About us</h1>
-    <p class="t__lead" style="margin-top:1.25rem">Cocody is a district of Abidjan. We only put the name on something once it deserves to go back there.</p>
+    <p class="t__crumb">Maison Cocody · Lookbook</p>
+    <h1>Lookbook</h1>
+    <p>B&ocirc; Visage, worn. Shot on the seamless one morning and against the canvas we painted ourselves that afternoon, and kept in the order it happened. Every look goes to the pieces in it.</p>
   </div>
 
-  <section>
-    <div class="t__split t__split--wide">
-      <video src="../assets/video/hero-desktop.mp4" poster="../assets/video/hero-poster.jpg"
-             muted loop playsinline autoplay preload="metadata"
-             aria-label="The Bô film, shot against hand-painted canvas."
-             style="aspect-ratio:16/9;object-fit:cover"></video>
-      <div class="t__prose">
-        <p>Maison Cocody is a small label working between Amsterdam and Abidjan. It started with three samples nobody was supposed to see, worn for a year until they were worth selling.</p>
-        <p>We make one collection at a time, in black, and we do not move on until it is right. That is slower than it should be and it is the only way we know how to do it.</p>
-      </div>
+  <!-- 23 Sep: "Lookbook" under Maison Cocody, as the client listed it.
+       Twelve columns, so the pictures can sit off each other the way a
+       printed lookbook does. WordPress: one page, a gallery block per
+       look, each caption linking to its products. -->
+  <section class="lb">
+    <figure class="lb__look" style="--c: 1 / span 7">
+      <img src="../assets/img/w-set-front-lg.jpg" width="1600" height="1600"
+           alt="Look one: the Signature Zip-Up Sweater, the Wide-Leg Pleated Trouser and the Cocody Monogram Hat, worn together, from the front.">
+      <figcaption><span><span class="n">01</span>Signature Zip-Up &middot; Wide-Leg Pleated Trouser &middot; Monogram Hat</span><a href="product.html?p=sweater">Shop the look</a></figcaption>
+    </figure>
+    <div class="lb__note" style="--c: 9 / span 4">
+      <p class="t__lead" style="font-size:clamp(1.15rem,2vw,1.5rem)">Three pieces, one colour, worn every way we could think of.</p>
+      <p>The set is the point. Everything in the cycle is cut to go with everything else in it, and with everything that came before it.</p>
     </div>
-  </section>
 
-  <!-- brief 3.1: mission and values, stated clearly -->
-  <section class="t__section">
-    <div class="t__section-head">
-      <h2>What we hold to</h2>
-    </div>
-    <div class="t__values">
-      <div class="t__value">
-        <h3><span class="mark" data-flower aria-hidden="true"></span>Few things, done fully</h3>
-        <p>Three pieces in a cycle, not thirty. Every one has to earn its place on the rail, and anything that does not clear that bar stays a sample.</p>
-      </div>
-      <div class="t__value">
-        <h3><span class="mark" data-flower aria-hidden="true"></span>Black, on purpose</h3>
-        <p>One colour means the cut has nowhere to hide. It also means everything we have ever made still works together.</p>
-      </div>
-      <div class="t__value">
-        <h3><span class="mark" data-flower aria-hidden="true"></span>The name is a standard</h3>
-        <p>Cocody is a real place with real people in it. Putting the name on a garment is a claim, so we only make it when it holds.</p>
-      </div>
-    </div>
-  </section>
+    <figure class="lb__look lb__look--down" style="--c: 8 / span 5">
+      <img src="../assets/img/m-set-front-lg.jpg" width="1600" height="1600"
+           alt="Look two: the sweater zipped to the top, over the trouser.">
+      <figcaption><span><span class="n">02</span>Signature Zip-Up &middot; Wide-Leg Pleated Trouser</span><a href="product.html?p=trouser">Shop the look</a></figcaption>
+    </figure>
 
-  <section class="t__section" style="padding-top:0">
-    <div class="t__split">
-      <img src="../assets/img/pant-label-lg.jpg" width="1600" height="1600" loading="lazy"
-           alt="The woven Maison Cocody label, where a blossom encircles the garment's size."
-           style="aspect-ratio:4/3;object-fit:cover;object-position:center 42%">
-      <div class="t__prose">
-        <h2 style="margin-top:0">The flower</h2>
-        <p>On the woven label, the size you bought is the one the blossom holds. It is punched as metal eyelets on the caps, and it sits inside the M and C on the monogram.</p>
-        <p>It is a small thing that costs us money and that most people will never notice. It is on every garment anyway, and it is why picking a size on this site works the way it does.</p>
-        <p style="margin-top:1.3rem"><a class="t__btn t__btn--ghost" href="product.html">Try it on a product page</a></p>
-      </div>
-    </div>
-  </section>
+    <figure class="lb__look lb__look--wide" style="--c: 1 / -1">
+      <img src="../assets/img/film-painting-lg.jpg" width="1600" height="900" loading="lazy"
+           alt="A still from the film: the canvas being painted by hand, the afternoon of the shoot.">
+      <figcaption><span><span class="n">03</span>The canvas, painted that afternoon</span><a href="cocody-lab.html">See the film</a></figcaption>
+    </figure>
 
-  <!-- brief 3.1 (optional): a team / collaborators section -->
-  <section class="t__section" style="padding-top:0">
-    <div class="t__section-head">
-      <h2>Who makes it</h2>
-      <span>And who we make it with</span>
-    </div>
-    <div class="t__cards">
-      <div class="t__card">
-        <div class="t__card-frame" style="aspect-ratio:1"><img class="shot__a" src="../assets/img/m-alt-front-md.jpg" width="880" height="880" loading="lazy" alt="">
-          <img class="shot__b" src="../assets/img/m-alt-open-md.jpg" width="880" height="880" loading="lazy" alt="" aria-hidden="true">
-        </div>
-        <h3>Design and cut</h3><p>Amsterdam studio</p>
-      </div>
-      <div class="t__card">
-        <div class="t__card-frame" style="aspect-ratio:1"><img class="shot__a" src="../assets/img/w-set-cap-md.jpg" width="880" height="880" loading="lazy" alt="">
-          <img class="shot__b" src="../assets/img/w-set-side-md.jpg" width="880" height="880" loading="lazy" alt="" aria-hidden="true">
-        </div>
-        <h3>Photography</h3><p>Bô campaign</p>
-      </div>
-      <div class="t__card">
-        <div class="t__card-frame" style="aspect-ratio:1"><img class="shot__a" src="../assets/img/cap-hero-md.jpg" width="880" height="880" loading="lazy" alt="">
-          <img class="shot__b" src="../assets/img/cap-back-md.jpg" width="880" height="880" loading="lazy" alt="" aria-hidden="true">
-        </div>
-        <h3>Embroidery</h3><p>Monogram and eyelets</p>
-      </div>
-      <div class="t__card">
-        <div class="t__card-frame" style="aspect-ratio:1"><img src="../assets/img/pant-seam-md.jpg" width="880" height="880" loading="lazy" alt=""></div>
-        <h3>Manufacture</h3><p>Northern Portugal</p>
-      </div>
-    </div>
-  </section>
+    <figure class="lb__look lb__look--half" style="--c: 2 / span 5">
+      <img src="../assets/img/w-arms-lg.jpg" width="1600" height="1600" loading="lazy"
+           alt="Look four: the full set with the hat, arms folded.">
+      <figcaption><span><span class="n">04</span>The full set</span><a href="product.html?p=monogram-hat">Shop the look</a></figcaption>
+    </figure>
+    <figure class="lb__look lb__look--half lb__look--down" style="--c: 7 / span 5">
+      <img src="../assets/img/m-set-walk-lg.jpg" width="1600" height="1600" loading="lazy"
+           alt="Look five: the set in motion, mid-step.">
+      <figcaption><span><span class="n">05</span>Signature Zip-Up &middot; Wide-Leg Pleated Trouser</span><a href="product.html?p=sweater">Shop the look</a></figcaption>
+    </figure>
 
-  <section class="t__section" style="padding-top:0;text-align:center">
-    <p class="t__lead" style="margin-inline:auto">We only put the name on something once it deserves to go back there.</p>
-    <p style="margin-top:1.1rem"><img class="sig-mark" src="../assets/brand/script-black.png" alt="Maison Cocody" width="626" height="120" style="margin-inline:auto"></p>
+    <figure class="lb__look" style="--c: 1 / span 5">
+      <img src="../assets/img/w-set-cap-lg.jpg" width="1600" height="1600" loading="lazy"
+           alt="Look six: the Cocody Monogram Hat, worn with the set.">
+      <figcaption><span><span class="n">06</span>Monogram Hat</span><a href="product.html?p=monogram-hat">Shop the hat</a></figcaption>
+    </figure>
+    <figure class="lb__look lb__look--down" style="--c: 6 / span 7">
+      <img src="../assets/img/m-tote-lg.jpg" width="1600" height="1600" loading="lazy"
+           alt="Look seven: the set carried with the Black Maxi Tote Bag.">
+      <figcaption><span><span class="n">07</span>With the tote</span><a href="product.html?p=tote-black">Shop the tote</a></figcaption>
+    </figure>
+
+    <figure class="lb__look lb__look--wide" style="--c: 1 / -1">
+      <img src="../assets/img/film-ochre-arms-lg.jpg" width="1600" height="900" loading="lazy"
+           alt="A still from the film: arms raised against the ochre canvas.">
+      <figcaption><span><span class="n">08</span>Against the ochre canvas</span><a href="cocody-lab.html">See the film</a></figcaption>
+    </figure>
+
+    <figure class="lb__look lb__look--third" style="--c: 1 / span 4">
+      <img src="../assets/img/cap-hero-lg.jpg" width="917" height="917" loading="lazy"
+           alt="The Cocody Monogram Hat on its own.">
+      <figcaption><span><span class="n">09</span>Monogram Hat</span><a href="product.html?p=monogram-hat">Shop</a></figcaption>
+    </figure>
+    <figure class="lb__look lb__look--third" style="--c: 5 / span 4">
+      <img src="../assets/img/pant-front-lg.jpg" width="1600" height="1600" loading="lazy"
+           alt="The Wide-Leg Pleated Trouser on its own, from the front.">
+      <figcaption><span><span class="n">10</span>Wide-Leg Pleated Trouser</span><a href="product.html?p=trouser">Shop</a></figcaption>
+    </figure>
+    <figure class="lb__look lb__look--third" style="--c: 9 / span 4">
+      <img src="../assets/img/m-alt-open-lg.jpg" width="1600" height="1600" loading="lazy"
+           alt="The Signature Zip-Up Sweater worn open.">
+      <figcaption><span><span class="n">11</span>Signature Zip-Up, open</span><a href="product.html?p=sweater">Shop</a></figcaption>
+    </figure>
+
+    <figure class="lb__look" style="--c: 4 / span 6">
+      <img src="../assets/img/w-set-back-lg.jpg" width="1600" height="1600" loading="lazy"
+           alt="Look twelve: the full set from the back.">
+      <figcaption><span><span class="n">12</span>The full set, from the back</span><a href="product.html?p=sweater">Shop the look</a></figcaption>
+    </figure>
+
+    <div class="lb__end">
+      <p class="t__lead" style="margin-inline:auto;text-align:center">That is the whole cycle.</p>
+      <p style="margin-top:1.25rem"><a class="t__btn" href="shop.html">Shop B&ocirc; Visage</a> <a class="t__btn t__btn--ghost" href="collections.html#index">Every collection</a></p>
+    </div>
   </section>
 
 </main>
@@ -272,7 +270,7 @@
 </footer>
 
 <div class="rv" data-switchable>
-  <span class="rv__note"><b>About template</b> — shown in Direction <span data-direction-name>Seamless</span>. Live product data; placeholder story copy.</span>
+  <span class="rv__note"><b>Lookbook template</b> — shown in Direction <span data-direction-name>Seamless</span>. Real photography from the Bô shoot; the order and the captions are ours.</span>
   <span class="rv__group">
     <span style="color:#8a8a8a">Direction:</span>
     <button class="rv__btn" type="button" data-set-direction="e">E · Studio</button>

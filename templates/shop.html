@@ -34,21 +34,31 @@
 <header class="t__bar" data-masthead>
   <div class="t__left">
     <nav class="t__nav" aria-label="Main">
-      <div class="t__group">
-        <a href="shop.html" aria-current="page">Shop<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-        <div class="t__sub">
-          <a href="shop.html">All pieces</a>
-          <a href="collections.html">B&ocirc; &mdash; the new cycle</a>
-          <a href="cocody-lab.html">Cocody Lab</a>
+      <div class="t__group" data-group>
+        <button class="t__group-btn is-here" type="button" aria-expanded="false" aria-controls="nav-shop">Shop<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <div class="t__sub" id="nav-shop">
+          <a href="shop.html" aria-current="page">All pieces</a>
+          <a href="shop.html#tops">Tops</a>
+          <a href="shop.html#bottoms">Bottoms</a>
+          <a href="shop.html#headwear">Headwear</a>
+          <a href="shop.html#accessories">Accessories</a>
         </div>
       </div>
-      <a href="collections.html#index">Archive</a>
-      <div class="t__group">
-        <a href="about.html">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-        <div class="t__sub">
+      <div class="t__group" data-group>
+        <button class="t__group-btn" type="button" aria-expanded="false" aria-controls="nav-archive">Archive<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <div class="t__sub" id="nav-archive">
+          <a href="collections.html#index">Every collection</a>
+          <a href="collections.html">B&ocirc; Visage</a>
+          <a href="collections.html#jersey">Jersey</a>
+          <a href="collections.html#pre-release-25">Pre-release 25</a>
+        </div>
+      </div>
+      <div class="t__group" data-group>
+        <button class="t__group-btn" type="button" aria-expanded="false" aria-controls="nav-maison">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <div class="t__sub" id="nav-maison">
+          <a href="cocody-lab.html">Cocody Cab</a>
           <a href="about.html">About us</a>
-          <a href="events.html">Pop-ups &amp; events</a>
-          <a href="#contact">Contact</a>
+          <a href="lookbook.html">Lookbook</a>
         </div>
       </div>
     </nav>
@@ -73,18 +83,23 @@
     <h3>Shop</h3>
     <ul>
       <li><a href="shop.html">All pieces</a></li>
-      <li><a href="collections.html">B&ocirc; &mdash; the new cycle</a></li>
-      <li><a href="cocody-lab.html">Cocody Lab</a></li>
+      <li><a href="shop.html#tops">Tops</a></li>
+      <li><a href="shop.html#bottoms">Bottoms</a></li>
+      <li><a href="shop.html#headwear">Headwear</a></li>
+      <li><a href="shop.html#accessories">Accessories</a></li>
     </ul>
     <h3>Archive</h3>
     <ul>
       <li><a href="collections.html#index">Every collection</a></li>
+      <li><a href="collections.html">B&ocirc; Visage</a></li>
+      <li><a href="collections.html#jersey">Jersey</a></li>
+      <li><a href="collections.html#pre-release-25">Pre-release 25</a></li>
     </ul>
     <h3>Maison Cocody</h3>
     <ul>
+      <li><a href="cocody-lab.html">Cocody Cab</a></li>
       <li><a href="about.html">About us</a></li>
-      <li><a href="events.html">Pop-ups &amp; events</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="lookbook.html">Lookbook</a></li>
     </ul>
   </nav>
   <div class="t__panel-tools">
@@ -105,13 +120,15 @@
        the sort is the standard orderby, and the grid is the loop. -->
   <div class="sh__bar">
     <div class="sh__filters" role="group" aria-label="Filter by category">
+      <!-- 23 Sep: the client's categories. Each one groups the finer
+           catalogue categories (shop.js), the way a parent product
+           category does in WooCommerce. The Shop menu on every page
+           lands here as shop.html#tops and so on. -->
       <button class="sh__f" type="button" data-shop-filter="All" aria-pressed="true">All</button>
-      <button class="sh__f" type="button" data-shop-filter="Sweater" aria-pressed="false">Sweaters</button>
-      <button class="sh__f" type="button" data-shop-filter="Pants" aria-pressed="false">Trousers</button>
-      <button class="sh__f" type="button" data-shop-filter="T-shirts" aria-pressed="false">T-shirts</button>
-      <button class="sh__f" type="button" data-shop-filter="Vintage Jerseys" aria-pressed="false">Jerseys</button>
+      <button class="sh__f" type="button" data-shop-filter="Tops" aria-pressed="false">Tops</button>
+      <button class="sh__f" type="button" data-shop-filter="Bottoms" aria-pressed="false">Bottoms</button>
       <button class="sh__f" type="button" data-shop-filter="Headwear" aria-pressed="false">Headwear</button>
-      <button class="sh__f" type="button" data-shop-filter="Bags" aria-pressed="false">Bags</button>
+      <button class="sh__f" type="button" data-shop-filter="Accessories" aria-pressed="false">Accessories</button>
     </div>
     <div class="sh__right">
       <span class="sh__count" data-shop-count>10 pieces</span>
@@ -160,18 +177,22 @@
     <div class="t__foot">
       <div><h3>Shop</h3><ul>
         <li><a href="shop.html">All pieces</a></li>
-        <li><a href="collections.html">B&ocirc; &mdash; the new cycle</a></li>
-        <li><a href="cocody-lab.html">Cocody Lab</a></li>
+        <li><a href="shop.html#tops">Tops</a></li>
+        <li><a href="shop.html#bottoms">Bottoms</a></li>
+        <li><a href="shop.html#headwear">Headwear</a></li>
+        <li><a href="shop.html#accessories">Accessories</a></li>
         <li><a href="product.html#chart">Size &amp; fit</a></li>
       </ul></div>
       <div><h3>Archive</h3><ul>
         <li><a href="collections.html#index">Every collection</a></li>
-        <li><a href="collections.html">FW26 &mdash; B&ocirc;</a></li>
-        <li><a href="collections.html#index">SS25</a></li>
-        <li><a href="collections.html#index">Pre-release 25</a></li>
+        <li><a href="collections.html">FW26 &mdash; B&ocirc; Visage</a></li>
+        <li><a href="collections.html#jersey">SS25 &mdash; Jersey</a></li>
+        <li><a href="collections.html#pre-release-25">Pre-release 25</a></li>
       </ul></div>
       <div><h3>Maison Cocody</h3><ul>
+        <li><a href="cocody-lab.html">Cocody Cab</a></li>
         <li><a href="about.html">About us</a></li>
+        <li><a href="lookbook.html">Lookbook</a></li>
         <li><a href="events.html">Pop-ups &amp; events</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">Press</a></li>

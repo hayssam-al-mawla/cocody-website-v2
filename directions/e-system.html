@@ -30,6 +30,7 @@
   .sys__notes li { display: grid; grid-template-columns: 2rem 1fr auto; gap: 1rem; align-items: baseline; padding: .8rem 0; border-bottom: 1px solid var(--t-rule); }
   .sys__notes li::before { counter-increment: n; content: counter(n); font-family: var(--t-display); font-weight: 500; font-size: 1.1rem; color: var(--t-quiet); }
   .sys__notes--pm { counter-reset: n 6; }
+  .sys__notes--d3 { counter-reset: n 10; }
   .sys__when { font-family: var(--ui); font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--t-quiet); margin-top: clamp(1.5rem, 4vh, 2.5rem); }
   .sys__notes q { font-family: var(--t-display); font-weight: 500; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.3; quotes: "\201C" "\201D"; }
   .sys__notes a { font-family: var(--ui); font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .15rem; white-space: nowrap; }
@@ -103,21 +104,31 @@
 <header class="t__bar" data-masthead>
   <div class="t__left">
     <nav class="t__nav" aria-label="Main">
-      <div class="t__group">
-        <a href="../templates/shop.html">Shop<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-        <div class="t__sub">
+      <div class="t__group" data-group>
+        <button class="t__group-btn" type="button" aria-expanded="false" aria-controls="nav-shop">Shop<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <div class="t__sub" id="nav-shop">
           <a href="../templates/shop.html">All pieces</a>
-          <a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a>
-          <a href="../templates/cocody-lab.html">Cocody Lab</a>
+          <a href="../templates/shop.html#tops">Tops</a>
+          <a href="../templates/shop.html#bottoms">Bottoms</a>
+          <a href="../templates/shop.html#headwear">Headwear</a>
+          <a href="../templates/shop.html#accessories">Accessories</a>
         </div>
       </div>
-      <a href="../templates/collections.html#index">Archive</a>
-      <div class="t__group">
-        <a href="../templates/about.html">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-        <div class="t__sub">
+      <div class="t__group" data-group>
+        <button class="t__group-btn" type="button" aria-expanded="false" aria-controls="nav-archive">Archive<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <div class="t__sub" id="nav-archive">
+          <a href="../templates/collections.html#index">Every collection</a>
+          <a href="../templates/collections.html">B&ocirc; Visage</a>
+          <a href="../templates/collections.html#jersey">Jersey</a>
+          <a href="../templates/collections.html#pre-release-25">Pre-release 25</a>
+        </div>
+      </div>
+      <div class="t__group" data-group>
+        <button class="t__group-btn" type="button" aria-expanded="false" aria-controls="nav-maison">Maison Cocody<svg class="t__chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <div class="t__sub" id="nav-maison">
+          <a href="../templates/cocody-lab.html">Cocody Cab</a>
           <a href="../templates/about.html">About us</a>
-          <a href="../templates/events.html">Pop-ups &amp; events</a>
-          <a href="#contact">Contact</a>
+          <a href="../templates/lookbook.html">Lookbook</a>
         </div>
       </div>
     </nav>
@@ -142,18 +153,23 @@
     <h3>Shop</h3>
     <ul>
       <li><a href="../templates/shop.html">All pieces</a></li>
-      <li><a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a></li>
-      <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+      <li><a href="../templates/shop.html#tops">Tops</a></li>
+      <li><a href="../templates/shop.html#bottoms">Bottoms</a></li>
+      <li><a href="../templates/shop.html#headwear">Headwear</a></li>
+      <li><a href="../templates/shop.html#accessories">Accessories</a></li>
     </ul>
     <h3>Archive</h3>
     <ul>
       <li><a href="../templates/collections.html#index">Every collection</a></li>
+      <li><a href="../templates/collections.html">B&ocirc; Visage</a></li>
+      <li><a href="../templates/collections.html#jersey">Jersey</a></li>
+      <li><a href="../templates/collections.html#pre-release-25">Pre-release 25</a></li>
     </ul>
     <h3>Maison Cocody</h3>
     <ul>
+      <li><a href="../templates/cocody-lab.html">Cocody Cab</a></li>
       <li><a href="../templates/about.html">About us</a></li>
-      <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="../templates/lookbook.html">Lookbook</a></li>
     </ul>
   </nav>
   <div class="t__panel-tools">
@@ -167,7 +183,7 @@
   <div class="t__head">
     <p class="t__crumb"><a href="e-studio.html">Direction E</a> · The system</p>
     <h1>Your notes, built</h1>
-    <p>What each note of 21 September became — the six from the morning and the four from the afternoon — and what is still yours to decide. This page wears the same masthead and footer as the homepage and the shop, so scroll it: the strip at the top moves, and the wordmark in the middle of the bar gives way to the flower, which turns with the page.</p>
+    <p>What each of your notes became — the six from the morning of 21 September, the four from that afternoon, and the five from 23 September — and what is still yours to decide. This page wears the same masthead and footer as the homepage and the shop, so scroll it: the strip at the top moves, and the wordmark in the middle of the bar gives way to the flower, which turns with the page.</p>
   </div>
 
   <section class="sys" id="notes">
@@ -185,6 +201,14 @@
       <li><q>The icons next to it could be like the ones in the examples</q><a href="#mark">The masthead</a></li>
       <li><q>Is it possible for the homepage to take up the entire screen, like in the examples?</q><a href="e-studio.html">The homepage</a></li>
       <li><q>Can you use Inter as the typo?</q><a href="#type">The typography</a></li>
+    </ol>
+    <p class="sys__when">Two days later, 23 September</p>
+    <ol class="sys__notes sys__notes--d3">
+      <li><q>The discount bar at the top of the page: slightly thinner</q><a href="#marquee">The marquee</a></li>
+      <li><q>Could you create a gradient that extends when we click on Shop?</q><a href="#nav">The navigation</a></li>
+      <li><q>In the Shop tab, all the clothing categories — Tops, Bottoms, Accessories, etc.</q><a href="#nav">The navigation</a></li>
+      <li><q>In Archive, the previous collections — Bô Visage, Jersey, etc.</q><a href="#nav">The navigation</a></li>
+      <li><q>Under Maison Cocody: Cocody Cab, About Us, Lookbook</q><a href="#nav">The navigation</a></li>
     </ol>
   </section>
 
@@ -244,29 +268,34 @@
       <h2>3 · The navigation</h2>
       <span>Left, in three groups</span>
     </div>
-    <p class="sys__lede">Exactly the three you listed, in your order, on the left of the bar. Shop and Maison Cocody open on hover or keyboard focus; Archive goes straight to the index of collections. On a phone the same three groups are the menu. The bar above is the live one.</p>
+    <p class="sys__lede">Exactly the three you listed, in your order, on the left of the bar &mdash; and since 23 September each one opens, with what you asked for under it. Hover opens a menu and a click holds it open; as it opens, the bar&rsquo;s ground extends down the page as a gradient and the list sits on it, the way the reference does. On a phone the same three groups are the menu. The bar above is the live one: open Shop.</p>
 
     <div class="sys__tree">
       <div class="sys__branch">
         <h3>Shop <span>opens</span></h3>
         <ul>
           <li>All pieces<small>The whole catalogue, filters and quick add</small></li>
-          <li>Bô — the new cycle<small>The current collection's own page</small></li>
-          <li>Cocody Lab<small>Under Shop, as you asked — see the note below</small></li>
+          <li>Tops<small>The sweaters, the T-shirts, the jerseys</small></li>
+          <li>Bottoms<small>The trousers</small></li>
+          <li>Headwear<small>The caps and hats</small></li>
+          <li>Accessories<small>The totes</small></li>
         </ul>
       </div>
       <div class="sys__branch">
-        <h3>Archive <span>one page</span></h3>
+        <h3>Archive <span>opens</span></h3>
         <ul>
-          <li>Every collection<small>One permanent page each; sold-out ones tagged Archive</small></li>
+          <li>Every collection<small>The index; sold-out ones tagged Archive</small></li>
+          <li>Bô Visage<small>FW26, the current cycle</small></li>
+          <li>Jersey<small>SS25, the two vintage jerseys</small></li>
+          <li>Pre-release 25<small>The first caps, T-shirts and totes</small></li>
         </ul>
       </div>
       <div class="sys__branch">
         <h3>Maison Cocody <span>opens</span></h3>
         <ul>
+          <li>Cocody Cab<small>As you wrote it; opens the films for now — see the note below</small></li>
           <li>About us<small>The story, the values, who makes it</small></li>
-          <li>Pop-ups &amp; events<small>What is next, and everything that has happened</small></li>
-          <li>Contact<small>Goes to the foot of the page</small></li>
+          <li>Lookbook<small>A new page: Bô Visage worn, every look going to its pieces</small></li>
         </ul>
       </div>
     </div>
@@ -277,11 +306,11 @@
       </div>
       <div>
         <h3>What is not in the bar</h3>
-        <p>Refund and returns, shipping, size chart, contact. They are in the footer, where the reference keeps them too. Nothing legal sits in the nav.</p>
+        <p>Refund and returns, shipping, size chart, contact &mdash; and, since 23 September, the pop-ups and events, which your list for Maison Cocody did not include. All in the footer, where the reference keeps them too. Nothing legal sits in the nav.</p>
       </div>
       <div>
-        <h3>One question back</h3>
-        <p>You put Cocody Lab under Shop. If the Lab is the films — which is what the brief says — it belongs under Maison Cocody, next to the pop-ups. If it is going to be a line of pieces, it is right where it is. Built as you wrote it; say which.</p>
+        <h3>Two questions back</h3>
+        <p>&ldquo;Cocody Cab&rdquo; is in as you wrote it, and for now it opens the films page that was called Cocody Lab. If Cab was Lab, nothing else changes; if it is something new, tell us what it holds. And the categories are our reading of the catalogue &mdash; Tops takes the sweaters, the T-shirts and the jerseys &mdash; so say if you split them differently.</p>
       </div>
     </div>
   </section>
@@ -296,7 +325,7 @@
     <div class="sys__cols">
       <div>
         <h3>On the homepage</h3>
-        <p>The bar is transparent over the film, with the wordmark in white. Once the film is gone it is the same solid bar every other page has, with the flower in it.</p>
+        <p>The bar is transparent over the film, with the wordmark in white. Open a menu and the gradient comes down white with the type in black, as on the reference, for as long as it is open. Once the film is gone it is the same solid bar every other page has, with the flower in it.</p>
       </div>
       <div>
         <h3>Everywhere else</h3>
@@ -314,7 +343,7 @@
       <h2>1 · The marquee</h2>
       <span>The voucher, and the shipping</span>
     </div>
-    <p class="sys__lede">The strip at the top of every page: ten per cent off the first order for joining, free shipping over the threshold, and the shipping promise. It moves at a walking pace, pauses when you hover it, and can be closed. The separator is the flower.</p>
+    <p class="sys__lede">The strip at the top of every page: ten per cent off the first order for joining, free shipping over the threshold, and the shipping promise. It moves at a walking pace, pauses when you hover it, and can be closed. The separator is the flower. Since 23 September it is thinner, as you asked: 26 pixels tall against 31.</p>
     <div class="sys__cols">
       <div>
         <h3>The voucher</h3>
@@ -347,10 +376,11 @@
   <section class="sys" id="open">
     <div class="t__section-head">
       <h2>Still yours to decide</h2>
-      <span>Six things</span>
+      <span>Seven things</span>
     </div>
     <ul class="sys__open">
-      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>Where Cocody Lab lives.</b> Under Shop, as you wrote it, or under Maison Cocody with the pop-ups. See the note above.</span></li>
+      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>Cocody Cab.</b> Under Maison Cocody as you wrote it, opening the films page for now. Was it Cocody Lab, or is it something new?</span></li>
+      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The categories and the collection names.</b> Tops, Bottoms, Headwear and Accessories are our grouping of the catalogue; Bô Visage, Jersey and Pre-release 25 are the archive as we understand it. Correct either on the call.</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The voucher mechanics.</b> Ten per cent on the first order only, or on the first order after signing up? One use per email? It changes the WooCommerce coupon and the welcome mail.</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The social handles, the legal texts, the company numbers.</b> The footer has the slots; it needs the words.</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The free-shipping threshold</b>, and who pays duties outside the EU. Decision 6, unchanged.</span></li>
@@ -377,18 +407,22 @@
     <div class="t__foot">
       <div><h3>Shop</h3><ul>
         <li><a href="../templates/shop.html">All pieces</a></li>
-        <li><a href="../templates/collections.html">B&ocirc; &mdash; the new cycle</a></li>
-        <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+        <li><a href="../templates/shop.html#tops">Tops</a></li>
+        <li><a href="../templates/shop.html#bottoms">Bottoms</a></li>
+        <li><a href="../templates/shop.html#headwear">Headwear</a></li>
+        <li><a href="../templates/shop.html#accessories">Accessories</a></li>
         <li><a href="../templates/product.html#chart">Size &amp; fit</a></li>
       </ul></div>
       <div><h3>Archive</h3><ul>
         <li><a href="../templates/collections.html#index">Every collection</a></li>
-        <li><a href="../templates/collections.html">FW26 &mdash; B&ocirc;</a></li>
-        <li><a href="../templates/collections.html#index">SS25</a></li>
-        <li><a href="../templates/collections.html#index">Pre-release 25</a></li>
+        <li><a href="../templates/collections.html">FW26 &mdash; B&ocirc; Visage</a></li>
+        <li><a href="../templates/collections.html#jersey">SS25 &mdash; Jersey</a></li>
+        <li><a href="../templates/collections.html#pre-release-25">Pre-release 25</a></li>
       </ul></div>
       <div><h3>Maison Cocody</h3><ul>
+        <li><a href="../templates/cocody-lab.html">Cocody Cab</a></li>
         <li><a href="../templates/about.html">About us</a></li>
+        <li><a href="../templates/lookbook.html">Lookbook</a></li>
         <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">Press</a></li>

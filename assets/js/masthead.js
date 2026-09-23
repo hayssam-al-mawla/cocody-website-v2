@@ -152,7 +152,56 @@
     });
   }
 
-  function init() { marquee(); masthead(); menu(); }
+  /* ------------------------------------------------------------------
+     4 · The dropdowns (23 Sep)
+     Hover opens a group in CSS alone, and the veil under it is CSS too
+     (.t__bar::before). This adds the click — "a gradient that extends
+     when we click on Shop": a click holds the group open until the
+     button is clicked again, the pointer enters another group, Escape,
+     or a click anywhere else. Enter or Space on the button does the
+     same from a keyboard, and tabbing out of the list closes it.
+     ------------------------------------------------------------------ */
+  function dropdowns() {
+    var groups = Array.prototype.slice.call(document.querySelectorAll('[data-group]'));
+    if (!groups.length) return;
+
+    function set(g, open) {
+      g.classList.toggle('is-open', open);
+      var b = g.querySelector('.t__group-btn');
+      if (b) b.setAttribute('aria-expanded', String(open));
+    }
+    function closeAll(except) {
+      groups.forEach(function (g) { if (g !== except) set(g, false); });
+    }
+
+    groups.forEach(function (g) {
+      var b = g.querySelector('.t__group-btn');
+      if (!b) return;
+      b.addEventListener('click', function () {
+        var open = !g.classList.contains('is-open');
+        closeAll(g);
+        set(g, open);
+      });
+      g.addEventListener('mouseenter', function () { closeAll(g); });
+      g.addEventListener('focusout', function (e) {
+        if (!g.contains(e.relatedTarget)) set(g, false);
+      });
+    });
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!(t && t.closest && t.closest('[data-group]'))) closeAll();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var open = groups.filter(function (g) { return g.classList.contains('is-open'); })[0];
+      if (!open) return;
+      closeAll();
+      var b = open.querySelector('.t__group-btn');
+      if (b) b.focus();
+    });
+  }
+
+  function init() { marquee(); masthead(); menu(); dropdowns(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

@@ -42,8 +42,9 @@
    seam. Hover or focus pauses it; the × hides it; reduced motion holds
    it still. The separator is the flower, solid, at type size. */
 .ann--marquee {
-  justify-content: flex-start; padding: .5rem 0; overflow: hidden; text-align: left;
-  font-size: .64rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+  /* 26px tall since 23 Sep ("slightly thinner"), from 31 */
+  justify-content: flex-start; padding: .35rem 0; overflow: hidden; text-align: left;
+  font-size: .62rem; line-height: 1.5; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
 }
 .ann__track {
   display: flex; width: max-content; will-change: transform;

@@ -104,37 +104,52 @@ html[data-direction="e"] .t__section-head a { font-size: .7rem; letter-spacing: 
   font-family: var(--ui); font-size: .7rem; font-weight: 500;
   letter-spacing: .12em; text-transform: uppercase;
 }
-.t__nav > a, .t__group > a {
+.t__nav > a, .t__group-btn {
   display: inline-flex; align-items: center; gap: .35rem;
-  text-decoration: none; color: var(--t-quiet); padding-block: .35rem;
+  font: inherit; letter-spacing: inherit; text-transform: inherit;
+  text-decoration: none; color: var(--t-quiet); padding: .35rem 0;
   white-space: nowrap; transition: color .2s;
 }
-.t__nav > a:hover, .t__group > a:hover, .t__group:focus-within > a,
+.t__nav > a:hover, .t__group-btn:hover, .t__group-btn.is-here,
+.t__group:is(:hover, .is-open) > .t__group-btn,
 .t__nav a[aria-current="page"] { color: var(--t-fg); }
 .t__chev { width: .6em; height: .4em; transition: transform .25s var(--ease); }
-.t__group:hover .t__chev, .t__group:focus-within .t__chev { transform: rotate(180deg); }
+.t__group:is(:hover, .is-open) .t__chev { transform: rotate(180deg); }
 
-/* the dropdown: opens on hover and on keyboard focus, no script */
+/* the dropdown — since 23 Sep a bare list, as on the reference, not a
+   box: each group is a button, and all three open. Hover opens one; a
+   click holds it open (Charlz's "when we click on Shop") until the
+   next click, Escape, or a click anywhere else; Enter on the button
+   does the same from a keyboard (masthead.js). */
 .t__group { position: relative; }
 .t__sub {
-  position: absolute; left: -1rem; top: 100%; z-index: 5;
-  min-width: 14rem; padding-top: .95rem;   /* bridges the bar's padding, so the pointer can cross */
-  opacity: 0; visibility: hidden; transform: translateY(-.3rem);
-  transition: opacity .2s var(--ease), transform .2s var(--ease), visibility 0s .2s;
+  position: absolute; left: 0; top: 100%; z-index: 5;
+  display: grid; min-width: 12rem; padding-top: 1.05rem;   /* bridges the bar's padding, so the pointer can cross */
+  opacity: 0; visibility: hidden; transform: translateY(-.25rem);
+  transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s;
 }
-.t__group:hover .t__sub, .t__group:focus-within .t__sub {
-  opacity: 1; visibility: visible; transform: none; transition-delay: 0s;
-}
+.t__group:is(:hover, .is-open) .t__sub { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
 .t__sub a {
-  display: block; padding: .5rem 1rem;
-  background: var(--t-bg); color: var(--t-quiet);
-  font-size: .8125rem; font-weight: 400; letter-spacing: 0; text-transform: none;
-  text-decoration: none; border-inline: 1px solid var(--t-rule);
-  transition: color .15s, background .15s;
+  display: block; padding: .48rem 0; color: var(--t-quiet);
+  font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  text-decoration: none; white-space: nowrap; transition: color .15s;
 }
-.t__sub a:first-child { border-top: 1px solid var(--t-rule); padding-top: .8rem; }
-.t__sub a:last-child { border-bottom: 1px solid var(--t-rule); padding-bottom: .8rem; }
-.t__sub a:hover, .t__sub a[aria-current="page"] { color: var(--t-fg); background: var(--t-panel); }
+.t__sub a:hover, .t__sub a[aria-current="page"] { color: var(--t-fg); }
+
+/* the veil — Charlz's "gradient that extends when we click on Shop":
+   the bar's own ground, drawn down over the page while a group is
+   open and fading to nothing, so the list has something to sit on
+   wherever the page is. Under the type, over everything else. */
+.t__bar::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; z-index: -1;
+  height: 100%; opacity: 0; pointer-events: none;
+  background: linear-gradient(to bottom,
+    var(--t-veil, var(--t-bg)) 0%, var(--t-veil, var(--t-bg)) 56%, transparent 100%);
+  transition: height .45s var(--ease), opacity .3s var(--ease);
+}
+.t__bar:has(.t__group:is(:hover, .is-open))::before { height: calc(100% + 22rem); opacity: 1; }
+.t__bar:has(.t__group:is(:hover, .is-open)) { border-bottom-color: transparent; }
+@media (prefers-reduced-motion: reduce) { .t__bar::before, .t__sub { transition: none; } }
 
 /* the middle: the wordmark, and the flower that takes its place */
 .t__mark { position: relative; display: grid; place-items: center; line-height: 0; text-decoration: none; justify-self: center; }
@@ -225,6 +240,41 @@ html[data-direction="b"] .t__panel-nav a { font-weight: 500; font-size: 1.4rem; 
 }
 .t__btn--ghost:hover { border-color: var(--t-fg); opacity: 1; }
 .t__btn--wide { width: 100%; }
+
+/* ==================================================================
+   LOOKBOOK — 23 Sep: "Lookbook" under Maison Cocody. Bô Visage worn,
+   in the order it was shot; every caption names the pieces and goes to
+   them. Twelve columns, so the pictures can sit off each other; each
+   figure says where it goes in --c.
+   ================================================================== */
+.lb {
+  display: grid; grid-template-columns: repeat(12, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem) clamp(.75rem, 1.5vw, 1.25rem); align-items: start;
+  padding-bottom: clamp(2rem, 6vh, 4rem);
+}
+.lb__look { grid-column: var(--c, 1 / -1); margin: 0; }
+.lb__look--down { margin-top: clamp(2rem, 8vw, 7rem); }
+.lb__look img { display: block; width: 100%; height: auto; background: var(--paper); }
+.lb__look--wide img { aspect-ratio: 16 / 9; object-fit: cover; }
+.lb__look figcaption {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .35rem 1rem;
+  margin-top: .7rem; font-family: var(--ui); font-size: .75rem; color: var(--t-quiet);
+}
+.lb__look figcaption .n { color: var(--t-fg); font-variant-numeric: tabular-nums; margin-right: .7rem; }
+.lb__look figcaption a { color: var(--t-fg); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .1rem; white-space: nowrap; }
+.lb__look figcaption a:hover { color: var(--t-quiet); }
+.lb__note { grid-column: var(--c, 1 / -1); align-self: end; padding-bottom: 2rem; }
+.lb__note p + p { color: var(--t-quiet); font-size: .9375rem; margin-top: .8rem; max-width: 34ch; }
+.lb__end { grid-column: 1 / -1; text-align: center; padding-top: clamp(1rem, 4vh, 2.5rem); }
+html[data-direction="e"] .lb__look figcaption { font-size: .66rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+@media (max-width: 720px) {
+  .lb { gap: 1.75rem .6rem; }
+  .lb__look, .lb__note { grid-column: 1 / -1; }
+  .lb__look--half { grid-column: span 6; }
+  .lb__look--half figcaption { flex-direction: column; align-items: flex-start; }   /* two up, so the link goes under the caption */
+  .lb__look--down { margin-top: 0; }
+  .lb__note { padding-bottom: 0; }
+}
 
 /* ==================================================================
    PRODUCT

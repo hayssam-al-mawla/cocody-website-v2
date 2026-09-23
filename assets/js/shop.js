@@ -14,6 +14,23 @@
   var IMG = 'assets/img/shop/';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* 23 Sep: the client's categories, as the Shop menu lists them. The
+     catalogue keeps its finer ones — Sweater, T-shirts, Vintage
+     Jerseys — and these group them, which is what a parent product
+     category does in WooCommerce. A filter that is not a group still
+     matches a category by name. */
+  var GROUPS = {
+    'Tops': ['Sweater', 'T-shirts', 'Vintage Jerseys'],
+    'Bottoms': ['Pants'],
+    'Headwear': ['Headwear'],
+    'Accessories': ['Bags']
+  };
+  function inGroup(p, c) {
+    if (c === 'All') return true;
+    var g = GROUPS[c];
+    return g ? g.indexOf(p.category) !== -1 : p.category === c;
+  }
+
   /* pages sit one folder down; the hub sits at the root */
   var base = /\/(templates|directions)\//.test(location.pathname) ? '../' : '';
   var money = function (n) { return '€' + n.toFixed(0); };
@@ -219,7 +236,7 @@
     }
 
     function draw() {
-      var list = CAT.filter(function (p) { return cat === 'All' || p.category === cat; });
+      var list = CAT.filter(function (p) { return inGroup(p, cat); });
       var how = sortEl ? sortEl.value : 'featured';
       if (how === 'low')  list = list.slice().sort(function (a, b) { return a.price - b.price; });
       if (how === 'high') list = list.slice().sort(function (a, b) { return b.price - a.price; });
@@ -248,6 +265,19 @@
     });
     if (sortEl) sortEl.addEventListener('change', draw);
     draw();
+
+    /* shop.html#tops, from the Shop menu on every page — press the
+       matching filter now, and again whenever the hash changes, so the
+       menu works on the shop page itself too */
+    function fromHash() {
+      var want = (location.hash || '').slice(1).toLowerCase();
+      if (!want) return;
+      filters.forEach(function (b) {
+        if (b.dataset.shopFilter.toLowerCase() === want) b.click();
+      });
+    }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
   }
 
   /* ================================================================

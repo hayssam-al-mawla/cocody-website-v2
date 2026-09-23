@@ -1,6 +1,6 @@
 # Maison Cocody — Website V2
 
-Five design directions and seven page templates for the Maison Cocody
+Five design directions and eight page templates for the Maison Cocody
 website redesign, September 2026. Direction E is the current proposal:
 it is built from the client's notes of 21 September.
 
@@ -10,7 +10,7 @@ it is built from the client's notes of 21 September.
 
 | | Direction | The idea |
 |---|---|---|
-| **E** | [Studio](https://hayssam-al-mawla.github.io/cocody-website-v2/e/) | **Current.** The client's six notes of 21 September, built: the moving voucher, the wordmark giving way to the flower on scroll, the nav on the left in three groups, Inter (the client's own choice), a five-colour palette, and the legal and social footer; revised the same afternoon with a bigger wordmark, line icons and a full-screen homepage. The [system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html) walks through each. |
+| **E** | [Studio](https://hayssam-al-mawla.github.io/cocody-website-v2/e/) | **Current.** The client's six notes of 21 September, built: the moving voucher, the wordmark giving way to the flower on scroll, the nav on the left in three groups, Inter (the client's own choice), a five-colour palette, and the legal and social footer; revised the same afternoon with a bigger wordmark, line icons and a full-screen homepage, and on 23 September with a thinner strip, a gradient that extends when a menu opens, and the three menus as the client listed them (Shop by category, Archive by collection, Cocody Cab / About us / Lookbook). The [system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html) walks through each. |
 | **A** | [Seamless](https://hayssam-al-mawla.github.io/cocody-website-v2/a/) | The e-comm backdrop turned into a website. Pure white, true black, scale does the work. |
 | **B** | [Le Labo](https://hayssam-al-mawla.github.io/cocody-website-v2/b/) | The studio, not the shop. A contact sheet on a light table, film first. |
 | **C** | [Le Décor](https://hayssam-al-mawla.github.io/cocody-website-v2/c/) | The painted canvas from the campaign film, hung on the web. |
@@ -33,6 +33,7 @@ all four skins.
 | [Cocody Lab](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/cocody-lab.html) | the film hub | |
 | [Events](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/events.html) | upcoming, and the archive | |
 | [About](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/about.html) | the story | |
+| [Lookbook](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/lookbook.html) | Bô Visage worn, look by look | new, 23 Sep |
 
 ## It is a working site, not flat mockups
 
@@ -40,7 +41,7 @@ all four skins.
 - The bag works on every page, and carries through to a checkout
 - Checkout fetches a shipping rate per destination, then shows the label and invoice being produced — the brief's section 3.7, made concrete
 - Search on ⌘K, live filtering across the catalogue
-- All seven shared templates can be flipped between directions E, A, B and C from the "Review options" tab in the corner of each page; the two Direction E pages carry no review chrome at all
+- All eight shared templates can be flipped between directions E, A, B and C from the "Review options" tab in the corner of each page; the two Direction E pages carry no review chrome at all
 - The masthead swaps the wordmark for the flower once you scroll, and the flower turns with the page; the marquee at the top carries the voucher and the shipping line
 
 ## About the content
