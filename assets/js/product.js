@@ -86,7 +86,7 @@
 
   var note;
   if (!here) {
-    note = 'Sold out. <a href="#" style="color:inherit">Tell me if it comes back</a>';
+    note = oneSize ? 'Sold out.' : 'Sold out in every size.';
   } else if (oneSize) {
     note = 'One size.';
   } else {
@@ -97,6 +97,9 @@
   }
   set('[data-p-note]', note);
 
+  /* sold out, since 24 Sep as on the reference: the button greys out
+     and says so, then an email field and "Notify me when back in
+     stock". Nothing receives the address yet — see the system page. */
   var buy = root.querySelector('[data-p-buy]');
   if (buy) {
     buy.innerHTML = here
@@ -104,8 +107,29 @@
         ' data-name="' + p.name + '" data-price="' + p.price + '"' +
         ' data-material="' + p.material + '" data-img="' + p.img + '">Add to bag</button>' +
         '<a class="t__btn t__btn--ghost t__btn--wide" href="shop.html">Keep looking</a>'
-      : '<button class="t__btn t__btn--wide" type="button" disabled style="opacity:.45;cursor:not-allowed">Sold out</button>' +
-        '<a class="t__btn t__btn--ghost t__btn--wide" href="shop.html">See what is still here</a>';
+      : '<button class="t__btn t__btn--wide t__btn--sold" type="button" disabled aria-disabled="true">Sold out</button>' +
+        '<form class="p__notify" data-notify novalidate>' +
+          '<label class="sr-only" for="notify-mail">Email address</label>' +
+          '<input id="notify-mail" type="email" placeholder="Enter your email address" required autocomplete="email">' +
+          '<button class="t__btn t__btn--wide" type="submit">Notify me when back in stock</button>' +
+          '<p class="p__notify-note" role="status" aria-live="polite"></p>' +
+        '</form>';
+  }
+
+  var notify = root.querySelector('[data-notify]');
+  if (notify) {
+    var mail = notify.querySelector('input');
+    var told = notify.querySelector('.p__notify-note');
+    notify.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!mail.value || !mail.checkValidity()) {
+        told.textContent = 'An email address, so we can write to you.';
+        mail.focus();
+        return;
+      }
+      notify.classList.add('is-done');
+      told.textContent = 'Noted. One mail to ' + mail.value + ' the day the ' + p.name + ' is back, and nothing else.';
+    });
   }
 
   /* story */
@@ -140,12 +164,13 @@
   }).slice(0, 4);
   set('[data-p-related]', others.map(function (o) {
     var sold = !o.sizes.some(function (s) { return s.in; });
-    return '<a class="t__card" href="product.html?p=' + o.slug + '">' +
+    return '<a class="t__card' + (sold ? ' is-sold' : '') + '" href="product.html?p=' + o.slug + '">' +
       '<div class="t__card-frame">' +
         '<img class="shot__a" src="' + IMG + o.img + '" width="880" height="1100" loading="lazy" alt="' + o.name + '">' +
         '<img class="shot__b" src="' + IMG + o.alt + '" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">' +
       '</div>' +
-      '<h3>' + o.name + '</h3><p>' + money(o.price) + (sold ? ' · sold out' : '') + '</p></a>';
+      '<h3>' + o.name + '</h3>' + (sold ? '<p class="st">( Sold out )</p>' : '') +
+      '<p>' + money(o.price) + '</p></a>';
   }).join(''));
 
   if (window.CocodyPaintFlowers) window.CocodyPaintFlowers(root);

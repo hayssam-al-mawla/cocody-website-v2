@@ -31,6 +31,7 @@
   .sys__notes li::before { counter-increment: n; content: counter(n); font-family: var(--t-display); font-weight: 500; font-size: 1.1rem; color: var(--t-quiet); }
   .sys__notes--pm { counter-reset: n 6; }
   .sys__notes--d3 { counter-reset: n 10; }
+  .sys__notes--d4 { counter-reset: n 15; }
   .sys__when { font-family: var(--ui); font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--t-quiet); margin-top: clamp(1.5rem, 4vh, 2.5rem); }
   .sys__notes q { font-family: var(--t-display); font-weight: 500; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.3; quotes: "\201C" "\201D"; }
   .sys__notes a { font-family: var(--ui); font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .15rem; white-space: nowrap; }
@@ -183,7 +184,7 @@
   <div class="t__head">
     <p class="t__crumb"><a href="e-studio.html">Direction E</a> · The system</p>
     <h1>Your notes, built</h1>
-    <p>What each of your notes became — the six from the morning of 21 September, the four from that afternoon, and the five from 23 September — and what is still yours to decide. This page wears the same masthead and footer as the homepage and the shop, so scroll it: the strip at the top moves, and the wordmark in the middle of the bar gives way to the flower, which turns with the page.</p>
+    <p>What each of your notes became — the six from the morning of 21 September, the four from that afternoon, the five from 23 September and the two from 24 September — and what is still yours to decide. This page wears the same masthead and footer as the homepage and the shop, so scroll it: the strip at the top moves, and the wordmark in the middle of the bar gives way to the flower, which turns with the page.</p>
   </div>
 
   <section class="sys" id="notes">
@@ -209,6 +210,11 @@
       <li><q>In the Shop tab, all the clothing categories — Tops, Bottoms, Accessories, etc.</q><a href="#nav">The navigation</a></li>
       <li><q>In Archive, the previous collections — Bô Visage, Jersey, etc.</q><a href="#nav">The navigation</a></li>
       <li><q>Under Maison Cocody: Cocody Cab, About Us, Lookbook</q><a href="#nav">The navigation</a></li>
+    </ol>
+    <p class="sys__when">The next day, 24 September</p>
+    <ol class="sys__notes sys__notes--d4">
+      <li><q>For the sold-out product it would be cool to do the same idea — with the sold out written as well</q><a href="#sold">Sold out</a></li>
+      <li><q>Same here, with the sold out button and notify me when back in stock</q><a href="#sold">Sold out</a></li>
     </ol>
   </section>
 
@@ -373,14 +379,37 @@
     </div>
   </section>
 
+  <section class="sys" id="sold">
+    <div class="t__section-head">
+      <h2>7 · Sold out</h2>
+      <span>Faded, and said</span>
+    </div>
+    <p class="sys__lede">Your two notes of 24 September, with the two NOLOGO screenshots. Eight of the ten pieces are sold out, so this is most of the shop. In the grid a sold-out piece fades &mdash; the photograph and the words together &mdash; and says so in brackets under its name, above the price, as the reference does; it stays a link to its page and comes back a little under the pointer. The chip on the picture is kept only for a piece with a few sizes left, in the ochre. On the page itself the button greys out and reads Sold out, and under it sit an email field and Notify me when back in stock in the house black, the arrangement you sent. The sizes stay, struck through, so the page still says what existed.</p>
+    <div class="sys__cols">
+      <div>
+        <h3>In the grid</h3>
+        <p>The homepage, the shop and the four related pieces on every product page do the same thing: the card at forty per cent, ( Sold out ) in the small tracked capitals under the name, the price beside or under it as the card already had it. Open <a href="../templates/shop.html">the shop</a>: eight of the ten show it.</p>
+      </div>
+      <div>
+        <h3>On the page</h3>
+        <p>Sold out in grey, the field, then the black button. An address and a press gets a one-line thank-you naming the piece. <a href="../templates/product.html?p=monogram-hat">The Monogram Hat</a> shows it; on a sized piece the fit finder now points at the same field when the size it recommends is gone.</p>
+      </div>
+      <div>
+        <h3>One question back</h3>
+        <p>Nothing receives the address yet. WooCommerce has its own back-in-stock notices, and the maison&rsquo;s mailing list could take it instead; which one decides how that mail looks and who sends it. The form is ready either way.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="sys" id="open">
     <div class="t__section-head">
       <h2>Still yours to decide</h2>
-      <span>Seven things</span>
+      <span>Eight things</span>
     </div>
     <ul class="sys__open">
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>Cocody Cab.</b> Under Maison Cocody as you wrote it, opening the films page for now. Was it Cocody Lab, or is it something new?</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The categories and the collection names.</b> Tops, Bottoms, Headwear and Accessories are our grouping of the catalogue; Bô Visage, Jersey and Pre-release 25 are the archive as we understand it. Correct either on the call.</span></li>
+      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>Where the back-in-stock addresses go.</b> The form is on every sold-out page and thanks the person, but nothing receives the address yet: WooCommerce&rsquo;s own notices, or the mailing list the maison uses?</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The voucher mechanics.</b> Ten per cent on the first order only, or on the first order after signing up? One use per email? It changes the WooCommerce coupon and the welcome mail.</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The social handles, the legal texts, the company numbers.</b> The footer has the slots; it needs the words.</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The free-shipping threshold</b>, and who pays duties outside the EU. Decision 6, unchanged.</span></li>

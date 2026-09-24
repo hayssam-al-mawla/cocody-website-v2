@@ -267,6 +267,18 @@ a:focus-visible .shot > .shot__b { opacity: 1; }
 }
 .shot__state--last { background: var(--ochre); color: var(--ink); }
 
+/* sold out, since 24 Sep, as on the reference: the whole card fades —
+   the photograph and the words together — and the state is written
+   out in brackets under the name, above the price. Still a link, and
+   it comes back a little under the pointer. The chip on the picture
+   is now only for "only M left". */
+.is-sold { opacity: .4; transition: opacity .3s var(--ease); }
+.is-sold:hover, .is-sold:focus-visible { opacity: .62; }
+.is-sold .st {
+  display: block; font-family: var(--ui); font-size: .7rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--t-quiet, currentColor); margin-top: .3rem;
+}
+
 @media (prefers-reduced-motion: reduce) { .shot__b { transition: none; } }
 
 /* ------------------------------------------------------------------

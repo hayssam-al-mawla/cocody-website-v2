@@ -240,6 +240,12 @@ html[data-direction="b"] .t__panel-nav a { font-weight: 500; font-size: 1.4rem; 
 }
 .t__btn--ghost:hover { border-color: var(--t-fg); opacity: 1; }
 .t__btn--wide { width: 100%; }
+/* sold out, 24 Sep, as on the reference: the button greys out and
+   says so; the field and the black button follow it (.p__notify) */
+.t__btn--sold, .t__btn--sold:hover {
+  background: var(--t-quiet); border-color: var(--t-quiet); color: var(--t-bg);
+  opacity: 1; cursor: not-allowed;
+}
 
 /* ==================================================================
    LOOKBOOK — 23 Sep: "Lookbook" under Maison Cocody. Bô Visage worn,
@@ -321,6 +327,18 @@ html[data-direction="e"] .lb__look figcaption { font-size: .66rem; font-weight: 
 .p__chosen strong { color: var(--t-fg); font-weight: 500; }
 
 .p__actions { display: grid; gap: .6rem; margin-top: 1.5rem; }
+.p__notify { display: grid; gap: .6rem; }
+.p__notify input {
+  width: 100%; background: var(--t-bg); color: var(--t-fg);
+  font-family: var(--ui); font-size: .875rem;
+  border: 1px solid var(--t-rule); padding: .9rem 1rem;
+}
+.p__notify input::placeholder { color: var(--t-quiet); }
+.p__notify input:focus { outline: none; border-color: var(--t-fg); }
+.p__notify-note { font-family: var(--ui); font-size: .8125rem; color: var(--t-quiet); }
+.p__notify-note:empty { display: none; }
+.p__notify.is-done input, .p__notify.is-done button { display: none; }
+.p__notify.is-done .p__notify-note { color: var(--t-fg); }
 .p__ship { font-family: var(--ui); font-size: .78rem; color: var(--t-quiet); margin-top: .9rem; display: flex; gap: .5rem; align-items: flex-start; }
 
 /* --- fit finder --- */

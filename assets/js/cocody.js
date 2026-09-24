@@ -153,7 +153,7 @@
          nothing, so say so and offer the alert instead. */
       if (btn && btn.disabled) {
         out.innerHTML = 'Size <strong>' + size + '</strong> is the one for you, and it is sold out. ' +
-          '<a href="#" style="color:inherit">Tell me when ' + size + ' is back</a>';
+          '<a href="#notify-mail" style="color:inherit">Tell me when ' + size + ' is back</a>';
         return;
       }
       out.innerHTML = 'Size <strong>' + size + '</strong> should fit you. ' +

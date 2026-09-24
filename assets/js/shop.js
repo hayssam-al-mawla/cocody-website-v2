@@ -219,17 +219,19 @@
     var filters = document.querySelectorAll('[data-shop-filter]');
     var cat = 'All';
 
+    /* a sold-out piece fades, picture and words, and says so under its
+       name — .is-sold in brand.css, Charlz's note of 24 Sep */
     function card(p) {
       var sold = !p.sizes.some(function (s) { return s.in; });
-      return '<a class="sh__item" href="product.html?p=' + p.slug + '">' +
+      return '<a class="sh__item' + (sold ? ' is-sold' : '') + '" href="product.html?p=' + p.slug + '">' +
         '<span class="shot" data-qa="' + p.slug + '">' +
-          (sold ? '' : '') +
           '<img class="shot__a" src="' + base + IMG + p.img + '" width="880" height="1100" loading="lazy" alt="' + p.name + '">' +
           '<img class="shot__b" src="' + base + IMG + p.alt + '" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">' +
         '</span>' +
         '<span class="sh__meta">' +
           '<span><span class="nm">' + p.name + '</span>' +
-          '<span class="mt">' + p.material + (sold ? ' · Sold out' : '') + '</span></span>' +
+          (sold ? '<span class="st">( Sold out )</span>' : '') +
+          '<span class="mt">' + p.material + '</span></span>' +
           '<span class="pz">' + money(p.price) + (p.was ? ' <s>' + money(p.was) + '</s>' : '') + '</span>' +
         '</span>' +
       '</a>';
