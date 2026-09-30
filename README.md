@@ -5,10 +5,11 @@ Maison Cocody website redesign, September 2026. It is built from the
 client's notes, and since 30 September it is the only direction here:
 the four it grew out of (A, B, C and D) were taken out so the work can
 go deeper into this one. They are still in this repository's history —
-commit `65fee48` has all five.
+commit `65fee48` has all five. The root of the site opens the homepage;
+the cover page, with every page listed, is `START-HERE.html`.
 
 **[Open the homepage →](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-studio.html)** ·
-[the cover page](https://hayssam-al-mawla.github.io/cocody-website-v2/) ·
+[the cover page](https://hayssam-al-mawla.github.io/cocody-website-v2/START-HERE.html) ·
 [the system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html)
 
 ## Direction E — Studio
