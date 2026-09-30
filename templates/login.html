@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Checkout — Maison Cocody</title>
-<meta name="description" content="Checkout template showing live carrier rates, the label and the invoice generated automatically on payment.">
+<title>Sign in — Maison Cocody</title>
+<meta name="description" content="Login template: sign in, create an account and reset a password, in one column. Nothing is checked, stored or sent.">
 <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../assets/brand/favicon.png" sizes="256x256">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,10 +13,24 @@
 <link rel="stylesheet" href="../assets/css/brand.css">
 <link rel="stylesheet" href="../assets/css/templates.css">
 <link rel="stylesheet" href="../assets/css/shop.css">
-<link rel="stylesheet" href="../assets/css/checkout.css">
 </head>
 <body class="t">
 <a class="skip-link" href="#main">Skip to content</a>
+
+<div class="ann ann--marquee" data-marquee>
+  <div class="ann__track">
+    <div class="ann__set">
+      <span class="ann__item"><a href="#join">10% off your first order when you join the maison</a></span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+      <span class="ann__item">Free shipping over &euro;100</span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+      <span class="ann__item">Shipped worldwide from Amsterdam &middot; rates shown before you pay</span>
+      <span class="ann__sep" data-flower="flower--solid" aria-hidden="true"></span>
+    </div>
+  </div>
+  <button class="ann__x" type="button" aria-label="Hide this message">&times;</button>
+</div>
+
 
 <header class="t__bar" data-masthead>
   <div class="t__left">
@@ -57,7 +71,7 @@
   </a>
   <div class="t__tools">
     <button class="t__tool t__icon" type="button"><span class="sr-only">Search</span><svg class="t__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button>
-    <a class="t__tool t__icon t__account" href="login.html"><span class="sr-only">Account</span><svg class="t__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.75"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></a>
+    <a class="t__tool t__icon t__account" href="login.html" aria-current="page"><span class="sr-only">Account</span><svg class="t__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.75"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></a>
     <button class="t__tool t__icon" type="button"><span class="sr-only">Bag</span><svg class="t__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 8.5h13l.9 11.2a1 1 0 0 1-1 1.1H5.6a1 1 0 0 1-1-1.1z"/><path d="M8.75 8.5V7a3.25 3.25 0 0 1 6.5 0v1.5"/></svg><span class="t__count" data-bag-count>0</span></button>
   </div>
 </header>
@@ -97,88 +111,99 @@
   </div>
 </div>
 
-<!-- This page exists to make brief 3.7 concrete. Pick a country and
-     the rate is fetched rather than guessed; pay and the label and
-     invoice are produced without anyone looking anything up. The rates
-     below are a stand-in table, but the flow is the real one. -->
-<main id="main" class="t__wrap co" data-checkout>
+<!-- 30 Sep: "a login page". One narrow column and three views that
+     take each other's place — sign in, create an account, reset the
+     password — so there is one page to find and one link in the bar
+     (account.js). Nothing here is checked, stored or sent.
+     WordPress: WooCommerce's My account page with registration switched
+     on, and its lost-password endpoint; the forms are WooCommerce's. -->
+<main id="main" class="t__wrap ac" data-account>
 
-  <div class="t__head">
-    <p class="t__crumb"><a href="shop.html">Shop</a> · Checkout</p>
-    <h1>Checkout</h1>
-  </div>
-
-  <div class="co__grid">
-
-    <section class="co__form" aria-label="Delivery details">
-      <ol class="co__steps">
-        <li class="co__step">
-          <h2><span class="co__n">1</span> Where is it going?</h2>
-          <div class="co__fields">
-            <label class="co__f co__f--wide">Full name<input type="text" placeholder="Nour Diallo" autocomplete="name"></label>
-            <label class="co__f co__f--wide">Address<input type="text" placeholder="Prinsengracht 263" autocomplete="street-address"></label>
-            <label class="co__f">Postcode<input type="text" placeholder="1016 GV" autocomplete="postal-code"></label>
-            <label class="co__f">City<input type="text" placeholder="Amsterdam" autocomplete="address-level2"></label>
-            <label class="co__f co__f--wide">Country
-              <select data-co-country autocomplete="country-name">
-                <option value="NL">Netherlands</option>
-                <option value="BE">Belgium</option>
-                <option value="FR">France</option>
-                <option value="DE">Germany</option>
-                <option value="ES">Spain</option>
-                <option value="GB">United Kingdom</option>
-                <option value="US">United States</option>
-                <option value="CI">Côte d’Ivoire</option>
-              </select>
-            </label>
-          </div>
-          <p class="co__hint">
-            <span class="mark" data-flower aria-hidden="true"></span>
-            Change the country and watch the rates below update. On the live site this is a live call to the carriers, not a table.
-          </p>
-        </li>
-
-        <li class="co__step">
-          <h2><span class="co__n">2</span> How should it travel?</h2>
-          <div class="co__rates" data-co-rates role="radiogroup" aria-label="Shipping method"></div>
-          <p class="co__hint" data-co-duty hidden></p>
-        </li>
-
-        <li class="co__step">
-          <h2><span class="co__n">3</span> Pay</h2>
-          <p class="co__pay-note">Card, iDEAL, Bancontact and Apple Pay. This is a mockup, so nothing here takes a payment and no card field is shown.</p>
-          <button class="t__btn t__btn--wide" type="button" data-co-pay>Pay <span data-co-paytotal>€0</span></button>
-          <p class="co__hint" style="margin-top:.9rem">You will not be charged — this button shows what happens next.</p>
-        </li>
-      </ol>
-    </section>
-
-    <aside class="co__summary" aria-label="Order summary">
-      <h2>Your order</h2>
-      <div class="co__lines" data-co-lines></div>
-      <dl class="co__totals">
-        <div><dt>Subtotal</dt><dd data-co-sub>€0</dd></div>
-        <div><dt>Shipping <span class="co__ship-name" data-co-shipname></span></dt><dd data-co-ship>—</dd></div>
-        <div class="co__grand"><dt>Total</dt><dd data-co-total>€0</dd></div>
-      </dl>
-      <p class="co__hint" data-co-free></p>
-    </aside>
-  </div>
-
-  <!-- what the brief calls "stop the manual work" -->
-  <section class="t__section co__after" data-co-after hidden>
-    <div class="t__section-head">
-      <h2>What just happened</h2>
-      <span>Nobody looked up a rate</span>
+  <section class="ac__view" data-view="signin" data-done-title="Welcome back" aria-labelledby="ac-signin">
+    <div class="ac__head">
+      <p class="t__crumb">Account</p>
+      <h1 id="ac-signin" tabindex="-1">Sign in</h1>
+      <p>Your orders and your addresses, in one place.</p>
     </div>
-    <ol class="co__flow">
-      <li><b>Rate fetched</b><span>The carrier was asked what this parcel costs to that address, using the weight and dimensions held against each piece. The price you saw was the price we pay.</span></li>
-      <li><b>Payment cleared</b><span>Product and shipping taken together, in one charge.</span></li>
-      <li><b>Label generated</b><span>Produced automatically and waiting in the fulfilment queue. No one opened a carrier website.</span></li>
-      <li><b>Invoice sent</b><span>Emailed to the customer within seconds, with the order confirmation.</span></li>
-      <li><b>Left to do</b><span>Pack it, stick the label on, hand it over. That is the whole manual step.</span></li>
-    </ol>
-    <p class="co__hint" style="margin-top:1.25rem">Section 6 of the written document covers which carrier or aggregator does this, what it costs, and what has to be in place first — starting with real weights and box sizes on every product.</p>
+    <form class="ac__form" novalidate>
+      <div class="ac__f">
+        <label for="ac-in-mail">Email address</label>
+        <input id="ac-in-mail" type="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="ac__f">
+        <label for="ac-in-pw">Password</label>
+        <span class="ac__pw">
+          <input id="ac-in-pw" type="password" name="password" autocomplete="current-password" required data-pw>
+          <button type="button" data-pw-show aria-pressed="false">Show</button>
+        </span>
+      </div>
+      <div class="ac__row">
+        <label class="ac__check"><input type="checkbox" name="remember"> Keep me signed in</label>
+        <a href="#reset" data-go="reset">Forgot your password?</a>
+      </div>
+      <button class="t__btn t__btn--wide" type="submit">Sign in</button>
+      <p class="ac__note" role="status" aria-live="polite"></p>
+    </form>
+    <div class="ac__after">
+      <a class="t__btn t__btn--wide" href="shop.html">Continue to the shop</a>
+      <button class="ac__link" type="button" data-again>Sign out</button>
+    </div>
+    <div class="ac__alt">
+      <h2>New to the maison?</h2>
+      <p>An account keeps your orders and addresses together. You never need one to buy: the checkout works without.</p>
+      <a class="t__btn t__btn--ghost t__btn--wide" href="#register" data-go="register">Create an account</a>
+    </div>
+  </section>
+
+  <section class="ac__view" data-view="register" data-done-title="Welcome to the maison" aria-labelledby="ac-register" hidden>
+    <div class="ac__head">
+      <p class="t__crumb">Account</p>
+      <h1 id="ac-register" tabindex="-1">Create an account</h1>
+      <p>An email address and a password. The rest we ask for when you order.</p>
+    </div>
+    <form class="ac__form" novalidate>
+      <div class="ac__f">
+        <label for="ac-new-mail">Email address</label>
+        <input id="ac-new-mail" type="email" name="email" autocomplete="email" required>
+      </div>
+      <div class="ac__f">
+        <label for="ac-new-pw">Password</label>
+        <span class="ac__pw">
+          <input id="ac-new-pw" type="password" name="password" autocomplete="new-password" required minlength="8" aria-describedby="ac-new-hint" data-pw>
+          <button type="button" data-pw-show aria-pressed="false">Show</button>
+        </span>
+        <span class="ac__hint" id="ac-new-hint">Eight characters or more.</span>
+      </div>
+      <label class="ac__check"><input type="checkbox" name="join"> Send me the 10% for a first order, and one mail per collection</label>
+      <button class="t__btn t__btn--wide" type="submit">Create account</button>
+      <p class="ac__note" role="status" aria-live="polite"></p>
+      <p class="ac__hint">By creating an account you accept the terms &amp; conditions and the privacy policy, both at the foot of this page.</p>
+    </form>
+    <div class="ac__after">
+      <a class="t__btn t__btn--wide" href="shop.html">Continue to the shop</a>
+    </div>
+    <p class="ac__back">Already have an account? <a href="#signin" data-go="signin">Sign in</a></p>
+  </section>
+
+  <section class="ac__view" data-view="reset" data-done-title="Check your inbox" aria-labelledby="ac-reset" hidden>
+    <div class="ac__head">
+      <p class="t__crumb">Account</p>
+      <h1 id="ac-reset" tabindex="-1">Reset your password</h1>
+      <p>The email address the account is under, and we send a link to choose a new one.</p>
+    </div>
+    <form class="ac__form" novalidate>
+      <div class="ac__f">
+        <label for="ac-reset-mail">Email address</label>
+        <input id="ac-reset-mail" type="email" name="email" autocomplete="email" required>
+      </div>
+      <button class="t__btn t__btn--wide" type="submit">Send the link</button>
+      <p class="ac__note" role="status" aria-live="polite"></p>
+    </form>
+    <div class="ac__after">
+      <a class="t__btn t__btn--wide" href="#signin" data-go="signin">Back to sign in</a>
+      <button class="ac__link" type="button" data-again>Use another address</button>
+    </div>
+    <p class="ac__back"><a href="#signin" data-go="signin">Back to sign in</a></p>
   </section>
 
 </main>
@@ -257,6 +282,6 @@
 <script src="../assets/js/masthead.js"></script>
 <script src="../assets/js/shop.js"></script>
 <script src="../assets/js/search.js"></script>
-<script src="../assets/js/checkout.js"></script>
+<script src="../assets/js/account.js"></script>
 </body>
 </html>

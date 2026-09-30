@@ -2,9 +2,8 @@
    Shop furniture
    The announcement bar, the bag drawer, quick-add and the listing page.
 
-   All of it themes off the same tokens the three directions already
-   define, so it inherits whichever skin the page is wearing rather than
-   needing three copies.
+   All of it themes off its own small set of tokens, set once for
+   Direction E below.
 
    WordPress note: none of this is exotic. The drawer is the WooCommerce
    mini-cart over cart fragments, the listing is the product archive,
@@ -31,8 +30,6 @@
 .ann[hidden] { display: none; }
 
 /* the bar has to stand off whatever ground it lands on */
-.b .ann, html[data-direction="b"] .ann { --ann-bg: #F4F4F4; --ann-fg: #0B0B0B; }
-.c .ann, html[data-direction="c"] .ann { --ann-bg: #000000; --ann-fg: #FAF9F7; }
 .e .ann, html[data-direction="e"] .ann { --ann-bg: #EFEDE8; --ann-fg: #000000; }
 
 /* ---------- the marquee ----------
@@ -153,9 +150,6 @@
 .bag__go:hover { opacity: .85; }
 
 /* the drawer inherits the page's skin */
-html[data-direction="b"] .bag, body.b ~ .bag,
-.b .bag { --bag-bg: #0B0B0B; --bag-fg: #F4F4F4; --bag-rule: #2A2A2C; --bag-quiet: #9B9DA1; }
-html[data-direction="c"] .bag, .c .bag { --bag-bg: #FAF9F7; --bag-fg: #000; --bag-rule: rgba(0,0,0,.16); --bag-quiet: #5E574C; }
 html[data-direction="e"] .bag { --bag-bg: #FFFFFF; --bag-fg: #000; --bag-rule: #E6E4DF; --bag-quiet: #6B6B6B; }
 
 /* ---------- quick add, on the grid ---------- */
@@ -288,7 +282,4 @@ html[data-direction="e"] .bag { --bag-bg: #FFFFFF; --bag-fg: #000; --bag-rule: #
 }
 
 /* the overlay wears the page's skin */
-.b .sr__panel, html[data-direction="b"] .sr__panel { --sr-bg:#0B0B0B; --sr-fg:#F4F4F4; --sr-rule:#2A2A2C; --sr-quiet:#9B9DA1; --sr-hit:#161618; }
-.c .sr__panel, html[data-direction="c"] .sr__panel { --sr-bg:#FAF9F7; --sr-fg:#000; --sr-rule:rgba(0,0,0,.16); --sr-quiet:#5E574C; --sr-hit:rgba(173,142,90,.14); }
-.d .sr__panel { --sr-bg:#F1EADF; --sr-fg:#14100E; --sr-rule:#D6CBBA; --sr-quiet:#5F564E; --sr-hit:#E4DACB; }
 html[data-direction="e"] .sr__panel { --sr-bg:#FFFFFF; --sr-fg:#000; --sr-rule:#E6E4DF; --sr-quiet:#6B6B6B; --sr-hit:#EFEDE8; }

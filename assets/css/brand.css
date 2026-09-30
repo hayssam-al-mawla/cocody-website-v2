@@ -1,6 +1,7 @@
 /* ------------------------------------------------------------------
    MAISON COCODY — Website V2
-   Shared foundation: reset, sourced brand tokens, flower mark, review bar.
+   Shared foundation: reset, sourced brand tokens, the flower, the
+   wordmark, page transitions, the product shot.
 
    Every colour below is sampled from real Maison Cocody material:
    the garments (true black), the e-comm seamless (true white),
@@ -32,18 +33,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   --silver:     #B9BDC2;  /* zip pulls, rings, eyelets */
   --silver-dim: #8A8F96;
 
-  /* --- type --- */
-  --display: "Bodoni Moda", "Didot", "Bodoni MT", Georgia, serif;
-  --ui:      "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --read:    "Newsreader", Georgia, "Times New Roman", serif;
-  --script:  "Italianno", "Snell Roundhand", cursive;
-
-  /* --- Direction E, 21 Sep: the family, and the five named colours.
-     Inter is Charlz's own choice, made the same afternoon; it replaced
-     the Instrument Serif + Archivo pairing proposed that morning. Each
-     colour is a real Cocody object; the names are what the system page
-     calls them. --- */
+  /* --- type: one family. Inter is Charlz's own choice of 21 Sep. The
+     faces the four earlier directions ran on — Bodoni Moda, Archivo,
+     Newsreader, Italianno — went with them on 30 Sep. --ui is what
+     every rule asks for. --- */
   --inter:   "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ui:      var(--inter);
+
+  /* --- Direction E, 21 Sep: the five named colours. Each is a real
+     Cocody object; the names are what the system page calls them. --- */
   --noir:    #000000;  /* the garments */
   --blanc:   #FFFFFF;  /* the e-comm seamless */
   --pierre:  #EFEDE8;  /* the seamless where the light falls off, warmed a touch */
@@ -67,12 +65,7 @@ body { font-family: var(--ui); }
 
 /* ------------------------------------------------------------------
    Typographic defaults
-
-   Bodoni Moda carries an optical-size axis. Left on automatic it
-   thickens the hairlines at large sizes, which is exactly backwards for
-   a Didone — the whole point of the face is that the thin strokes go
-   finer as the type grows. Every display use below sets opsz to the
-   display cut explicitly.
+   Inter carries an optical-size axis; it is left on automatic.
    ------------------------------------------------------------------ */
 .display-face,
 h1, h2, h3 { font-optical-sizing: auto; }
@@ -85,7 +78,7 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
 .num, .price, .pr, [class*="price"] { font-variant-numeric: tabular-nums; }
 
 /* proper fractions and no stray ligature in all-caps settings */
-[style*="letter-spacing"], .a__mark, .c__mark, .t__mark { font-variant-ligatures: none; }
+[style*="letter-spacing"], .t__mark { font-variant-ligatures: none; }
 
 ::selection { background: var(--ink); color: var(--paper); }
 
@@ -132,26 +125,7 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
 .flower--solid .f-out { fill: currentColor; stroke: none; }
 .flower--solid .f-in { display: none; }
 
-/* draws itself, as the script wordmark does in the campaign film.
-   758 is the contour's measured length; the script overwrites it with
-   the browser's own getTotalLength on load. */
-.flower--draw .f-out {
-  stroke-dasharray: var(--len, 758);
-  stroke-dashoffset: calc(var(--len, 758) * (1 - var(--bloom, 0)));
-  transition: stroke-dashoffset 1.15s var(--ease);
-}
-/* The hole is the last thing to arrive. Fading it in alongside the
-   outline left a stray circle floating beside a half-drawn bloom, so
-   it waits for the contour to close. --bloom is a step rather than a
-   ramp, so the wait has to be the transition's own delay. */
-.flower--draw .f-in {
-  opacity: var(--bloom, 0);
-  transition: opacity .34s var(--ease) .92s;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .flower--draw .f-out { stroke-dashoffset: 0; }
-  .flower--draw .f-in { opacity: 1; }
   *, *::before, *::after {
     animation-duration: .001ms !important;
     animation-iteration-count: 1 !important;
@@ -176,10 +150,6 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
 /* The stacked cut, for a column rather than a bar. Same artwork, set
    over two lines by the studio, so it is a file and not a line-break. */
 .logo--stacked { height: clamp(34px, 4.5vw, 52px); }
-/* The artwork is black. Direction B's own masthead loads the white
-   file directly; the templates in the dark skin invert instead of
-   fetching a second image. */
-html[data-direction="b"] .logo { filter: invert(1); }
 
 
 /* ------------------------------------------------------------------
@@ -220,9 +190,8 @@ html[data-direction="b"] .logo { filter: invert(1); }
 ::view-transition-new(piece) { mix-blend-mode: normal; }
 
 /* the masthead and the announcement bar stay put rather than crossfading */
-.t__bar, .a__bar, .b__bar, .c__bar, .d__bar { view-transition-name: masthead; }
+.t__bar { view-transition-name: masthead; }
 .ann { view-transition-name: announce; }
-.rv  { view-transition-name: reviewbar; }
 
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
@@ -232,7 +201,6 @@ html[data-direction="b"] .logo { filter: invert(1); }
 
 /* ------------------------------------------------------------------
    The product shot
-   Shared by all three directions.
 
    The source files are 3000px squares with the figure small in the
    middle and a lot of empty seamless around it. Shown square, the
@@ -280,60 +248,3 @@ a:focus-visible .shot > .shot__b { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) { .shot__b { transition: none; } }
-
-/* ------------------------------------------------------------------
-   Review bar — presentation chrome, not part of any design.
-   Deliberately plain so it never reads as part of the proposal.
-   ------------------------------------------------------------------ */
-.rv {
-  position: fixed; inset: auto 0 0 0; z-index: 150;
-  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-  padding: .6rem 1rem;
-  background: #1b1b1d; color: #f2f2f2;
-  font-family: var(--ui); font-size: .72rem; letter-spacing: .02em;
-  border-top: 1px solid #333;
-}
-.rv[hidden] { display: none; }
-.rv__note { color: #9a9a9a; }
-.rv__note b { color: #f2f2f2; font-weight: 600; }
-.rv__group { display: flex; align-items: center; gap: .4rem; margin-left: auto; }
-.rv__btn {
-  padding: .3rem .7rem; border: 1px solid #454548; border-radius: 2px;
-  color: #cfcfcf; transition: background .15s, color .15s, border-color .15s;
-}
-.rv__btn:hover { border-color: #7a7a7d; color: #fff; }
-.rv__btn[aria-current="true"] { background: #f2f2f2; color: #1b1b1d; border-color: #f2f2f2; }
-.rv__link { color: #cfcfcf; text-decoration: underline; text-underline-offset: 3px; }
-.rv__link:hover { color: #fff; }
-.rv__close {
-  color: #8a8a8a; font-size: 1.1rem; line-height: 1; padding: .2rem .4rem;
-}
-.rv__close:hover { color: #fff; }
-/* the page reserves room for the bar only while the bar is actually
-   showing: not when it is hidden by its ×, not on a page without one,
-   and not while it is folded to the tab */
-body:has(.rv:not([hidden]):not(.is-collapsed)) { padding-bottom: 3.2rem; }
-
-/* Folded to a tab in the corner by default since the afternoon of
-   21 Sep — Charlz asked for the bar at the foot to go so the page could
-   be seen whole. The tab reopens it; the × still hides it for good. */
-.rv__tab {
-  display: none; padding: .35rem .7rem;
-  color: #cfcfcf; border: 1px solid #454548; border-radius: 2px;
-  font-size: .68rem; letter-spacing: .04em; white-space: nowrap;
-}
-.rv__tab:hover { color: #fff; border-color: #7a7a7d; }
-.rv.is-collapsed {
-  inset: auto .75rem .75rem auto; width: auto; padding: .3rem;
-  border: 1px solid #333; border-radius: 3px; gap: 0;
-}
-.rv.is-collapsed > :not(.rv__tab) { display: none; }
-.rv.is-collapsed .rv__tab { display: inline-block; }
-
-@media (max-width: 720px) {
-  .rv { font-size: .66rem; gap: .5rem; padding: .5rem .75rem; }
-  .rv__group { margin-left: 0; width: 100%; }
-  /* the bar wraps to two or three lines on a phone, so the page needs
-     more room underneath it than the desktop reserve */
-  body:has(.rv:not([hidden]):not(.is-collapsed)) { padding-bottom: 6.5rem; }
-}

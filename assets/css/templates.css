@@ -1,48 +1,22 @@
 /* ------------------------------------------------------------------
-   SHARED PAGE TEMPLATES
-   Product · Cocody Lab · Events · Collections · About
+   THE PAGE TEMPLATES
+   Shop · Product · Checkout · Collections · Cocody Lab · Events ·
+   About · Lookbook · Login
 
-   One layout, three skins. The structure below never changes; only the
-   tokens do. Use the switcher in the review bar to see the same page in
-   Direction A, B or C — that is the point of these pages, and it is also
-   the proof that whichever direction is chosen, the system holds.
+   One layout, one skin. Until 30 September 2026 these pages flipped
+   between four sets of tokens — directions E, A, B and C — from a
+   review bar. A to D were taken out that day, and E is what is left.
+   The html[data-direction="e"] selectors further down are from that
+   time: every page carries the attribute, so they are simply E's
+   rules, and they were left alone so that nothing about E moved.
    ------------------------------------------------------------------ */
 
-:root {
-  --t-bg: #FFFFFF; --t-fg: #000000; --t-quiet: #6B6B6B; --t-rule: #E2E2E2;
-  --t-accent: #000000; --t-on-accent: #FFFFFF;
-  --t-display: var(--display); --t-body: var(--ui); --t-lh: 1.55;
-  --t-ground: none; --t-panel: #FAFAFA;
-}
-
-/* --- Direction A: the seamless --- */
-html[data-direction="a"] {
-  --t-bg: #FFFFFF; --t-fg: #000000; --t-quiet: #6B6B6B; --t-rule: #E2E2E2;
-  --t-accent: #000000; --t-on-accent: #FFFFFF;
-  --t-display: var(--display); --t-body: var(--ui); --t-lh: 1.55;
-  --t-ground: none; --t-panel: #F7F7F7;
-}
-/* --- Direction B: the light table --- */
-html[data-direction="b"] {
-  --t-bg: #000000; --t-fg: #F4F4F4; --t-quiet: #9B9DA1; --t-rule: #2A2A2C;
-  --t-accent: #F4F4F4; --t-on-accent: #000000;
-  --t-display: var(--ui); --t-body: var(--ui); --t-lh: 1.5;
-  --t-ground: none; --t-panel: #0D0D0F;
-}
-/* --- Direction C: the painted canvas --- */
-html[data-direction="c"] {
-  --t-bg: #FAF9F7; --t-fg: #000000; --t-quiet: #5E574C; --t-rule: rgba(0,0,0,.16);
-  --t-accent: #000000; --t-on-accent: #FAF9F7;
-  --t-display: var(--display); --t-body: var(--read); --t-lh: 1.62;
-  --t-ground: url("../img/canvas-ochre.jpg"); --t-panel: rgba(173,142,90,.16);
-}
 /* --- Direction E: Studio — built from Charlz's notes of 21 September.
    Black and white do the work; pierre is the only other ground. One
-   family, Inter, at Charlz's request the same afternoon: it replaces
-   Archivo and the serif alike, so --ui is redefined here and everything
-   downstream — nav, marquee, footer, bag, search — follows. --- */
-html[data-direction="e"] {
-  --ui: var(--inter);
+   family, Inter, at Charlz's request the same afternoon: --ui, in
+   brand.css, is Inter, and everything downstream — nav, marquee,
+   footer, bag, search — follows. --- */
+:root {
   --t-bg: #FFFFFF; --t-fg: #000000; --t-quiet: #6B6B6B; --t-rule: #E6E4DF;
   --t-accent: #000000; --t-on-accent: #FFFFFF;
   --t-display: var(--inter); --t-body: var(--inter); --t-lh: 1.5;
@@ -56,14 +30,10 @@ body.t {
   -webkit-font-smoothing: antialiased;
   --gut: clamp(1rem, 5vw, 4.5rem);
 }
-html[data-direction="c"] body.t { font-size: 17px; }
 .t ::selection { background: var(--t-fg); color: var(--t-bg); }
 
 .t__wrap { width: min(100% - 2 * var(--gut), 1380px); margin-inline: auto; }
 .t h1, .t h2, .t h3 { font-family: var(--t-display); font-weight: 400; line-height: 1.12; }
-html[data-direction="b"] .t h1,
-html[data-direction="b"] .t h2,
-html[data-direction="b"] .t h3 { font-weight: 600; letter-spacing: -0.02em; }
 /* Inter is wide where the serif was narrow: headings take a medium
    weight, tighter tracking and a little less size */
 html[data-direction="e"] .t h1,
@@ -192,6 +162,10 @@ html.is-turned .t__bloom { opacity: 1; transform: none; }
   .t__menu { display: inline-block; }
   .t__tools .t__tool:first-child { display: none; }   /* Search lives in the panel on a phone */
 }
+/* the account, 30 Sep: on a narrow phone a second icon beside the bag
+   is wider than the space the wordmark leaves, and the wordmark would
+   sit off centre — so there it lives in the panel too */
+@media (max-width: 480px) { .t__tools .t__account { display: none; } }
 
 /* the phone menu: the same three groups, full screen */
 .t__panel {
@@ -204,7 +178,6 @@ html.is-turned .t__bloom { opacity: 1; transform: none; }
 .t__panel-title { font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
 .t__panel-nav h3 { font-family: var(--ui); font-size: .66rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--t-quiet); margin: 1.75rem 0 .35rem; }
 .t__panel-nav a { display: block; font-family: var(--t-display); font-size: 1.75rem; line-height: 1.15; padding: .3rem 0; text-decoration: none; }
-html[data-direction="b"] .t__panel-nav a { font-weight: 500; font-size: 1.4rem; }
 .t__panel-tools { display: flex; gap: 1.5rem; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--t-rule); }
 
 /* ---------- page head ---------- */
@@ -281,6 +254,65 @@ html[data-direction="e"] .lb__look figcaption { font-size: .66rem; font-weight: 
   .lb__look--down { margin-top: 0; }
   .lb__note { padding-bottom: 0; }
 }
+
+/* ==================================================================
+   ACCOUNT — 30 Sep: "a login page". One narrow column in the middle of
+   the page and three views that take each other's place: sign in,
+   create an account, reset the password (account.js). Square fields
+   and the house button, like every control in E.
+   ================================================================== */
+.ac { display: grid; justify-items: center; padding-block: clamp(2.5rem, 9vh, 6rem) clamp(1rem, 4vh, 3rem); }
+.ac__view { width: min(100%, 25rem); }
+.ac__view[hidden] { display: none; }
+.ac__head { text-align: center; margin-bottom: clamp(1.5rem, 4vh, 2.25rem); }
+.ac__head .t__crumb { margin-bottom: .8rem; }
+.ac__head h1 { font-size: clamp(1.75rem, 3.4vw, 2.4rem); }
+.ac__head h1:focus { outline: none; }   /* focus is moved here so the new view is announced */
+.ac__head h1 + p { color: var(--t-quiet); font-size: .9375rem; margin-top: .7rem; }
+
+.ac__form { display: grid; gap: 1rem; }
+.ac__f { display: grid; gap: .35rem; }
+.ac__f label, .ac__hint { font-family: var(--ui); font-size: .75rem; color: var(--t-quiet); }
+.ac__f input {
+  width: 100%; background: var(--t-bg); color: var(--t-fg);
+  font-family: var(--ui); font-size: 1rem;   /* sixteen pixels, or a phone zooms into the field */
+  border: 1px solid color-mix(in srgb, var(--t-fg) 34%, transparent);
+  border-radius: 0; padding: .8rem 1rem;
+}
+.ac__f input:focus { outline: none; border-color: var(--t-fg); box-shadow: inset 0 0 0 1px var(--t-fg); }
+.ac__pw { position: relative; display: block; }
+.ac__pw input { padding-right: 4.5rem; }
+.ac__pw button {
+  position: absolute; right: 0; top: 0; bottom: 0; padding: 0 1rem;
+  font-family: var(--ui); font-size: .66rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--t-quiet);
+}
+.ac__pw button:hover { color: var(--t-fg); }
+.ac__row {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem;
+  font-family: var(--ui); font-size: .8125rem;
+}
+.ac__check { display: flex; align-items: flex-start; gap: .55rem; font-family: var(--ui); font-size: .8125rem; cursor: pointer; }
+.ac__check input { flex: none; width: 1rem; height: 1rem; margin: .15rem 0 0; accent-color: var(--t-fg); }
+.ac a:not(.t__btn), .ac__link { color: var(--t-fg); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.ac a:not(.t__btn):hover, .ac__link:hover { color: var(--t-quiet); }
+.ac__link { font-family: var(--ui); font-size: .8125rem; }
+.ac__note { font-family: var(--ui); font-size: .8125rem; overflow-wrap: anywhere; }
+.ac__note:empty { display: none; }
+
+.ac__alt { margin-top: 2.25rem; padding-top: 2rem; border-top: 1px solid var(--t-rule); text-align: center; }
+.ac__alt h2 { font-size: 1.15rem; }
+.ac__alt p { color: var(--t-quiet); font-size: .875rem; max-width: 36ch; margin: .5rem auto 1.25rem; }
+.ac__back { margin-top: 1.5rem; text-align: center; font-family: var(--ui); font-size: .8125rem; color: var(--t-quiet); }
+
+/* sent: the form gives way to the one line it answers with */
+.ac__after { display: none; justify-items: center; gap: 1rem; margin-top: 1.5rem; }
+.ac__view.is-done .ac__after { display: grid; }
+.ac__view.is-done .ac__form > :not(.ac__note),
+.ac__view.is-done .ac__head h1 + p,
+.ac__view.is-done .ac__alt,
+.ac__view.is-done .ac__back { display: none; }
+.ac__view.is-done .ac__note { text-align: center; font-size: .9375rem; }
 
 /* ==================================================================
    PRODUCT
@@ -436,7 +468,6 @@ html[data-direction="e"] .lb__look figcaption { font-size: .66rem; font-weight: 
 .t__row:hover { padding-left: .8rem; }
 .t__row .when { font-family: var(--ui); font-size: .8125rem; color: var(--t-quiet); font-variant-numeric: tabular-nums; }
 .t__row .what { font-family: var(--t-display); font-size: clamp(1.05rem, 2vw, 1.4rem); }
-html[data-direction="b"] .t__row .what { font-weight: 500; font-size: 1rem; }
 .t__row .what span { display: block; font-family: var(--ui); font-size: .8125rem; color: var(--t-quiet); margin-top: .2rem; }
 .t__row .where { font-family: var(--ui); font-size: .8125rem; color: var(--t-quiet); }
 .t__row .state { font-family: var(--ui); font-size: .68rem; letter-spacing: .04em; border: 1px solid var(--t-rule); padding: .2rem .5rem; white-space: nowrap; color: var(--t-quiet); }
@@ -450,7 +481,7 @@ html[data-direction="b"] .t__row .what { font-weight: 500; font-size: 1rem; }
 .t__lead { font-family: var(--t-display); font-size: clamp(1.25rem, 2.6vw, 1.9rem); line-height: 1.28; max-width: 30ch; }
 .t__values { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: clamp(1.25rem, 3vw, 2.5rem); }
 .t__value h3 { font-family: var(--ui); font-size: .95rem; font-weight: 500; margin-bottom: .45rem; display: flex; align-items: center; gap: .55rem; }
-.t__value h3 .c__bloom, .t__value h3 .mark { width: 20px; height: 20px; flex: none; }
+.t__value h3 .mark { width: 20px; height: 20px; flex: none; }
 .t__value p { font-size: .9375rem; color: var(--t-quiet); }
 
 /* ---------- media rows ---------- */
@@ -474,8 +505,8 @@ html[data-direction="b"] .t__row .what { font-weight: 500; font-size: 1rem; }
   padding-block: clamp(2.5rem, 6vh, 4rem); border-bottom: 1px solid var(--t-rule);
 }
 @media (max-width: 760px) { .t__join { grid-template-columns: 1fr; } }
+.t__join > * { min-width: 0; }   /* or the signup holds the column wider than a 360px phone */
 .t__join h2 { font-family: var(--t-display); font-weight: 400; font-size: clamp(1.7rem, 3.2vw, 2.6rem); line-height: 1.05; color: var(--t-fg); }
-html[data-direction="b"] .t__join h2 { font-weight: 500; letter-spacing: -0.02em; }
 .t__join p { color: var(--t-quiet); margin-top: .6rem; max-width: 40ch; font-size: .9375rem; }
 .t__signup { display: flex; gap: .75rem; }
 .t__signup input {
@@ -516,8 +547,6 @@ html[data-direction="b"] .t__join h2 { font-weight: 500; letter-spacing: -0.02em
   font-size: .72rem; color: var(--t-quiet);
 }
 .t__colophon .logo--stacked { height: 42px; }
-/* the footer loads the white cut directly; B's blanket invert must not touch it */
-html[data-direction="b"] .t__colophon .logo { filter: none; }
 .t__colophon-text { display: grid; gap: .3rem; text-align: right; }
 @media (max-width: 600px) { .t__colophon-text { text-align: left; } }
 

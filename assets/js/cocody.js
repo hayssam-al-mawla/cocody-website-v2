@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------
    MAISON COCODY — Website V2 prototypes
-   Shared behaviour for the four design directions and the templates.
+   Shared behaviour for the homepage and the templates.
    No dependencies. Everything degrades to a working static page.
    ------------------------------------------------------------------ */
 (function () {
@@ -35,41 +35,6 @@
   }
   /* the bag draws its own empty state, so it needs this too */
   window.CocodyPaintFlowers = paintFlowers;
-
-  /* ---- give every drawable flower its true path length ---- */
-  function measureFlowers() {
-    document.querySelectorAll('.flower--draw .f-out').forEach(function (p) {
-      try { p.parentNode.style.setProperty('--len', p.getTotalLength().toFixed(1)); } catch (e) {}
-    });
-  }
-
-  /* ------------------------------------------------------------------
-     Signature motion.
-     The mark opens when the section that explains it arrives — the
-     woven label in A, the painted grounds in C. It used to also float
-     in the corner of A and B, but measured against the layout that
-     overlay sat on top of copy or a photograph at every scroll
-     position, so it now lives in the page instead.
-     ------------------------------------------------------------------ */
-
-  /* ---- bloom a flower when its section scrolls into view ---- */
-  function bloomOnEnter() {
-    var targets = document.querySelectorAll('[data-bloom]');
-    if (!targets.length) return;
-    if (reduced || !('IntersectionObserver' in window)) {
-      targets.forEach(function (t) { t.style.setProperty('--bloom', 1); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.style.setProperty('--bloom', 1);
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.35 });
-    targets.forEach(function (t) { t.style.setProperty('--bloom', 0); io.observe(t); });
-  }
 
   /* ------------------------------------------------------------------
      The size selector.
@@ -215,55 +180,6 @@
   }
 
   /* ------------------------------------------------------------------
-     Review bar — lets Charlz flip the shared templates between the
-     three directions, so the same page can be judged in each skin.
-     ------------------------------------------------------------------ */
-  var KEY = 'cocody-direction';
-  var NAMES = { a: 'Seamless', b: 'Le Labo', c: 'Le Décor', e: 'Studio' };
-
-  function applyDirection(d) {
-    document.documentElement.dataset.direction = d;
-    try { localStorage.setItem(KEY, d); } catch (e) {}
-    document.querySelectorAll('[data-set-direction]').forEach(function (b) {
-      b.setAttribute('aria-current', String(b.dataset.setDirection === d));
-    });
-    var name = document.querySelector('[data-direction-name]');
-    if (name) name.textContent = NAMES[d];
-  }
-
-  function reviewBar() {
-    var bar = document.querySelector('.rv');
-    if (!bar) return;
-    if (bar.hasAttribute('data-switchable')) {
-      /* ?dir=b wins, so a single page can be linked in a chosen skin */
-      var fromUrl = (location.search.match(/[?&]dir=([abce])/) || [])[1];
-      /* E is the default since 21 September: it is the direction built
-         from Charlz's notes, so it is the one a bare link should show */
-      var saved = 'e';
-      try { saved = fromUrl || localStorage.getItem(KEY) || 'e'; } catch (e) { saved = fromUrl || 'e'; }
-      applyDirection(saved);
-      bar.querySelectorAll('[data-set-direction]').forEach(function (b) {
-        b.addEventListener('click', function () { applyDirection(b.dataset.setDirection); });
-      });
-    }
-    var close = bar.querySelector('.rv__close');
-    if (close) close.addEventListener('click', function () {
-      bar.hidden = true;
-    });
-
-    /* folded to a tab by default (21 Sep pm): the client wanted the page
-       whole. The tab names the direction the page is wearing. */
-    var tab = document.createElement('button');
-    tab.type = 'button';
-    tab.className = 'rv__tab';
-    var d = document.documentElement.dataset.direction;
-    tab.textContent = 'Review options' + (d && NAMES[d] ? ' · ' + NAMES[d] : '') + ' ▴';
-    tab.addEventListener('click', function () { bar.classList.remove('is-collapsed'); });
-    bar.insertBefore(tab, bar.firstChild);
-    bar.classList.add('is-collapsed');
-  }
-
-  /* ------------------------------------------------------------------
      Shared-element transitions.
      A view-transition-name has to be unique on the page, so the name is
      put on the one photograph being opened at the moment of the click,
@@ -299,13 +215,10 @@
   function init() {
     morph();
     paintFlowers();
-    measureFlowers();
-    bloomOnEnter();
     sizePicker();
     fitFinder();
     bag();
     gallery();
-    reviewBar();
   }
 
   if (document.readyState === 'loading') {

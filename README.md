@@ -1,28 +1,37 @@
 # Maison Cocody — Website V2
 
-Five design directions and eight page templates for the Maison Cocody
-website redesign, September 2026. Direction E is the current proposal:
-it is built from the client's notes of 21 September.
+Direction E, "Studio", and the nine page templates behind it, for the
+Maison Cocody website redesign, September 2026. It is built from the
+client's notes, and since 30 September it is the only direction here:
+the four it grew out of (A, B, C and D) were taken out so the work can
+go deeper into this one. They are still in this repository's history —
+commit `65fee48` has all five.
 
-**[Open the review pack →](https://hayssam-al-mawla.github.io/cocody-website-v2/)**
+**[Open the homepage →](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-studio.html)** ·
+[the cover page](https://hayssam-al-mawla.github.io/cocody-website-v2/) ·
+[the system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html)
 
-## The directions
+## Direction E — Studio
 
-| | Direction | The idea |
-|---|---|---|
-| **E** | [Studio](https://hayssam-al-mawla.github.io/cocody-website-v2/e/) | **Current.** The client's six notes of 21 September, built: the moving voucher, the wordmark giving way to the flower on scroll, the nav on the left in three groups, Inter (the client's own choice), a five-colour palette, and the legal and social footer; revised the same afternoon with a bigger wordmark, line icons and a full-screen homepage, and on 23 September with a thinner strip, a gradient that extends when a menu opens, and the three menus as the client listed them (Shop by category, Archive by collection, Cocody Cab / About us / Lookbook), and on 24 September with the sold-out treatment (a faded card with the state written under the name; Sold out, an email field and Notify me when back in stock on the product page). The [system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html) walks through each. |
-| **A** | [Seamless](https://hayssam-al-mawla.github.io/cocody-website-v2/a/) | The e-comm backdrop turned into a website. Pure white, true black, scale does the work. |
-| **B** | [Le Labo](https://hayssam-al-mawla.github.io/cocody-website-v2/b/) | The studio, not the shop. A contact sheet on a light table, film first. |
-| **C** | [Le Décor](https://hayssam-al-mawla.github.io/cocody-website-v2/c/) | The painted canvas from the campaign film, hung on the web. |
-| **D** | [Le Registre](https://hayssam-al-mawla.github.io/cocody-website-v2/d/) | Our own proposal. The shop as a register of everything ever made, sold out or not. |
+The client's six notes of 21 September, built: the moving voucher, the
+wordmark giving way to the flower on scroll, the nav on the left in
+three groups, Inter (the client's own choice), a five-colour palette,
+and the legal and social footer. Revised the same afternoon with a
+bigger wordmark, line icons and a full-screen homepage; on 23 September
+with a thinner strip, a gradient that extends when a menu opens, and the
+three menus as the client listed them (Shop by category, Archive by
+collection, Cocody Cab / About us / Lookbook); on 24 September with the
+sold-out treatment (a faded card with the state written under the name;
+Sold out, an email field and Notify me when back in stock on the product
+page); and on 30 September with a login page (a person icon in the bar;
+sign in, create an account and reset a password in one column). The
+[system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html) walks through each note and
+what it became.
 
-## The pages behind them
+## The pages behind it
 
-Each of these opens in Direction E, and can be flipped to A, B or C from
-the small "Review options" tab in the corner of the page — or add `?dir=e`, `?dir=a`, `?dir=b` or
-`?dir=c` to the address to send someone straight to one version. The
-masthead, marquee and footer from the 21 September notes are shared by
-all four skins.
+Every page wears the same masthead, marquee and footer, and every one
+can be reached from the homepage's own menus.
 
 | Page | | |
 |---|---|---|
@@ -34,6 +43,7 @@ all four skins.
 | [Events](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/events.html) | upcoming, and the archive | |
 | [About](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/about.html) | the story | |
 | [Lookbook](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/lookbook.html) | Bô Visage worn, look by look | new, 23 Sep |
+| [Login](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/login.html) | sign in, create an account, reset a password | new, 30 Sep |
 
 ## It is a working site, not flat mockups
 
@@ -41,8 +51,8 @@ all four skins.
 - The bag works on every page, and carries through to a checkout
 - Checkout fetches a shipping rate per destination, then shows the label and invoice being produced — the brief's section 3.7, made concrete
 - Search on ⌘K, live filtering across the catalogue
-- All eight shared templates can be flipped between directions E, A, B and C from the "Review options" tab in the corner of each page; the two Direction E pages carry no review chrome at all
 - The masthead swaps the wordmark for the flower once you scroll, and the flower turns with the page; the marquee at the top carries the voucher and the shipping line
+- The login page answers what is typed into it, and checks, stores and sends nothing
 
 ## About the content
 
@@ -69,7 +79,11 @@ is a reconstruction.
 - The written document (audit, platform plan, costs, timeline) is
   deliberately **not** in this repository. It describes the live site's
   platform versions and plugins, which should not sit on a public URL.
+  It was written when there were four directions to choose between, so
+  its design chapters describe A to D.
+- The photographs the earlier directions used are still in
+  `assets/img/`; they are Maison Cocody's own and may be wanted again.
 
 ---
 
-Nothing here is connected to the live shop. No payment is taken anywhere.
+Nothing here is connected to the live shop. No payment is taken anywhere, and the login page checks, stores and sends nothing.

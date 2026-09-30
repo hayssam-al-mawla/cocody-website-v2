@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maison Cocody Website V2 — design options</title>
-<meta name="description" content="Direction E, built from the client's notes, plus the four earlier directions and eight page templates for the Maison Cocody website redesign.">
+<title>Maison Cocody Website V2 — Direction E, Studio</title>
+<meta name="description" content="Direction E, built from the client's notes, and the nine page templates behind it, for the Maison Cocody website redesign.">
 <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/brand/favicon.png" sizes="256x256">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Italianno&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..600;1,14..32,400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/brand.css">
 <style>
-  /* This page is the presentation wrapper, not one of the proposals.
-     It stays deliberately neutral so it never competes with them. */
+  /* This page is the cover of the pack, not part of the design. It
+     stays deliberately neutral so it never competes with it. */
   :root { --h-bg:#F6F6F4; --h-fg:#141414; --h-quiet:#63635F; --h-rule:#DDDDD8; --h-card:#FFFFFF; }
   body { background: var(--h-bg); color: var(--h-fg); font-family: var(--ui); font-size:16px; line-height:1.6; }
   .h__wrap { width: min(100% - 2.5rem, 1180px); margin-inline:auto; }
@@ -21,10 +21,10 @@
 
   .h__top { padding-block: clamp(2.5rem,8vh,5rem) clamp(1.5rem,4vh,2.5rem); border-bottom:1px solid var(--h-rule); }
   .h__eyebrow { font-size:.8125rem; color:var(--h-quiet); }
-  /* the studio's stacked cut, used here and nowhere else: this page
-     is the cover of the pack rather than one of the proposals */
+  /* the studio's stacked cut, used here and in the footer: this page
+     is the cover of the pack */
   .h__logo { margin-bottom:clamp(1.5rem,4vh,2.4rem); }
-  .h__top h1 { font-family: var(--display); font-weight:400; font-size:clamp(2rem,5.5vw,3.75rem); line-height:1.05; margin-top:.5rem; }
+  .h__top h1 { font-weight:500; letter-spacing:-0.035em; font-size:clamp(1.9rem,4.8vw,3.2rem); line-height:1.05; margin-top:.5rem; }
   .h__top .h__sub { margin-top:1rem; max-width:62ch; color:var(--h-quiet); }
 
   .h__note { display:flex; gap:.9rem; align-items:flex-start; margin-top:1.75rem; padding:1rem 1.15rem; background:#FFF8E6; border:1px solid #E8D9A8; font-size:.875rem; max-width:70ch; }
@@ -32,10 +32,10 @@
   .h__note .mark .flower path { stroke-width:9.85; }
 
   .h__section { padding-block: clamp(2.5rem,7vh,4.5rem); }
-  .h__section > h2 { font-family:var(--display); font-weight:400; font-size:clamp(1.5rem,3.2vw,2.35rem); }
+  .h__section > h2 { font-weight:500; letter-spacing:-0.03em; line-height:1.1; font-size:clamp(1.4rem,2.8vw,2rem); }
   .h__section > .h__lede { margin-top:.65rem; max-width:64ch; color:var(--h-quiet); }
 
-  /* direction cards */
+  /* the direction card */
   .h__dirs { display:grid; gap:clamp(1.5rem,3vw,2.25rem); margin-top:2rem; }
   .h__dir { background:var(--h-card); border:1px solid var(--h-rule); display:grid; grid-template-columns:1.25fr 1fr; }
   @media (max-width:860px){ .h__dir { grid-template-columns:1fr; } }
@@ -44,8 +44,8 @@
   .h__dir-shot img { width:100%; height:100%; object-fit:cover; object-position:top; transition:opacity .3s var(--ease); }
   .h__dir-shot:hover img { opacity:.9; }
   .h__dir-body { padding:clamp(1.25rem,2.5vw,2rem); display:flex; flex-direction:column; }
-  .h__dir-body h3 { font-family:var(--display); font-weight:400; font-size:clamp(1.35rem,2.6vw,1.9rem); line-height:1.1; }
-  .h__dir-body h3 small { display:block; font-family:var(--ui); font-size:.75rem; color:var(--h-quiet); margin-bottom:.35rem; }
+  .h__dir-body h3 { font-weight:500; letter-spacing:-0.025em; font-size:clamp(1.25rem,2.2vw,1.6rem); line-height:1.1; }
+  .h__dir-body h3 small { display:block; font-size:.75rem; font-weight:400; letter-spacing:0; color:var(--h-quiet); margin-bottom:.35rem; }
   .h__dir-body > p { margin-top:.75rem; font-size:.9375rem; }
   .h__dl { margin-top:1rem; font-size:.875rem; display:grid; gap:.5rem; }
   .h__dl div { display:grid; grid-template-columns:7.5rem 1fr; gap:.85rem; }
@@ -108,9 +108,9 @@
   <header class="h__top">
     <img class="logo logo--stacked h__logo" src="assets/brand/wordmark-stacked.svg"
          alt="Maison Cocody" width="343" height="189">
-    <p class="h__eyebrow">Website V2 · September 2026 · Direction E added 21 September, revised that afternoon and again on 23 and 24 September</p>
-    <h1>The direction built from your notes, and the four it grew out of</h1>
-    <p class="h__sub">Everything here runs in the browser — click through it, resize it, try the size picker and put something in the bag. Nothing touches the live site. The platform question is settled — the site stays on WordPress — so what is left to choose is the design. The audit of the live site, the rebuild plan, costs and timeline are in <strong>Cocody-Website-V2-Options.docx</strong>, next to this file.</p>
+    <p class="h__eyebrow">Website V2 · September 2026 · Direction E, from your notes of 21, 23, 24 and 30 September &middot; the only direction here since 30 September</p>
+    <h1>The direction built from your notes</h1>
+    <p class="h__sub">Everything here runs in the browser — click through it, resize it, try the size picker and put something in the bag. Nothing touches the live site. The platform question is settled — the site stays on WordPress — and since 30 September this is Direction E alone, the one you liked most, so the work can go deeper into it. The audit of the live site, the rebuild plan, costs and timeline are in <strong>Cocody-Website-V2-Options.docx</strong>, next to this file.</p>
 
     <p class="h__note">
       <span class="mark" data-flower aria-hidden="true"></span>
@@ -120,7 +120,7 @@
 
   <section class="h__section" id="e">
     <h2>Direction E &mdash; from your notes of 21 September</h2>
-    <p class="h__lede">You sent NOLOGO Studio back as the reference, with six notes. Direction E is those six, built: the moving voucher, the wordmark that gives way to the flower as you scroll, the nav on the left in three groups, the typeface you asked for, a worked-out palette, and everything legal and social all the way down. Your afternoon notes are in too: the wordmark is bigger, the menu, search and bag are icons as on the reference, the homepage film fills the whole screen, and the type is Inter throughout. Your notes of 23 September are in as well: the strip is thinner, a gradient extends down the page when a menu opens, and the three menus hold what you listed &mdash; Shop by category, Archive by collection, and Cocody Cab, About us and a new Lookbook page under Maison Cocody. Your two notes of 24 September are in too: a sold-out piece fades in the grid, picture and words, with the state written under its name, and its page carries the grey Sold out button, an email field and Notify me when back in stock, as on the reference. The same shop, product and checkout pages sit behind it &mdash; and they now wear this masthead and footer in every direction, so the structure you asked for holds whichever surface it gets.</p>
+    <p class="h__lede">You sent NOLOGO Studio back as the reference, with six notes. Direction E is those six, built: the moving voucher, the wordmark that gives way to the flower as you scroll, the nav on the left in three groups, the typeface you asked for, a worked-out palette, and everything legal and social all the way down. Your afternoon notes are in too: the wordmark is bigger, the menu, search and bag are icons as on the reference, the homepage film fills the whole screen, and the type is Inter throughout. Your notes of 23 September are in as well: the strip is thinner, a gradient extends down the page when a menu opens, and the three menus hold what you listed &mdash; Shop by category, Archive by collection, and Cocody Cab, About us and a new Lookbook page under Maison Cocody. Your two notes of 24 September are in too: a sold-out piece fades in the grid, picture and words, with the state written under its name, and its page carries the grey Sold out button, an email field and Notify me when back in stock, as on the reference. And since 30 September there is the login page you asked for: a person icon in the bar opens sign in, create an account and a password reset, in one column. The same shop, product and checkout pages sit behind it, in the same masthead and footer. The four directions this one grew out of, A to D, were taken out on 30 September, so that everything here is the one design.</p>
 
     <div class="h__dirs">
       <article class="h__dir">
@@ -146,120 +146,7 @@
           <div class="h__actions">
             <a class="h__btn" href="directions/e-studio.html">Open Direction E</a>
             <a class="h__btn h__btn--ghost" href="directions/e-system.html">Type, colour, nav, footer</a>
-            <a class="h__btn h__btn--ghost" href="templates/shop.html?dir=e">The shop in E</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="h__section" id="dirs">
-    <h2>The four directions we started from</h2>
-    <p class="h__lede">Sent on 17 September. The first three each answer one of the brief&rsquo;s references; the fourth was ours, unasked for. They stay here for comparison. The pages behind them &mdash; shop, product, checkout and the rest &mdash; now wear the masthead, marquee and footer from your notes in every skin, so the difference between directions is only the surface.</p>
-
-    <div class="h__dirs">
-
-      <article class="h__dir">
-        <a class="h__dir-shot" href="directions/a-seamless.html">
-          <img src="assets/img/previews/direction-a.jpg" width="1000" height="597" alt="Direction A homepage: a black garment centred on a pure white page.">
-        </a>
-        <div class="h__dir-body">
-          <h3><small>Direction A</small>Seamless</h3>
-          <p>The e-comm backdrop turned into a website. Pure white, true black, no cards, no borders, no tint. One garment per screen, captioned like a catalogue plate. Scale does all the work.</p>
-          <dl class="h__dl">
-            <div><dt>Answers</dt><dd>AMI Paris — one coherent, high-end world</dd></div>
-            <div><dt>Best at</dt><dd>Making five products feel like a collection worth €50</dd></div>
-            <div><dt>Watch out</dt><dd>It needs disciplined photography forever. One off-brief image breaks it.</dd></div>
-          </dl>
-          <div class="h__swatches" aria-hidden="true">
-            <span class="h__sw" style="background:#FFFFFF"></span>
-            <span class="h__sw" style="background:#000000"></span>
-            <span class="h__sw" style="background:#767676"></span>
-            <span class="h__sw" style="background:#E2E2E2"></span>
-          </div>
-          <p class="h__type">Bodoni Moda for display · Archivo for interface</p>
-          <div class="h__actions">
-            <a class="h__btn" href="directions/a-seamless.html">Open Direction A</a>
-            <a class="h__btn h__btn--ghost" href="templates/product.html?dir=a">Product page in A</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="h__dir">
-        <a class="h__dir-shot" href="directions/b-le-labo.html">
-          <img src="assets/img/previews/direction-b.jpg" width="1000" height="597" alt="Direction B homepage: the campaign film full bleed on a black page.">
-        </a>
-        <div class="h__dir-body">
-          <h3><small>Direction B</small>Le Labo</h3>
-          <p>The studio rather than the shop. A black page, the film leading, and the product shots landing as lit squares on it — a contact sheet on a light table, labelled with the real frame numbers from the shoot.</p>
-          <dl class="h__dl">
-            <div><dt>Answers</dt><dd>NOLOGO Studio — streetwear energy, product first</dd></div>
-            <div><dt>Best at</dt><dd>Volume and pace. It already is the dark, video-first Cocody Lab the brief asks for.</dd></div>
-            <div><dt>Watch out</dt><dd>Dark pages flatter film and flatten flat lays. It wants a steady supply of video.</dd></div>
-          </dl>
-          <div class="h__swatches" aria-hidden="true">
-            <span class="h__sw" style="background:#000000"></span>
-            <span class="h__sw" style="background:#F4F4F4"></span>
-            <span class="h__sw" style="background:#B9BDC2"></span>
-            <span class="h__sw" style="background:#2A2A2C"></span>
-          </div>
-          <p class="h__type">Archivo throughout · Bodoni Moda for one editorial break</p>
-          <div class="h__actions">
-            <a class="h__btn" href="directions/b-le-labo.html">Open Direction B</a>
-            <a class="h__btn h__btn--ghost" href="templates/product.html?dir=b">Product page in B</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="h__dir">
-        <a class="h__dir-shot" href="directions/c-le-decor.html">
-          <img src="assets/img/previews/direction-c.jpg" width="1000" height="597" alt="Direction C homepage: the hand-painted ochre canvas from the film, with the signature written across it.">
-        </a>
-        <div class="h__dir-body">
-          <h3><small>Direction C</small>Le Décor</h3>
-          <p>The canvas from the film, hung on the web. Because the products are shot on pure white, the site can drop that white away and stand each garment on the painted ochre instead. The handwritten signature writes itself, exactly as it does on screen.</p>
-          <dl class="h__dl">
-            <div><dt>Answers</dt><dd>La Fam Amsterdam — personality and a real place</dd></div>
-            <div><dt>Best at</dt><dd>Warmth and story. It is the only one that looks like nobody else.</dd></div>
-            <div><dt>Watch out</dt><dd>Colour grounds date faster than black and white, and need repainting each season.</dd></div>
-          </dl>
-          <div class="h__swatches" aria-hidden="true">
-            <span class="h__sw" style="background:#AD8E5A"></span>
-            <span class="h__sw" style="background:#323339"></span>
-            <span class="h__sw" style="background:#000000"></span>
-            <span class="h__sw" style="background:#FAF9F7"></span>
-          </div>
-          <p class="h__type">Bodoni Moda · Newsreader for reading · Italianno for the signature</p>
-          <div class="h__actions">
-            <a class="h__btn" href="directions/c-le-decor.html">Open Direction C</a>
-            <a class="h__btn h__btn--ghost" href="templates/product.html?dir=c">Product page in C</a>
-          </div>
-        </div>
-      </article>
-
-
-      <article class="h__dir">
-        <a class="h__dir-shot" href="directions/d-le-registre.html">
-          <img src="assets/img/previews/direction-d.jpg" width="1000" height="597" alt="Direction D homepage: the maison's register, listing every piece ever released.">
-        </a>
-        <div class="h__dir-body">
-          <h3><small>Direction D &middot; our own proposal</small>Le Registre</h3>
-          <p>The other three are different surfaces on the same structure. This one changes the structure. Seven of your ten pieces are sold out &mdash; in a grid that reads as a thin shop, but kept as a register, numbered and dated, the same fact reads as a track record. The flower does the work: filled where a piece is still here, outline where it has gone to the archive.</p>
-          <dl class="h__dl">
-            <div><dt>Answers</dt><dd>The brief&rsquo;s own ask &mdash; momentum and history at a glance</dd></div>
-            <div><dt>Best at</dt><dd>Turning a mostly sold-out catalogue into the strongest thing you own</dd></div>
-            <div><dt>Watch out</dt><dd>It is a list, not a lookbook. It needs the writing to be good.</dd></div>
-          </dl>
-          <div class="h__swatches" aria-hidden="true">
-            <span class="h__sw" style="background:#FFFFFF"></span>
-            <span class="h__sw" style="background:#000000"></span>
-            <span class="h__sw" style="background:#6E6E6E"></span>
-            <span class="h__sw" style="background:#B9BDC2"></span>
-          </div>
-          <p class="h__type">Ink and paper &mdash; the brand&rsquo;s own black, white and hardware silver. Bodoni Moda for the display, Archivo for the register</p>
-          <div class="h__actions">
-            <a class="h__btn" href="directions/d-le-registre.html">Open Direction D</a>
-            <a class="h__btn h__btn--ghost" href="templates/shop.html">The shop page</a>
+            <a class="h__btn h__btn--ghost" href="templates/shop.html">The shop</a>
           </div>
         </div>
       </article>
@@ -268,92 +155,57 @@
 
   <section class="h__section">
     <h2>The page templates</h2>
-    <p class="h__lede">These are the pages behind the homepage. They share one layout and swap only colour and type, so you can see the same page in Direction E and in A, B and C — open the small “Review options” tab in the corner of each page, or use the links here.</p>
+    <p class="h__lede">These are the pages behind the homepage. Each wears the same masthead, marquee and footer, and each can be reached from the homepage&rsquo;s own menus; the links here are the short way in.</p>
 
     <table class="h__tpl">
       <thead>
-        <tr><th>Page</th><th>What it covers from the brief</th><th>Open in</th></tr>
+        <tr><th>Page</th><th>What it covers from the brief</th><th>Open</th></tr>
       </thead>
       <tbody>
         <tr>
           <td class="name">Shop<span class="why">The listing</span></td>
           <td>The whole live catalogue with filters, sort, hover-to-see-the-second-shot and quick add to bag. The bag drawer works on every page</td>
-          <td><span class="h__skins">
-            <a class="h__skin" href="templates/shop.html?dir=e">E</a>
-            <a class="h__skin" href="templates/shop.html?dir=a">A</a>
-            <a class="h__skin" href="templates/shop.html?dir=b">B</a>
-            <a class="h__skin" href="templates/shop.html?dir=c">C</a>
-          </span></td>
+          <td><a class="h__skin" href="templates/shop.html">Open</a></td>
         </tr>
         <tr>
           <td class="name">Product<span class="why">Signature Zip-Up</span></td>
           <td>3.5 — one template, ten products. Real sizes, stock and prices; the size chart in cm and inches, the fit finder, the story block and the flower size picker</td>
-          <td><span class="h__skins">
-            <a class="h__skin" href="templates/product.html?dir=e">E</a>
-            <a class="h__skin" href="templates/product.html?dir=a">A</a>
-            <a class="h__skin" href="templates/product.html?dir=b">B</a>
-            <a class="h__skin" href="templates/product.html?dir=c">C</a>
-          </span></td>
+          <td><a class="h__skin" href="templates/product.html">Open</a></td>
         </tr>
         <tr>
           <td class="name">Checkout<span class="why">Where the automation shows</span></td>
           <td>Change the country and the carrier rates change with it; pay and the label and invoice are produced. This is brief 3.7 made concrete rather than described</td>
-          <td><span class="h__skins">
-            <a class="h__skin" href="templates/checkout.html?dir=e">E</a>
-            <a class="h__skin" href="templates/checkout.html?dir=a">A</a>
-            <a class="h__skin" href="templates/checkout.html?dir=b">B</a>
-            <a class="h__skin" href="templates/checkout.html?dir=c">C</a>
-          </span></td>
+          <td><a class="h__skin" href="templates/checkout.html">Open</a></td>
         </tr>
         <tr>
           <td class="name">Cocody Lab</td>
           <td>3.2 — newest film pinned at the top, archive underneath, Watch and Subscribe, synced from YouTube</td>
-          <td><span class="h__skins">
-            <a class="h__skin" href="templates/cocody-lab.html?dir=e">E</a>
-            <a class="h__skin" href="templates/cocody-lab.html?dir=a">A</a>
-            <a class="h__skin" href="templates/cocody-lab.html?dir=b">B</a>
-            <a class="h__skin" href="templates/cocody-lab.html?dir=c">C</a>
-          </span></td>
+          <td><a class="h__skin" href="templates/cocody-lab.html">Open</a></td>
         </tr>
         <tr>
           <td class="name">Events</td>
           <td>3.3 — what is next with a clear call to action, plus a permanent archive by year linking back to products</td>
-          <td><span class="h__skins">
-            <a class="h__skin" href="templates/events.html?dir=e">E</a>
-            <a class="h__skin" href="templates/events.html?dir=a">A</a>
-            <a class="h__skin" href="templates/events.html?dir=b">B</a>
-            <a class="h__skin" href="templates/events.html?dir=c">C</a>
-          </span></td>
+          <td><a class="h__skin" href="templates/events.html">Open</a></td>
         </tr>
         <tr>
           <td class="name">Collections</td>
           <td>3.4 — one permanent page per collection with story and lookbook, and an index that tags sold-out drops Archive</td>
-          <td><span class="h__skins">
-            <a class="h__skin" href="templates/collections.html?dir=e">E</a>
-            <a class="h__skin" href="templates/collections.html?dir=a">A</a>
-            <a class="h__skin" href="templates/collections.html?dir=b">B</a>
-            <a class="h__skin" href="templates/collections.html?dir=c">C</a>
-          </span></td>
+          <td><a class="h__skin" href="templates/collections.html">Open</a></td>
         </tr>
         <tr>
           <td class="name">About us</td>
           <td>3.1 — the story, the values, the film, and who makes it</td>
-          <td><span class="h__skins">
-            <a class="h__skin" href="templates/about.html?dir=e">E</a>
-            <a class="h__skin" href="templates/about.html?dir=a">A</a>
-            <a class="h__skin" href="templates/about.html?dir=b">B</a>
-            <a class="h__skin" href="templates/about.html?dir=c">C</a>
-          </span></td>
+          <td><a class="h__skin" href="templates/about.html">Open</a></td>
         </tr>
         <tr>
           <td class="name">Lookbook<span class="why">New, 23 September</span></td>
           <td>Bô Visage worn, in the order it was shot; every look goes to the pieces in it. Under Maison Cocody, as you listed it</td>
-          <td><span class="h__skins">
-            <a class="h__skin" href="templates/lookbook.html?dir=e">E</a>
-            <a class="h__skin" href="templates/lookbook.html?dir=a">A</a>
-            <a class="h__skin" href="templates/lookbook.html?dir=b">B</a>
-            <a class="h__skin" href="templates/lookbook.html?dir=c">C</a>
-          </span></td>
+          <td><a class="h__skin" href="templates/lookbook.html">Open</a></td>
+        </tr>
+        <tr>
+          <td class="name">Login<span class="why">New, 30 September</span></td>
+          <td>Sign in, create an account and reset a password, in one column, opened from the person icon in the bar. Nothing is checked, stored or sent</td>
+          <td><a class="h__skin" href="templates/login.html">Open</a></td>
         </tr>
       </tbody>
     </table>
@@ -382,9 +234,9 @@
       <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.3 Events</h4><p>Upcoming with a call to action, archive by year, links back to products.</p></div>
       <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.4 Collections archive</h4><p>One permanent template, Archive tag once sold out.</p></div>
       <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.5 Product &amp; article</h4><p>Gallery, size chart in both units, fit finder, story block.</p></div>
-      <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.6 Signature UX</h4><p>The flower size picker, plus a per-direction scroll behaviour.</p></div>
+      <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.6 Signature UX</h4><p>The flower size picker, and the flower in the masthead that turns with the scroll.</p></div>
       <div class="h__item"><span class="h__state h__state--done">Shown</span><h4>3.7 Shipping automation</h4><p>The checkout page: live rates by country, label and invoice on payment. Costs and carriers in section 6.</p></div>
-      <div class="h__item"><span class="h__state h__state--done">Decided</span><h4>Staying on WordPress</h4><p>Section 5 of the document: what is running today, and what has to change to build any of these.</p></div>
+      <div class="h__item"><span class="h__state h__state--done">Decided</span><h4>Staying on WordPress</h4><p>Section 5 of the document: what is running today, and what has to change to build this.</p></div>
     </div>
   </section>
 

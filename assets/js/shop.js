@@ -282,76 +282,6 @@
     fromHash();
   }
 
-  /* ================================================================
-     The register (Direction D)
-     One list of everything the maison has released, newest first,
-     driving a single large plate. Built from the same catalogue as the
-     shop, so the two can never drift apart.
-     ================================================================ */
-  function register() {
-    var body = document.querySelector('[data-register]');
-    if (!body) return;
-    var frame = document.querySelector('[data-plate]');
-    var capName = document.querySelector('[data-plate-name]');
-    var capMeta = document.querySelector('[data-plate-meta]');
-
-    var list = CAT.slice().sort(function (a, b) { return b.ref.localeCompare(a.ref); });
-
-    body.innerHTML = list.map(function (p) {
-      var here = p.sizes.some(function (s) { return s.in; });
-      return '<a class="d__row" href="' + base + 'templates/product.html?p=' + p.slug + '" data-state="' + (here ? 'here' : 'gone') + '"' +
-             ' data-ref="' + p.ref + '">' +
-        '<span class="ref">' + p.ref + '</span>' +
-        '<span class="nm">' + p.name + '<i>' + p.material + '</i></span>' +
-        '<span class="col">' + p.collection + '</span>' +
-        '<span class="pz">' + money(p.price) + (p.was ? ' <s>' + money(p.was) + '</s>' : '') + '</span>' +
-        '<span class="st"><span class="d__glyph" data-flower aria-hidden="true"></span>' +
-          (here ? 'Here' : 'Archive') + '</span>' +
-      '</a>';
-    }).join('');
-
-    /* one <img> per piece, stacked and cross-faded — no flicker, and
-       every plate is already decoded by the time it is needed */
-    if (frame) {
-      frame.innerHTML = list.map(function (p, i) {
-        return '<img src="' + base + IMG + p.img + '" alt="' + p.name + '"' +
-               ' data-for="' + p.ref + '"' + (i === 0 ? ' class="is-live"' : '') +
-               (i === 0 ? '' : ' loading="lazy"') + '>';
-      }).join('');
-    }
-
-    function show(ref) {
-      var p = list.filter(function (x) { return x.ref === ref; })[0];
-      if (!p) return;
-      body.querySelectorAll('.d__row').forEach(function (r) {
-        r.classList.toggle('is-live', r.dataset.ref === ref);
-      });
-      if (frame) frame.querySelectorAll('img').forEach(function (im) {
-        im.classList.toggle('is-live', im.dataset.for === ref);
-      });
-      var here = p.sizes.some(function (s) { return s.in; });
-      if (capName) capName.innerHTML = '<b>' + p.ref + '</b> &nbsp;' + p.name;
-      if (capMeta) capMeta.textContent = p.collection + ' · ' + p.year + ' · ' + (here ? 'available' : 'archive');
-    }
-
-    body.querySelectorAll('.d__row').forEach(function (r) {
-      r.addEventListener('mouseenter', function () { show(r.dataset.ref); });
-      r.addEventListener('focus', function () { show(r.dataset.ref); });
-    });
-    show(list[0].ref);
-
-    /* the standing: the numbers the page opens with, counted not typed */
-    var here = CAT.filter(function (p) { return p.sizes.some(function (s) { return s.in; }); }).length;
-    var cols = {};
-    CAT.forEach(function (p) { cols[p.collection] = 1; });
-    var set = function (sel, v) { var e = document.querySelector(sel); if (e) e.textContent = v; };
-    set('[data-n-pieces]', CAT.length);
-    set('[data-n-collections]', Object.keys(cols).length);
-    set('[data-n-here]', here);
-
-    if (window.CocodyPaintFlowers) window.CocodyPaintFlowers(body);
-  }
-
   /* ---------- announcement bar ---------- */
   function announcement() {
     var a = document.querySelector('.ann');
@@ -364,7 +294,6 @@
     mountBag();
     quickAdd();
     listing();
-    register();
     announcement();
   }
 

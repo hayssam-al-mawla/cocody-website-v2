@@ -32,6 +32,7 @@
   .sys__notes--pm { counter-reset: n 6; }
   .sys__notes--d3 { counter-reset: n 10; }
   .sys__notes--d4 { counter-reset: n 15; }
+  .sys__notes--d5 { counter-reset: n 17; }
   .sys__when { font-family: var(--ui); font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--t-quiet); margin-top: clamp(1.5rem, 4vh, 2.5rem); }
   .sys__notes q { font-family: var(--t-display); font-weight: 500; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.3; quotes: "\201C" "\201D"; }
   .sys__notes a { font-family: var(--ui); font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .15rem; white-space: nowrap; }
@@ -141,6 +142,7 @@
   </a>
   <div class="t__tools">
     <button class="t__tool t__icon" type="button"><span class="sr-only">Search</span><svg class="t__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button>
+    <a class="t__tool t__icon t__account" href="../templates/login.html"><span class="sr-only">Account</span><svg class="t__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.75"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></a>
     <button class="t__tool t__icon" type="button"><span class="sr-only">Bag</span><svg class="t__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 8.5h13l.9 11.2a1 1 0 0 1-1 1.1H5.6a1 1 0 0 1-1-1.1z"/><path d="M8.75 8.5V7a3.25 3.25 0 0 1 6.5 0v1.5"/></svg><span class="t__count" data-bag-count>0</span></button>
   </div>
 </header>
@@ -175,6 +177,7 @@
   </nav>
   <div class="t__panel-tools">
     <button class="t__tool" type="button">Search</button>
+    <a class="t__tool" href="../templates/login.html">Account</a>
     <button class="t__tool" type="button">Bag <span data-bag-count>0</span></button>
   </div>
 </div>
@@ -184,7 +187,7 @@
   <div class="t__head">
     <p class="t__crumb"><a href="e-studio.html">Direction E</a> · The system</p>
     <h1>Your notes, built</h1>
-    <p>What each of your notes became — the six from the morning of 21 September, the four from that afternoon, the five from 23 September and the two from 24 September — and what is still yours to decide. This page wears the same masthead and footer as the homepage and the shop, so scroll it: the strip at the top moves, and the wordmark in the middle of the bar gives way to the flower, which turns with the page.</p>
+    <p>What each of your notes became — the six from the morning of 21 September, the four from that afternoon, the five from 23 September, the two from 24 September and the one from 30 September — and what is still yours to decide. This page wears the same masthead and footer as the homepage and the shop, so scroll it: the strip at the top moves, and the wordmark in the middle of the bar gives way to the flower, which turns with the page.</p>
   </div>
 
   <section class="sys" id="notes">
@@ -215,6 +218,10 @@
     <ol class="sys__notes sys__notes--d4">
       <li><q>For the sold-out product it would be cool to do the same idea — with the sold out written as well</q><a href="#sold">Sold out</a></li>
       <li><q>Same here, with the sold out button and notify me when back in stock</q><a href="#sold">Sold out</a></li>
+    </ol>
+    <p class="sys__when">30 September</p>
+    <ol class="sys__notes sys__notes--d5">
+      <li><q>Add a login page to this option</q><a href="#account">The account</a></li>
     </ol>
   </section>
 
@@ -307,8 +314,8 @@
     </div>
     <div class="sys__cols">
       <div>
-        <h3>Search and the bag</h3>
-        <p>On the right, as on the reference. Search opens on the button, on ⌘K, or on /; the bag opens as a drawer on every page.</p>
+        <h3>Search, the account and the bag</h3>
+        <p>On the right, as on the reference. Search opens on the button, on ⌘K, or on /; the person beside it opens the login page, since 30 September; the bag opens as a drawer on every page.</p>
       </div>
       <div>
         <h3>What is not in the bar</h3>
@@ -401,15 +408,38 @@
     </div>
   </section>
 
+  <section class="sys" id="account">
+    <div class="t__section-head">
+      <h2>8 · The account</h2>
+      <span>One page, three forms</span>
+    </div>
+    <p class="sys__lede">Your note of 30 September: a login page, on this direction. There is a person in the bar now, between search and the bag, on every page. It opens <a href="../templates/login.html">one page</a> with one narrow column in the middle of it, in the same type, the same square fields and the same black button as the rest of the shop. Sign in is what you land on; creating an account and resetting a password take its place in the same column rather than being pages of their own, so there is one address to remember and one link to find. The reference passes its customers to Shopify&rsquo;s own account page for this; ours stays on the site.</p>
+    <div class="sys__cols">
+      <div>
+        <h3>Where it is</h3>
+        <p>The person icon on the right of the bar. On a narrow phone a second icon beside the bag would push the wordmark off centre, so there it is in the menu, with Search and the bag. Your account is also in the footer, under Help.</p>
+      </div>
+      <div>
+        <h3>What it holds</h3>
+        <p><a href="../templates/login.html">Sign in</a>: email, password, keep me signed in, forgot your password. <a href="../templates/login.html#register">Create an account</a>: an email and a password, nothing more, and an unticked box for the 10% and the collection mails. <a href="../templates/login.html#reset">Reset your password</a>: one field. Each answers with one line once it is sent.</p>
+      </div>
+      <div>
+        <h3>Three questions back</h3>
+        <p>Nothing is checked, stored or sent yet; it is the design. Should an account stay optional, so a first order can still be paid for as a guest? We would keep it that way. Is the 10% for joining the list, for making an account, or either? And the pages behind the login &mdash; orders, addresses, details &mdash; are WooCommerce&rsquo;s own and are not drawn yet: say if you want them.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="sys" id="open">
     <div class="t__section-head">
       <h2>Still yours to decide</h2>
-      <span>Eight things</span>
+      <span>Nine things</span>
     </div>
     <ul class="sys__open">
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>Cocody Cab.</b> Under Maison Cocody as you wrote it, opening the films page for now. Was it Cocody Lab, or is it something new?</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The categories and the collection names.</b> Tops, Bottoms, Headwear and Accessories are our grouping of the catalogue; Bô Visage, Jersey and Pre-release 25 are the archive as we understand it. Correct either on the call.</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>Where the back-in-stock addresses go.</b> The form is on every sold-out page and thanks the person, but nothing receives the address yet: WooCommerce&rsquo;s own notices, or the mailing list the maison uses?</span></li>
+      <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The account.</b> The login page is drawn and nothing sits behind it yet. Does an account stay optional, with guest checkout kept? Is the 10% for joining the list or for making an account? And do you want the pages behind the login &mdash; orders, addresses, details &mdash; drawn too?</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The voucher mechanics.</b> Ten per cent on the first order only, or on the first order after signing up? One use per email? It changes the WooCommerce coupon and the welcome mail.</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The social handles, the legal texts, the company numbers.</b> The footer has the slots; it needs the words.</span></li>
       <li><span class="mark" data-flower aria-hidden="true"></span><span><b>The free-shipping threshold</b>, and who pays duties outside the EU. Decision 6, unchanged.</span></li>
@@ -459,6 +489,7 @@
       <div><h3>Help</h3><ul>
         <li><a href="#">Shipping &amp; returns</a></li>
         <li><a href="#">Track your order</a></li>
+        <li><a href="../templates/login.html">Your account</a></li>
         <li><a href="../templates/product.html#chart">Size chart</a></li>
         <li><a href="../templates/checkout.html">Checkout</a></li>
       </ul></div>
