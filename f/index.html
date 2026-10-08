@@ -41,38 +41,37 @@
       <button class="f-menu__x" type="button" data-f-menu-close aria-label="Close the menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <div class="f-menu__body">
-      <span class="f-menu__flower" data-flower aria-hidden="true"></span>
+      <span class="f-menu__flower" data-flower="flower--solid" aria-hidden="true"></span>
       <nav aria-label="Main">
         <div class="f-list" id="f-list-shop" role="tabpanel" aria-labelledby="f-tab-shop">
           <ul>
-            <li><a href="shop.html">All pieces</a></li>
+            <li style="--i:0"><a href="shop.html"><span>All pieces</span><span class="f-list__n" data-f-count="All"></span></a></li>
           </ul>
           <ul>
-            <li><a href="shop.html#tops">Tops</a></li>
-            <li><a href="shop.html#bottoms">Bottoms</a></li>
-            <li><a href="shop.html#headwear">Headwear</a></li>
-            <li><a href="shop.html#accessories">Accessories</a></li>
+            <li style="--i:1"><a href="shop.html#tops"><span>Tops</span><span class="f-list__n" data-f-count="Tops"></span></a></li>
+            <li style="--i:2"><a href="shop.html#bottoms"><span>Bottoms</span><span class="f-list__n" data-f-count="Bottoms"></span></a></li>
+            <li style="--i:3"><a href="shop.html#headwear"><span>Headwear</span><span class="f-list__n" data-f-count="Headwear"></span></a></li>
+            <li style="--i:4"><a href="shop.html#accessories"><span>Accessories</span><span class="f-list__n" data-f-count="Accessories"></span></a></li>
           </ul>
-          <ul>
-            <li><a href="product.html#chart">Size &amp; fit</a></li>
-          </ul>
+          <a class="f-feature" href="shop.html" style="--i:5"><span class="f-feature__img"><img src="../assets/img/film-indigo-portrait-md.jpg" width="880" height="495" alt="" loading="lazy"></span><span class="f-feature__txt"><span class="f-kicker">New in</span><span class="f-feature__t">B&ocirc; &middot; Drop 3</span><span class="f-feature__go">Shop the collection</span></span></a>
         </div>
         <div class="f-list" id="f-list-maison" role="tabpanel" aria-labelledby="f-tab-maison" hidden>
           <ul>
-            <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
-            <li><a href="../templates/about.html">About us</a></li>
-            <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
-            <li><a href="../templates/about.html#contact-press">Contact &amp; press</a></li>
+            <li style="--i:0"><a href="../templates/cocody-lab.html"><span>Cocody Lab</span></a></li>
+            <li style="--i:1"><a href="../templates/about.html"><span>About us</span></a></li>
+            <li style="--i:2"><a href="../templates/events.html"><span>Pop-ups &amp; events</span></a></li>
+            <li style="--i:3"><a href="../templates/about.html#contact-press"><span>Contact &amp; press</span></a></li>
           </ul>
+          <a class="f-feature" href="../templates/cocody-lab.html" style="--i:4"><span class="f-feature__img"><img src="../assets/img/film-painting-md.jpg" width="880" height="495" alt="" loading="lazy"></span><span class="f-feature__txt"><span class="f-kicker">Cocody Lab</span><span class="f-feature__t">Painting the d&eacute;cor</span><span class="f-feature__go">Watch the films</span></span></a>
         </div>
         <div class="f-list" id="f-list-archive" role="tabpanel" aria-labelledby="f-tab-archive" hidden>
-          <ul>
-            <li><a href="../templates/collections.html">Drop 3 (B&ocirc;)</a></li>
-            <li><a href="../templates/collections.html#jersey">Drop 2 (Opposites Attract)</a></li>
-            <li><a href="../templates/collections.html#pre-release-25">Drop 1 (Pre-release 25)</a></li>
+          <ul class="f-drops">
+            <li style="--i:0"><a href="../templates/collections.html"><img src="img/shop/sweater-a.jpg" width="880" height="1100" alt="" loading="lazy"><span class="f-drops__txt"><span>Drop 3 &middot; B&ocirc;</span><span class="f-drops__m">FW26 &middot; in stock</span></span></a></li>
+            <li style="--i:1"><a href="../templates/collections.html#jersey"><img src="img/shop/jersey-burgundy-a.jpg" width="880" height="1100" alt="" loading="lazy"><span class="f-drops__txt"><span>Drop 2 &middot; Opposites Attract</span><span class="f-drops__m">SS25 &middot; sold out</span></span></a></li>
+            <li style="--i:2"><a href="../templates/collections.html#pre-release-25"><img src="img/shop/tote-vintage-a.jpg" width="880" height="1100" alt="" loading="lazy"><span class="f-drops__txt"><span>Drop 1 &middot; Pre-release 25</span><span class="f-drops__m">2025 &middot; sold out</span></span></a></li>
           </ul>
           <ul>
-            <li><a href="../templates/collections.html#index">Every collection</a></li>
+            <li style="--i:3"><a href="../templates/collections.html#index"><span>Every collection</span></a></li>
           </ul>
         </div>
       </nav>
@@ -113,7 +112,6 @@
     <p class="f-hero__card" data-f-card aria-hidden="true">B&ocirc; &middot; Fall / Winter 26</p>
     <p class="f-hero__sub" data-f-sub aria-hidden="true" data-lines='["Filmed on canvas we painted ourselves.","Three pieces, all black.","Cocody is a district of Abidjan.","We only put the name on something once it deserves to go back there."]'>Filmed on canvas we painted ourselves.</p>
   </section>
-  <div class="f-strip" aria-hidden="true"></div>
 
   <!-- The reference's halves: a photograph, and a few words in the
        serif with one thing to do. -->

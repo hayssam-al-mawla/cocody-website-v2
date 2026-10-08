@@ -16,9 +16,10 @@
      screen the wordmark gives way to the monogram (theirs: the ALD
      monogram; ours: the M+C one the studio drew)
    - under the bar on the homepage, a live line: place | date | time
-   - the homepage as a film with subtitles, a thin strip, then quiet
-     editorial halves: a photograph, and a few words in a serif with an
-     email field
+   - the homepage as a film with subtitles, then quiet editorial
+     halves: a photograph, and a few words in a serif with an email
+     field (their thin film strip between the two was tried and taken
+     out on 8 Oct: on ours it read as a broken slice of the video)
    - the menu as a dark grey panel from the left: tabs across the top, a
      close, plain lists in small spaced capitals, a faint flower drawn
      behind them, the signup at the foot
@@ -116,45 +117,105 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
   .f-bar__line .f-time { display: none; }
 }
 
-/* ---------- the menu: the reference's dark grey panel ---------- */
+/* ---------- the menu: the reference's dark grey panel ----------
+   Reworked 8 Oct ("the side menu needs more work"). Still theirs in
+   shape — a panel from the left, tabs across the top, the close beside
+   them, small spaced capitals — and now with what a good one carries:
+   a count beside each category, an arrow that slides in under the
+   pointer, the items easing in as the panel opens or a tab changes, a
+   picture in each tab (the new drop, the Lab's film, a thumbnail per
+   archived drop), and the flower as a quiet mark cropped into the
+   corner instead of an outline drawn behind the words. */
 .f-menu { position: fixed; inset: 0; z-index: 130; }
 .f-menu[hidden] { display: none; }
-.f-menu__scrim { position: absolute; inset: 0; background: rgba(0,0,0,.32); opacity: 0; transition: opacity .4s var(--ease); }
+.f-menu__scrim { position: absolute; inset: 0; background: rgba(0,0,0,.36); opacity: 0; transition: opacity .4s var(--ease); }
 .f-menu__panel {
-  position: absolute; top: 0; bottom: 0; left: 0; width: min(100%, 450px);
-  display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain;
+  position: absolute; top: 0; bottom: 0; left: 0; width: min(100%, 430px);
+  display: flex; flex-direction: column; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain;
   background: var(--f-panel); color: var(--f-panel-ink);
-  transform: translateX(-100%); transition: transform .45s var(--ease);
+  transform: translateX(-100%); transition: transform .5s cubic-bezier(.2,.7,.2,1);
+  box-shadow: 1px 0 0 rgba(255,255,255,.04);
 }
 .f-menu.is-open .f-menu__scrim { opacity: 1; }
 .f-menu.is-open .f-menu__panel { transform: none; }
+
+/* the tabs: the chosen one is the panel's own grey, the others a step
+   lighter, as on the reference */
 .f-menu__tabs { display: flex; flex: none; height: var(--f-bar); position: relative; z-index: 1; }
 .f-tab {
-  flex: 1 1 auto; display: flex; align-items: center; padding: 0 16px; white-space: nowrap;
+  flex: 1 1 auto; display: flex; align-items: center; padding: 0 16px; white-space: nowrap;   /* each as wide as its name, then the rest shared */
   font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
   color: var(--f-panel-quiet); background: var(--f-tab); text-align: left;
-  transition: color .2s, background .2s;
+  transition: color .2s, background .25s;
 }
 .f-tab:hover { color: #fff; }
 .f-tab[aria-selected="true"] { background: transparent; color: #fff; }
-.f-menu__x { flex: none; width: 52px; display: grid; place-items: center; background: var(--f-tab); color: #fff; }
-.f-menu__x svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.3; }
-.f-menu__body { position: relative; flex: 1 0 auto; padding: 26px 20px 10px; }
+.f-menu__x { flex: none; width: 56px; display: grid; place-items: center; background: var(--f-tab); color: #fff; transition: background .2s; }
+.f-menu__x:hover { background: #575757; }
+.f-menu__x svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.3; transition: transform .3s var(--ease); }
+.f-menu__x:hover svg { transform: rotate(90deg); }
+
+.f-menu__body { position: relative; flex: 1 0 auto; padding: 22px 24px 8px; overflow: hidden; }   /* the flower is cropped, and adds no scroll */
+/* the flower, solid with its hole, cropped into the bottom corner */
 .f-menu__flower {
-  position: absolute; left: 6%; top: 22%; width: 88%; max-width: 380px; aspect-ratio: 218.55 / 210.07;
-  color: rgba(255,255,255,.05); pointer-events: none;
+  position: absolute; right: -175px; bottom: -165px; width: 380px; aspect-ratio: 218.55 / 210.07;
+  color: rgba(255,255,255,.028); pointer-events: none; transform: rotate(16deg);
 }
 .f-menu__flower .flower { width: 100%; height: 100%; }
-.f-menu__flower .flower path { stroke-width: 2.4; }
 .f-list[hidden] { display: none; }
-.f-list ul { position: relative; margin-bottom: 28px; }
+.f-list ul { position: relative; margin-bottom: 14px; }
+.f-list ul + ul { padding-top: 14px; border-top: 1px solid rgba(255,255,255,.09); }
 .f-list a {
-  display: block; padding: 9px 0; text-decoration: none; color: var(--f-panel-quiet);
-  font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  display: flex; align-items: baseline; gap: 10px; padding: 9px 0; text-decoration: none;
+  color: rgba(236,236,232,.8);
+  font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
   transition: color .15s;
 }
-.f-list a:hover, .f-list a[aria-current="page"] { color: #fff; }
-.f-menu__foot { position: relative; flex: none; padding: 22px 20px 26px; }
+.f-list a::after {
+  content: '\2192'; margin-left: auto; font-weight: 400; letter-spacing: 0;
+  opacity: 0; transform: translateX(-8px); transition: opacity .2s, transform .25s var(--ease);
+}
+.f-list a:hover, .f-list a:focus-visible { color: #fff; }
+.f-list a:hover::after, .f-list a:focus-visible::after { opacity: 1; transform: none; }
+.f-list a[aria-current="page"] { color: #fff; }
+.f-list a[aria-current="page"]::before {
+  content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--f-sub); transform: translateY(-1px); flex: none;
+}
+.f-list__n { font-size: 10px; font-weight: 400; letter-spacing: .04em; color: rgba(206,206,202,.55); font-variant-numeric: tabular-nums; }
+
+/* a picture in each tab: small, beside a few words */
+/* (.f-list .f-feature, so the menu's link rule above does not win) */
+.f-list .f-feature {
+  position: relative; display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center;
+  margin-top: 4px; padding: 10px; text-decoration: none; color: #fff; letter-spacing: 0; text-transform: none;
+  background: rgba(255,255,255,.045); transition: background .25s;
+}
+.f-list .f-feature::after { content: none; }
+.f-list .f-feature:hover { background: rgba(255,255,255,.08); }
+.f-feature__img { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: #2a2a2a; }
+.f-feature__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.f-feature:hover .f-feature__img img { transform: scale(1.05); }
+.f-feature__txt { display: grid; gap: 7px; }
+.f-feature .f-kicker { color: var(--f-sub); font-size: 9.5px; }
+.f-feature__t { font-family: var(--f-serif); font-size: 19px; line-height: 1.15; font-weight: 500; }
+.f-feature__go { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(236,236,232,.8); }
+.f-feature:hover .f-feature__go { color: #fff; }
+
+/* the archive: a thumbnail per drop, its season and whether it is gone */
+.f-drops a { gap: 14px; align-items: center; padding: 8px 0; }
+.f-drops img { width: 44px; height: 55px; object-fit: contain; background: var(--f-card); flex: none; }
+.f-drops__txt { display: grid; gap: 4px; }
+.f-drops__m { font-size: 10px; font-weight: 400; letter-spacing: .04em; text-transform: none; color: rgba(206,206,202,.6); }
+
+/* the items ease in as the panel opens and as a tab changes */
+@keyframes f-in { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+.f-menu.is-open .f-list:not([hidden]) li,
+.f-menu.is-open .f-list:not([hidden]) .f-feature { animation: f-in .45s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(80ms + var(--i, 0) * 35ms); }
+@media (prefers-reduced-motion: reduce) {
+  .f-menu.is-open .f-list:not([hidden]) li, .f-menu.is-open .f-list:not([hidden]) .f-feature { animation: none; }
+}
+
+.f-menu__foot { position: relative; flex: none; padding: 18px 24px 24px; border-top: 1px solid rgba(255,255,255,.09); }
 .f-join { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,.55); }
 .f-join input {
   flex: 1; min-width: 0; background: none; border: 0; color: inherit; padding: 12px 0;
@@ -166,14 +227,19 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
 .f-join__note, .f-join__fine { font-size: 10px; color: rgba(210,210,206,.75); margin-top: 10px; }
 .f-join__note { color: #fff; }
 .f-join__note:empty { display: none; }
-.f-menu__links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; font-size: 11px; }
+.f-menu__links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; font-size: 11px; }
 .f-menu__links a { color: #fff; text-decoration: none; }
 .f-menu__links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .f-menu__links span { color: var(--f-panel-quiet); }
-.f-menu__tools { display: none; gap: 18px; margin-top: 18px; font-size: 11px; }
-.f-menu__tools .f-ico { margin: 0; padding: 0; color: #fff; }
+.f-menu__tools { display: none; gap: 18px; margin-top: 16px; font-size: 11px; }
+.f-menu__tools a { text-decoration: none; }
+.f-menu__tools button { padding: 0; }
 @media (max-width: 600px) {
   .f-menu__tools { display: flex; }
+  .f-tab { padding: 0 12px; }
+  .f-menu__flower { display: none; }   /* in a phone's long empty column it reads as a blot */
+  .f-menu__body { padding: 18px 20px 8px; }
+  .f-menu__foot { padding: 16px 20px 22px; }
 }
 
 /* ---------- homepage ---------- */
@@ -192,12 +258,6 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
 .f-hero__sub { bottom: 10.5%; font-size: clamp(18px, 1.75vw, 25px); font-weight: 500; letter-spacing: 0; line-height: 1.3; }
 .f-hero [data-off] { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .f-hero__card, .f-hero__sub { transition: none; } }
-
-/* the thin strip under the film, as on the reference */
-.f-strip {
-  height: 30px; background: #1a1a1a url("../../assets/img/film-studio-md.jpg") center 38% / cover no-repeat;
-  filter: saturate(.7) brightness(.75);
-}
 
 /* the editorial halves: a photograph, and a few words */
 .f-split { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; padding: 26px; }

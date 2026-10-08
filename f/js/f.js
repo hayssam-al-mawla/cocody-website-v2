@@ -106,6 +106,19 @@
     panel.querySelectorAll('.f-menu__tools button').forEach(function (b) { b.addEventListener('click', close, true); });
   }
 
+  /* ---- 2b · the menu's counts: how many pieces each category holds,
+     from the catalogue, grouped as the shop groups them ---- */
+  function counts() {
+    var CAT = window.COCODY_CATALOGUE || [];
+    var GROUPS = { Tops: ['Sweater', 'T-shirts', 'Vintage Jerseys'], Bottoms: ['Pants'],
+                   Headwear: ['Headwear'], Accessories: ['Bags'] };
+    document.querySelectorAll('[data-f-count]').forEach(function (el) {
+      var k = el.getAttribute('data-f-count');
+      el.textContent = k === 'All' ? CAT.length
+        : CAT.filter(function (p) { return (GROUPS[k] || []).indexOf(p.category) !== -1; }).length;
+    });
+  }
+
   /* ---- 3 · the line under the bar: Amsterdam, the date and the time,
      live, as the reference does with Queens ---- */
   function clock() {
@@ -142,6 +155,11 @@
     if (reduced) { if (card) card.setAttribute('data-off', ''); return; }
     var i = 0;
     setTimeout(function () { if (card) card.setAttribute('data-off', ''); }, 3800);
+    /* the card goes as soon as the page moves, or it slides up behind
+       the wordmark over the film */
+    window.addEventListener('scroll', function () {
+      if (card && window.scrollY > 30) card.setAttribute('data-off', '');
+    }, { passive: true });
     setInterval(function () {
       sub.setAttribute('data-off', '');
       setTimeout(function () {
@@ -231,7 +249,7 @@
     });
   }
 
-  function init() { bar(); menu(); clock(); subtitles(); shopFilter(); alsoLike(); holdColumns(); joins(); }
+  function init() { bar(); menu(); counts(); clock(); subtitles(); shopFilter(); alsoLike(); holdColumns(); joins(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
