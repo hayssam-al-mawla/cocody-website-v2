@@ -1,5 +1,7 @@
 /* Direction F's own copy of assets/css/brand.css, made by tools/apply-f.py on
-   8 Oct 2026, so that F never changes E. Unchanged. */
+   8 Oct 2026, so that F never changes E. Changed: no cross-fade between pages
+   (E's @view-transition): F changes page at once, as the reference does,
+   so a click never waits on a fade. */
 /* ------------------------------------------------------------------
    MAISON COCODY — Website V2
    Shared foundation: reset, sourced brand tokens, the flower, the
@@ -181,7 +183,7 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
    Browsers without support simply navigate as normal. There is no
    library and no cost to anyone who does not get it.
    ------------------------------------------------------------------ */
-@view-transition { navigation: auto; }
+/* (no @view-transition in F: pages change at once) */
 
 ::view-transition-group(root) { animation-duration: .38s; }
 ::view-transition-old(root) { animation: vt-out .28s cubic-bezier(.4,0,1,1) both; }

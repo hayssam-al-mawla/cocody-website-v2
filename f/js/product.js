@@ -1,6 +1,7 @@
 /* Direction F's own copy of assets/js/product.js, made by tools/apply-f.py on
-   8 Oct 2026, so that F never changes E. Changed: the crumb's collection link
-   opens E's collections page, which F does not draw. */
+   8 Oct 2026, so that F never changes E. Changed: F's own grey copies of the
+   photographs, and the crumb's collection link opens E's collections
+   page, which F does not draw. */
 /* ------------------------------------------------------------------
    The product page, driven by the catalogue.
 
@@ -19,7 +20,7 @@
   var root = document.querySelector('[data-product]');
   if (!root) return;
 
-  var IMG = '../assets/img/shop/';
+  var IMG = 'img/shop/';   /* F's copies, the grey baked in */
   var money = function (n) { return '€' + n.toFixed(0); };
 
   var slug = (location.search.match(/[?&]p=([a-z0-9-]+)/) || [])[1];
@@ -63,9 +64,9 @@
 
   /* gallery: the two shop shots plus supporting shots where we have them */
   var EXTRA = {
-    sweater: ['../assets/img/m-set-front-md.jpg', '../assets/img/m-set-side-md.jpg', '../assets/img/pant-label-md.jpg'],
-    trouser: ['../assets/img/pant-front-md.jpg', '../assets/img/pant-seam-md.jpg', '../assets/img/pant-label-md.jpg'],
-    'monogram-hat': ['../assets/img/cap-front-md.jpg', '../assets/img/cap-profile-md.jpg', '../assets/img/cap-back-md.jpg']
+    sweater: ['img/gallery/m-set-front-md.jpg', 'img/gallery/m-set-side-md.jpg', 'img/gallery/pant-label-md.jpg'],
+    trouser: ['img/gallery/pant-front-md.jpg', 'img/gallery/pant-seam-md.jpg', 'img/gallery/pant-label-md.jpg'],
+    'monogram-hat': ['img/gallery/cap-front-md.jpg', 'img/gallery/cap-profile-md.jpg', 'img/gallery/cap-back-md.jpg']
   };
   var shots = [IMG + p.img, IMG + p.alt].concat(EXTRA[p.slug] || []);
 

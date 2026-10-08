@@ -1,6 +1,7 @@
 /* Direction F's own copy of assets/js/shop.js, made by tools/apply-f.py on
    8 Oct 2026, so that F never changes E. Changed: the asset path (F is one folder
-   down, in f/), and the empty bag's link goes to F's shop. */
+   down, in f/), F's own grey copies of the photographs, and the empty
+   bag's link goes to F's shop. */
 /* ------------------------------------------------------------------
    Shop behaviour: the bag drawer, quick-add, and the listing filters.
 
@@ -14,7 +15,7 @@
 
   var CAT = window.COCODY_CATALOGUE || [];
   var FREE = window.COCODY_FREE_SHIPPING || 100;
-  var IMG = 'assets/img/shop/';
+  var IMG = 'f/img/shop/';   /* F's copies, the grey baked in */
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* 23 Sep: the client's categories, as the Shop menu lists them. The

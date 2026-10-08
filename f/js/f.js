@@ -192,7 +192,7 @@
     row.innerHTML = CAT.filter(function (p) { return p.slug !== slug; }).map(function (p) {
       var sold = !p.sizes.some(function (s) { return s.in; });
       return '<a class="f-mini' + (sold ? ' is-sold' : '') + '" href="product.html?p=' + p.slug + '">' +
-        '<span class="f-mini__frame"><img src="../assets/img/shop/' + p.img + '" width="880" height="1100" loading="lazy" alt="' + p.name + '"></span>' +
+        '<span class="f-mini__frame"><img src="img/shop/' + p.img + '" width="880" height="1100" loading="lazy" alt="' + p.name + '"></span>' +
         '<span class="f-mini__nm">' + p.name + '</span>' +
         '<span class="f-mini__pz">' + money(sold ? (p.was || p.price) : p.price) + (sold ? ' · Sold out' : '') + '</span></a>';
     }).join('');

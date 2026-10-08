@@ -1,5 +1,6 @@
 /* Direction F's own copy of assets/css/shop.css, made by tools/apply-f.py on
-   8 Oct 2026, so that F never changes E. Unchanged. */
+   8 Oct 2026, so that F never changes E. Changed: the bag's scrim blurs the page
+   only while the bag is open, rather than as a layer kept on screen. */
 /* ------------------------------------------------------------------
    Shop furniture
    The announcement bar, the bag drawer, quick-add and the listing page.
@@ -73,9 +74,8 @@
   background: rgba(0,0,0,.42);
   opacity: 0; pointer-events: none;
   transition: opacity var(--t-mid) var(--ease-out);
-  backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
 }
-.bag-scrim.is-open { opacity: 1; pointer-events: auto; }
+.bag-scrim.is-open { opacity: 1; pointer-events: auto; backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
 
 .bag {
   position: fixed; top: 0; right: 0; bottom: 0; z-index: 141;

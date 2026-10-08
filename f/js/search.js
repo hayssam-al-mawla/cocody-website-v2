@@ -1,6 +1,7 @@
 /* Direction F's own copy of assets/js/search.js, made by tools/apply-f.py on
-   8 Oct 2026, so that F never changes E. Changed: the asset path, and the
-   hits and "browse everything" go to F's own product and shop pages. */
+   8 Oct 2026, so that F never changes E. Changed: the asset path, F's own grey
+   copies of the photographs, and the hits and "browse everything" go to
+   F's own product and shop pages. */
 /* ------------------------------------------------------------------
    Search.
 
@@ -17,7 +18,7 @@
   if (!CAT.length) return;
 
   var base = '../';   /* F's pages are in f/, one folder down */
-  var IMG = base + 'assets/img/shop/';
+  var IMG = base + 'f/img/shop/';   /* F's copies, the grey baked in */
   var TPL = '';   /* F's shop and product pages sit beside it */
   var money = function (n) { return '€' + n.toFixed(0); };
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

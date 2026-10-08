@@ -39,7 +39,7 @@ html[data-direction="f"] {
   --f-ink: #181818;
   --f-quiet: #77776F;
   --f-line: #E4E3DF;
-  --f-card: #F4F4F2;        /* the cards' grey; packshots multiply into it */
+  --f-card: #F4F4F2;        /* the cards' grey; F's copies of the packshots carry it */
   --f-panel: #3A3A3A;       /* the menu */
   --f-tab: #4A4A4A;         /* the tabs not chosen */
   --f-panel-ink: #EFEFEC;
@@ -201,12 +201,15 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
 
 /* the editorial halves: a photograph, and a few words */
 .f-split { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; padding: 26px; }
-.f-split__media { display: block; aspect-ratio: 1; overflow: hidden; background: var(--f-card); }
+.f-split__media {
+  display: block; height: min(calc(100svh - 96px), 760px); min-height: 420px;
+  overflow: hidden; background: var(--f-card);
+}
 .f-split__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
 .f-split__media:hover img { transform: scale(1.02); }
 .f-split__copy {
   display: flex; flex-direction: column; align-items: center; justify-content: space-between;
-  text-align: center; padding: 46px 24px 30px;
+  text-align: center; padding: 40px 24px 26px;
 }
 .f-split__mid { display: grid; justify-items: center; gap: 22px; width: min(100%, 400px); }
 .f-split__mid .f-serif { font-size: clamp(19px, 1.55vw, 23px); }
@@ -230,6 +233,7 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
 @media (max-width: 860px) {
   .f-split { grid-template-columns: 1fr; padding: 16px; gap: 0; }
   .f-split--rev .f-split__media { order: 0; }
+  .f-split__media { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
   .f-split__copy { padding: 40px 8px 46px; gap: 34px; }
 }
 
@@ -289,14 +293,16 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
   .f-grid { grid-template-columns: 1fr 1fr; gap: 34px 2px; padding: 2px 0 50px; }
 }
 
-/* a card: the packshot on the grey, multiplied so its white seamless
-   becomes the card; the name and the price under it */
+/* a card: the packshot on the grey, and the name and the price under
+   it. The grey is in F's own copies of the photographs (f/img, made by
+   tools/apply-f.py), not blended in the browser: blending twenty
+   pictures live showed white boxes in some browsers and cost frames. */
 html[data-direction="f"] .sh__item { display: block; text-decoration: none; }
 html[data-direction="f"] .sh__item .shot,
 html[data-direction="f"] .f-mini__frame { background: var(--f-card); aspect-ratio: 4 / 5.2; }
 html[data-direction="f"] .shot img,
 html[data-direction="f"] .f-mini__frame img {
-  position: absolute; left: 9%; top: 8%; width: 82%; height: 84%; object-fit: contain; mix-blend-mode: multiply;
+  position: absolute; left: 9%; top: 8%; width: 82%; height: 84%; object-fit: contain;
 }
 html[data-direction="f"] .shot .shot__state { display: none; }
 html[data-direction="f"] .sh__meta {
@@ -349,7 +355,7 @@ html[data-direction="f"] .p__fit-row input { width: 5.5rem; }
 .f-look { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 12px; }
 html[data-direction="f"] .f-look .t__card-frame { background: var(--f-card); aspect-ratio: 4 / 5; }
 html[data-direction="f"] .f-look .t__card-frame img {
-  left: 8%; top: 8%; width: 84%; height: 84%; object-fit: contain; mix-blend-mode: multiply;
+  left: 8%; top: 8%; width: 84%; height: 84%; object-fit: contain;
 }
 html[data-direction="f"] .f-look .t__card:hover .t__card-frame img { transform: none; }
 html[data-direction="f"] .f-look .t__card h3 { font-family: var(--f-sans); font-size: 10.5px; font-weight: 400; margin-top: 8px; line-height: 1.35; }
@@ -362,7 +368,7 @@ html[data-direction="f"] .p__shots { grid-template-columns: 1fr; gap: 12px; max-
 html[data-direction="f"] .p__shot,
 html[data-direction="f"] .p__shot:first-child,
 html[data-direction="f"] .p__shot:last-child:nth-child(even) { grid-column: auto; background: var(--f-card); aspect-ratio: 4 / 5; max-height: none; }
-html[data-direction="f"] .p__shot img { left: 7%; top: 7%; width: 86%; height: 86%; mix-blend-mode: multiply; }
+html[data-direction="f"] .p__shot img { left: 7%; top: 7%; width: 86%; height: 86%; }
 
 /* size and the button */
 html[data-direction="f"] .p__sizes-head { margin: 0 0 8px; }
