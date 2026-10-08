@@ -106,7 +106,7 @@
   animation: bag-in .34s var(--ease) both;
 }
 @keyframes bag-in { from { opacity: 0; transform: translateY(.5rem); } }
-.bag__row img { width: 72px; height: 90px; object-fit: cover; background: #f4f4f4; }
+.bag__row img { width: 72px; height: 90px; object-fit: contain; background: #fff; }
 .bag__row .nm { font-family: var(--ui); font-size: .875rem; line-height: 1.3; }
 .bag__row .mt { font-family: var(--ui); font-size: .75rem; color: var(--bag-quiet, #767676); margin-top: .25rem; }
 .bag__row .pz { font-family: var(--ui); font-size: .875rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -116,9 +116,9 @@
 }
 .bag__rm:hover { color: var(--bag-fg, #000); }
 
-/* empty is an invitation, not a dead end */
+/* empty is an invitation, not a dead end — in words alone since 7 Oct
+   ("Basket: remove the big flower") */
 .bag__empty { padding: 3.5rem 1.5rem; text-align: center; }
-.bag__empty .mark { width: 40px; height: 40px; margin: 0 auto 1.1rem; color: var(--bag-quiet, #767676); }
 .bag__empty p { font-family: var(--ui); font-size: .875rem; color: var(--bag-quiet, #767676); }
 .bag__empty a {
   display: inline-block; margin-top: 1.1rem; font-family: var(--ui); font-size: .8125rem;
@@ -204,7 +204,7 @@ html[data-direction="e"] .bag { --bag-bg: #FFFFFF; --bag-fg: #000; --bag-rule: #
   gap: clamp(1.25rem, 2.5vw, 2.25rem) clamp(1rem, 1.6vw, 1.4rem);
 }
 .sh__item { text-decoration: none; display: block; }
-.sh__item .shot { background: #F6F6F4; }
+.sh__item .shot { background: var(--blanc); }   /* the seamless's own white: a whole shot shows no edge (7 Oct) */
 .sh__meta {
   display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
   margin-top: .8rem; padding-top: .65rem; border-top: 1px solid var(--t-rule);
@@ -264,7 +264,7 @@ html[data-direction="e"] .bag { --bag-bg: #FFFFFF; --bag-fg: #000; --bag-rule: #
 }
 .sr__hit:last-child { border-bottom: 0; }
 .sr__hit[aria-selected="true"] { background: var(--sr-hit, #F4F4F2); }
-.sr__hit img { width: 48px; height: 60px; object-fit: cover; background: #fff; }
+.sr__hit img { width: 48px; height: 60px; object-fit: contain; background: #fff; }
 .sr__hit-t { font-family: var(--ui); font-size: .875rem; line-height: 1.3; }
 .sr__hit-t span { display: block; font-size: .72rem; color: var(--sr-quiet, #767676); margin-top: .15rem; }
 .sr__hit-p { font-family: var(--ui); font-size: .8125rem; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }

@@ -120,10 +120,13 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
 .flower path { fill: none; stroke: currentColor; stroke-width: 7.65; stroke-linejoin: round; stroke-linecap: round; }
 /* a plain ring: the hole is dropped so a letter can sit in the middle */
 .flower--ring .f-in { display: none; }
-/* solid. At the sizes this is used the hole is under two pixels, so the
-   outer contour alone is indistinguishable and avoids a mask. */
-.flower--solid .f-out { fill: currentColor; stroke: none; }
-.flower--solid .f-in { display: none; }
+/* solid, with its hole. Until 7 October the hole was dropped here as
+   too small to see; Charlz saw it go ("it is plain black, it should have
+   the white hole in the middle"). Solid, the mark is now one path, the
+   contour and the hole together, filled even-odd, so the hole is cut
+   out and shows whatever is behind it — the bar's white, the footer's
+   black. cocody.js draws it that way for flower--solid. */
+.flower--solid .f-solid { fill: currentColor; fill-rule: evenodd; stroke: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -208,6 +211,13 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
    portrait frame scales the figure up by about a quarter and gives the
    grids something to hold on to.
 
+   Since 7 October the shot is contained in that frame, not cropped to
+   fill it. Charlz found pieces cut off — sleeves, brims, a trouser's
+   hem — because the files are not all square: the hats and one tote
+   are 3:2, the trouser 2:3. The seamless is white and so is the frame,
+   so its edge never shows, and the frame stays portrait so the grids
+   still hold.
+
    Two images stack: the second appears on hover, which is how every
    shop in this category behaves and is the cheapest way to make a grid
    feel alive. No JavaScript, and on touch you simply get the first.
@@ -218,7 +228,7 @@ p, li { text-wrap: pretty; }          /* no single-word last lines */
 }
 .shot img {
   position: absolute; inset: 0;
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%; height: 100%; object-fit: contain;
 }
 .shot__b { opacity: 0; transition: opacity .55s var(--ease); }
 a:hover > .shot .shot__b,

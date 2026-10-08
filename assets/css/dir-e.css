@@ -73,10 +73,12 @@ body.e { padding-bottom: 0; }
   margin-top: calc(-1 * var(--bar-h));
   /* The whole screen, less the strip above it — Charlz's afternoon note,
      and the reference's own first screen. masthead.js measures the strip
-     into --ann-h; the fallback is its resting height. The button sits a
-     fifth of the way up, as on the reference, which also keeps it clear
-     of the review bar. */
+     into --ann-h; the fallback is its resting height. Since 7 Oct the
+     button and the line beside it sit lower, about a tenth of the way
+     up rather than a fifth ("move it further down"), on one baseline:
+     --e-low. */
   height: calc(100svh - var(--ann-h, 1.625rem));
+  --e-low: clamp(2.5rem, 9%, 5.5rem);
   min-height: 520px;
   background: var(--noir);
   overflow: hidden;
@@ -94,20 +96,20 @@ body.e { padding-bottom: 0; }
   /* centred with margins, not a transform: the entrance animation
      below animates transform and would cancel a translateX(-50%),
      which is exactly what pushed the button off-centre on the phone */
-  position: absolute; left: 0; right: 0; bottom: clamp(5rem, 20%, 12rem);
+  position: absolute; left: 0; right: 0; bottom: var(--e-low);
   width: max-content; margin-inline: auto;
   background: rgba(0,0,0,.14); color: #fff; border: 1px solid #fff;
   backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
-  padding: .9rem 1.9rem;
-  font-family: var(--ui); font-size: .72rem; font-weight: 500;
+  padding: .7rem 1.45rem;   /* smaller since 7 Oct ("make it a bit smaller") */
+  font-family: var(--ui); font-size: .64rem; font-weight: 500;
   letter-spacing: .16em; text-transform: uppercase; text-decoration: none;
   white-space: nowrap;
   transition: background .2s var(--ease-out), color .2s var(--ease-out);
 }
 .e__hero-cta:hover { background: #fff; color: var(--noir); }
 .e__hero-cap {
-  position: absolute; left: var(--gut); bottom: clamp(5rem, 20%, 12rem);
-  color: #fff; font-family: var(--ui); font-size: .68rem; letter-spacing: .1em;
+  position: absolute; left: var(--gut); bottom: var(--e-low);
+  color: #fff; font-family: var(--ui); font-size: .6rem; letter-spacing: .1em;
   text-transform: uppercase; opacity: .85; line-height: 1.6;
 }
 @media (max-width: 720px) {
@@ -230,6 +232,17 @@ body.e { padding-bottom: 0; }
 .e__row .where { font-family: var(--ui); font-size: .75rem; color: var(--t-quiet); }
 .e__row[data-past] .what { color: var(--t-quiet); }
 @media (max-width: 520px) { .e__row { grid-template-columns: 1fr auto; } .e__row .when { grid-column: 1 / -1; } }
+
+/* ---------- Worn by you ----------
+   7 Oct, an idea to explore: posts tagged #maisoncocody, or tagging the
+   maison, shown back on the site once each is approved. Six squares,
+   newest first, each going to its post. The six here are the shoot's
+   own pictures standing in. */
+.e__worn-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(.35rem, .8vw, .6rem); }
+@media (max-width: 900px) { .e__worn-grid { grid-template-columns: repeat(3, 1fr); } }
+.e__worn-tile { position: relative; display: block; aspect-ratio: 1; overflow: hidden; background: var(--pierre); }
+.e__worn-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.e__worn-tile:hover img { transform: scale(1.04); }
 
 /* ---------- entrance ----------
    One orchestrated arrival on load; nothing reveals per section. */

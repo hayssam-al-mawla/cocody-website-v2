@@ -34,6 +34,14 @@
   /* pages sit one folder down; the hub sits at the root */
   var base = /\/(templates|directions)\//.test(location.pathname) ? '../' : '';
   var money = function (n) { return '€' + n.toFixed(0); };
+  /* 7 Oct: a sold-out piece shows its original price, not the reduced
+     one ("show the original price, not the discounted one"), and sorts
+     by it too */
+  var isIn = function (p) { return p.sizes.some(function (s) { return s.in; }); };
+  var shown = function (p) { return isIn(p) ? p.price : (p.was || p.price); };
+  var price = function (p) {
+    return isIn(p) ? money(p.price) + (p.was ? ' <s>' + money(p.was) + '</s>' : '') : money(shown(p));
+  };
 
   /* ================================================================
      The bag
@@ -75,12 +83,10 @@
     if (!n) {
       els.items.innerHTML =
         '<div class="bag__empty">' +
-          '<span class="mark" data-flower aria-hidden="true"></span>' +
           '<p>Nothing in the bag yet.</p>' +
           '<a href="' + base + 'templates/shop.html">See everything</a>' +
         '</div>';
       els.foot.hidden = true;
-      if (window.CocodyPaintFlowers) window.CocodyPaintFlowers(els.items);
       return;
     }
 
@@ -232,7 +238,7 @@
           '<span><span class="nm">' + p.name + '</span>' +
           (sold ? '<span class="st">( Sold out )</span>' : '') +
           '<span class="mt">' + p.material + '</span></span>' +
-          '<span class="pz">' + money(p.price) + (p.was ? ' <s>' + money(p.was) + '</s>' : '') + '</span>' +
+          '<span class="pz">' + price(p) + '</span>' +
         '</span>' +
       '</a>';
     }
@@ -240,8 +246,8 @@
     function draw() {
       var list = CAT.filter(function (p) { return inGroup(p, cat); });
       var how = sortEl ? sortEl.value : 'featured';
-      if (how === 'low')  list = list.slice().sort(function (a, b) { return a.price - b.price; });
-      if (how === 'high') list = list.slice().sort(function (a, b) { return b.price - a.price; });
+      if (how === 'low')  list = list.slice().sort(function (a, b) { return shown(a) - shown(b); });
+      if (how === 'high') list = list.slice().sort(function (a, b) { return shown(b) - shown(a); });
       if (how === 'name') list = list.slice().sort(function (a, b) { return a.name.localeCompare(b.name); });
       if (how === 'stock') list = list.slice().sort(function (a, b) {
         var ai = a.sizes.some(function (s) { return s.in; }) ? 0 : 1;

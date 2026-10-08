@@ -53,7 +53,8 @@
 
   set('[data-p-crumb]', '<a href="collections.html">' + p.collection + '</a> · ' + p.name);
   set('[data-p-title]', p.name);
-  set('[data-p-price]', money(p.price) +
+  /* sold out, the original price alone, not the reduced one (7 Oct) */
+  set('[data-p-price]', !here ? money(p.was || p.price) : money(p.price) +
       (p.was ? ' <s style="color:var(--t-quiet);font-size:.85em;font-weight:400">' + money(p.was) + '</s>' : ''));
   set('[data-p-meta]', p.material + ' · ' + p.collection + ', limited production');
 
@@ -65,13 +66,27 @@
   };
   var shots = [IMG + p.img, IMG + p.alt].concat(EXTRA[p.slug] || []);
 
+  /* since 7 Oct every picture is on the page at once, whole — a column
+     on a laptop, a strip to swipe on a phone — instead of one plate and
+     a row of thumbnails. The first stays in the markup, so the shared-
+     element transition from the grid still has its other half. */
   var main = root.querySelector('[data-gallery-main]');
   if (main) { main.src = shots[0]; main.alt = p.name; }
-  set('[data-p-thumbs]', shots.map(function (src, i) {
-    return '<button type="button" aria-current="' + (i === 0) + '" data-gallery-thumb="' + src + '"' +
-           ' data-alt="' + p.name + ', view ' + (i + 1) + '">' +
-           '<img src="' + src + '" alt="View ' + (i + 1) + '" loading="lazy" width="880" height="880"></button>';
-  }).join(''));
+  var strip = root.querySelector('[data-p-shots]');
+  if (strip) {
+    strip.insertAdjacentHTML('beforeend', shots.slice(1).map(function (src, i) {
+      return '<figure class="p__shot"><img src="' + src + '" alt="' + p.name + ', view ' + (i + 2) + '"' +
+             ' loading="lazy" width="880" height="1100"></figure>';
+    }).join(''));
+    var count = root.querySelector('[data-p-count]');
+    var tick = function () {
+      if (!count) return;
+      var i = strip.clientWidth ? Math.round(strip.scrollLeft / strip.clientWidth) : 0;
+      count.textContent = (i + 1) + ' / ' + shots.length;
+    };
+    strip.addEventListener('scroll', tick, { passive: true });
+    tick();
+  }
 
   /* sizes, from real stock */
   var oneSize = p.sizes.length === 1 && p.sizes[0].s === 'One size';
@@ -170,8 +185,18 @@
         '<img class="shot__b" src="' + IMG + o.alt + '" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">' +
       '</div>' +
       '<h3>' + o.name + '</h3>' + (sold ? '<p class="st">( Sold out )</p>' : '') +
-      '<p>' + money(o.price) + '</p></a>';
+      '<p>' + money(sold ? (o.was || o.price) : o.price) + '</p></a>';
   }).join(''));
+
+  /* the details hold still beside the pictures on a laptop; the CSS
+     needs their height to know where to hold them */
+  var info = root.querySelector('.p__info');
+  if (info) {
+    var measure = function () { root.style.setProperty('--info-h', info.offsetHeight + 'px'); };
+    measure();
+    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(info);
+    else window.addEventListener('resize', measure);
+  }
 
   if (window.CocodyPaintFlowers) window.CocodyPaintFlowers(root);
 })();

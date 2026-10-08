@@ -5,8 +5,12 @@
    2. the masthead — the wordmark sits in the middle; once the page is
       moving it gives way to the flower, and the flower turns with the
       scroll
-   3. the phone menu — the three groups (Shop, Archive, Maison Cocody)
-      as a full-screen panel
+   3. the phone menu — since 7 Oct Aimé Leon Dore's side panel: dark
+      grey, in from the left, the three groups (Shop, Maison Cocody,
+      Archive) as tabs
+   4. the dropdowns on the laptop's bar (23 Sep)
+   5. the footer — its columns fold on a phone, and since 7 Oct the
+      page slides up off it at the bottom
 
    No dependencies. Everything degrades to a working static page: with
    the script gone the marquee is a single line of text, the wordmark
@@ -114,40 +118,82 @@
   }
 
   /* ------------------------------------------------------------------
-     3 · The phone menu
-     #menu is in the page already, hidden. Opening it locks the page
-     underneath, moves focus in, and Escape or any link closes it.
+     3 · The phone menu (7 Oct)
+     #menu is in the page already, hidden: a scrim and the panel. Opening
+     slides the panel in from the left, locks the page underneath and
+     moves focus to the open tab; Escape, the close, the scrim or any
+     link closes it, and Tab stays inside while it is open. The tabs are
+     a tablist — click, or the arrow keys — and each page opens on its
+     own group (the markup says which).
      ------------------------------------------------------------------ */
   function menu() {
     var panel = document.getElementById('menu');
     if (!panel) return;
+    var drawer = panel.querySelector('.t__drawer') || panel;
     var openers = document.querySelectorAll('[data-menu-open]');
-    var closer = panel.querySelector('[data-menu-close]');
-    var last = null;
+    var tabs = Array.prototype.slice.call(panel.querySelectorAll('[role="tab"]'));
+    var last = null, timer = null;
 
-    function esc(e) { if (e.key === 'Escape') close(); }
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        var list = document.getElementById(t.getAttribute('aria-controls'));
+        if (list) list.hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1
+              : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null;
+        if (j === null) return;
+        e.preventDefault();
+        select(tabs[(j + tabs.length) % tabs.length], true);
+      });
+    });
+
+    function onKey(e) {
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = Array.prototype.filter.call(drawer.querySelectorAll('a[href], button'), function (el) {
+        return el.tabIndex !== -1 && el.offsetParent !== null;
+      });
+      if (!f.length) return;
+      var first = f[0], end = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); end.focus(); }
+      else if (!e.shiftKey && document.activeElement === end) { e.preventDefault(); first.focus(); }
+    }
     function open() {
+      clearTimeout(timer);
       last = document.activeElement;
       panel.hidden = false;
+      void panel.offsetWidth;                 /* so the slide runs from off-screen */
+      panel.classList.add('is-open');
       document.body.style.overflow = 'hidden';
       openers.forEach(function (b) { b.setAttribute('aria-expanded', 'true'); });
-      (closer || panel).focus();
-      document.addEventListener('keydown', esc);
+      var on = panel.querySelector('[role="tab"][aria-selected="true"]');
+      (on || drawer).focus();
+      document.addEventListener('keydown', onKey);
     }
     function close() {
-      panel.hidden = true;
+      if (panel.hidden || !panel.classList.contains('is-open')) return;
+      panel.classList.remove('is-open');
       document.body.style.overflow = '';
       openers.forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
-      document.removeEventListener('keydown', esc);
+      document.removeEventListener('keydown', onKey);
+      timer = setTimeout(function () { panel.hidden = true; }, reduced ? 0 : 450);
       if (last && last.focus) last.focus();
     }
 
     openers.forEach(function (b) { b.addEventListener('click', open); });
-    if (closer) closer.addEventListener('click', close);
+    panel.querySelectorAll('[data-menu-close]').forEach(function (c) { c.addEventListener('click', close); });
     panel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
-    /* the bag and search controls inside the panel open their own
-       drawers; the panel gets out of the way first */
-    panel.querySelectorAll('button:not([data-menu-close])').forEach(function (b) {
+    /* the bag and search at its foot open their own drawers; the panel
+       gets out of the way first */
+    panel.querySelectorAll('.t__panel-tools button').forEach(function (b) {
       b.addEventListener('click', close, true);
     });
   }
@@ -201,7 +247,72 @@
     });
   }
 
-  function init() { marquee(); masthead(); menu(); dropdowns(); }
+  /* ------------------------------------------------------------------
+     5 · The footer (7 Oct)
+     On a phone its four link columns fold: each heading is a button
+     that opens its list (on a laptop the lists are simply there, and the
+     buttons stay out of the tab order).
+
+     And the reveal, from the Nude Project footer: templates.css sticks
+     the footer to the foot of the window, behind the page, so at the
+     bottom the page slides up off it. That only works while the whole
+     footer fits the window, so .has-reveal goes on <html> only then,
+     measured against the window with its toolbars showing (100svh), and
+     again whenever either changes size. With it on, a link to something
+     in the footer (the strip's "join the maison") scrolls to the very
+     bottom, because the footer is already "in view" — just underneath.
+     ------------------------------------------------------------------ */
+  function footer() {
+    var f = document.querySelector('.t__footer');
+    if (!f) return;
+
+    var narrow = window.matchMedia('(max-width: 760px)');
+    var cols = Array.prototype.slice.call(f.querySelectorAll('[data-foot-col]'));
+    function sync() {
+      cols.forEach(function (c) {
+        var b = c.querySelector('.t__col-btn');
+        if (!b) return;
+        if (narrow.matches) { b.tabIndex = 0; b.setAttribute('aria-expanded', String(c.classList.contains('is-open'))); }
+        else { b.tabIndex = -1; b.removeAttribute('aria-expanded'); }
+      });
+    }
+    cols.forEach(function (c) {
+      var b = c.querySelector('.t__col-btn');
+      if (b) b.addEventListener('click', function () {
+        if (!narrow.matches) return;
+        c.classList.toggle('is-open');
+        sync();
+      });
+    });
+    if (narrow.addEventListener) narrow.addEventListener('change', sync);
+    else if (narrow.addListener) narrow.addListener(sync);
+    f.classList.add('is-collapsible');
+    sync();
+
+    var probe = document.createElement('div');
+    probe.setAttribute('aria-hidden', 'true');
+    probe.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100vh;height:100svh;visibility:hidden;pointer-events:none';
+    document.body.appendChild(probe);
+    function fit() { html.classList.toggle('has-reveal', f.offsetHeight <= probe.offsetHeight); }
+    fit();
+    window.addEventListener('resize', fit);
+    if ('ResizeObserver' in window) new ResizeObserver(fit).observe(f);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+
+    function toFoot(id, smooth) {
+      var t = id && document.getElementById(id);
+      if (!t || !f.contains(t) || !html.classList.contains('has-reveal')) return false;
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: smooth && !reduced ? 'smooth' : 'auto' });
+      return true;
+    }
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest && e.target.closest('a[href^="#"]');
+      if (a && toFoot(a.getAttribute('href').slice(1), true)) e.preventDefault();
+    });
+    if (location.hash) window.addEventListener('load', function () { toFoot(location.hash.slice(1), false); });
+  }
+
+  function init() { marquee(); masthead(); menu(); dropdowns(); footer(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

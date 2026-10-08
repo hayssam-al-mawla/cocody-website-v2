@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------
    THE PAGE TEMPLATES
    Shop · Product · Checkout · Collections · Cocody Lab · Events ·
-   About · Lookbook · Login
+   About · Login
 
    One layout, one skin. Until 30 September 2026 these pages flipped
    between four sets of tokens — directions E, A, B and C — from a
@@ -46,7 +46,6 @@ html[data-direction="e"] .sh__meta .nm { font-weight: 500; letter-spacing: -0.01
 html[data-direction="e"] .t__lead { font-weight: 500; letter-spacing: -0.02em; font-size: clamp(1.15rem, 2.2vw, 1.6rem); }
 html[data-direction="e"] .t__row .what { font-weight: 500; font-size: 1rem; }
 html[data-direction="e"] .t__join h2 { font-weight: 500; letter-spacing: -0.03em; }
-html[data-direction="e"] .t__panel-nav a { font-weight: 500; letter-spacing: -0.02em; font-size: 1.5rem; }
 html[data-direction="e"] .t__btn,
 html[data-direction="e"] .sh__f { font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
 html[data-direction="e"] .sh__f { font-size: .66rem; letter-spacing: .1em; }
@@ -123,15 +122,17 @@ html[data-direction="e"] .t__section-head a { font-size: .7rem; letter-spacing: 
 
 /* the middle: the wordmark, and the flower that takes its place */
 .t__mark { position: relative; display: grid; place-items: center; line-height: 0; text-decoration: none; justify-self: center; }
-/* bigger since the afternoon of 21 Sep — "the house in the middle could
-   be a bit bigger" — and the flower that takes its place grows with it */
-.t__mark .logo { height: clamp(26px, 2.2vw, 32px); transition: opacity .3s var(--ease), transform .3s var(--ease); }
+/* bigger on the afternoon of 21 Sep ("the house in the middle could be
+   a bit bigger"), then a quarter smaller again on 7 Oct ("maybe a bit
+   too big, reduce the size"): 24px tall on a laptop and 20 on a phone,
+   against 32 and 26. The flower that takes its place follows it. */
+.t__mark .logo { height: clamp(20px, 1.65vw, 24px); transition: opacity .3s var(--ease), transform .3s var(--ease); }
 .t__bloom {
   position: absolute; inset: 0; display: grid; place-items: center;
   opacity: 0; transform: scale(.5); transition: opacity .3s var(--ease), transform .3s var(--ease);
   color: var(--t-fg); pointer-events: none;
 }
-.t__bloom .flower { width: 32px; height: 32px; transform: rotate(var(--turn, 0deg)); }
+.t__bloom .flower { width: 28px; height: 28px; transform: rotate(var(--turn, 0deg)); }
 html.is-turned .t__mark .logo { opacity: 0; transform: scale(.92); }
 html.is-turned .t__bloom { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .t__bloom .flower { transform: none; } }
@@ -167,18 +168,62 @@ html.is-turned .t__bloom { opacity: 1; transform: none; }
    sit off centre — so there it lives in the panel too */
 @media (max-width: 480px) { .t__tools .t__account { display: none; } }
 
-/* the phone menu: the same three groups, full screen */
-.t__panel {
-  position: fixed; inset: 0; z-index: 120; overflow-y: auto;
-  background: var(--t-bg); color: var(--t-fg);
-  padding: .85rem var(--gut) 2.5rem; font-family: var(--ui);
-}
+/* the phone menu, since 7 Oct: Aimé Leon Dore's side panel, the one
+   Charlz's brother pointed at. The button at the top left slides a dark
+   grey panel in from the left; the three groups are tabs across its
+   head, the close beside them; each group is a plain list in small
+   spaced capitals — the type the laptop's bar uses, so the phone reads
+   as the same site. The grey is the reference's, the one colour here
+   that is not among the five: it had to sit apart from both the black
+   footer and the white page. */
+.t__panel { position: fixed; inset: 0; z-index: 120; }
 .t__panel[hidden] { display: none; }
-.t__panel-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: .85rem; border-bottom: 1px solid var(--t-rule); }
-.t__panel-title { font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
-.t__panel-nav h3 { font-family: var(--ui); font-size: .66rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--t-quiet); margin: 1.75rem 0 .35rem; }
-.t__panel-nav a { display: block; font-family: var(--t-display); font-size: 1.75rem; line-height: 1.15; padding: .3rem 0; text-decoration: none; }
-.t__panel-tools { display: flex; gap: 1.5rem; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--t-rule); }
+.t__scrim {
+  position: absolute; inset: 0; background: rgba(0,0,0,.4);
+  opacity: 0; transition: opacity .4s var(--ease);
+}
+.t__drawer {
+  position: absolute; top: 0; bottom: 0; left: 0; width: min(88vw, 24rem);
+  display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain;
+  padding: .55rem 1.25rem 2rem;
+  background: #2B2B2B; color: #EDEDEA; font-family: var(--ui);
+  --t-fg: #EDEDEA; --t-quiet: #9C9C98; --t-rule: rgba(255,255,255,.14);
+  transform: translateX(-100%); transition: transform .45s var(--ease);
+}
+.t__panel.is-open .t__scrim { opacity: 1; }
+.t__panel.is-open .t__drawer { transform: none; }
+.t__drawer-head {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  border-bottom: 1px solid var(--t-rule);
+}
+.t__tabs { display: flex; gap: 1.1rem; min-width: 0; }
+.t__tab {
+  position: relative; padding: .95rem 0; white-space: nowrap; color: var(--t-quiet);
+  font-size: .64rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+  transition: color .2s;
+}
+.t__tab:hover, .t__tab[aria-selected="true"] { color: var(--t-fg); }
+.t__tab[aria-selected="true"]::after {
+  content: ''; position: absolute; left: 0; right: .14em; bottom: -1px; height: 1px; background: currentColor;
+}
+.t__drawer-x { flex: none; color: var(--t-fg); padding: .35rem; margin-right: -.35rem; }
+.t__drawer-x .t__ico { width: 20px; height: 20px; }
+.t__drawer-nav { flex: 1; padding-top: 1rem; }
+.t__drawer-list[hidden] { display: none; }
+.t__drawer-list a {
+  display: block; padding: .62rem 0; text-decoration: none; color: var(--t-fg);
+  font-size: .7rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  transition: color .15s;
+}
+.t__drawer-list a:hover { color: var(--t-quiet); }
+.t__drawer-list a[aria-current="page"] { text-decoration: underline; text-underline-offset: .4em; text-decoration-thickness: 1px; }
+.t__panel-tools { display: flex; gap: 1.5rem; margin-top: 2rem; padding-top: 1.1rem; border-top: 1px solid var(--t-rule); }
+.t__drawer .t__tool { color: var(--t-fg); padding-inline: 0; }
+.t__drawer .t__tool:hover { color: var(--t-quiet); }
+
+/* a link to a part of a page (about.html#contact-press, the drops,
+   the system page's sections) lands below the sticky bar, not under it */
+#main [id] { scroll-margin-top: 5.5rem; }
 
 /* ---------- page head ---------- */
 .t__head { padding-block: clamp(2rem, 6vh, 4rem) clamp(1.5rem, 4vh, 2.5rem); }
@@ -218,41 +263,6 @@ html.is-turned .t__bloom { opacity: 1; transform: none; }
 .t__btn--sold, .t__btn--sold:hover {
   background: var(--t-quiet); border-color: var(--t-quiet); color: var(--t-bg);
   opacity: 1; cursor: not-allowed;
-}
-
-/* ==================================================================
-   LOOKBOOK — 23 Sep: "Lookbook" under Maison Cocody. Bô Visage worn,
-   in the order it was shot; every caption names the pieces and goes to
-   them. Twelve columns, so the pictures can sit off each other; each
-   figure says where it goes in --c.
-   ================================================================== */
-.lb {
-  display: grid; grid-template-columns: repeat(12, 1fr);
-  gap: clamp(1.5rem, 4vw, 3.5rem) clamp(.75rem, 1.5vw, 1.25rem); align-items: start;
-  padding-bottom: clamp(2rem, 6vh, 4rem);
-}
-.lb__look { grid-column: var(--c, 1 / -1); margin: 0; }
-.lb__look--down { margin-top: clamp(2rem, 8vw, 7rem); }
-.lb__look img { display: block; width: 100%; height: auto; background: var(--paper); }
-.lb__look--wide img { aspect-ratio: 16 / 9; object-fit: cover; }
-.lb__look figcaption {
-  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .35rem 1rem;
-  margin-top: .7rem; font-family: var(--ui); font-size: .75rem; color: var(--t-quiet);
-}
-.lb__look figcaption .n { color: var(--t-fg); font-variant-numeric: tabular-nums; margin-right: .7rem; }
-.lb__look figcaption a { color: var(--t-fg); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .1rem; white-space: nowrap; }
-.lb__look figcaption a:hover { color: var(--t-quiet); }
-.lb__note { grid-column: var(--c, 1 / -1); align-self: end; padding-bottom: 2rem; }
-.lb__note p + p { color: var(--t-quiet); font-size: .9375rem; margin-top: .8rem; max-width: 34ch; }
-.lb__end { grid-column: 1 / -1; text-align: center; padding-top: clamp(1rem, 4vh, 2.5rem); }
-html[data-direction="e"] .lb__look figcaption { font-size: .66rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
-@media (max-width: 720px) {
-  .lb { gap: 1.75rem .6rem; }
-  .lb__look, .lb__note { grid-column: 1 / -1; }
-  .lb__look--half { grid-column: span 6; }
-  .lb__look--half figcaption { flex-direction: column; align-items: flex-start; }   /* two up, so the link goes under the caption */
-  .lb__look--down { margin-top: 0; }
-  .lb__note { padding-bottom: 0; }
 }
 
 /* ==================================================================
@@ -320,13 +330,38 @@ html[data-direction="e"] .lb__look figcaption { font-size: .66rem; font-weight: 
 .p__grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(1.5rem, 5vw, 4.5rem); align-items: start; }
 @media (max-width: 900px) { .p__grid { grid-template-columns: 1fr; } }
 
-.p__gallery { position: sticky; top: 5rem; }
-@media (max-width: 900px) { .p__gallery { position: static; } }
-.p__main { background: var(--paper); width: 100%; aspect-ratio: 1; object-fit: cover; }
-.p__thumbs { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; margin-top: .5rem; }
-.p__thumbs button { background: var(--paper); padding: 0; line-height: 0; border: 1px solid transparent; transition: border-color .2s; }
-.p__thumbs button[aria-current="true"] { border-color: var(--t-fg); }
-.p__thumbs img { aspect-ratio: 1; object-fit: cover; width: 100%; }
+/* the pictures, since 7 Oct. Whole, never cropped ("the pictures are
+   cut off for some articles"): each sits in its frame with object-fit:
+   contain, on the same white as the seamless, so the frame's edge never
+   shows. And more fluid ("explore another way to display them"): on a
+   laptop they are a column you scroll — the first full width, the rest
+   in pairs, a lone last one full width again, none taller than the
+   window — beside details that hold still as they pass; on a phone they
+   are a strip you swipe, one at a time, with the count under it. No
+   thumbnails to aim at, either way. */
+.p__shots { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+.p__shot { position: relative; margin: 0; background: var(--paper); aspect-ratio: 4 / 5; }
+.p__shot:first-child, .p__shot:last-child:nth-child(even) { grid-column: 1 / -1; max-height: calc(100svh - 7.5rem); }
+.p__shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.p__count { display: none; }
+/* the details hold still beside the pictures; taller than the window,
+   they scroll until their foot is in view and hold there (--info-h is
+   measured by product.js) */
+.p__info { position: sticky; top: min(5.5rem, calc(100svh - var(--info-h, 0px) - 2rem)); }
+@media (max-width: 900px) {
+  .p__shots {
+    display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gut));
+  }
+  .p__shots::-webkit-scrollbar { display: none; }
+  .p__shot, .p__shot:first-child, .p__shot:last-child:nth-child(even) { flex: 0 0 100%; scroll-snap-align: start; max-height: 72svh; }
+  .p__count {
+    display: block; margin-top: .6rem; text-align: right;
+    font-family: var(--ui); font-size: .7rem; letter-spacing: .1em; color: var(--t-quiet); font-variant-numeric: tabular-nums;
+  }
+  .p__info { position: static; }
+}
 
 .p__title { font-size: clamp(1.6rem, 3.4vw, 2.5rem); }
 .p__price { font-family: var(--ui); font-size: 1.125rem; margin-top: .5rem; font-variant-numeric: tabular-nums; }
@@ -426,6 +461,9 @@ html[data-direction="e"] .lb__look figcaption { font-size: .66rem; font-weight: 
   width: 100%; height: 100%; object-fit: cover;
   transition: transform .6s var(--ease), opacity .55s var(--ease);
 }
+/* a shop photograph in a card is whole, never cropped (7 Oct); the
+   studio and lookbook pictures still fill their frames */
+.t__card-frame img[src*="img/shop/"] { object-fit: contain; }
 .t__card:hover .t__card-frame img { transform: scale(1.03); }
 /* the second shot, revealed on hover */
 .t__card-frame .shot__b { opacity: 0; }
@@ -491,24 +529,31 @@ html[data-direction="e"] .lb__look figcaption { font-size: .66rem; font-weight: 
 .t__split img, .t__split video { width: 100%; }
 
 /* ---------- footer ----------
-   "All the way down": the signup, the three groups again, help, the
-   social accounts, the legal pages, and the colophon. Dark in every
-   skin, so it reads as the ground the page stands on. */
+   "All the way down": the signup, the three groups again with help, the
+   social accounts, the country and language, the legal pages, and the
+   colophon. Dark, so it reads as the ground the page stands on.
+
+   Rebuilt on 7 Oct on the Nude Project footer Charlz sent: the signup
+   shares a row with the link columns, so the whole footer fits a laptop
+   screen; the colophon carries the flower instead of the stacked
+   wordmark; and the wordmark runs on one line across the full width at
+   the very foot. On a phone the four columns fold (masthead.js). The
+   reveal — the page sliding up off the footer — is the block after. */
 .t__footer {
   margin-top: clamp(3rem, 8vh, 6rem);
   background: var(--t-foot-bg, #000); color: var(--t-foot-fg, #F2F1EE);
   --t-fg: var(--t-foot-fg, #F2F1EE); --t-quiet: #9A9A97; --t-rule: rgba(255,255,255,.16);
-  font-family: var(--ui);
+  font-family: var(--ui); color-scheme: dark;
 }
-.t__join {
-  display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
-  padding-block: clamp(2.5rem, 6vh, 4rem); border-bottom: 1px solid var(--t-rule);
+.t__foot {
+  display: grid; grid-template-columns: minmax(0, 1.7fr) repeat(4, minmax(0, 1fr)); gap: 2rem;
+  padding-block: clamp(2.25rem, 5vh, 3.5rem);
 }
-@media (max-width: 760px) { .t__join { grid-template-columns: 1fr; } }
-.t__join > * { min-width: 0; }   /* or the signup holds the column wider than a 360px phone */
-.t__join h2 { font-family: var(--t-display); font-weight: 400; font-size: clamp(1.7rem, 3.2vw, 2.6rem); line-height: 1.05; color: var(--t-fg); }
-.t__join p { color: var(--t-quiet); margin-top: .6rem; max-width: 40ch; font-size: .9375rem; }
-.t__signup { display: flex; gap: .75rem; }
+.t__foot > * { min-width: 0; }   /* or the signup holds a column wider than a 360px phone */
+.t__join { padding-right: clamp(0rem, 3vw, 3rem); }
+.t__join h2 { font-family: var(--t-display); font-weight: 400; font-size: clamp(1.6rem, 2.3vw, 2.1rem); line-height: 1.05; color: var(--t-fg); }
+.t__join p { color: var(--t-quiet); margin-top: .6rem; max-width: 36ch; font-size: .875rem; }
+.t__signup { display: flex; gap: .75rem; margin-top: 1.1rem; }
 .t__signup input {
   flex: 1; min-width: 0; background: none; border: 0; border-bottom: 1px solid currentColor; color: inherit;
   padding: .65rem 0; font-size: .9375rem;
@@ -520,35 +565,97 @@ html[data-direction="e"] .lb__look figcaption { font-size: .66rem; font-weight: 
   transition: background .2s var(--ease-out), color .2s var(--ease-out);
 }
 .t__signup button:hover { background: var(--t-foot-fg, #F2F1EE); color: var(--t-foot-bg, #000); }
-.t__foot {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
-  padding-block: clamp(2.5rem, 6vh, 4rem);
+.t__col h3 { margin-bottom: .9rem; }
+.t__col-btn {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%; text-align: left;
+  font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--t-fg);
+  cursor: default;
 }
-@media (max-width: 760px) { .t__foot { grid-template-columns: 1fr 1fr; } }
-.t__foot h3 { font-family: var(--ui); font-size: .68rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .9rem; color: var(--t-fg); }
-.t__foot li { margin-bottom: .45rem; }
-.t__foot a { font-size: .8125rem; color: var(--t-quiet); text-decoration: none; }
-.t__foot a:hover { color: var(--t-fg); }
-.t__social {
-  display: flex; gap: clamp(1rem, 3vw, 2.25rem); flex-wrap: wrap;
-  padding-block: 1.1rem; border-block: 1px solid var(--t-rule);
+.t__col li { margin-bottom: .45rem; }
+.t__col a { font-size: .8125rem; color: var(--t-quiet); text-decoration: none; }
+.t__col a:hover { color: var(--t-fg); }
+@media (max-width: 1100px) {
+  .t__foot { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .t__join {
+    grid-column: 1 / -1; padding-right: 0;
+    display: grid; grid-template-columns: 1.1fr 1fr; grid-template-areas: "h f" "p f"; column-gap: 3rem; align-items: center;
+  }
+  .t__join h2 { grid-area: h; }
+  .t__join p { grid-area: p; }
+  .t__join .t__signup { grid-area: f; margin-top: 0; }
 }
+@media (max-width: 760px) {
+  .t__foot { grid-template-columns: 1fr; gap: 0; }
+  .t__join { display: block; padding-bottom: 1.75rem; }
+  .t__join .t__signup { margin-top: 1.1rem; }
+  .t__col { border-top: 1px solid var(--t-rule); }
+  .t__col h3 { margin: 0; }
+  .t__col-btn { padding-block: .95rem; cursor: pointer; }
+  .t__col ul { padding-bottom: .8rem; }
+  .t__footer.is-collapsible .t__col-btn::after { content: '+'; font-size: .95rem; font-weight: 400; letter-spacing: 0; color: var(--t-quiet); }
+  .t__footer.is-collapsible .t__col.is-open .t__col-btn::after { content: '\2013'; }
+  .t__footer.is-collapsible .t__col:not(.is-open) ul { display: none; }
+}
+.t__foot-bar {
+  display: flex; justify-content: space-between; align-items: center; gap: .9rem 2rem; flex-wrap: wrap;
+  padding-block: 1rem; border-block: 1px solid var(--t-rule);
+}
+.t__social { display: flex; gap: clamp(1rem, 3vw, 2.25rem); flex-wrap: wrap; }
 .t__social a {
   font-size: .7rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
   text-decoration: none; color: var(--t-fg);
 }
 .t__social a:hover { color: var(--t-quiet); }
+/* the country and the language, as on the reference. Placeholders: all
+   prices are in euros and the site is in English for now */
+.t__locale { display: flex; gap: .6rem 1.5rem; flex-wrap: wrap; }
+.t__locale label { display: flex; align-items: center; gap: .6rem; font-size: .7rem; color: var(--t-quiet); }
+.t__locale select {
+  appearance: none; -webkit-appearance: none; border-radius: 0; cursor: pointer;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23F2F1EE' stroke-width='1.2'/%3E%3C/svg%3E") no-repeat right .6rem center / .55rem;
+  border: 1px solid var(--t-rule); color: var(--t-fg);
+  font-size: .75rem; padding: .4rem 1.75rem .4rem .65rem;
+}
+.t__locale select:hover, .t__locale select:focus-visible { border-color: var(--t-fg); }
 .t__legal { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; padding-block: 1.1rem; font-size: .72rem; }
 .t__legal a { color: var(--t-quiet); text-decoration: none; }
 .t__legal a:hover { color: var(--t-fg); }
 .t__colophon {
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap;
-  padding-block: 1.25rem 2.25rem; border-top: 1px solid var(--t-rule);
+  display: flex; justify-content: space-between; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+  padding-block: 1.1rem 1.25rem; border-top: 1px solid var(--t-rule);
   font-size: .72rem; color: var(--t-quiet);
 }
-.t__colophon .logo--stacked { height: 42px; }
+.t__colophon-mark { width: 30px; height: 30px; flex: none; color: var(--t-fg); }
 .t__colophon-text { display: grid; gap: .3rem; text-align: right; }
-@media (max-width: 600px) { .t__colophon-text { text-align: left; } }
+@media (max-width: 600px) { .t__colophon { align-items: flex-start; } .t__colophon-text { text-align: left; } }
+/* the wordmark on one line, the full width of the screen, at the foot */
+.t__giant { padding: clamp(.25rem, 1vw, .75rem) clamp(.75rem, 2vw, 1.5rem) clamp(.75rem, 2vw, 1.5rem); line-height: 0; }
+.t__giant img { width: 100%; height: auto; }
+
+/* the reveal, 7 Oct, after the Nude Project footer: at the bottom of the
+   page the page itself slides up and uncovers the footer, which stays
+   where it is, underneath. The footer sticks to the foot of the window
+   behind the page; the page has its own ground and sits above it.
+   masthead.js sets .has-reveal on <html> only while the whole footer
+   fits the window — one taller than the window, held still, could never
+   be read to its top — so on a short screen the footer simply follows
+   the page as before. The gap above the footer becomes part of the
+   page (a border in the page's colour), or the footer would show
+   through it. */
+html.has-reveal #main {
+  position: relative; z-index: 1;
+  background: var(--t-bg);
+  box-shadow: 0 0 0 100vmax var(--t-bg); clip-path: inset(0 -100vmax);   /* the ground edge to edge, on a centred page too */
+  border-bottom: clamp(3rem, 8vh, 6rem) solid var(--t-bg);
+}
+html.has-reveal .t__footer { position: sticky; bottom: 0; z-index: 0; margin-top: 0; }
+/* on a screen too short for the whole footer to wait underneath — a
+   phone, mostly — the last of it still does: the colophon and the
+   wordmark (.t__plate) hold at the foot of the window while the rest of
+   the footer (.t__upper) slides up off them. With the whole footer
+   waiting, the two simply sit where they are. */
+.t__upper { position: relative; z-index: 1; background: var(--t-foot-bg, #000); }
+.t__plate { position: sticky; bottom: 0; z-index: 0; }
 
 /* the blossom, used as a quiet marker on the templates */
 .mark { width: 26px; height: 26px; color: var(--t-fg); flex: none; }

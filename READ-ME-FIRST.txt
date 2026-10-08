@@ -2,6 +2,7 @@ MAISON COCODY — WEBSITE V2
 Design options and platform recommendation
 17 September 2026 · artwork updated 19 September · Direction E added 21 September
 and, since 30 September, the only direction in the pack
+revised from the client's review of 7 October
 
 
 WHERE TO START
@@ -34,7 +35,6 @@ templates/                      The pages behind the homepage
   events.html                     upcoming + permanent archive
   collections.html                one collection + the index
   about.html                      the story
-  lookbook.html                   the looks, and the pieces in them (new, 23 Sep)
   login.html                      sign in, create an account, reset (new, 30 Sep)
 
 assets/                         Images, film, stylesheets, scripts
@@ -52,6 +52,13 @@ WORTH TRYING
 - On any page, scroll: the wordmark in the middle of the bar gives way
   to the flower, and the flower turns with the page. The strip at the
   top moves; hover it and it stops.
+
+- Scroll to the very bottom of any page: the page slides up off the
+  footer, which waits underneath, with the wordmark across its foot.
+
+- On a phone (or a narrow window), press the menu button at the top
+  left: a dark panel slides in from the left, with Shop, Maison Cocody
+  and Archive as tabs.
 
 - On shop.html, hover a piece that is in stock: the sizes appear, and
   clicking one puts it in the bag. The bag drawer works on every page.
@@ -89,7 +96,7 @@ PLEASE NOTE
   now the studio's own files, so they are sharp at any size on any
   screen. The flower is a single path used three ways: stroked as an
   outline, opened into a ring so a letter can sit in the middle, or
-  filled solid.
+  filled solid with its hole cut out.
 
   The handwritten script lockup is the one mark the pack does not
   contain, so it is still a PNG taken off the live site. It is used at

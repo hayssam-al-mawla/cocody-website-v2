@@ -1,6 +1,6 @@
 # Maison Cocody — Website V2
 
-Direction E, "Studio", and the nine page templates behind it, for the
+Direction E, "Studio", and the eight page templates behind it, for the
 Maison Cocody website redesign, September 2026. It is built from the
 client's notes, and since 30 September it is the only direction here:
 the four it grew out of (A, B, C and D) were taken out so the work can
@@ -20,12 +20,18 @@ three groups, Inter (the client's own choice), a five-colour palette,
 and the legal and social footer. Revised the same afternoon with a
 bigger wordmark, line icons and a full-screen homepage; on 23 September
 with a thinner strip, a gradient that extends when a menu opens, and the
-three menus as the client listed them (Shop by category, Archive by
-collection, Cocody Cab / About us / Lookbook); on 24 September with the
+three menus as the client listed them; on 24 September with the
 sold-out treatment (a faded card with the state written under the name;
 Sold out, an email field and Notify me when back in stock on the product
 page); and on 30 September with a login page (a person icon in the bar;
-sign in, create an account and reset a password in one column). The
+sign in, create an account and reset a password in one column). On 7
+October the client's review went in: a smaller wordmark; the menus in
+the order Shop / Maison Cocody / Archive, with the drops under Archive
+and no separate Lookbook; the flower with its hole; whole product
+pictures, and a product page you scroll or swipe through; a size
+finder that knows where XL ends; the original price on sold-out
+pieces; a footer the page slides up off; and on a phone a dark side
+panel for the menu. The
 [system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html) walks through each note and
 what it became.
 
@@ -43,7 +49,6 @@ can be reached from the homepage's own menus.
 | [Cocody Lab](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/cocody-lab.html) | the film hub | |
 | [Events](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/events.html) | upcoming, and the archive | |
 | [About](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/about.html) | the story | |
-| [Lookbook](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/lookbook.html) | Bô Visage worn, look by look | new, 23 Sep |
 | [Login](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/login.html) | sign in, create an account, reset a password | new, 30 Sep |
 
 ## It is a working site, not flat mockups

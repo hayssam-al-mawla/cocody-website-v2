@@ -8,6 +8,8 @@
    (.is-sold in brand.css — Charlz's note of 24 Sep); on a piece with
    only some sizes left the chip on the picture names them, in the
    ochre, which is the one place on the page that colour appears.
+   Since 7 Oct a sold-out piece shows its original price, not the
+   reduced one ("show the original price, not the discounted one").
 
    WooCommerce equivalent: the featured-products block on the front
    page, eight items, default order.
@@ -35,7 +37,8 @@
         '<span><span class="nm">' + p.name + '</span>' +
           (here ? '' : '<span class="st">( Sold out )</span>') +
           '<span class="mt">' + p.material + '</span></span>' +
-        '<span class="pz">' + money(p.price) + (p.was ? ' <s>' + money(p.was) + '</s>' : '') + '</span>' +
+        '<span class="pz">' + (here ? money(p.price) + (p.was ? ' <s>' + money(p.was) + '</s>' : '')
+                                    : money(p.was || p.price)) + '</span>' +
       '</span>' +
     '</a>';
   }).join('');

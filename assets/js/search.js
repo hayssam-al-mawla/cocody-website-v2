@@ -81,7 +81,7 @@
         '<img src="' + IMG + p.img + '" alt="" width="48" height="60" loading="lazy">' +
         '<span class="sr__hit-t">' + p.name +
           '<span>' + p.collection + ' · ' + p.material + '</span></span>' +
-        '<span class="sr__hit-p">' + money(p.price) +
+        '<span class="sr__hit-p">' + money(here ? p.price : (p.was || p.price)) +   /* 7 Oct: sold out, the original price */
           (here ? '' : '<span class="sr__gone">Archive</span>') + '</span>' +
       '</a>';
     }).join('');
