@@ -3,7 +3,6 @@ Design options and platform recommendation
 17 September 2026 · artwork updated 19 September · Direction E added 21 September
 and, since 30 September, the only direction in the pack
 revised from the client's review of 7 October
-and, since 8 October, Direction F (after Aime Leon Dore) to compare
 
 
 WHERE TO START
@@ -27,8 +26,6 @@ directions/                     The design
   e-studio.html                   the homepage — built from your notes
   e-system.html                   the type, colour, nav, footer and the
                                       rest, explained note by note
-  f-home.html                     Direction F, after Aime Leon Dore
-                                      (8 Oct): the homepage
 
 templates/                      The pages behind the homepage
   shop.html                       the full catalogue, filters + quick add
@@ -39,7 +36,6 @@ templates/                      The pages behind the homepage
   collections.html                one collection + the index
   about.html                      the story
   login.html                      sign in, create an account, reset (new, 30 Sep)
-  f-shop.html, f-product.html     Direction F's shop and product page
 
 assets/                         Images, film, stylesheets, scripts
 

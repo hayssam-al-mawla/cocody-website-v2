@@ -1,11 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-direction="f">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maison Cocody — Direction F</title>
-<link rel="canonical" href="../directions/f-home.html">
-<meta http-equiv="refresh" content="0; url=../directions/f-home.html">
-<script>location.replace('../directions/f-home.html' + location.search + location.hash);</script>
+<meta name="description" content="Design direction F for Maison Cocody Website V2, after Aimé Leon Dore: the film with its lines, the editorial halves, and the side menu.">
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../assets/brand/favicon.png" sizes="256x256">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..600;1,14..32,400..600&family=Newsreader:opsz,wght@6..72,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/templates.css">
+<link rel="stylesheet" href="css/shop.css">
+<link rel="stylesheet" href="css/f.css">
 </head>
-<body><p>Opening Direction F… <a href="../directions/f-home.html">continue</a></p></body>
+<body class="f f-page--home">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="f-bar" data-f-bar>
+  <div class="f-bar__left">
+    <button class="f-ico" type="button" aria-expanded="false" aria-controls="f-menu" data-f-menu-open><span class="sr-only">Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18M3 12h18M3 17.5h18"/></svg></button>
+  </div>
+  <a class="f-mark" href="index.html"><img class="f-mark__word" src="../assets/brand/wordmark.svg" alt="Maison Cocody" width="715" height="92"><img class="f-mark__mono" src="../assets/brand/monogram-black.png" alt="" width="236" height="252"></a>
+  <div class="f-bar__right">
+    <button class="f-ico" type="button"><span class="sr-only">Search</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button>
+    <a class="f-ico f-ico--acct" href="../templates/login.html"><span class="sr-only">Account</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.75"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></a>
+    <button class="f-ico" type="button"><span class="sr-only">Bag</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 8.5h13l.9 11.2a1 1 0 0 1-1 1.1H5.6a1 1 0 0 1-1-1.1z"/><path d="M8.75 8.5V7a3.25 3.25 0 0 1 6.5 0v1.5"/></svg><span class="f-count" data-bag-count>0</span></button>
+  </div>
+  <p class="f-bar__line" data-f-clock>Amsterdam, NL | Thursday, October 08, 2026</p>
+</header>
+
+<div class="f-menu" id="f-menu" hidden>
+  <div class="f-menu__scrim" data-f-menu-close></div>
+  <div class="f-menu__panel" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
+    <div class="f-menu__tabs" role="tablist" aria-label="Menu">
+      <button class="f-tab" type="button" role="tab" id="f-tab-shop" aria-controls="f-list-shop" aria-selected="true">Shop</button>
+      <button class="f-tab" type="button" role="tab" id="f-tab-maison" aria-controls="f-list-maison" aria-selected="false" tabindex="-1">Maison Cocody</button>
+      <button class="f-tab" type="button" role="tab" id="f-tab-archive" aria-controls="f-list-archive" aria-selected="false" tabindex="-1">Archive</button>
+      <button class="f-menu__x" type="button" data-f-menu-close aria-label="Close the menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="f-menu__body">
+      <span class="f-menu__flower" data-flower aria-hidden="true"></span>
+      <nav aria-label="Main">
+        <div class="f-list" id="f-list-shop" role="tabpanel" aria-labelledby="f-tab-shop">
+          <ul>
+            <li><a href="shop.html">All pieces</a></li>
+          </ul>
+          <ul>
+            <li><a href="shop.html#tops">Tops</a></li>
+            <li><a href="shop.html#bottoms">Bottoms</a></li>
+            <li><a href="shop.html#headwear">Headwear</a></li>
+            <li><a href="shop.html#accessories">Accessories</a></li>
+          </ul>
+          <ul>
+            <li><a href="product.html#chart">Size &amp; fit</a></li>
+          </ul>
+        </div>
+        <div class="f-list" id="f-list-maison" role="tabpanel" aria-labelledby="f-tab-maison" hidden>
+          <ul>
+            <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+            <li><a href="../templates/about.html">About us</a></li>
+            <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
+            <li><a href="../templates/about.html#contact-press">Contact &amp; press</a></li>
+          </ul>
+        </div>
+        <div class="f-list" id="f-list-archive" role="tabpanel" aria-labelledby="f-tab-archive" hidden>
+          <ul>
+            <li><a href="../templates/collections.html">Drop 3 (B&ocirc;)</a></li>
+            <li><a href="../templates/collections.html#jersey">Drop 2 (Opposites Attract)</a></li>
+            <li><a href="../templates/collections.html#pre-release-25">Drop 1 (Pre-release 25)</a></li>
+          </ul>
+          <ul>
+            <li><a href="../templates/collections.html#index">Every collection</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="f-menu__foot">
+      <form class="f-join" data-f-join="f-menu-note" novalidate>
+        <label class="sr-only" for="f-menu-mail">Email address</label>
+        <input id="f-menu-mail" type="email" placeholder="Enter your email" autocomplete="email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="f-join__note" id="f-menu-note" role="status" aria-live="polite"></p>
+      <p class="f-join__fine">10% off your first order when you join, then one mail per collection.</p>
+      <div class="f-menu__tools">
+        <button type="button">Search</button>
+        <a href="../templates/login.html">Account</a>
+        <button type="button">Bag <span data-bag-count>0</span></button>
+      </div>
+      <div class="f-menu__links">
+        <a href="../templates/about.html#contact-press">Contact &amp; press</a>
+        <a href="#">Shipping &amp; returns</a>
+        <a href="#">Legal &amp; privacy</a>
+        <a href="https://www.instagram.com/" rel="noopener">Instagram</a>
+        <span>Shipping to: Netherlands &middot; &euro; EUR</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- The film, under the bar, with its lines one at a time: the
+       reference runs subtitles over its own (f.js). -->
+  <section class="f-hero" data-f-hero>
+    <h1 class="sr-only">Maison Cocody — Bô, the FW26 cycle. Three pieces, all black.</h1>
+    <video src="../assets/video/hero-desktop.mp4" poster="../assets/video/hero-poster.jpg"
+           muted loop playsinline autoplay preload="metadata"
+           aria-label="Bô, the campaign film, shot against hand-painted canvas."></video>
+    <p class="f-hero__card" data-f-card aria-hidden="true">B&ocirc; &middot; Fall / Winter 26</p>
+    <p class="f-hero__sub" data-f-sub aria-hidden="true" data-lines='["Filmed on canvas we painted ourselves.","Three pieces, all black.","Cocody is a district of Abidjan.","We only put the name on something once it deserves to go back there."]'>Filmed on canvas we painted ourselves.</p>
+  </section>
+  <div class="f-strip" aria-hidden="true"></div>
+
+  <!-- The reference's halves: a photograph, and a few words in the
+       serif with one thing to do. -->
+  <section class="f-split">
+    <a class="f-split__media" href="shop.html"><img src="../assets/img/film-indigo-portrait-lg.jpg" width="1600" height="900" alt="The monogram cap and the zip-up, against the ochre canvas."></a>
+    <div class="f-split__copy">
+      <p class="f-kicker">Now available</p>
+      <div class="f-split__mid">
+        <h2 class="f-serif">B&ocirc; &middot; Fall / Winter &rsquo;26</h2>
+        <p>Drop 3. Three pieces, all black, all limited.</p>
+        <a class="f-link" href="shop.html">Shop the collection</a>
+      </div>
+      <p class="f-kicker">Signature Zip-Up &middot; Wide-Leg Trouser &middot; Monogram Hat</p>
+    </div>
+  </section>
+
+  <section class="f-split f-split--rev">
+    <a class="f-split__media" href="../templates/cocody-lab.html"><img src="../assets/img/film-charm-lg.jpg" width="1600" height="900" loading="lazy" alt="Close on the hands: silver rings and the zip pull, from the Bô film."></a>
+    <div class="f-split__copy">
+      <p class="f-kicker">Join the maison</p>
+      <div class="f-split__mid">
+        <h2 class="f-serif">10% off your first order</h2>
+        <form class="f-arrow" data-f-join="f-home-note" novalidate>
+          <label class="sr-only" for="f-home-mail">Email address</label>
+          <input id="f-home-mail" type="email" placeholder="Enter your email" autocomplete="email" required>
+          <button type="submit"><span class="sr-only">Join</span><svg viewBox="0 0 30 12" aria-hidden="true"><path d="M0 6h28M23 1l5 5-5 5"/></svg></button>
+        </form>
+        <p class="f-thanks" id="f-home-note" role="status" aria-live="polite"></p>
+      </div>
+      <p class="f-kicker">One mail per collection. Nothing else, ever.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="f-foot">
+  <div class="f-foot__cols">
+    <div><p class="f-kicker">Client services</p><ul>
+      <li><a href="../templates/about.html#contact-press">Contact &amp; press</a></li>
+      <li><a href="#">Shipping &amp; returns</a></li>
+      <li><a href="product.html#chart">Size &amp; fit</a></li>
+      <li><a href="../templates/login.html">Your account</a></li>
+    </ul></div>
+    <div><p class="f-kicker">Maison Cocody</p><ul>
+      <li><a href="../templates/cocody-lab.html">Cocody Lab</a></li>
+      <li><a href="../templates/about.html">About us</a></li>
+      <li><a href="../templates/events.html">Pop-ups &amp; events</a></li>
+      <li><a href="../templates/collections.html#index">Every collection</a></li>
+    </ul></div>
+    <div><p class="f-kicker">Follow</p><ul>
+      <li><a href="https://www.instagram.com/" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/" rel="noopener">TikTok</a></li>
+      <li><a href="https://www.youtube.com/" rel="noopener">YouTube</a></li>
+    </ul></div>
+    <div class="f-foot__join"><p class="f-kicker">Join the maison</p>
+      <p>10% off your first order, then one mail per collection. Nothing else, ever.</p>
+      <form class="f-arrow" data-f-join="f-foot-note" novalidate>
+        <label class="sr-only" for="f-foot-mail">Email address</label>
+        <input id="f-foot-mail" type="email" placeholder="Enter your email" autocomplete="email" required>
+        <button type="submit"><span class="sr-only">Join</span><svg viewBox="0 0 30 12" aria-hidden="true"><path d="M0 6h28M23 1l5 5-5 5"/></svg></button>
+      </form>
+      <p class="f-thanks" id="f-foot-note" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="f-foot__base">
+    <span class="f-foot__mark" data-flower="flower--solid" aria-hidden="true"></span>
+    <span>&copy; 2024 Maison Cocody &middot; Amsterdam</span>
+    <span><a href="#">Terms</a> &middot; <a href="#">Privacy</a> &middot; <a href="#">Cookies</a> &middot; <a href="#">Imprint</a></span>
+    <span class="f-push">Shipping to: Netherlands &middot; &euro; EUR</span>
+    <span>iDEAL &middot; Visa &middot; Mastercard &middot; Apple Pay &middot; PayPal &middot; Klarna</span>
+  </div>
+</footer>
+
+<script src="../assets/js/catalogue.js"></script>
+<script src="js/cocody.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/search.js"></script>
+<script src="js/f.js"></script>
+</body>
 </html>

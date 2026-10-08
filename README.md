@@ -35,20 +35,6 @@ panel for the menu. The
 [system page](https://hayssam-al-mawla.github.io/cocody-website-v2/directions/e-system.html) walks through each note and
 what it became.
 
-## Direction F — after Aimé Leon Dore, to compare
-
-**[Open Direction F →](https://hayssam-al-mawla.github.io/cocody-website-v2/f/)** ·
-[the shop](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/f-shop.html) ·
-[a product](https://hayssam-al-mawla.github.io/cocody-website-v2/templates/f-product.html?p=sweater)
-
-Added 8 October 2026 so the client can set the two side by side: E
-(NOLOGO × Nude Project) stays at the root, and F is the same shop in the
-manner of aimeleondore.com — the film with subtitles and a live place,
-date and time under the bar, editorial halves, a dark grey menu panel
-from the left on every screen, the shop on grey cards four across, the
-product page in three columns. The homepage, shop and product page are
-drawn; anything else F links to opens E's page for now.
-
 ## The pages behind it
 
 Every page wears the same masthead, marquee and footer, and every one

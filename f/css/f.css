@@ -5,6 +5,11 @@
    (NOLOGO x Nude Project) at the root and this one at …/f/. Home, shop
    and product are drawn; every other link opens E's pages.
 
+   F is a website of its own: everything it runs is in f/ (its own
+   copies of E's stylesheets and scripts, made by tools/apply-f.py), and
+   it only reads E's photographs, film, marks and catalogue. Nothing of
+   E is changed by it.
+
    What is taken from aimeleondore.com, looked at on 8 Oct:
    - the menu button at the top left on every screen, the wordmark in
      the middle, search / account / bag on the right; past the first
@@ -190,7 +195,7 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
 
 /* the thin strip under the film, as on the reference */
 .f-strip {
-  height: 30px; background: #1a1a1a url("../img/film-studio-md.jpg") center 38% / cover no-repeat;
+  height: 30px; background: #1a1a1a url("../../assets/img/film-studio-md.jpg") center 38% / cover no-repeat;
   filter: saturate(.7) brightness(.75);
 }
 

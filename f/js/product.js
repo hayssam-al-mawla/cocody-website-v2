@@ -1,3 +1,6 @@
+/* Direction F's own copy of assets/js/product.js, made by tools/apply-f.py on
+   8 Oct 2026, so that F never changes E. Changed: the crumb's collection link
+   opens E's collections page, which F does not draw. */
 /* ------------------------------------------------------------------
    The product page, driven by the catalogue.
 
@@ -51,7 +54,7 @@
 
   document.title = p.name + ' — Maison Cocody';
 
-  set('[data-p-crumb]', '<a href="collections.html">' + p.collection + '</a> · ' + p.name);
+  set('[data-p-crumb]', '<a href="../templates/collections.html">' + p.collection + '</a> · ' + p.name);
   set('[data-p-title]', p.name);
   /* sold out, the original price alone, not the reduced one (7 Oct) */
   set('[data-p-price]', !here ? money(p.was || p.price) : money(p.price) +

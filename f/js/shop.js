@@ -1,3 +1,6 @@
+/* Direction F's own copy of assets/js/shop.js, made by tools/apply-f.py on
+   8 Oct 2026, so that F never changes E. Changed: the asset path (F is one folder
+   down, in f/), and the empty bag's link goes to F's shop. */
 /* ------------------------------------------------------------------
    Shop behaviour: the bag drawer, quick-add, and the listing filters.
 
@@ -32,7 +35,7 @@
   }
 
   /* pages sit one folder down; the hub sits at the root */
-  var base = /\/(templates|directions)\//.test(location.pathname) ? '../' : '';
+  var base = '../';   /* F's pages are in f/, one folder down */
   var money = function (n) { return '€' + n.toFixed(0); };
   /* 7 Oct: a sold-out piece shows its original price, not the reduced
      one ("show the original price, not the discounted one"), and sorts
@@ -84,7 +87,7 @@
       els.items.innerHTML =
         '<div class="bag__empty">' +
           '<p>Nothing in the bag yet.</p>' +
-          '<a href="' + base + 'templates/shop.html">See everything</a>' +
+          '<a href="shop.html">See everything</a>' +
         '</div>';
       els.foot.hidden = true;
       return;

@@ -1,3 +1,6 @@
+/* Direction F's own copy of assets/js/search.js, made by tools/apply-f.py on
+   8 Oct 2026, so that F never changes E. Changed: the asset path, and the
+   hits and "browse everything" go to F's own product and shop pages. */
 /* ------------------------------------------------------------------
    Search.
 
@@ -13,9 +16,9 @@
   var CAT = window.COCODY_CATALOGUE || [];
   if (!CAT.length) return;
 
-  var base = /\/(templates|directions)\//.test(location.pathname) ? '../' : '';
+  var base = '../';   /* F's pages are in f/, one folder down */
   var IMG = base + 'assets/img/shop/';
-  var TPL = base + 'templates/';
+  var TPL = '';   /* F's shop and product pages sit beside it */
   var money = function (n) { return '€' + n.toFixed(0); };
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

@@ -4,10 +4,10 @@
    product page's "You may also like" and held columns.
 
    Everything else — the bag, quick add, search, the shop's listing,
-   the product page itself — is the same code E runs (shop.js,
-   search.js, product.js, cocody.js); <html data-product-page> tells it
-   which product page to link to. No dependencies; with the script gone
-   the pages are still whole, the menu button simply does nothing.
+   the product page itself — is F's own copy of E's code, in f/js
+   (tools/apply-f.py makes the copies), so F never changes E. No
+   dependencies; with the script gone the pages are still whole, the
+   menu button simply does nothing.
    ------------------------------------------------------------------ */
 (function () {
   'use strict';
@@ -191,7 +191,7 @@
     var slug = (location.search.match(/[?&]p=([a-z0-9-]+)/) || [])[1] || CAT[0].slug;
     row.innerHTML = CAT.filter(function (p) { return p.slug !== slug; }).map(function (p) {
       var sold = !p.sizes.some(function (s) { return s.in; });
-      return '<a class="f-mini' + (sold ? ' is-sold' : '') + '" href="f-product.html?p=' + p.slug + '">' +
+      return '<a class="f-mini' + (sold ? ' is-sold' : '') + '" href="product.html?p=' + p.slug + '">' +
         '<span class="f-mini__frame"><img src="../assets/img/shop/' + p.img + '" width="880" height="1100" loading="lazy" alt="' + p.name + '"></span>' +
         '<span class="f-mini__nm">' + p.name + '</span>' +
         '<span class="f-mini__pz">' + money(sold ? (p.was || p.price) : p.price) + (sold ? ' · Sold out' : '') + '</span></a>';
