@@ -16,6 +16,10 @@
   var base = /\/(templates|directions)\//.test(location.pathname) ? '../' : '';
   var IMG = base + 'assets/img/shop/';
   var TPL = base + 'templates/';
+  /* which product and shop page to link to: E's by default; a page
+     that wears another direction says so on <html> (8 Oct, F) */
+  var PRODUCT = document.documentElement.getAttribute('data-product-page') || 'product.html';
+  var SHOP = document.documentElement.getAttribute('data-shop-page') || 'shop.html';
   var money = function (n) { return '€' + n.toFixed(0); };
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -68,7 +72,7 @@
         '<div class="sr__none">' +
           '<span class="mark" data-flower aria-hidden="true"></span>' +
           '<p>Nothing matches &ldquo;' + input.value.replace(/[<>&]/g, '') + '&rdquo;.</p>' +
-          '<a href="' + TPL + 'shop.html">Browse everything instead</a>' +
+          '<a href="' + TPL + SHOP + '">Browse everything instead</a>' +
         '</div>';
       if (window.CocodyPaintFlowers) window.CocodyPaintFlowers(listEl);
       return;
@@ -77,7 +81,7 @@
     listEl.innerHTML = hits.map(function (p, i) {
       var here = p.sizes.some(function (s) { return s.in; });
       return '<a class="sr__hit" role="option" aria-selected="' + (i === cursor) + '"' +
-             ' href="' + TPL + 'product.html?p=' + p.slug + '" data-i="' + i + '">' +
+             ' href="' + TPL + PRODUCT + '?p=' + p.slug + '" data-i="' + i + '">' +
         '<img src="' + IMG + p.img + '" alt="" width="48" height="60" loading="lazy">' +
         '<span class="sr__hit-t">' + p.name +
           '<span>' + p.collection + ' · ' + p.material + '</span></span>' +
@@ -101,7 +105,7 @@
   function onKeys(e) {
     if (e.key === 'ArrowDown') { e.preventDefault(); cursor = Math.min(cursor + 1, hits.length - 1); mark(); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); cursor = Math.max(cursor - 1, 0); mark(); }
-    else if (e.key === 'Enter' && hits[cursor]) { location.href = TPL + 'product.html?p=' + hits[cursor].slug; }
+    else if (e.key === 'Enter' && hits[cursor]) { location.href = TPL + PRODUCT + '?p=' + hits[cursor].slug; }
     else if (e.key === 'Escape') { close(); }
   }
 

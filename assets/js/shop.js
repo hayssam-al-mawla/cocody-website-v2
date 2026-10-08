@@ -34,6 +34,10 @@
   /* pages sit one folder down; the hub sits at the root */
   var base = /\/(templates|directions)\//.test(location.pathname) ? '../' : '';
   var money = function (n) { return '€' + n.toFixed(0); };
+  /* which product and shop page to link to: E's by default; a page
+     that wears another direction says so on <html> (8 Oct, F) */
+  var PRODUCT = document.documentElement.getAttribute('data-product-page') || 'product.html';
+  var SHOP = document.documentElement.getAttribute('data-shop-page') || 'shop.html';
   /* 7 Oct: a sold-out piece shows its original price, not the reduced
      one ("show the original price, not the discounted one"), and sorts
      by it too */
@@ -84,7 +88,7 @@
       els.items.innerHTML =
         '<div class="bag__empty">' +
           '<p>Nothing in the bag yet.</p>' +
-          '<a href="' + base + 'templates/shop.html">See everything</a>' +
+          '<a href="' + base + 'templates/' + SHOP + '">See everything</a>' +
         '</div>';
       els.foot.hidden = true;
       return;
@@ -229,7 +233,7 @@
        name — .is-sold in brand.css, Charlz's note of 24 Sep */
     function card(p) {
       var sold = !p.sizes.some(function (s) { return s.in; });
-      return '<a class="sh__item' + (sold ? ' is-sold' : '') + '" href="product.html?p=' + p.slug + '">' +
+      return '<a class="sh__item' + (sold ? ' is-sold' : '') + '" href="' + PRODUCT + '?p=' + p.slug + '">' +
         '<span class="shot" data-qa="' + p.slug + '">' +
           '<img class="shot__a" src="' + base + IMG + p.img + '" width="880" height="1100" loading="lazy" alt="' + p.name + '">' +
           '<img class="shot__b" src="' + base + IMG + p.alt + '" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">' +

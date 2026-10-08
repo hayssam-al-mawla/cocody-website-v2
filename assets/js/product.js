@@ -17,6 +17,10 @@
   if (!root) return;
 
   var IMG = '../assets/img/shop/';
+  /* which product and shop page to link to: E's by default; a page
+     that wears another direction says so on <html> (8 Oct, F) */
+  var PRODUCT = document.documentElement.getAttribute('data-product-page') || 'product.html';
+  var SHOP = document.documentElement.getAttribute('data-shop-page') || 'shop.html';
   var money = function (n) { return '€' + n.toFixed(0); };
 
   var slug = (location.search.match(/[?&]p=([a-z0-9-]+)/) || [])[1];
@@ -121,7 +125,7 @@
       ? '<button class="t__btn t__btn--wide" type="button" data-add' +
         ' data-name="' + p.name + '" data-price="' + p.price + '"' +
         ' data-material="' + p.material + '" data-img="' + p.img + '">Add to bag</button>' +
-        '<a class="t__btn t__btn--ghost t__btn--wide" href="shop.html">Keep looking</a>'
+        '<a class="t__btn t__btn--ghost t__btn--wide" href="' + SHOP + '">Keep looking</a>'
       : '<button class="t__btn t__btn--wide t__btn--sold" type="button" disabled aria-disabled="true">Sold out</button>' +
         '<form class="p__notify" data-notify novalidate>' +
           '<label class="sr-only" for="notify-mail">Email address</label>' +
@@ -179,7 +183,7 @@
   }).slice(0, 4);
   set('[data-p-related]', others.map(function (o) {
     var sold = !o.sizes.some(function (s) { return s.in; });
-    return '<a class="t__card' + (sold ? ' is-sold' : '') + '" href="product.html?p=' + o.slug + '">' +
+    return '<a class="t__card' + (sold ? ' is-sold' : '') + '" href="' + PRODUCT + '?p=' + o.slug + '">' +
       '<div class="t__card-frame">' +
         '<img class="shot__a" src="' + IMG + o.img + '" width="880" height="1100" loading="lazy" alt="' + o.name + '">' +
         '<img class="shot__b" src="' + IMG + o.alt + '" width="880" height="1100" loading="lazy" alt="" aria-hidden="true">' +

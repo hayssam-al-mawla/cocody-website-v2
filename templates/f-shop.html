@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-direction="f" data-product-page="f-product.html" data-shop-page="f-shop.html">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — Maison Cocody, Direction F</title>
+<meta name="description" content="Design direction F for Maison Cocody Website V2, after Aimé Leon Dore: the shop, four across on grey cards.">
+<link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../assets/brand/favicon.png" sizes="256x256">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..600;1,14..32,400..600&family=Newsreader:opsz,wght@6..72,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/brand.css">
+<link rel="stylesheet" href="../assets/css/templates.css">
+<link rel="stylesheet" href="../assets/css/shop.css">
+<link rel="stylesheet" href="../assets/css/dir-f.css">
+</head>
+<body class="f f-page--shop">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="f-bar" data-f-bar>
+  <div class="f-bar__left">
+    <button class="f-ico" type="button" aria-expanded="false" aria-controls="f-menu" data-f-menu-open><span class="sr-only">Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18M3 12h18M3 17.5h18"/></svg></button>
+  </div>
+  <a class="f-mark" href="../directions/f-home.html"><img class="f-mark__word" src="../assets/brand/wordmark.svg" alt="Maison Cocody" width="715" height="92"><img class="f-mark__mono" src="../assets/brand/monogram-black.png" alt="" width="236" height="252"></a>
+  <div class="f-bar__right">
+    <button class="f-ico" type="button"><span class="sr-only">Search</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></button>
+    <a class="f-ico f-ico--acct" href="login.html"><span class="sr-only">Account</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.75"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></a>
+    <button class="f-ico" type="button"><span class="sr-only">Bag</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 8.5h13l.9 11.2a1 1 0 0 1-1 1.1H5.6a1 1 0 0 1-1-1.1z"/><path d="M8.75 8.5V7a3.25 3.25 0 0 1 6.5 0v1.5"/></svg><span class="f-count" data-bag-count>0</span></button>
+  </div>
+</header>
+
+<div class="f-menu" id="f-menu" hidden>
+  <div class="f-menu__scrim" data-f-menu-close></div>
+  <div class="f-menu__panel" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
+    <div class="f-menu__tabs" role="tablist" aria-label="Menu">
+      <button class="f-tab" type="button" role="tab" id="f-tab-shop" aria-controls="f-list-shop" aria-selected="true">Shop</button>
+      <button class="f-tab" type="button" role="tab" id="f-tab-maison" aria-controls="f-list-maison" aria-selected="false" tabindex="-1">Maison Cocody</button>
+      <button class="f-tab" type="button" role="tab" id="f-tab-archive" aria-controls="f-list-archive" aria-selected="false" tabindex="-1">Archive</button>
+      <button class="f-menu__x" type="button" data-f-menu-close aria-label="Close the menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="f-menu__body">
+      <span class="f-menu__flower" data-flower aria-hidden="true"></span>
+      <nav aria-label="Main">
+        <div class="f-list" id="f-list-shop" role="tabpanel" aria-labelledby="f-tab-shop">
+          <ul>
+            <li><a href="f-shop.html" aria-current="page">All pieces</a></li>
+          </ul>
+          <ul>
+            <li><a href="f-shop.html#tops">Tops</a></li>
+            <li><a href="f-shop.html#bottoms">Bottoms</a></li>
+            <li><a href="f-shop.html#headwear">Headwear</a></li>
+            <li><a href="f-shop.html#accessories">Accessories</a></li>
+          </ul>
+          <ul>
+            <li><a href="f-product.html#chart">Size &amp; fit</a></li>
+          </ul>
+        </div>
+        <div class="f-list" id="f-list-maison" role="tabpanel" aria-labelledby="f-tab-maison" hidden>
+          <ul>
+            <li><a href="cocody-lab.html">Cocody Lab</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="events.html">Pop-ups &amp; events</a></li>
+            <li><a href="about.html#contact-press">Contact &amp; press</a></li>
+          </ul>
+        </div>
+        <div class="f-list" id="f-list-archive" role="tabpanel" aria-labelledby="f-tab-archive" hidden>
+          <ul>
+            <li><a href="collections.html">Drop 3 (B&ocirc;)</a></li>
+            <li><a href="collections.html#jersey">Drop 2 (Opposites Attract)</a></li>
+            <li><a href="collections.html#pre-release-25">Drop 1 (Pre-release 25)</a></li>
+          </ul>
+          <ul>
+            <li><a href="collections.html#index">Every collection</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="f-menu__foot">
+      <form class="f-join" data-f-join="f-menu-note" novalidate>
+        <label class="sr-only" for="f-menu-mail">Email address</label>
+        <input id="f-menu-mail" type="email" placeholder="Enter your email" autocomplete="email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="f-join__note" id="f-menu-note" role="status" aria-live="polite"></p>
+      <p class="f-join__fine">10% off your first order when you join, then one mail per collection.</p>
+      <div class="f-menu__tools">
+        <button type="button">Search</button>
+        <a href="login.html">Account</a>
+        <button type="button">Bag <span data-bag-count>0</span></button>
+      </div>
+      <div class="f-menu__links">
+        <a href="about.html#contact-press">Contact &amp; press</a>
+        <a href="#">Shipping &amp; returns</a>
+        <a href="#">Legal &amp; privacy</a>
+        <a href="https://www.instagram.com/" rel="noopener">Instagram</a>
+        <span>Shipping to: Netherlands &middot; &euro; EUR</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="main" class="f-shop">
+  <h1 class="sr-only">Shop all</h1>
+
+  <!-- The reference's bar: "Shop All +" drops the categories, the sort
+       sits on the right. shop.js filters and sorts, as on E's shop. -->
+  <div class="f-filter">
+    <div class="f-filter__left">
+      <button class="f-filter__btn" type="button" aria-expanded="false" aria-controls="f-cats" data-f-cats><span data-f-cats-label>Shop All</span> <span data-f-sign aria-hidden="true">+</span></button>
+      <div class="f-cats" id="f-cats" role="group" aria-label="Filter by category" hidden>
+        <p class="f-kicker">Shop by</p>
+        <button type="button" data-shop-filter="All" aria-pressed="true">All pieces</button>
+        <button type="button" data-shop-filter="Tops" aria-pressed="false">Tops</button>
+        <button type="button" data-shop-filter="Bottoms" aria-pressed="false">Bottoms</button>
+        <button type="button" data-shop-filter="Headwear" aria-pressed="false">Headwear</button>
+        <button type="button" data-shop-filter="Accessories" aria-pressed="false">Accessories</button>
+      </div>
+    </div>
+    <div class="f-filter__right">
+      <span class="sh__count" data-shop-count>10 pieces</span>
+      <label class="f-sort"><span>Sort:</span>
+        <select data-shop-sort aria-label="Sort by">
+          <option value="featured">Recommended</option>
+          <option value="stock">In stock first</option>
+          <option value="low">Price, low to high</option>
+          <option value="high">Price, high to low</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div class="f-grid" data-shop-grid></div>
+  <p class="sh__none" data-shop-none hidden>Nothing in this category yet.</p>
+</main>
+
+<footer class="f-foot">
+  <div class="f-foot__cols">
+    <div><p class="f-kicker">Client services</p><ul>
+      <li><a href="about.html#contact-press">Contact &amp; press</a></li>
+      <li><a href="#">Shipping &amp; returns</a></li>
+      <li><a href="f-product.html#chart">Size &amp; fit</a></li>
+      <li><a href="login.html">Your account</a></li>
+    </ul></div>
+    <div><p class="f-kicker">Maison Cocody</p><ul>
+      <li><a href="cocody-lab.html">Cocody Lab</a></li>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="events.html">Pop-ups &amp; events</a></li>
+      <li><a href="collections.html#index">Every collection</a></li>
+    </ul></div>
+    <div><p class="f-kicker">Follow</p><ul>
+      <li><a href="https://www.instagram.com/" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/" rel="noopener">TikTok</a></li>
+      <li><a href="https://www.youtube.com/" rel="noopener">YouTube</a></li>
+    </ul></div>
+    <div class="f-foot__join"><p class="f-kicker">Join the maison</p>
+      <p>10% off your first order, then one mail per collection. Nothing else, ever.</p>
+      <form class="f-arrow" data-f-join="f-foot-note" novalidate>
+        <label class="sr-only" for="f-foot-mail">Email address</label>
+        <input id="f-foot-mail" type="email" placeholder="Enter your email" autocomplete="email" required>
+        <button type="submit"><span class="sr-only">Join</span><svg viewBox="0 0 30 12" aria-hidden="true"><path d="M0 6h28M23 1l5 5-5 5"/></svg></button>
+      </form>
+      <p class="f-thanks" id="f-foot-note" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="f-foot__base">
+    <span class="f-foot__mark" data-flower="flower--solid" aria-hidden="true"></span>
+    <span>&copy; 2024 Maison Cocody &middot; Amsterdam</span>
+    <span><a href="#">Terms</a> &middot; <a href="#">Privacy</a> &middot; <a href="#">Cookies</a> &middot; <a href="#">Imprint</a></span>
+    <span class="f-push">Shipping to: Netherlands &middot; &euro; EUR</span>
+    <span>iDEAL &middot; Visa &middot; Mastercard &middot; Apple Pay &middot; PayPal &middot; Klarna</span>
+  </div>
+</footer>
+
+<script src="../assets/js/catalogue.js"></script>
+<script src="../assets/js/cocody.js"></script>
+<script src="../assets/js/shop.js"></script>
+<script src="../assets/js/search.js"></script>
+<script src="../assets/js/dir-f.js"></script>
+</body>
+</html>
