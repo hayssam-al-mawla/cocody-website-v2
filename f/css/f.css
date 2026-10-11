@@ -16,10 +16,12 @@
      screen the wordmark gives way to the monogram (theirs: the ALD
      monogram; ours: the M+C one the studio drew)
    - under the bar on the homepage, a live line: place | date | time
-   - the homepage as a film with subtitles, then quiet editorial
-     halves: a photograph, and a few words in a serif with an email
-     field (their thin film strip between the two was tried and taken
-     out on 8 Oct: on ours it read as a broken slice of the video)
+   - the homepage as a landing page: the film with subtitles fills the
+     screen and the whole of it is one link to the shop, with nothing
+     under it, not even the footer (11 Oct, the client: "it should be a
+     landing page, click and then you end up on product directly";
+     until then the film had editorial halves under it, a photograph
+     and a few serif words with an email field)
    - the menu as a dark grey panel from the left: tabs across the top, a
      close, plain lists in small spaced capitals, a faint flower drawn
      behind them, the signup at the foot
@@ -69,10 +71,6 @@ body.f {
   font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
 }
 .f-kicker { color: var(--f-ink); }
-.f-serif {
-  font-family: var(--f-serif); font-optical-sizing: auto; font-weight: 500;
-  text-transform: uppercase; letter-spacing: .02em; line-height: 1.15;
-}
 
 /* ---------- the bar ---------- */
 .f-bar {
@@ -242,7 +240,7 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
   .f-menu__foot { padding: 16px 20px 22px; }
 }
 
-/* ---------- homepage ---------- */
+/* ---------- homepage: a landing page, one screen, one link ---------- */
 .f-hero { position: relative; height: 100svh; min-height: 560px; background: #000; overflow: hidden; }
 .f-hero video { width: 100%; height: 100%; object-fit: cover; }
 .f-hero::after {
@@ -258,28 +256,12 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
 .f-hero__sub { bottom: 10.5%; font-size: clamp(18px, 1.75vw, 25px); font-weight: 500; letter-spacing: 0; line-height: 1.3; }
 .f-hero [data-off] { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .f-hero__card, .f-hero__sub { transition: none; } }
+/* the whole film is the link to the shop; the bar stays above it, the
+   lines let the click through */
+.f-hero__go { position: absolute; inset: 0; z-index: 1; }
+.f-hero__go:focus-visible { outline: 2px solid #fff; outline-offset: -10px; }
 
-/* the editorial halves: a photograph, and a few words */
-.f-split { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; padding: 26px; }
-.f-split__media {
-  display: block; height: min(calc(100svh - 96px), 760px); min-height: 420px;
-  overflow: hidden; background: var(--f-card);
-}
-.f-split__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
-.f-split__media:hover img { transform: scale(1.02); }
-.f-split__copy {
-  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
-  text-align: center; padding: 40px 24px 26px;
-}
-.f-split__mid { display: grid; justify-items: center; gap: 22px; width: min(100%, 400px); }
-.f-split__mid .f-serif { font-size: clamp(19px, 1.55vw, 23px); }
-.f-split__mid p { font-size: 12px; color: var(--f-quiet); max-width: 34ch; }
-.f-split--rev .f-split__media { order: 2; }
-.f-link {
-  font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-  text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px;
-}
-.f-link:hover { color: var(--f-quiet); }
+/* the email field with an arrow, in the footer */
 .f-arrow { display: flex; align-items: center; width: 100%; border-bottom: 1px solid var(--f-ink); }
 .f-arrow input {
   flex: 1; min-width: 0; border: 0; background: none; padding: 12px 0; color: var(--f-ink);
@@ -290,12 +272,6 @@ html.f-turned .f-mark__mono { opacity: 1; transform: translate(-50%, -50%); }
 .f-arrow button { padding: 8px 0 8px 12px; color: var(--f-ink); }
 .f-arrow svg { width: 30px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.2; }
 .f-thanks { font-size: 11px; color: var(--f-quiet); min-height: 1.2em; }
-@media (max-width: 860px) {
-  .f-split { grid-template-columns: 1fr; padding: 16px; gap: 0; }
-  .f-split--rev .f-split__media { order: 0; }
-  .f-split__media { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
-  .f-split__copy { padding: 40px 8px 46px; gap: 34px; }
-}
 
 /* ---------- footer: quiet, as the reference keeps it ---------- */
 .f-foot { border-top: 1px solid var(--f-line); padding: 40px 22px 26px; font-size: 11px; margin-top: 30px; }
